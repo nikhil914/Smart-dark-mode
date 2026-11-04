@@ -18,9 +18,11 @@
   "dependencies": {
     "@sdm/engine": "workspace:*",
     "@sdm/settings": "workspace:*",
+    "pdfjs-dist": "5.7.284",
     "preact": "10.29.8"
   },
   "devDependencies": {
+    "@types/node": "22.20.5",
     "wxt": "0.21.5"
   }
 }
