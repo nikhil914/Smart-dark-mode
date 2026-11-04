@@ -106,7 +106,8 @@ function withRule(settings: Settings, key: string, rule: SiteRule): Settings {
     (rule.inheritSubdomains === undefined || rule.inheritSubdomains === true) &&
     (rule.remap === undefined || Object.keys(rule.remap).length === 0) &&
     !rule.css &&
-    rule.integration === undefined;
+    rule.integration === undefined &&
+    rule.theme === undefined;
   const rules = empty ? omitKey(settings.rules, key) : { ...settings.rules, [key]: rule };
   return { ...settings, rules };
 }
