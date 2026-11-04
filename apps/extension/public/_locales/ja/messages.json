@@ -1,0 +1,119 @@
+{
+  "extName": {
+    "message": "スマートダークモード"
+  },
+  "extDescription": {
+    "message": "すべてのサイトにダークモードを。サイトごとのルール、スケジュール、トラッキングなし。"
+  },
+  "cmdToggleSite": {
+    "message": "このサイトのダークモードを切り替え"
+  },
+  "cmdToggleGlobal": {
+    "message": "拡張機能をすべてのサイトでオン/オフ"
+  },
+  "cmdCycleMode": {
+    "message": "このサイトのモードを切り替え（ダーク、フィルター、標準）"
+  },
+  "unsupportedPage": {
+    "message": "このページは変更できません"
+  },
+  "unsupportedPageHint": {
+    "message": "ブラウザのページや拡張機能ストアは、拡張機能によるスタイル変更を許可していません。"
+  },
+  "ruleFrom": {
+    "message": "ルール：$1"
+  },
+  "ruleGlobal": {
+    "message": "ルール：全体のデフォルト"
+  },
+  "level_domain": {
+    "message": "サイト"
+  },
+  "level_subdomain": {
+    "message": "サブドメイン"
+  },
+  "level_pattern": {
+    "message": "URL パターン"
+  },
+  "level_page": {
+    "message": "ページ"
+  },
+  "suppressed_disabled": {
+    "message": "すべてオフです。電源ボタンで再度オンにできます。"
+  },
+  "suppressed_allowlist": {
+    "message": "許可リストモード：このサイトはリストにありません。"
+  },
+  "suppressed_automation": {
+    "message": "自動化の設定により現在オフです。"
+  },
+  "modeLabel": {
+    "message": "このサイトのモード"
+  },
+  "mode_dark": {
+    "message": "ダーク"
+  },
+  "mode_filtered": {
+    "message": "フィルター"
+  },
+  "mode_normal": {
+    "message": "標準"
+  },
+  "applyTo": {
+    "message": "適用先"
+  },
+  "scope_domain": {
+    "message": "このサイト（$1）"
+  },
+  "scope_subdomain": {
+    "message": "このサブドメインのみ（$1）"
+  },
+  "scope_page": {
+    "message": "このページのみ"
+  },
+  "scope_global": {
+    "message": "すべて（デフォルト）"
+  },
+  "inheritSubdomains": {
+    "message": "サブドメインもこのサイトに従う"
+  },
+  "adj_brightness": {
+    "message": "明るさ"
+  },
+  "adj_contrast": {
+    "message": "コントラスト"
+  },
+  "adj_saturation": {
+    "message": "彩度"
+  },
+  "adj_warmth": {
+    "message": "暖かさ"
+  },
+  "adj_dim": {
+    "message": "減光"
+  },
+  "turnOffEverywhere": {
+    "message": "すべてオフにする"
+  },
+  "turnOnEverywhere": {
+    "message": "すべてオンにする"
+  },
+  "automation": {
+    "message": "自動化"
+  },
+  "auto_off": {
+    "message": "常にオン"
+  },
+  "auto_schedule": {
+    "message": "スケジュール"
+  },
+  "auto_system": {
+    "message": "システムのダークモードに従う"
+  },
+  "from": {
+    "message": "開始"
+  },
+  "to": {
+    "message": "終了"
+  }
+}

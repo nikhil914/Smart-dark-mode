@@ -1,0 +1,119 @@
+{
+  "extName": {
+    "message": "Smart Dark Mode"
+  },
+  "extDescription": {
+    "message": "Dark mode for every website, with per-site rules, scheduling and no tracking."
+  },
+  "cmdToggleSite": {
+    "message": "Toggle dark mode on the current site"
+  },
+  "cmdToggleGlobal": {
+    "message": "Turn the extension on or off everywhere"
+  },
+  "cmdCycleMode": {
+    "message": "Cycle mode on the current site (dark, filtered, normal)"
+  },
+  "unsupportedPage": {
+    "message": "This page can't be changed"
+  },
+  "unsupportedPageHint": {
+    "message": "Browser pages and extension stores don't allow extensions to restyle them."
+  },
+  "ruleFrom": {
+    "message": "Rule: $1"
+  },
+  "ruleGlobal": {
+    "message": "Rule: global default"
+  },
+  "level_domain": {
+    "message": "site"
+  },
+  "level_subdomain": {
+    "message": "subdomain"
+  },
+  "level_pattern": {
+    "message": "URL pattern"
+  },
+  "level_page": {
+    "message": "page"
+  },
+  "suppressed_disabled": {
+    "message": "Turned off everywhere. Use the power button to turn it back on."
+  },
+  "suppressed_allowlist": {
+    "message": "Allowlist mode: this site isn't on your list."
+  },
+  "suppressed_automation": {
+    "message": "Off right now because of your automation setting."
+  },
+  "modeLabel": {
+    "message": "Mode for this site"
+  },
+  "mode_dark": {
+    "message": "Dark"
+  },
+  "mode_filtered": {
+    "message": "Filtered"
+  },
+  "mode_normal": {
+    "message": "Normal"
+  },
+  "applyTo": {
+    "message": "Apply to"
+  },
+  "scope_domain": {
+    "message": "This site ($1)"
+  },
+  "scope_subdomain": {
+    "message": "This subdomain only ($1)"
+  },
+  "scope_page": {
+    "message": "This page only"
+  },
+  "scope_global": {
+    "message": "Everywhere (default)"
+  },
+  "inheritSubdomains": {
+    "message": "Subdomains follow this site"
+  },
+  "adj_brightness": {
+    "message": "Brightness"
+  },
+  "adj_contrast": {
+    "message": "Contrast"
+  },
+  "adj_saturation": {
+    "message": "Saturation"
+  },
+  "adj_warmth": {
+    "message": "Warmth"
+  },
+  "adj_dim": {
+    "message": "Dim"
+  },
+  "turnOffEverywhere": {
+    "message": "Turn off everywhere"
+  },
+  "turnOnEverywhere": {
+    "message": "Turn on everywhere"
+  },
+  "automation": {
+    "message": "Automation"
+  },
+  "auto_off": {
+    "message": "Always on"
+  },
+  "auto_schedule": {
+    "message": "On a schedule"
+  },
+  "auto_system": {
+    "message": "Follow system dark mode"
+  },
+  "from": {
+    "message": "From"
+  },
+  "to": {
+    "message": "To"
+  }
+}

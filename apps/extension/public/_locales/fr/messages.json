@@ -1,0 +1,119 @@
+{
+  "extName": {
+    "message": "Mode sombre intelligent"
+  },
+  "extDescription": {
+    "message": "Mode sombre pour tous les sites, avec règles par site, programmation et sans pistage."
+  },
+  "cmdToggleSite": {
+    "message": "Activer ou désactiver le mode sombre sur ce site"
+  },
+  "cmdToggleGlobal": {
+    "message": "Activer ou désactiver l'extension partout"
+  },
+  "cmdCycleMode": {
+    "message": "Changer de mode sur ce site (sombre, filtré, normal)"
+  },
+  "unsupportedPage": {
+    "message": "Cette page ne peut pas être modifiée"
+  },
+  "unsupportedPageHint": {
+    "message": "Les pages du navigateur et les boutiques d'extensions n'autorisent pas les extensions à changer leur style."
+  },
+  "ruleFrom": {
+    "message": "Règle : $1"
+  },
+  "ruleGlobal": {
+    "message": "Règle : valeur globale"
+  },
+  "level_domain": {
+    "message": "site"
+  },
+  "level_subdomain": {
+    "message": "sous-domaine"
+  },
+  "level_pattern": {
+    "message": "modèle d'URL"
+  },
+  "level_page": {
+    "message": "page"
+  },
+  "suppressed_disabled": {
+    "message": "Désactivé partout. Utilisez le bouton marche pour le réactiver."
+  },
+  "suppressed_allowlist": {
+    "message": "Mode liste autorisée : ce site n'est pas dans votre liste."
+  },
+  "suppressed_automation": {
+    "message": "Désactivé pour l'instant à cause de votre automatisation."
+  },
+  "modeLabel": {
+    "message": "Mode pour ce site"
+  },
+  "mode_dark": {
+    "message": "Sombre"
+  },
+  "mode_filtered": {
+    "message": "Filtré"
+  },
+  "mode_normal": {
+    "message": "Normal"
+  },
+  "applyTo": {
+    "message": "Appliquer à"
+  },
+  "scope_domain": {
+    "message": "Ce site ($1)"
+  },
+  "scope_subdomain": {
+    "message": "Ce sous-domaine uniquement ($1)"
+  },
+  "scope_page": {
+    "message": "Cette page uniquement"
+  },
+  "scope_global": {
+    "message": "Partout (par défaut)"
+  },
+  "inheritSubdomains": {
+    "message": "Les sous-domaines suivent ce site"
+  },
+  "adj_brightness": {
+    "message": "Luminosité"
+  },
+  "adj_contrast": {
+    "message": "Contraste"
+  },
+  "adj_saturation": {
+    "message": "Saturation"
+  },
+  "adj_warmth": {
+    "message": "Chaleur"
+  },
+  "adj_dim": {
+    "message": "Assombrir"
+  },
+  "turnOffEverywhere": {
+    "message": "Désactiver partout"
+  },
+  "turnOnEverywhere": {
+    "message": "Activer partout"
+  },
+  "automation": {
+    "message": "Automatisation"
+  },
+  "auto_off": {
+    "message": "Toujours actif"
+  },
+  "auto_schedule": {
+    "message": "Selon un horaire"
+  },
+  "auto_system": {
+    "message": "Suivre le mode sombre du système"
+  },
+  "from": {
+    "message": "De"
+  },
+  "to": {
+    "message": "À"
+  }
+}

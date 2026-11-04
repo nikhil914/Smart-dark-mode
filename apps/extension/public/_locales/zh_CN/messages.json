@@ -1,0 +1,119 @@
+{
+  "extName": {
+    "message": "智能深色模式"
+  },
+  "extDescription": {
+    "message": "为所有网站提供深色模式，支持按网站设置、定时开关，且不追踪。"
+  },
+  "cmdToggleSite": {
+    "message": "在当前网站切换深色模式"
+  },
+  "cmdToggleGlobal": {
+    "message": "在所有网站启用或停用扩展"
+  },
+  "cmdCycleMode": {
+    "message": "切换当前网站的模式（深色、滤镜、正常）"
+  },
+  "unsupportedPage": {
+    "message": "无法更改此页面"
+  },
+  "unsupportedPageHint": {
+    "message": "浏览器页面和扩展商店不允许扩展更改其样式。"
+  },
+  "ruleFrom": {
+    "message": "规则：$1"
+  },
+  "ruleGlobal": {
+    "message": "规则：全局默认"
+  },
+  "level_domain": {
+    "message": "网站"
+  },
+  "level_subdomain": {
+    "message": "子域名"
+  },
+  "level_pattern": {
+    "message": "URL 规则"
+  },
+  "level_page": {
+    "message": "页面"
+  },
+  "suppressed_disabled": {
+    "message": "已全局关闭。点击电源按钮重新开启。"
+  },
+  "suppressed_allowlist": {
+    "message": "白名单模式：此网站不在你的列表中。"
+  },
+  "suppressed_automation": {
+    "message": "因自动化设置，当前已关闭。"
+  },
+  "modeLabel": {
+    "message": "此网站的模式"
+  },
+  "mode_dark": {
+    "message": "深色"
+  },
+  "mode_filtered": {
+    "message": "滤镜"
+  },
+  "mode_normal": {
+    "message": "正常"
+  },
+  "applyTo": {
+    "message": "应用到"
+  },
+  "scope_domain": {
+    "message": "此网站（$1）"
+  },
+  "scope_subdomain": {
+    "message": "仅此子域名（$1）"
+  },
+  "scope_page": {
+    "message": "仅此页面"
+  },
+  "scope_global": {
+    "message": "所有网站（默认）"
+  },
+  "inheritSubdomains": {
+    "message": "子域名沿用此网站设置"
+  },
+  "adj_brightness": {
+    "message": "亮度"
+  },
+  "adj_contrast": {
+    "message": "对比度"
+  },
+  "adj_saturation": {
+    "message": "饱和度"
+  },
+  "adj_warmth": {
+    "message": "暖色"
+  },
+  "adj_dim": {
+    "message": "调暗"
+  },
+  "turnOffEverywhere": {
+    "message": "全局关闭"
+  },
+  "turnOnEverywhere": {
+    "message": "全局开启"
+  },
+  "automation": {
+    "message": "自动化"
+  },
+  "auto_off": {
+    "message": "始终开启"
+  },
+  "auto_schedule": {
+    "message": "按时间表"
+  },
+  "auto_system": {
+    "message": "跟随系统深色模式"
+  },
+  "from": {
+    "message": "从"
+  },
+  "to": {
+    "message": "到"
+  }
+}
