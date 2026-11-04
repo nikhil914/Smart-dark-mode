@@ -1,5 +1,6 @@
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
+import globals from 'globals';
 
 export default tseslint.config(
   { ignores: ['**/node_modules/**', '**/.output/**', '**/.wxt/**', 'docs/**'] },
@@ -8,6 +9,14 @@ export default tseslint.config(
   {
     rules: {
       'no-console': ['warn', { allow: ['warn', 'error'] }],
+      // Index access is checked by noUncheckedIndexedAccess; `!` marks the spots proven safe.
+      '@typescript-eslint/no-non-null-assertion': 'off',
     },
+  },
+  {
+    // Node scripts; some functions are serialised and run inside the page.
+    files: ['tests/harness/**/*.mjs'],
+    languageOptions: { globals: { ...globals.node, ...globals.browser, DarkReader: 'readonly' } },
+    rules: { 'no-console': 'off' },
   },
 );

@@ -5,3 +5,4 @@ dist/
 coverage/
 *.zip
 .DS_Store
+tests/harness/out/
