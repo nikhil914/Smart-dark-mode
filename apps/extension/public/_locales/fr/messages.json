@@ -115,5 +115,584 @@
   },
   "to": {
     "message": "À"
+  },
+  "optionsTitle": {
+    "message": "Paramètres de Smart Dark Mode"
+  },
+  "sectionGeneral": {
+    "message": "Général"
+  },
+  "sectionSites": {
+    "message": "Sites et règles"
+  },
+  "sectionPdf": {
+    "message": "Lecteur PDF"
+  },
+  "sectionBackup": {
+    "message": "Sauvegarde et transfert"
+  },
+  "sectionIntegration": {
+    "message": "Sites avec leur propre thème sombre"
+  },
+  "sectionAbout": {
+    "message": "À propos"
+  },
+  "enabledEverywhere": {
+    "message": "Activer le mode sombre"
+  },
+  "defaultMode": {
+    "message": "Mode des sites sans règle"
+  },
+  "listMode": {
+    "message": "Où appliquer"
+  },
+  "list_blocklist": {
+    "message": "Tous les sites sauf ceux que je désactive"
+  },
+  "list_allowlist": {
+    "message": "Uniquement les sites que j'active"
+  },
+  "listHint_blocklist": {
+    "message": "Les sites sont convertis sauf si une règle les désactive."
+  },
+  "listHint_allowlist": {
+    "message": "Seuls les sites dont une règle fixe un mode sont modifiés."
+  },
+  "integrationDefault": {
+    "message": "Quand un site a son propre thème sombre"
+  },
+  "integration_site": {
+    "message": "Utiliser le thème du site"
+  },
+  "integration_convert": {
+    "message": "Convertir quand même"
+  },
+  "integration_off": {
+    "message": "Ne pas y toucher"
+  },
+  "syncSettings": {
+    "message": "Synchroniser avec le compte du navigateur"
+  },
+  "syncHint": {
+    "message": "L'activation charge les paramètres de vos autres navigateurs, s'il y en a."
+  },
+  "syncError_too_large": {
+    "message": "Paramètres trop volumineux. Supprimez du CSS personnalisé."
+  },
+  "syncError_quota": {
+    "message": "Le navigateur a refusé la synchronisation. Nouvel essai au prochain changement."
+  },
+  "sitesHint": {
+    "message": "La règle la plus précise l'emporte : site, sous-domaine, motif, page."
+  },
+  "ruleLevel": {
+    "message": "S'applique à"
+  },
+  "ruleMatch": {
+    "message": "Adresse"
+  },
+  "ruleExtras": {
+    "message": "Aussi"
+  },
+  "actions": {
+    "message": "Actions"
+  },
+  "addRule": {
+    "message": "Ajouter la règle"
+  },
+  "noRules": {
+    "message": "Aucune règle. Celles créées depuis la fenêtre apparaissent ici."
+  },
+  "invalidPattern": {
+    "message": "Ce motif n'est pas valide."
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  ou  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "Hériter"
+  },
+  "modeFor": {
+    "message": "Mode pour $1"
+  },
+  "extra_adjust": {
+    "message": "réglages"
+  },
+  "extra_remap": {
+    "message": "$1 couleurs"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "CSS personnalisé pour $1"
+  },
+  "customCssHint": {
+    "message": "Écrivez $${#333} pour obtenir la couleur que devient #333 en mode sombre."
+  },
+  "clearRemap": {
+    "message": "Réinitialiser les couleurs"
+  },
+  "delete": {
+    "message": "Supprimer"
+  },
+  "deleteRuleFor": {
+    "message": "Supprimer la règle de $1"
+  },
+  "save": {
+    "message": "Enregistrer"
+  },
+  "pdfEnabled": {
+    "message": "Ouvrir les PDF dans le lecteur sombre"
+  },
+  "pdfStyle": {
+    "message": "Style"
+  },
+  "pdf_dark": {
+    "message": "Texte sombre seulement"
+  },
+  "pdf_sepia": {
+    "message": "Sépia"
+  },
+  "pdf_invert": {
+    "message": "Tout inverser"
+  },
+  "pdf_custom": {
+    "message": "Couleurs perso"
+  },
+  "pdf_original": {
+    "message": "Original"
+  },
+  "pdfHint": {
+    "message": "« Texte sombre » garde les images intactes. L'impression utilise toujours les couleurs d'origine."
+  },
+  "pdfBackground": {
+    "message": "Fond"
+  },
+  "pdfText": {
+    "message": "Texte"
+  },
+  "pdfSearch": {
+    "message": "Rechercher"
+  },
+  "previousMatch": {
+    "message": "Résultat précédent"
+  },
+  "nextMatch": {
+    "message": "Résultat suivant"
+  },
+  "noMatches": {
+    "message": "Aucun résultat"
+  },
+  "matchPages": {
+    "message": "Page $1 sur $2 avec résultats"
+  },
+  "zoomIn": {
+    "message": "Zoom avant"
+  },
+  "zoomOut": {
+    "message": "Zoom arrière"
+  },
+  "print": {
+    "message": "Imprimer"
+  },
+  "openOriginal": {
+    "message": "Ouvrir l'original"
+  },
+  "pageN": {
+    "message": "Page $1"
+  },
+  "preparingPrint": {
+    "message": "Préparation de la page $1 sur $2…"
+  },
+  "pdfLoadFailed": {
+    "message": "Impossible de charger ce PDF. Utilisez « Ouvrir l'original »."
+  },
+  "pdfFileAccess": {
+    "message": "Pour les PDF locaux, activez « Autoriser l'accès aux URL de fichier » dans les paramètres de l'extension."
+  },
+  "backupHint": {
+    "message": "L'export enregistre tout dans un fichier. L'import lit aussi les exports Dark Reader."
+  },
+  "exportSettings": {
+    "message": "Exporter"
+  },
+  "importSettings": {
+    "message": "Importer…"
+  },
+  "importConfirm": {
+    "message": "Remplacer tous les paramètres actuels par ceux importés ?"
+  },
+  "imported_smart_dark_mode": {
+    "message": "Paramètres importés."
+  },
+  "imported_darkreader": {
+    "message": "Paramètres Dark Reader importés."
+  },
+  "importSkipped": {
+    "message": "Non repris : $1."
+  },
+  "skipped_location_schedule": {
+    "message": "planning selon la position"
+  },
+  "skipped_presets": {
+    "message": "préréglages"
+  },
+  "skipped_light_scheme": {
+    "message": "thème clair"
+  },
+  "importError_not_json": {
+    "message": "Ce fichier n'est pas un fichier de paramètres."
+  },
+  "importError_unknown_format": {
+    "message": "Format de fichier non pris en charge."
+  },
+  "importError_too_large": {
+    "message": "Fichier trop volumineux."
+  },
+  "integrationHint": {
+    "message": "Pour les sites connus, nous activons leur thème sombre au lieu de les convertir."
+  },
+  "integrationChanges": {
+    "message": "Modifications enregistrées sur des sites"
+  },
+  "integrationNoChanges": {
+    "message": "Aucune. Rien n'a été enregistré sur un site."
+  },
+  "integrationUndoHint": {
+    "message": "Annulées à la prochaine visite après « Convertir quand même », « Ne pas y toucher » ou désactivation."
+  },
+  "journal_localStorage": {
+    "message": "Stockage du site"
+  },
+  "journal_cookie": {
+    "message": "Cookie"
+  },
+  "journalWas": {
+    "message": "avant $1"
+  },
+  "journalWasUnset": {
+    "message": "n'existait pas"
+  },
+  "forgetDarkSites": {
+    "message": "Oublier les sites détectés comme sombres"
+  },
+  "integrationList": {
+    "message": "Liste intégrée ($1)"
+  },
+  "done": {
+    "message": "Terminé"
+  },
+  "aboutVersion": {
+    "message": "Version $1"
+  },
+  "privacyShort": {
+    "message": "Aucune donnée ne quitte votre navigateur. Rien n'est collecté ni envoyé."
+  },
+  "sourceCode": {
+    "message": "Code source"
+  },
+  "reportProblem": {
+    "message": "Signaler un problème"
+  },
+  "moreSettings": {
+    "message": "Plus de paramètres"
+  },
+  "siteThemeOn": {
+    "message": "Thème sombre du site utilisé ($1)"
+  },
+  "siteAlreadyDark": {
+    "message": "Ce site est déjà sombre, il est affiché tel quel"
+  },
+  "pageColours": {
+    "message": "Couleurs de cette page"
+  },
+  "pageColoursHint": {
+    "message": "Choisissez la nouvelle couleur. Tous les éléments qui l'utilisent changent."
+  },
+  "remapColour": {
+    "message": "Nouvelle couleur pour $1"
+  },
+  "resetColour": {
+    "message": "Réinitialiser $1"
+  },
+  "reset": {
+    "message": "Réinitialiser"
+  },
+  "cancel": {
+    "message": "Annuler"
+  },
+  "close": {
+    "message": "Fermer"
+  },
+  "remove": {
+    "message": "Supprimer"
+  },
+  "copied": {
+    "message": "Copié"
+  },
+  "cmdPickElement": {
+    "message": "Corriger un élément de la page"
+  },
+  "menuToggleSite": {
+    "message": "Mode sombre sur ce site"
+  },
+  "menuFixElement": {
+    "message": "Corriger cet élément"
+  },
+  "menuOpenPdf": {
+    "message": "Ouvrir le PDF dans la visionneuse sombre"
+  },
+  "toolsLabel": {
+    "message": "Outils de page"
+  },
+  "toolPicker": {
+    "message": "Corriger un élément"
+  },
+  "toolDebug": {
+    "message": "Inspecter les couleurs"
+  },
+  "toolDebugOff": {
+    "message": "Arrêter l’inspection"
+  },
+  "toolExport": {
+    "message": "Exporter le CSS"
+  },
+  "pickerTitle": {
+    "message": "Corriger cet élément"
+  },
+  "pickerSelector": {
+    "message": "Sélecteur CSS"
+  },
+  "pickerOption_invert": {
+    "message": "Inverser (canvas, diagrammes)"
+  },
+  "pickerOption_background": {
+    "message": "Forcer un fond sombre"
+  },
+  "pickerOption_text": {
+    "message": "Forcer un texte clair"
+  },
+  "pickerOption_noImage": {
+    "message": "Masquer l’image de fond"
+  },
+  "pickerOption_hide": {
+    "message": "Masquer l’élément"
+  },
+  "pickerParent": {
+    "message": "Choisir le parent"
+  },
+  "pickerSave": {
+    "message": "Enregistrer pour ce site"
+  },
+  "debugBackground": {
+    "message": "fond"
+  },
+  "debugText": {
+    "message": "texte"
+  },
+  "debugContrast": {
+    "message": "contraste"
+  },
+  "debugRule": {
+    "message": "règle"
+  },
+  "chipMessage": {
+    "message": "Certaines parties de cette page restent claires ou peu lisibles."
+  },
+  "chipTryFiltered": {
+    "message": "Essayer le mode filtré"
+  },
+  "chipFixElement": {
+    "message": "Corriger un élément"
+  },
+  "sectionAppearance": {
+    "message": "Apparence"
+  },
+  "themeLabel": {
+    "message": "Thème"
+  },
+  "theme_dark": {
+    "message": "Sombre"
+  },
+  "theme_amoled": {
+    "message": "Noir AMOLED"
+  },
+  "theme_dim": {
+    "message": "Tamisé"
+  },
+  "theme_sepia": {
+    "message": "Sépia"
+  },
+  "theme_contrast": {
+    "message": "Contraste élevé"
+  },
+  "theme_grayscale": {
+    "message": "Niveaux de gris"
+  },
+  "theme_protan": {
+    "message": "Adapté protanopie"
+  },
+  "theme_deutan": {
+    "message": "Adapté deutéranopie"
+  },
+  "theme_tritan": {
+    "message": "Adapté tritanopie"
+  },
+  "themeHint_dark": {
+    "message": "Gris foncé équilibré, texte blanc cassé."
+  },
+  "themeHint_amoled": {
+    "message": "Fond noir pur, économise l’énergie sur OLED."
+  },
+  "themeHint_dim": {
+    "message": "Gris plus clair pour les pièces lumineuses."
+  },
+  "themeHint_sepia": {
+    "message": "Tons bruns chauds pour la lecture prolongée."
+  },
+  "themeHint_contrast": {
+    "message": "Fond presque noir, contraste du texte d’au moins 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "Supprime toutes les couleurs."
+  },
+  "themeHint_protan": {
+    "message": "Écarte rouges et verts pour mieux les distinguer."
+  },
+  "themeHint_deutan": {
+    "message": "Écarte rouges et verts pour mieux les distinguer."
+  },
+  "themeHint_tritan": {
+    "message": "Écarte bleus et jaunes pour mieux les distinguer."
+  },
+  "themeHint_custom": {
+    "message": "Vos propres couleurs, ci-dessous."
+  },
+  "presetLabel": {
+    "message": "Intensité des couleurs"
+  },
+  "preset_vivid": {
+    "message": "Vif"
+  },
+  "preset_balanced": {
+    "message": "Équilibré"
+  },
+  "preset_muted": {
+    "message": "Atténué"
+  },
+  "imagesHeading": {
+    "message": "Images"
+  },
+  "imagesHoverOriginal": {
+    "message": "Afficher l’image d’origine sous le pointeur"
+  },
+  "imagesPhotoDim": {
+    "message": "Assombrir les photos"
+  },
+  "diagnosisHeading": {
+    "message": "Auto-vérification"
+  },
+  "diagnosisEnabled": {
+    "message": "Proposer de l’aide si une page reste claire"
+  },
+  "diagnosisHint": {
+    "message": "Mesuré sur votre appareil après le chargement. Rien n’est envoyé."
+  },
+  "customThemesHeading": {
+    "message": "Thèmes personnalisés"
+  },
+  "customThemeAdd": {
+    "message": "Nouveau thème"
+  },
+  "customThemeDefaultName": {
+    "message": "Mon thème"
+  },
+  "customThemeName": {
+    "message": "Nom du thème"
+  },
+  "customThemePreview": {
+    "message": "Texte d’exemple avec"
+  },
+  "customColor_background": {
+    "message": "Fond"
+  },
+  "customColor_text": {
+    "message": "Texte"
+  },
+  "customColor_link": {
+    "message": "Lien"
+  },
+  "customColor_visited": {
+    "message": "Lien visité"
+  },
+  "customColor_border": {
+    "message": "Bordure"
+  },
+  "customColor_selection": {
+    "message": "Sélection"
+  },
+  "customColor_button": {
+    "message": "Bouton"
+  },
+  "customColor_scrollbar": {
+    "message": "Barre de défilement"
+  },
+  "themeCodeLabel": {
+    "message": "Code du thème"
+  },
+  "themeCodeImport": {
+    "message": "Ajouter le thème"
+  },
+  "themeCodeCopy": {
+    "message": "Copier le code de partage"
+  },
+  "themeCodeInvalid": {
+    "message": "Ce n’est pas un code de thème valide."
+  },
+  "themeCodeImported": {
+    "message": "« $1 » ajouté."
+  },
+  "sectionFixes": {
+    "message": "Correctifs de sites"
+  },
+  "fixesUpdates": {
+    "message": "Télécharger chaque jour les correctifs signés"
+  },
+  "fixesHint": {
+    "message": "Les correctifs sont des données, jamais du code, utilisées seulement si la signature est valide. Ceux fournis avec l’extension sont toujours utilisés."
+  },
+  "fixesCheckNow": {
+    "message": "Vérifier maintenant"
+  },
+  "fixesNeverChecked": {
+    "message": "Pas encore vérifié."
+  },
+  "fixesStatus_updated": {
+    "message": "Mis à jour le $1 (version $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "À jour au $1 (version $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "Téléchargements désactivés. Vérifié le $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "Le dernier téléchargement ($1) avait une signature invalide et n’a pas été utilisé."
+  },
+  "fixesStatus_failed": {
+    "message": "Téléchargement impossible ($1). Nouvel essai demain."
   }
 }

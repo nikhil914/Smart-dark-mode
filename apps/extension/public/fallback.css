@@ -1,0 +1,8 @@
+html:not([data-sdm-off]):not([data-sdm-ready]) {
+  background-color: #1b1c1e !important;
+  color-scheme: dark !important;
+}
+html:not([data-sdm-off]):not([data-sdm-ready]) body {
+  background-color: #1b1c1e !important;
+  color: #d9d9db !important;
+}

@@ -115,5 +115,584 @@
   },
   "to": {
     "message": "До"
+  },
+  "optionsTitle": {
+    "message": "Настройки Smart Dark Mode"
+  },
+  "sectionGeneral": {
+    "message": "Общие"
+  },
+  "sectionSites": {
+    "message": "Сайты и правила"
+  },
+  "sectionPdf": {
+    "message": "Просмотр PDF"
+  },
+  "sectionBackup": {
+    "message": "Резервная копия и перенос"
+  },
+  "sectionIntegration": {
+    "message": "Сайты со своей тёмной темой"
+  },
+  "sectionAbout": {
+    "message": "О расширении"
+  },
+  "enabledEverywhere": {
+    "message": "Включить тёмный режим"
+  },
+  "defaultMode": {
+    "message": "Режим для сайтов без правил"
+  },
+  "listMode": {
+    "message": "Где применять"
+  },
+  "list_blocklist": {
+    "message": "Все сайты, кроме отключённых"
+  },
+  "list_allowlist": {
+    "message": "Только включённые сайты"
+  },
+  "listHint_blocklist": {
+    "message": "Сайты преобразуются, если правило их не отключает."
+  },
+  "listHint_allowlist": {
+    "message": "Меняются только сайты с правилом, задающим режим."
+  },
+  "integrationDefault": {
+    "message": "Если у сайта есть своя тёмная тема"
+  },
+  "integration_site": {
+    "message": "Использовать тему сайта"
+  },
+  "integration_convert": {
+    "message": "Всё равно преобразовать"
+  },
+  "integration_off": {
+    "message": "Не трогать"
+  },
+  "syncSettings": {
+    "message": "Синхронизировать с аккаунтом браузера"
+  },
+  "syncHint": {
+    "message": "При включении загружаются настройки из других ваших браузеров, если они есть."
+  },
+  "syncError_too_large": {
+    "message": "Настройки слишком велики. Удалите часть своего CSS."
+  },
+  "syncError_quota": {
+    "message": "Браузер отклонил синхронизацию. Повтор при следующем изменении."
+  },
+  "sitesHint": {
+    "message": "Побеждает более точное правило: сайт, поддомен, шаблон, страница."
+  },
+  "ruleLevel": {
+    "message": "Применяется к"
+  },
+  "ruleMatch": {
+    "message": "Адрес"
+  },
+  "ruleExtras": {
+    "message": "Также"
+  },
+  "actions": {
+    "message": "Действия"
+  },
+  "addRule": {
+    "message": "Добавить правило"
+  },
+  "noRules": {
+    "message": "Правил пока нет. Правила из всплывающего окна появятся здесь."
+  },
+  "invalidPattern": {
+    "message": "Шаблон недействителен."
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  или  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "Наследовать"
+  },
+  "modeFor": {
+    "message": "Режим для $1"
+  },
+  "extra_adjust": {
+    "message": "настройки"
+  },
+  "extra_remap": {
+    "message": "цветов: $1"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "Свой CSS для $1"
+  },
+  "customCssHint": {
+    "message": "Напишите $${#333}, чтобы получить цвет, в который #333 превращается в тёмном режиме."
+  },
+  "clearRemap": {
+    "message": "Сбросить цвета"
+  },
+  "delete": {
+    "message": "Удалить"
+  },
+  "deleteRuleFor": {
+    "message": "Удалить правило для $1"
+  },
+  "save": {
+    "message": "Сохранить"
+  },
+  "pdfEnabled": {
+    "message": "Открывать PDF в тёмном просмотрщике"
+  },
+  "pdfStyle": {
+    "message": "Стиль"
+  },
+  "pdf_dark": {
+    "message": "Только текст тёмный"
+  },
+  "pdf_sepia": {
+    "message": "Сепия"
+  },
+  "pdf_invert": {
+    "message": "Инвертировать всё"
+  },
+  "pdf_custom": {
+    "message": "Свои цвета"
+  },
+  "pdf_original": {
+    "message": "Оригинал"
+  },
+  "pdfHint": {
+    "message": "«Только текст» не меняет картинки. Печать всегда в исходных цветах."
+  },
+  "pdfBackground": {
+    "message": "Фон"
+  },
+  "pdfText": {
+    "message": "Текст"
+  },
+  "pdfSearch": {
+    "message": "Поиск"
+  },
+  "previousMatch": {
+    "message": "Предыдущее совпадение"
+  },
+  "nextMatch": {
+    "message": "Следующее совпадение"
+  },
+  "noMatches": {
+    "message": "Нет совпадений"
+  },
+  "matchPages": {
+    "message": "Страница $1 из $2 с совпадениями"
+  },
+  "zoomIn": {
+    "message": "Увеличить"
+  },
+  "zoomOut": {
+    "message": "Уменьшить"
+  },
+  "print": {
+    "message": "Печать"
+  },
+  "openOriginal": {
+    "message": "Открыть оригинал"
+  },
+  "pageN": {
+    "message": "Страница $1"
+  },
+  "preparingPrint": {
+    "message": "Подготовка страницы $1 из $2 к печати…"
+  },
+  "pdfLoadFailed": {
+    "message": "Не удалось загрузить PDF. Нажмите «Открыть оригинал»."
+  },
+  "pdfFileAccess": {
+    "message": "Для локальных PDF включите «Разрешить доступ к URL файлов» в настройках расширения."
+  },
+  "backupHint": {
+    "message": "Экспорт сохраняет все настройки в файл. Импорт читает и файлы Dark Reader."
+  },
+  "exportSettings": {
+    "message": "Экспорт настроек"
+  },
+  "importSettings": {
+    "message": "Импорт настроек…"
+  },
+  "importConfirm": {
+    "message": "Заменить все текущие настройки импортированными?"
+  },
+  "imported_smart_dark_mode": {
+    "message": "Настройки импортированы."
+  },
+  "imported_darkreader": {
+    "message": "Настройки Dark Reader импортированы."
+  },
+  "importSkipped": {
+    "message": "Не перенесено: $1."
+  },
+  "skipped_location_schedule": {
+    "message": "расписание по местоположению"
+  },
+  "skipped_presets": {
+    "message": "пресеты"
+  },
+  "skipped_light_scheme": {
+    "message": "светлая схема"
+  },
+  "importError_not_json": {
+    "message": "Это не файл настроек."
+  },
+  "importError_unknown_format": {
+    "message": "Формат файла не поддерживается."
+  },
+  "importError_too_large": {
+    "message": "Файл слишком большой."
+  },
+  "integrationHint": {
+    "message": "На известных сайтах включаем их собственную тёмную тему вместо преобразования."
+  },
+  "integrationChanges": {
+    "message": "Сохранённые изменения на сайтах"
+  },
+  "integrationNoChanges": {
+    "message": "Нет. Мы ничего не сохраняли на сайтах."
+  },
+  "integrationUndoHint": {
+    "message": "Отменяются при следующем открытии сайта после выбора «Преобразовать», «Не трогать» или отключения."
+  },
+  "journal_localStorage": {
+    "message": "Хранилище сайта"
+  },
+  "journal_cookie": {
+    "message": "Cookie"
+  },
+  "journalWas": {
+    "message": "было $1"
+  },
+  "journalWasUnset": {
+    "message": "не было задано"
+  },
+  "forgetDarkSites": {
+    "message": "Забыть сайты, распознанные как тёмные"
+  },
+  "integrationList": {
+    "message": "Встроенный список ($1)"
+  },
+  "done": {
+    "message": "Готово"
+  },
+  "aboutVersion": {
+    "message": "Версия $1"
+  },
+  "privacyShort": {
+    "message": "Данные не покидают браузер. Ничего не собирается и не отправляется."
+  },
+  "sourceCode": {
+    "message": "Исходный код"
+  },
+  "reportProblem": {
+    "message": "Сообщить о проблеме"
+  },
+  "moreSettings": {
+    "message": "Другие настройки"
+  },
+  "siteThemeOn": {
+    "message": "Используется тёмная тема сайта ($1)"
+  },
+  "siteAlreadyDark": {
+    "message": "Сайт уже тёмный и показан как есть"
+  },
+  "pageColours": {
+    "message": "Цвета на странице"
+  },
+  "pageColoursHint": {
+    "message": "Выберите новый цвет. Изменятся все элементы с ним."
+  },
+  "remapColour": {
+    "message": "Новый цвет для $1"
+  },
+  "resetColour": {
+    "message": "Сбросить $1"
+  },
+  "reset": {
+    "message": "Сбросить"
+  },
+  "cancel": {
+    "message": "Отмена"
+  },
+  "close": {
+    "message": "Закрыть"
+  },
+  "remove": {
+    "message": "Удалить"
+  },
+  "copied": {
+    "message": "Скопировано"
+  },
+  "cmdPickElement": {
+    "message": "Исправить элемент на странице"
+  },
+  "menuToggleSite": {
+    "message": "Тёмный режим на этом сайте"
+  },
+  "menuFixElement": {
+    "message": "Исправить этот элемент"
+  },
+  "menuOpenPdf": {
+    "message": "Открыть PDF в тёмном просмотрщике"
+  },
+  "toolsLabel": {
+    "message": "Инструменты страницы"
+  },
+  "toolPicker": {
+    "message": "Исправить элемент"
+  },
+  "toolDebug": {
+    "message": "Проверить цвета"
+  },
+  "toolDebugOff": {
+    "message": "Прекратить проверку"
+  },
+  "toolExport": {
+    "message": "Экспорт CSS"
+  },
+  "pickerTitle": {
+    "message": "Исправить этот элемент"
+  },
+  "pickerSelector": {
+    "message": "CSS-селектор"
+  },
+  "pickerOption_invert": {
+    "message": "Инвертировать (холсты, схемы)"
+  },
+  "pickerOption_background": {
+    "message": "Принудительно тёмный фон"
+  },
+  "pickerOption_text": {
+    "message": "Принудительно светлый текст"
+  },
+  "pickerOption_noImage": {
+    "message": "Скрыть фоновое изображение"
+  },
+  "pickerOption_hide": {
+    "message": "Скрыть элемент"
+  },
+  "pickerParent": {
+    "message": "Выбрать родителя"
+  },
+  "pickerSave": {
+    "message": "Сохранить для сайта"
+  },
+  "debugBackground": {
+    "message": "фон"
+  },
+  "debugText": {
+    "message": "текст"
+  },
+  "debugContrast": {
+    "message": "контраст"
+  },
+  "debugRule": {
+    "message": "правило"
+  },
+  "chipMessage": {
+    "message": "Части страницы всё ещё светлые или плохо читаются."
+  },
+  "chipTryFiltered": {
+    "message": "Попробовать режим фильтра"
+  },
+  "chipFixElement": {
+    "message": "Исправить элемент"
+  },
+  "sectionAppearance": {
+    "message": "Внешний вид"
+  },
+  "themeLabel": {
+    "message": "Тема"
+  },
+  "theme_dark": {
+    "message": "Тёмная"
+  },
+  "theme_amoled": {
+    "message": "Чёрная AMOLED"
+  },
+  "theme_dim": {
+    "message": "Приглушённая"
+  },
+  "theme_sepia": {
+    "message": "Сепия"
+  },
+  "theme_contrast": {
+    "message": "Высокий контраст"
+  },
+  "theme_grayscale": {
+    "message": "Оттенки серого"
+  },
+  "theme_protan": {
+    "message": "Для протанопии"
+  },
+  "theme_deutan": {
+    "message": "Для дейтеранопии"
+  },
+  "theme_tritan": {
+    "message": "Для тританопии"
+  },
+  "themeHint_dark": {
+    "message": "Сбалансированный тёмно-серый, светлый текст."
+  },
+  "themeHint_amoled": {
+    "message": "Чисто чёрный фон, экономит заряд на OLED."
+  },
+  "themeHint_dim": {
+    "message": "Более светлый серый для светлых комнат."
+  },
+  "themeHint_sepia": {
+    "message": "Тёплые коричневые тона для долгого чтения."
+  },
+  "themeHint_contrast": {
+    "message": "Почти чёрный фон, контраст текста не ниже 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "Убирает все цвета."
+  },
+  "themeHint_protan": {
+    "message": "Разводит красные и зелёные, чтобы их было легче различать."
+  },
+  "themeHint_deutan": {
+    "message": "Разводит красные и зелёные, чтобы их было легче различать."
+  },
+  "themeHint_tritan": {
+    "message": "Разводит синие и жёлтые, чтобы их было легче различать."
+  },
+  "themeHint_custom": {
+    "message": "Ваши собственные цвета, ниже."
+  },
+  "presetLabel": {
+    "message": "Насыщенность цветов"
+  },
+  "preset_vivid": {
+    "message": "Яркая"
+  },
+  "preset_balanced": {
+    "message": "Сбалансированная"
+  },
+  "preset_muted": {
+    "message": "Приглушённая"
+  },
+  "imagesHeading": {
+    "message": "Изображения"
+  },
+  "imagesHoverOriginal": {
+    "message": "Показывать исходное изображение под указателем"
+  },
+  "imagesPhotoDim": {
+    "message": "Затемнять фото"
+  },
+  "diagnosisHeading": {
+    "message": "Самопроверка"
+  },
+  "diagnosisEnabled": {
+    "message": "Предлагать помощь, если страница всё ещё светлая"
+  },
+  "diagnosisHint": {
+    "message": "Измеряется на устройстве после загрузки. Ничего не отправляется."
+  },
+  "customThemesHeading": {
+    "message": "Свои темы"
+  },
+  "customThemeAdd": {
+    "message": "Новая тема"
+  },
+  "customThemeDefaultName": {
+    "message": "Моя тема"
+  },
+  "customThemeName": {
+    "message": "Название темы"
+  },
+  "customThemePreview": {
+    "message": "Пример текста с"
+  },
+  "customColor_background": {
+    "message": "Фон"
+  },
+  "customColor_text": {
+    "message": "Текст"
+  },
+  "customColor_link": {
+    "message": "Ссылка"
+  },
+  "customColor_visited": {
+    "message": "Посещённая ссылка"
+  },
+  "customColor_border": {
+    "message": "Рамка"
+  },
+  "customColor_selection": {
+    "message": "Выделение"
+  },
+  "customColor_button": {
+    "message": "Кнопка"
+  },
+  "customColor_scrollbar": {
+    "message": "Полоса прокрутки"
+  },
+  "themeCodeLabel": {
+    "message": "Код темы"
+  },
+  "themeCodeImport": {
+    "message": "Добавить тему"
+  },
+  "themeCodeCopy": {
+    "message": "Копировать код"
+  },
+  "themeCodeInvalid": {
+    "message": "Это неверный код темы."
+  },
+  "themeCodeImported": {
+    "message": "Тема «$1» добавлена."
+  },
+  "sectionFixes": {
+    "message": "Исправления сайтов"
+  },
+  "fixesUpdates": {
+    "message": "Ежедневно загружать подписанные исправления"
+  },
+  "fixesHint": {
+    "message": "Исправления — это данные, а не код, и применяются только с верной подписью. Встроенные исправления используются всегда."
+  },
+  "fixesCheckNow": {
+    "message": "Проверить сейчас"
+  },
+  "fixesNeverChecked": {
+    "message": "Ещё не проверялось."
+  },
+  "fixesStatus_updated": {
+    "message": "Обновлено $1 (версия $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "Актуально на $1 (версия $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "Загрузка выключена. Проверено $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "Последняя загрузка ($1) не прошла проверку подписи и не используется."
+  },
+  "fixesStatus_failed": {
+    "message": "Не удалось загрузить ($1). Повтор завтра."
   }
 }
