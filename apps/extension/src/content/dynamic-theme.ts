@@ -1,7 +1,10 @@
 import {
+  type ColorRole,
   type RuleLike,
   type Theme,
   VarRegistry,
+  parseColor,
+  toHex,
   rewriteRules,
   rewriteValue,
   roleForProperty,
@@ -87,6 +90,41 @@ export class DynamicTheme {
   ) {
     this.theme = theme;
     this.observer = new MutationObserver((records) => this.onMutations(records));
+  }
+
+  /** Original colours seen on the page, for the colour remapping UI. */
+  private readonly colours = new Map<string, { count: number; roles: Set<ColorRole> }>();
+
+  private readonly onColor = (original: string, role: ColorRole): void => {
+    if (this.colours.size > 2000) return;
+    const parsed = parseColor(original);
+    if (!parsed || parsed.a === 0) return;
+    const hex = toHex(parsed);
+    const entry = this.colours.get(hex);
+    if (entry) {
+      entry.count++;
+      entry.roles.add(role);
+    } else this.colours.set(hex, { count: 1, roles: new Set([role]) });
+  };
+
+  /** Most used original colours, most frequent first. */
+  palette(limit = 24): { hex: string; roles: ColorRole[]; count: number }[] {
+    return [...this.colours.entries()]
+      .sort((a, b) => b[1].count - a[1].count)
+      .slice(0, limit)
+      .map(([hex, { count, roles }]) => ({ hex, roles: [...roles], count }));
+  }
+
+  /** Switches every style this engine added on or off, without removing anything. */
+  setSuspended(suspended: boolean): void {
+    for (const root of this.roots) {
+      for (const sheet of root.adoptedStyleSheets) {
+        if (this.ownSheets.has(sheet)) sheet.disabled = suspended;
+      }
+      for (const el of root.querySelectorAll<HTMLStyleElement>(`style[${OWN_ATTR}]`)) {
+        el.disabled = suspended;
+      }
+    }
   }
 
   start(): void {
@@ -309,7 +347,12 @@ export class DynamicTheme {
     const rules = this.rulesOf(node);
     if (!rules) return;
     const baseUrl = (node.sheet as CSSStyleSheet | null)?.href ?? document.baseURI;
-    const css = rewriteRules(rules, { theme: this.theme, vars: this.vars, baseUrl });
+    const css = rewriteRules(rules, {
+      theme: this.theme,
+      vars: this.vars,
+      baseUrl,
+      onColor: this.onColor,
+    });
     if (!css) {
       state.override?.remove();
       state.override = null;
@@ -345,7 +388,11 @@ export class DynamicTheme {
         continue;
       }
       scanUsage(rules, this.vars);
-      const css = rewriteRules(rules, { theme: this.theme, vars: this.vars });
+      const css = rewriteRules(rules, {
+        theme: this.theme,
+        vars: this.vars,
+        onColor: this.onColor,
+      });
       if (!css) continue;
       let override = this.adoptedOverrides.get(sheet);
       if (!override) {
@@ -374,7 +421,13 @@ export class DynamicTheme {
       const value = style?.getPropertyValue(prop);
       const role = roleForProperty(prop);
       const out =
-        value && role ? rewriteValue(value, role, { theme: this.theme, rewriteVars: true }) : null;
+        value && role
+          ? rewriteValue(value, role, {
+              theme: this.theme,
+              rewriteVars: true,
+              onColor: this.onColor,
+            })
+          : null;
       any = this.setInline(el, prop, out) || any;
     }
     for (const [attr, prop] of Object.entries(LEGACY_ATTRS)) {
@@ -384,7 +437,13 @@ export class DynamicTheme {
       const value = el.getAttribute(attr);
       const role = roleForProperty(prop);
       const out =
-        value && role ? rewriteValue(value, role, { theme: this.theme, rewriteVars: false }) : null;
+        value && role
+          ? rewriteValue(value, role, {
+              theme: this.theme,
+              rewriteVars: false,
+              onColor: this.onColor,
+            })
+          : null;
       any = this.setInline(el, prop, out) || any;
     }
     if (any) this.inlineElements.add(el);
