@@ -16,6 +16,7 @@
     "postinstall": "wxt prepare"
   },
   "dependencies": {
+    "@sdm/engine": "workspace:*",
     "@sdm/settings": "workspace:*",
     "preact": "10.29.8"
   },

@@ -9,6 +9,9 @@ import {
   siteDomain,
   toPageLocation,
 } from '@sdm/settings';
+import { syncFallback } from '@/background/fallback';
+import { forgetTab, safeFetch } from '@/background/safe-fetch';
+import { isContentMessage } from '@/lib/messages';
 import {
   ensureSettings,
   isOsSchemeChange,
@@ -30,25 +33,42 @@ export default defineBackground(() => {
   browser.runtime.onInstalled.addListener(async () => {
     await ensureSettings();
     await scheduleBoundaryAlarm();
+    await refreshFallback();
     await refreshAllBadges();
   });
 
   browser.runtime.onStartup.addListener(async () => {
     await scheduleBoundaryAlarm();
+    await refreshFallback();
     await refreshAllBadges();
   });
 
   browser.storage.onChanged.addListener(async (changes, area) => {
     if (area !== 'local') return;
     if (isSettingsChange(changes)) await scheduleBoundaryAlarm();
-    if (isSettingsChange(changes) || isOsSchemeChange(changes)) await refreshAllBadges();
+    if (isSettingsChange(changes) || isOsSchemeChange(changes)) {
+      await refreshFallback();
+      await refreshAllBadges();
+    }
   });
 
   browser.alarms.onAlarm.addListener(async (alarm) => {
     if (alarm.name !== BOUNDARY_ALARM) return;
     await scheduleBoundaryAlarm();
+    await refreshFallback();
     await refreshAllBadges();
   });
+
+  browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (!isContentMessage(message) || sender.id !== browser.runtime.id) return undefined;
+    if (message.type === 'sdm:fetch') {
+      void safeFetch(message.kind, message.url, sender.tab?.id).then(sendResponse);
+      return true;
+    }
+    return undefined;
+  });
+
+  browser.tabs.onRemoved.addListener((tabId) => forgetTab(tabId));
 
   browser.tabs.onActivated.addListener(({ tabId }) => void refreshBadge(tabId));
   browser.tabs.onUpdated.addListener((tabId, info) => {
@@ -76,6 +96,11 @@ export default defineBackground(() => {
     await saveSettings(setRuleMode(settings, 'domain', domain, value));
   });
 });
+
+async function refreshFallback(): Promise<void> {
+  const [settings, osDark] = await Promise.all([loadSettings(), loadOsPrefersDark()]);
+  await syncFallback(settings, osDark);
+}
 
 /** The mode the user configured for a URL, ignoring the master switch and automation. */
 function configuredMode(settings: Settings, url: string): Mode {
