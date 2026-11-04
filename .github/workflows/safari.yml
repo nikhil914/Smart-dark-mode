@@ -1,0 +1,45 @@
+name: Safari app
+
+# Builds the Safari app and extension for macOS and the iOS simulator, unsigned, so the
+# Swift code and the project spec are checked on every change. Signing and App Store
+# upload need the owner's Apple developer account and are done by hand (docs/RELEASE.md).
+
+on:
+  pull_request:
+    paths:
+      - 'apps/safari-host/**'
+      - 'apps/extension/**'
+      - 'packages/**'
+      - '.github/workflows/safari.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @sdm/extension build:safari
+      - run: brew install xcodegen
+      - run: xcodegen generate --spec apps/safari-host/project.yml
+      - name: macOS
+        run: >
+          xcodebuild -project apps/safari-host/SmartDarkMode.xcodeproj
+          -scheme SmartDarkMode-macOS -configuration Release
+          -destination 'generic/platform=macOS'
+          CODE_SIGNING_ALLOWED=NO build
+      - name: iOS simulator
+        run: >
+          xcodebuild -project apps/safari-host/SmartDarkMode.xcodeproj
+          -scheme SmartDarkMode-iOS -configuration Release
+          -destination 'generic/platform=iOS Simulator'
+          CODE_SIGNING_ALLOWED=NO build
