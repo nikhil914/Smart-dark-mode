@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Options: sites and rules</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#f0a35e}a:hover{color:#ffc58f}
+</style>
+</helmet>
+<div style="width: 1280px; height: 860px; box-sizing: border-box; background: #121316; color: #e1e1e3; display: flex">
+  <nav aria-label="Settings sections" style="width: 240px; flex-shrink: 0; border-right: 1px solid #2a2b30; padding: 24px 12px; display: flex; flex-direction: column; gap: 2px">
+    <span style="font-size: 16px; font-weight: 700; padding: 0 12px 16px 12px">Smart Dark Mode</span>
+    <sc-for list="{{sections}}" as="s" hint-placeholder-count="10">
+      <a href="#{{s.id}}" style="{{s.style}}">{{s.label}}</a>
+    </sc-for>
+  </nav>
+
+  <main style="flex-grow: 1; padding: 32px 40px; display: flex; flex-direction: column; gap: 24px; min-width: 0">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 style="margin: 0; font-size: 26px; font-weight: 650">Sites and rules</h1>
+        <p style="margin: 0; font-size: 14px; color: #a3a3aa">The most specific rule wins. Hover a row to see which settings it overrides.</p>
+      </div>
+      <div role="radiogroup" aria-label="Site list mode" style="display: flex; gap: 4px; background: #1c1d21; border-radius: 10px; padding: 4px">
+        <button type="button" role="radio" aria-checked="true" style="min-height: 36px; padding: 0 14px; border-radius: 7px; border: 0; background: #f0a35e; color: #1a1206; font-weight: 600; font-size: 13px">On everywhere except blocked</button>
+        <button type="button" role="radio" aria-checked="false" style="min-height: 36px; padding: 0 14px; border-radius: 7px; border: 0; background: transparent; color: #e1e1e3; font-size: 13px">Only on allowed sites</button>
+      </div>
+    </div>
+
+    <ol aria-label="Rule precedence" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px">
+      <sc-for list="{{levels}}" as="l" hint-placeholder-count="5">
+        <li style="background: #1c1d21; border: 1px solid #2a2b30; border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 12px; color: #a3a3aa">{{l.n}}</span>
+          <span style="font-size: 14px; font-weight: 600">{{l.name}}</span>
+          <span style="font-size: 12px; color: #a3a3aa">{{l.example}}</span>
+        </li>
+      </sc-for>
+    </ol>
+
+    <div style="display: flex; gap: 8px; align-items: center">
+      <label for="add" style="font-size: 13px; color: #a3a3aa">Add rule</label>
+      <input id="add" type="text" placeholder="example.com, *.atlassian.net/wiki/*, or /regex/" style="flex-grow: 1; min-height: 40px; border-radius: 8px; border: 1px solid #3a3b41; background: #1c1d21; color: #e1e1e3; padding: 0 12px; font-size: 14px">
+      <button type="button" style="min-height: 40px; padding: 0 16px; border-radius: 8px; border: 0; background: #f0a35e; color: #1a1206; font-weight: 600; font-size: 14px">Add</button>
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px">
+      <thead>
+        <tr style="text-align: left; color: #a3a3aa; font-size: 12px">
+          <th scope="col" style="padding: 8px 12px; font-weight: 500; border-bottom: 1px solid #2a2b30">Match</th>
+          <th scope="col" style="padding: 8px 12px; font-weight: 500; border-bottom: 1px solid #2a2b30">Level</th>
+          <th scope="col" style="padding: 8px 12px; font-weight: 500; border-bottom: 1px solid #2a2b30">Mode</th>
+          <th scope="col" style="padding: 8px 12px; font-weight: 500; border-bottom: 1px solid #2a2b30">Overrides</th>
+          <th scope="col" style="padding: 8px 12px; font-weight: 500; border-bottom: 1px solid #2a2b30">Native theme</th>
+          <th scope="col" style="padding: 8px 12px; font-weight: 500; border-bottom: 1px solid #2a2b30"><span style="position: absolute; left: -9999px">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+          <tr>
+            <td style="padding: 12px; border-bottom: 1px solid #222327; font-family: ui-monospace, Menlo, monospace; font-size: 13px">{{r.match}}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #222327; color: #a3a3aa">{{r.level}}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #222327">{{r.mode}}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #222327; color: #a3a3aa">{{r.over}}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #222327; color: #a3a3aa">{{r.native}}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #222327; text-align: right"><button type="button" style="min-height: 32px; padding: 0 10px; border-radius: 6px; border: 1px solid #3a3b41; background: transparent; color: #e1e1e3; font-size: 12px">Edit</button></td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+
+    <div style="display: flex; gap: 12px; margin-top: auto">
+      <button type="button" style="min-height: 40px; padding: 0 16px; border-radius: 8px; border: 1px solid #3a3b41; background: transparent; color: #e1e1e3; font-size: 14px">Export settings (JSON)</button>
+      <button type="button" style="min-height: 40px; padding: 0 16px; border-radius: 8px; border: 1px solid #3a3b41; background: transparent; color: #e1e1e3; font-size: 14px">Import from file, Night Eye or Dark Reader</button>
+      <button type="button" style="min-height: 40px; padding: 0 16px; border-radius: 8px; border: 1px solid #3a3b41; background: transparent; color: #e1e1e3; font-size: 14px">Show QR for phone</button>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const names = [['general','General'],['sites','Sites and rules'],['schedule','Schedule'],['themes','Themes'],['appearance','Images and controls'],['fixes','Site fixes'],['shortcuts','Shortcuts'],['privacy','Privacy'],['backup','Backup and sync'],['advanced','Advanced']];
+    const sections = names.map(([id,label]) => ({ id, label, style: 'display: block; padding: 10px 12px; border-radius: 8px; font-size: 14px; text-decoration: none; ' + (id === 'sites' ? 'background: #1c1d21; color: #ffd2a6; font-weight: 600' : 'color: #e1e1e3') }));
+    const levels = [
+      { n: '1 · lowest', name: 'Global', example: 'everything' },
+      { n: '2', name: 'Domain', example: 'google.com' },
+      { n: '3', name: 'Subdomain', example: 'docs.google.com' },
+      { n: '4', name: 'URL pattern', example: '*/wiki/*' },
+      { n: '5 · highest', name: 'Page', example: 'one exact path' }
+    ];
+    const rows = [
+      { match: 'github.com', level: 'Domain', mode: 'Dark', over: 'contrast 110', native: 'Use site theme' },
+      { match: 'docs.google.com', level: 'Subdomain', mode: 'Dark', over: 'canvas rule: Docs body', native: 'Use ours' },
+      { match: '*.atlassian.net/wiki/*', level: 'URL pattern', mode: 'Filtered', over: 'brightness 85, warmth 30', native: 'n/a' },
+      { match: 'console.cloud.google.com', level: 'Subdomain', mode: 'Dark (simplified)', over: 'auto: runaway loop detected', native: 'n/a' },
+      { match: 'news.example.com/live', level: 'Page', mode: 'Normal', over: 'none', native: "Don't touch" },
+      { match: 'duckduckgo.com', level: 'Domain', mode: 'Dark', over: 'none', native: 'Use site theme (journalled)' }
+    ];
+    return { sections, levels, rows };
+  }
+}
+</script>
+</body>
+</html>

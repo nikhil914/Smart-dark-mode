@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Element picker</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#f0a35e}a:hover{color:#ffc58f}
+</style>
+</helmet>
+<div style="width: 1120px; height: 720px; box-sizing: border-box; background: #18191c; color: #e1e1e3; position: relative; overflow: hidden">
+  <div aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; height: 56px; background: #1f2024; border-bottom: 1px solid #2a2b30; display: flex; align-items: center; gap: 16px; padding: 0 24px">
+    <div style="width: 120px; height: 14px; border-radius: 4px; background: #3a3b41"></div>
+    <div style="width: 70px; height: 10px; border-radius: 4px; background: #2e2f34"></div>
+    <div style="width: 70px; height: 10px; border-radius: 4px; background: #2e2f34"></div>
+  </div>
+
+  <div aria-hidden="true" style="position: absolute; left: 40px; top: 96px; width: 600px; display: flex; flex-direction: column; gap: 14px">
+    <div style="width: 360px; height: 22px; border-radius: 4px; background: #3a3b41"></div>
+    <div style="width: 560px; height: 10px; border-radius: 4px; background: #2e2f34"></div>
+    <div style="width: 520px; height: 10px; border-radius: 4px; background: #2e2f34"></div>
+    <div style="margin-top: 12px; width: 560px; height: 150px; border-radius: 10px; background: #f4f4f2; outline: 2px solid #f0a35e; outline-offset: 3px; position: relative">
+      <span style="position: absolute; left: 0; top: -30px; background: #f0a35e; color: #1a1206; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 5px">div.card-header &gt; .promo</span>
+      <div style="position: absolute; left: 20px; top: 24px; width: 260px; height: 14px; border-radius: 4px; background: #c9c9c6"></div>
+      <div style="position: absolute; left: 20px; top: 50px; width: 400px; height: 10px; border-radius: 4px; background: #dcdcd9"></div>
+    </div>
+    <div style="width: 540px; height: 10px; border-radius: 4px; background: #2e2f34"></div>
+    <div style="width: 500px; height: 10px; border-radius: 4px; background: #2e2f34"></div>
+  </div>
+
+  <section aria-label="Fix this element" style="position: absolute; right: 24px; top: 80px; width: 380px; background: #121316; border: 1px solid #3a3b41; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 12px 32px rgba(0,0,0,0.5)">
+    <div style="display: flex; justify-content: space-between; align-items: center">
+      <h2 style="margin: 0; font-size: 17px; font-weight: 650">Fix this element</h2>
+      <button type="button" aria-label="Close picker" style="width: 36px; height: 36px; border-radius: 8px; border: 0; background: transparent; color: #a3a3aa; cursor: pointer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+    </div>
+    <div style="display: flex; gap: 6px; align-items: center; font-size: 12px; color: #a3a3aa">
+      <button type="button" style="min-height: 28px; padding: 0 8px; border-radius: 6px; border: 1px solid #3a3b41; background: transparent; color: #e1e1e3; font-size: 12px">Parent</button>
+      <button type="button" style="min-height: 28px; padding: 0 8px; border-radius: 6px; border: 1px solid #3a3b41; background: transparent; color: #e1e1e3; font-size: 12px">Child</button>
+      <span>Arrow keys move the selection</span>
+    </div>
+    <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px">
+      <legend style="font-size: 13px; color: #a3a3aa; margin-bottom: 6px">Action</legend>
+      <sc-for list="{{actions}}" as="a" hint-placeholder-count="5">
+        <label style="{{a.style}}">
+          <input type="radio" name="act" checked="{{a.on}}" onChange="{{a.pick}}" style="accent-color: #f0a35e">
+          <span>{{a.label}}</span>
+        </label>
+      </sc-for>
+    </fieldset>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 13px; color: #a3a3aa">Generated rule (Dark Reader syntax)</span>
+      <pre style="margin: 0; background: #1c1d21; border-radius: 8px; padding: 10px 12px; font-size: 12px; line-height: 1.5; white-space: pre-wrap; font-family: ui-monospace, Menlo, monospace">{{rule}}</pre>
+    </div>
+    <label style="display: flex; gap: 8px; align-items: center; font-size: 13px">
+      <input type="checkbox" checked style="accent-color: #f0a35e">
+      <span>Live preview</span>
+    </label>
+    <div style="display: flex; gap: 8px">
+      <button type="button" style="flex-grow: 1; min-height: 44px; border-radius: 8px; border: 0; background: #f0a35e; color: #1a1206; font-weight: 600; font-size: 14px">Save for this site</button>
+      <button type="button" style="min-height: 44px; padding: 0 14px; border-radius: 8px; border: 1px solid #3a3b41; background: transparent; color: #e1e1e3; font-size: 14px">Share fix</button>
+    </div>
+  </section>
+
+  <div role="status" style="position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); background: #121316; border: 1px solid #3a3b41; border-radius: 999px; padding: 6px 6px 6px 16px; display: flex; align-items: center; gap: 10px; font-size: 13px; box-shadow: 0 8px 24px rgba(0,0,0,0.45)">
+    <span>This page doesn't look right (18% still bright).</span>
+    <button type="button" style="min-height: 32px; padding: 0 12px; border-radius: 999px; border: 0; background: #2b2118; color: #ffd2a6; font-size: 13px">Try Filtered</button>
+    <button type="button" style="min-height: 32px; padding: 0 12px; border-radius: 999px; border: 0; background: #2b2118; color: #ffd2a6; font-size: 13px">Fix an element</button>
+    <button type="button" style="min-height: 32px; padding: 0 12px; border-radius: 999px; border: 0; background: transparent; color: #e1e1e3; font-size: 13px">Report</button>
+    <button type="button" aria-label="Dismiss" style="width: 32px; height: 32px; border-radius: 999px; border: 0; background: transparent; color: #a3a3aa">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+    </button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1120,"height":720}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { act: 'bg' }; }
+  renderVals() {
+    const sel = 'div.card-header > .promo';
+    const defs = [
+      ['invert', 'Invert', 'INVERT\n' + sel],
+      ['keep', 'Keep original colours', 'CSS\n' + sel + ' {\n  filter: none !important;\n}'],
+      ['bg', 'Force background', 'CSS\n' + sel + ' {\n  background-color: var(--darkreader-neutral-background) !important;\n}'],
+      ['text', 'Force text colour', 'CSS\n' + sel + ' {\n  color: var(--darkreader-neutral-text) !important;\n}'],
+      ['img', 'Hide background image', 'CSS\n' + sel + ' {\n  background-image: none !important;\n}']
+    ];
+    const act = this.state.act;
+    const actions = defs.map(([id, label]) => ({
+      label, on: act === id,
+      style: 'display: flex; gap: 10px; align-items: center; min-height: 36px; padding: 0 10px; border-radius: 8px; font-size: 14px; cursor: pointer; ' + (act === id ? 'background: #2b2118; color: #ffd2a6' : 'background: #1c1d21'),
+      pick: () => this.setState({ act: id })
+    }));
+    const rule = 'example.com\n\n' + defs.find((d) => d[0] === act)[2];
+    return { actions, rule };
+  }
+}
+</script>
+</body>
+</html>

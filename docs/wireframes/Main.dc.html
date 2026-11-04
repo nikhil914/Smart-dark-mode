@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Popup</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#f0a35e}a:hover{color:#ffc58f}
+input[type=range]{accent-color:#f0a35e;width:100%}
+</style>
+</helmet>
+<div style="width: 360px; height: 640px; box-sizing: border-box; background: #121316; color: #e1e1e3; display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid #2a2b30">
+    <div style="width: 24px; height: 24px; border-radius: 6px; background: #2a2b30; flex-shrink: 0" aria-hidden="true"></div>
+    <div style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0">
+      <span style="font-size: 15px; font-weight: 600">github.com</span>
+      <span style="font-size: 12px; color: #a3a3aa">Rule: this site · subdomains inherit</span>
+    </div>
+    <button type="button" aria-label="Turn off everywhere" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid #3a3b41; background: #1c1d21; color: #f0a35e; display: flex; align-items: center; justify-content: center; cursor: pointer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v9"></path><path d="M6.3 6.3a8 8 0 1 0 11.4 0"></path></svg>
+    </button>
+  </header>
+
+  <div style="padding: 14px 16px 0 16px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+    <div role="radiogroup" aria-label="Mode for this site" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; background: #1c1d21; border-radius: 10px; padding: 4px">
+      <sc-for list="{{modes}}" as="m" hint-placeholder-count="3">
+        <button type="button" role="radio" aria-checked="{{m.checked}}" onClick="{{m.pick}}" style="{{m.style}}">{{m.label}}</button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{showNative}}" hint-placeholder-val="{{ true }}">
+      <div style="background: #1c1d21; border: 1px solid #3a3b41; border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 13px">This site has its own dark theme.</span>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap">
+          <button type="button" style="min-height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid #f0a35e; background: #2b2118; color: #ffd2a6; font-size: 12px">Use site's theme</button>
+          <button type="button" style="min-height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid #3a3b41; background: transparent; color: #e1e1e3; font-size: 12px">Use ours</button>
+          <button type="button" style="min-height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid #3a3b41; background: transparent; color: #e1e1e3; font-size: 12px">Don't touch</button>
+        </div>
+      </div>
+    </sc-if>
+
+    <div style="display: flex; align-items: center; gap: 8px">
+      <label for="theme" style="font-size: 13px; color: #a3a3aa; width: 72px">Theme</label>
+      <select id="theme" style="flex-grow: 1; min-height: 36px; border-radius: 8px; background: #1c1d21; color: #e1e1e3; border: 1px solid #3a3b41; padding: 0 8px; font-size: 13px">
+        <option>Dark · Balanced</option>
+        <option>AMOLED black</option>
+        <option>Dim grey</option>
+        <option>Sepia</option>
+      </select>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <sc-for list="{{sliders}}" as="s" hint-placeholder-count="5">
+        <div style="display: grid; grid-template-columns: 88px minmax(0, 1fr) 40px; align-items: center; gap: 8px">
+          <label for="{{s.id}}" style="font-size: 13px; color: #a3a3aa">{{s.label}}</label>
+          <input id="{{s.id}}" type="range" min="0" max="{{s.max}}" value="{{s.value}}">
+          <span style="font-size: 12px; text-align: right; font-variant-numeric: tabular-nums">{{s.shown}}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 8px">
+      <label for="scope" style="font-size: 13px; color: #a3a3aa; width: 72px">Apply to</label>
+      <select id="scope" style="flex-grow: 1; min-height: 36px; border-radius: 8px; background: #1c1d21; color: #e1e1e3; border: 1px solid #3a3b41; padding: 0 8px; font-size: 13px">
+        <option>This site (github.com)</option>
+        <option>This subdomain only</option>
+        <option>This page only</option>
+        <option>Everywhere (default)</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="padding: 10px 16px; font-size: 12px; color: #a3a3aa; display: flex; justify-content: space-between">
+    <span>Schedule: on 19:00 to 07:00</span>
+    <span>Fixes DB 2026.11.03</span>
+  </div>
+  <nav aria-label="Actions" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #2a2b30">
+    <button type="button" style="min-height: 52px; background: transparent; border: 0; color: #e1e1e3; font-size: 13px; cursor: pointer">Fix an element</button>
+    <button type="button" style="min-height: 52px; background: transparent; border: 0; border-left: 1px solid #2a2b30; color: #e1e1e3; font-size: 13px; cursor: pointer">Report site</button>
+    <button type="button" style="min-height: 52px; background: transparent; border: 0; border-left: 1px solid #2a2b30; color: #e1e1e3; font-size: 13px; cursor: pointer">Settings</button>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":360,"height":640}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { mode: 'dark' }; }
+  renderVals() {
+    const mode = this.state.mode;
+    const base = 'min-height: 40px; border-radius: 7px; border: 0; font-size: 14px; cursor: pointer; ';
+    const modes = [['dark','Dark'],['filtered','Filtered'],['normal','Normal']].map(([id,label]) => ({
+      label,
+      checked: mode === id ? 'true' : 'false',
+      style: base + (mode === id ? 'background: #f0a35e; color: #1a1206; font-weight: 600' : 'background: transparent; color: #e1e1e3'),
+      pick: () => this.setState({ mode: id })
+    }));
+    const sliders = mode === 'normal' ? [] : [
+      { id: 'br', label: 'Brightness', max: 150, value: 100, shown: '100' },
+      { id: 'ct', label: 'Contrast', max: 150, value: 100, shown: '100' },
+      { id: 'sa', label: 'Saturation', max: 150, value: 90, shown: '90' },
+      { id: 'wa', label: 'Warmth', max: 100, value: 20, shown: '20' },
+      { id: 'di', label: 'Dim', max: 60, value: 0, shown: '0' }
+    ];
+    return { modes, sliders, showNative: mode === 'dark' };
+  }
+}
+</script>
+</body>
+</html>
