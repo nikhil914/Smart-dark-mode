@@ -1,0 +1,42 @@
+name: Release
+
+# On a version tag (v1.2.3): builds the store packages and attaches them to a draft
+# release. Uploading to the stores is done by hand from those files (docs/RELEASE.md).
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Check the tag matches the version
+        run: |
+          version=$(node -p "require('./apps/extension/package.json').version")
+          test "v${version}" = "${GITHUB_REF_NAME}" || { echo "Tag ${GITHUB_REF_NAME} does not match ${version}"; exit 1; }
+      - run: pnpm lint && pnpm typecheck && pnpm test
+      - name: Packages
+        working-directory: apps/extension
+        run: |
+          pnpm exec wxt zip -b chrome --mv3
+          pnpm exec wxt zip -b edge --mv3
+          pnpm exec wxt zip -b firefox --mv3
+          pnpm exec wxt zip -b safari --mv3
+      - name: Draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >
+          gh release create "${GITHUB_REF_NAME}" --draft --generate-notes
+          --title "${GITHUB_REF_NAME}" apps/extension/.output/*.zip
