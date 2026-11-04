@@ -430,5 +430,269 @@
   },
   "reset": {
     "message": "重置"
+  },
+  "cancel": {
+    "message": "取消"
+  },
+  "close": {
+    "message": "关闭"
+  },
+  "remove": {
+    "message": "删除"
+  },
+  "copied": {
+    "message": "已复制"
+  },
+  "cmdPickElement": {
+    "message": "修正页面上的元素"
+  },
+  "menuToggleSite": {
+    "message": "在此网站使用深色模式"
+  },
+  "menuFixElement": {
+    "message": "修正此元素"
+  },
+  "menuOpenPdf": {
+    "message": "在深色查看器中打开 PDF"
+  },
+  "toolsLabel": {
+    "message": "页面工具"
+  },
+  "toolPicker": {
+    "message": "修正元素"
+  },
+  "toolDebug": {
+    "message": "检查颜色"
+  },
+  "toolDebugOff": {
+    "message": "停止检查"
+  },
+  "toolExport": {
+    "message": "导出 CSS"
+  },
+  "pickerTitle": {
+    "message": "修正此元素"
+  },
+  "pickerSelector": {
+    "message": "CSS 选择器"
+  },
+  "pickerOption_invert": {
+    "message": "反色（画布、图表）"
+  },
+  "pickerOption_background": {
+    "message": "强制深色背景"
+  },
+  "pickerOption_text": {
+    "message": "强制浅色文字"
+  },
+  "pickerOption_noImage": {
+    "message": "隐藏背景图片"
+  },
+  "pickerOption_hide": {
+    "message": "隐藏元素"
+  },
+  "pickerParent": {
+    "message": "选择父元素"
+  },
+  "pickerSave": {
+    "message": "为此网站保存"
+  },
+  "debugBackground": {
+    "message": "背景"
+  },
+  "debugText": {
+    "message": "文字"
+  },
+  "debugContrast": {
+    "message": "对比度"
+  },
+  "debugRule": {
+    "message": "规则"
+  },
+  "chipMessage": {
+    "message": "此页面部分区域仍然偏亮或难以阅读。"
+  },
+  "chipTryFiltered": {
+    "message": "尝试滤镜模式"
+  },
+  "chipFixElement": {
+    "message": "修正元素"
+  },
+  "sectionAppearance": {
+    "message": "外观"
+  },
+  "themeLabel": {
+    "message": "主题"
+  },
+  "theme_dark": {
+    "message": "深色"
+  },
+  "theme_amoled": {
+    "message": "AMOLED 纯黑"
+  },
+  "theme_dim": {
+    "message": "暗淡"
+  },
+  "theme_sepia": {
+    "message": "棕褐色"
+  },
+  "theme_contrast": {
+    "message": "高对比度"
+  },
+  "theme_grayscale": {
+    "message": "灰度"
+  },
+  "theme_protan": {
+    "message": "红色弱友好"
+  },
+  "theme_deutan": {
+    "message": "绿色弱友好"
+  },
+  "theme_tritan": {
+    "message": "蓝色弱友好"
+  },
+  "themeHint_dark": {
+    "message": "均衡的深灰与柔和白色文字。"
+  },
+  "themeHint_amoled": {
+    "message": "纯黑背景，OLED 屏幕更省电。"
+  },
+  "themeHint_dim": {
+    "message": "适合明亮环境的浅一些的深灰。"
+  },
+  "themeHint_sepia": {
+    "message": "温暖的棕色调，适合长时间阅读。"
+  },
+  "themeHint_contrast": {
+    "message": "近黑背景，文字对比度至少 7:1。"
+  },
+  "themeHint_grayscale": {
+    "message": "移除所有颜色。"
+  },
+  "themeHint_protan": {
+    "message": "拉开红绿差异，便于区分。"
+  },
+  "themeHint_deutan": {
+    "message": "拉开红绿差异，便于区分。"
+  },
+  "themeHint_tritan": {
+    "message": "拉开蓝黄差异，便于区分。"
+  },
+  "themeHint_custom": {
+    "message": "你自己的颜色，见下方。"
+  },
+  "presetLabel": {
+    "message": "颜色强度"
+  },
+  "preset_vivid": {
+    "message": "鲜艳"
+  },
+  "preset_balanced": {
+    "message": "均衡"
+  },
+  "preset_muted": {
+    "message": "柔和"
+  },
+  "imagesHeading": {
+    "message": "图片"
+  },
+  "imagesHoverOriginal": {
+    "message": "指针悬停时显示原图"
+  },
+  "imagesPhotoDim": {
+    "message": "调暗照片"
+  },
+  "diagnosisHeading": {
+    "message": "自检"
+  },
+  "diagnosisEnabled": {
+    "message": "页面仍偏亮时提供帮助"
+  },
+  "diagnosisHint": {
+    "message": "页面加载后在本机检测，不会发送任何数据。"
+  },
+  "customThemesHeading": {
+    "message": "自定义主题"
+  },
+  "customThemeAdd": {
+    "message": "新建主题"
+  },
+  "customThemeDefaultName": {
+    "message": "我的主题"
+  },
+  "customThemeName": {
+    "message": "主题名称"
+  },
+  "customThemePreview": {
+    "message": "示例文字："
+  },
+  "customColor_background": {
+    "message": "背景"
+  },
+  "customColor_text": {
+    "message": "文字"
+  },
+  "customColor_link": {
+    "message": "链接"
+  },
+  "customColor_visited": {
+    "message": "已访问链接"
+  },
+  "customColor_border": {
+    "message": "边框"
+  },
+  "customColor_selection": {
+    "message": "选中"
+  },
+  "customColor_button": {
+    "message": "按钮"
+  },
+  "customColor_scrollbar": {
+    "message": "滚动条"
+  },
+  "themeCodeLabel": {
+    "message": "主题代码"
+  },
+  "themeCodeImport": {
+    "message": "添加主题"
+  },
+  "themeCodeCopy": {
+    "message": "复制分享代码"
+  },
+  "themeCodeInvalid": {
+    "message": "这不是有效的主题代码。"
+  },
+  "themeCodeImported": {
+    "message": "已添加“$1”。"
+  },
+  "sectionFixes": {
+    "message": "网站修复"
+  },
+  "fixesUpdates": {
+    "message": "每天下载已签名的修复"
+  },
+  "fixesHint": {
+    "message": "修复是数据而非代码，仅在签名验证通过时使用。扩展自带的修复始终启用。"
+  },
+  "fixesCheckNow": {
+    "message": "立即检查"
+  },
+  "fixesNeverChecked": {
+    "message": "尚未检查。"
+  },
+  "fixesStatus_updated": {
+    "message": "已于 $1 更新（版本 $2）。"
+  },
+  "fixesStatus_unchanged": {
+    "message": "截至 $1 已是最新（版本 $2）。"
+  },
+  "fixesStatus_disabled": {
+    "message": "下载已关闭。检查时间 $1。"
+  },
+  "fixesStatus_rejected": {
+    "message": "上次下载（$1）签名验证失败，未被使用。"
+  },
+  "fixesStatus_failed": {
+    "message": "无法下载（$1），明天将重试。"
   }
 }

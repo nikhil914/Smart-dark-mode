@@ -54,6 +54,7 @@ export default defineConfig({
       'tabs',
       'alarms',
       'scripting',
+      'contextMenus',
       'declarativeNetRequestWithHostAccess',
       ...(browser === 'firefox' ? ['dns'] : []),
     ],
@@ -84,6 +85,10 @@ export default defineConfig({
       'cycle-mode': {
         description: '__MSG_cmdCycleMode__',
         suggested_key: { default: 'Alt+Shift+C' },
+      },
+      // Chrome allows four suggested keys; this one is left for the user to assign.
+      'pick-element': {
+        description: '__MSG_cmdPickElement__',
       },
     },
     ...(browser === 'firefox'

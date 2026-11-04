@@ -430,5 +430,269 @@
   },
   "reset": {
     "message": "रीसेट"
+  },
+  "cancel": {
+    "message": "रद्द करें"
+  },
+  "close": {
+    "message": "बंद करें"
+  },
+  "remove": {
+    "message": "हटाएँ"
+  },
+  "copied": {
+    "message": "कॉपी हो गया"
+  },
+  "cmdPickElement": {
+    "message": "पेज पर किसी तत्व को ठीक करें"
+  },
+  "menuToggleSite": {
+    "message": "इस साइट पर डार्क मोड"
+  },
+  "menuFixElement": {
+    "message": "इस तत्व को ठीक करें"
+  },
+  "menuOpenPdf": {
+    "message": "PDF को डार्क व्यूअर में खोलें"
+  },
+  "toolsLabel": {
+    "message": "पेज टूल"
+  },
+  "toolPicker": {
+    "message": "तत्व ठीक करें"
+  },
+  "toolDebug": {
+    "message": "रंग जाँचें"
+  },
+  "toolDebugOff": {
+    "message": "जाँच बंद करें"
+  },
+  "toolExport": {
+    "message": "CSS निर्यात करें"
+  },
+  "pickerTitle": {
+    "message": "इस तत्व को ठीक करें"
+  },
+  "pickerSelector": {
+    "message": "CSS सेलेक्टर"
+  },
+  "pickerOption_invert": {
+    "message": "उलटें (कैनवास, आरेख)"
+  },
+  "pickerOption_background": {
+    "message": "गहरी पृष्ठभूमि लागू करें"
+  },
+  "pickerOption_text": {
+    "message": "हल्का टेक्स्ट लागू करें"
+  },
+  "pickerOption_noImage": {
+    "message": "पृष्ठभूमि छवि छिपाएँ"
+  },
+  "pickerOption_hide": {
+    "message": "तत्व छिपाएँ"
+  },
+  "pickerParent": {
+    "message": "पैरेंट चुनें"
+  },
+  "pickerSave": {
+    "message": "इस साइट के लिए सहेजें"
+  },
+  "debugBackground": {
+    "message": "पृष्ठभूमि"
+  },
+  "debugText": {
+    "message": "टेक्स्ट"
+  },
+  "debugContrast": {
+    "message": "कंट्रास्ट"
+  },
+  "debugRule": {
+    "message": "नियम"
+  },
+  "chipMessage": {
+    "message": "इस पेज के कुछ हिस्से अब भी चमकीले या पढ़ने में कठिन हैं।"
+  },
+  "chipTryFiltered": {
+    "message": "फ़िल्टर मोड आज़माएँ"
+  },
+  "chipFixElement": {
+    "message": "तत्व ठीक करें"
+  },
+  "sectionAppearance": {
+    "message": "रूप"
+  },
+  "themeLabel": {
+    "message": "थीम"
+  },
+  "theme_dark": {
+    "message": "डार्क"
+  },
+  "theme_amoled": {
+    "message": "AMOLED काला"
+  },
+  "theme_dim": {
+    "message": "मंद"
+  },
+  "theme_sepia": {
+    "message": "सीपिया"
+  },
+  "theme_contrast": {
+    "message": "उच्च कंट्रास्ट"
+  },
+  "theme_grayscale": {
+    "message": "ग्रेस्केल"
+  },
+  "theme_protan": {
+    "message": "लाल-कमज़ोरी के अनुकूल (protan)"
+  },
+  "theme_deutan": {
+    "message": "हरा-कमज़ोरी के अनुकूल (deutan)"
+  },
+  "theme_tritan": {
+    "message": "नीला-कमज़ोरी के अनुकूल (tritan)"
+  },
+  "themeHint_dark": {
+    "message": "संतुलित गहरा स्लेटी, हल्का सफ़ेद टेक्स्ट।"
+  },
+  "themeHint_amoled": {
+    "message": "शुद्ध काली पृष्ठभूमि, OLED पर बिजली बचाती है।"
+  },
+  "themeHint_dim": {
+    "message": "रोशन कमरों के लिए हल्का गहरा स्लेटी।"
+  },
+  "themeHint_sepia": {
+    "message": "लंबे पठन के लिए गर्म भूरे रंग।"
+  },
+  "themeHint_contrast": {
+    "message": "लगभग काली पृष्ठभूमि और कम से कम 7:1 टेक्स्ट कंट्रास्ट।"
+  },
+  "themeHint_grayscale": {
+    "message": "सभी रंग हटा देता है।"
+  },
+  "themeHint_protan": {
+    "message": "लाल और हरे को अलग करता है ताकि पहचानना आसान हो।"
+  },
+  "themeHint_deutan": {
+    "message": "लाल और हरे को अलग करता है ताकि पहचानना आसान हो।"
+  },
+  "themeHint_tritan": {
+    "message": "नीले और पीले को अलग करता है ताकि पहचानना आसान हो।"
+  },
+  "themeHint_custom": {
+    "message": "आपके अपने रंग, नीचे।"
+  },
+  "presetLabel": {
+    "message": "रंग तीव्रता"
+  },
+  "preset_vivid": {
+    "message": "चटक"
+  },
+  "preset_balanced": {
+    "message": "संतुलित"
+  },
+  "preset_muted": {
+    "message": "मंद"
+  },
+  "imagesHeading": {
+    "message": "छवियाँ"
+  },
+  "imagesHoverOriginal": {
+    "message": "पॉइंटर के नीचे मूल छवि दिखाएँ"
+  },
+  "imagesPhotoDim": {
+    "message": "फ़ोटो गहरी करें"
+  },
+  "diagnosisHeading": {
+    "message": "स्व-जाँच"
+  },
+  "diagnosisEnabled": {
+    "message": "पेज अब भी चमकीला दिखे तो मदद दिखाएँ"
+  },
+  "diagnosisHint": {
+    "message": "पेज लोड होने के बाद आपके डिवाइस पर मापा जाता है। कुछ भी भेजा नहीं जाता।"
+  },
+  "customThemesHeading": {
+    "message": "कस्टम थीम"
+  },
+  "customThemeAdd": {
+    "message": "नई थीम"
+  },
+  "customThemeDefaultName": {
+    "message": "मेरी थीम"
+  },
+  "customThemeName": {
+    "message": "थीम का नाम"
+  },
+  "customThemePreview": {
+    "message": "उदाहरण टेक्स्ट:"
+  },
+  "customColor_background": {
+    "message": "पृष्ठभूमि"
+  },
+  "customColor_text": {
+    "message": "टेक्स्ट"
+  },
+  "customColor_link": {
+    "message": "लिंक"
+  },
+  "customColor_visited": {
+    "message": "देखा गया लिंक"
+  },
+  "customColor_border": {
+    "message": "बॉर्डर"
+  },
+  "customColor_selection": {
+    "message": "चयन"
+  },
+  "customColor_button": {
+    "message": "बटन"
+  },
+  "customColor_scrollbar": {
+    "message": "स्क्रॉलबार"
+  },
+  "themeCodeLabel": {
+    "message": "थीम कोड"
+  },
+  "themeCodeImport": {
+    "message": "थीम जोड़ें"
+  },
+  "themeCodeCopy": {
+    "message": "शेयर कोड कॉपी करें"
+  },
+  "themeCodeInvalid": {
+    "message": "यह मान्य थीम कोड नहीं है।"
+  },
+  "themeCodeImported": {
+    "message": "“$1” जोड़ी गई।"
+  },
+  "sectionFixes": {
+    "message": "साइट सुधार"
+  },
+  "fixesUpdates": {
+    "message": "हस्ताक्षरित सुधार रोज़ डाउनलोड करें"
+  },
+  "fixesHint": {
+    "message": "सुधार डेटा हैं, कोड नहीं, और सही हस्ताक्षर होने पर ही उपयोग होते हैं। एक्सटेंशन के साथ आए सुधार हमेशा उपयोग होते हैं।"
+  },
+  "fixesCheckNow": {
+    "message": "अभी जाँचें"
+  },
+  "fixesNeverChecked": {
+    "message": "अभी तक जाँचा नहीं गया।"
+  },
+  "fixesStatus_updated": {
+    "message": "$1 को अपडेट (संस्करण $2)।"
+  },
+  "fixesStatus_unchanged": {
+    "message": "$1 तक नवीनतम (संस्करण $2)।"
+  },
+  "fixesStatus_disabled": {
+    "message": "डाउनलोड बंद हैं। $1 को जाँचा गया।"
+  },
+  "fixesStatus_rejected": {
+    "message": "पिछला डाउनलोड ($1) हस्ताक्षर जाँच में विफल रहा और उपयोग नहीं हुआ।"
+  },
+  "fixesStatus_failed": {
+    "message": "डाउनलोड नहीं हो सका ($1)। कल फिर कोशिश होगी।"
   }
 }
