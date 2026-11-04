@@ -1,5 +1,58 @@
 # Quality report
 
+## P4 update (2026-11-04)
+
+`features.mjs` now has 37 checks, and all of them pass. Twelve are new, for themes and the page tools:
+
+| Scenario | Check | Result | Detail |
+| --- | --- | --- | --- |
+| Themes | AMOLED theme makes the page background black | pass | 0,0,0 |
+| Themes | and differs from the default dark theme | pass | 22,22,22 |
+| Themes | sepia theme tints the background warm | pass | 39,29,18 |
+| Themes | custom theme colours the background | pass | 16,26,51 |
+| Page tools | self-diagnosis chip shown on a page that stays bright | pass | 1 hosts |
+| Page tools | generated CSS can be exported | pass | 2211 chars |
+| Page tools | debug overlay switches on | pass | true |
+| Page tools | and Escape switches it off | pass | false |
+| Page tools | picker previews the fix live | pass | #fix-me {
+| Page tools | picker saves the fix as site CSS | pass | "#fix-me {\n  background-color: ${#ffffff} !important;\n}" |
+| Page tools | saved fix applies to the page, converted | pass | #fix-me {
+| Page tools | context menu API available to the extension | pass |  |
+
+The picker check drives the closed-shadow UI with the keyboard only (Tab, Space, Enter), so
+keyboard use is covered as well.
+
+One fixture was added to the metrics run, `bright-shadow`. It is a custom element that styles
+itself from a closed shadow root, which no extension can read:
+
+| Mode | Bright % @8s | Text AA % |
+| --- | --- | --- |
+| none | 99.9 | 100.0 |
+| ours | 83.6 | 100.0 |
+| darkreader | 87.1 | 100.0 |
+
+Neither extension can convert this page. Here the self-check steps in: on this page it offers
+filtered mode, the element picker or a problem report, which Dark Reader does not.
+
+The other fixtures did not change in a meaningful way. Our engine still shows 0.0 to 0.6 %
+bright area and 100 % text AA on every convertible fixture.
+
+Load cost has drifted up. Main-thread task time is now 22 to 33 ms, against 15 to 24 ms for
+Dark Reader, so the gap is about 13 ms (P3: 8 to 15 ms). The content script now also loads
+the page tools and the fixes lookup. Lazy-loading the tools is part of the P6 performance work.
+
+Not checked in a real browser yet:
+
+- The bundled canvas fixes (Google Docs, Sheets, Slides, Maps, TradingView, Notion,
+  Excalidraw). Their selectors come from each site's public markup and need checking on
+  the live sites.
+- Downloading signed bundles from a real release. The signature check is covered by unit
+  tests, including a rejected bundle. No public key is set yet, so downloads stay off.
+- Context menu clicks. Playwright cannot open the browser's own menu, so the check only
+  confirms that the API is present.
+
+---
+
 ## P3 update (2026-11-04)
 
 Phase P3 adds a second script, `tests/harness/features.mjs`, which checks the parity
