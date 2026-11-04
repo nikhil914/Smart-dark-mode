@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Shadow DOM</title>
+    <style>
+      body {
+        margin: 0;
+        background: white;
+        color: black;
+        font: 16px system-ui;
+        padding: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Light DOM text.</p>
+    <x-card></x-card>
+    <x-lit-card></x-lit-card>
+    <script>
+      customElements.define(
+        'x-card',
+        class extends HTMLElement {
+          constructor() {
+            super();
+            const root = this.attachShadow({ mode: 'open' });
+            root.innerHTML =
+              '<style>.box{background:#ffffff;color:#202124;border:1px solid #dadce0;padding:16px;margin:8px 0}</style><div class="box">Shadow root with a style element</div>';
+          }
+        },
+      );
+      const shared = new CSSStyleSheet();
+      shared.replaceSync(
+        '.box { background: #f8f9fa; color: #3c4043; padding: 16px; border: 1px solid #e0e0e0; }',
+      );
+      customElements.define(
+        'x-lit-card',
+        class extends HTMLElement {
+          constructor() {
+            super();
+            const root = this.attachShadow({ mode: 'open' });
+            root.adoptedStyleSheets = [shared];
+            root.innerHTML = '<div class="box">Shadow root with an adopted sheet (Lit style)</div>';
+          }
+        },
+      );
+    </script>
+  </body>
+</html>

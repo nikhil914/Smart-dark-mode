@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>PDF</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="bar" role="toolbar">
+      <span id="title" class="title"></span>
+      <label class="field">
+        <span data-i18n="pdfStyle"></span>
+        <select id="style">
+          <option value="dark" data-i18n="pdf_dark"></option>
+          <option value="sepia" data-i18n="pdf_sepia"></option>
+          <option value="invert" data-i18n="pdf_invert"></option>
+          <option value="custom" data-i18n="pdf_custom"></option>
+          <option value="original" data-i18n="pdf_original"></option>
+        </select>
+      </label>
+      <span id="custom" class="custom" hidden>
+        <label><span data-i18n="pdfBackground"></span><input id="bg" type="color" /></label>
+        <label><span data-i18n="pdfText"></span><input id="fg" type="color" /></label>
+      </span>
+      <span class="group">
+        <button id="zoom-out" type="button" data-i18n-label="zoomOut">−</button>
+        <output id="zoom">100%</output>
+        <button id="zoom-in" type="button" data-i18n-label="zoomIn">+</button>
+      </span>
+      <form id="search" class="group" role="search">
+        <input
+          id="query"
+          type="search"
+          data-i18n-placeholder="pdfSearch"
+          data-i18n-label="pdfSearch"
+        />
+        <button id="prev" type="button" data-i18n-label="previousMatch">↑</button>
+        <button id="next" type="submit" data-i18n-label="nextMatch">↓</button>
+        <output id="matches"></output>
+      </form>
+      <span class="group">
+        <button id="print" type="button" data-i18n="print"></button>
+        <button id="original" type="button" data-i18n="openOriginal"></button>
+      </span>
+    </header>
+    <main id="pages" aria-live="polite"></main>
+    <p id="status" class="status" role="status"></p>
+    <div id="print-pages" class="print-pages"></div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

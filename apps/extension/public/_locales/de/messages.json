@@ -1,0 +1,698 @@
+{
+  "extName": {
+    "message": "Smart Dark Mode"
+  },
+  "extDescription": {
+    "message": "Dunkelmodus für jede Website, mit Regeln pro Website, Zeitplan und ohne Tracking."
+  },
+  "cmdToggleSite": {
+    "message": "Dunkelmodus auf dieser Website umschalten"
+  },
+  "cmdToggleGlobal": {
+    "message": "Erweiterung überall ein- oder ausschalten"
+  },
+  "cmdCycleMode": {
+    "message": "Modus auf dieser Website wechseln (dunkel, gefiltert, normal)"
+  },
+  "unsupportedPage": {
+    "message": "Diese Seite kann nicht geändert werden"
+  },
+  "unsupportedPageHint": {
+    "message": "Browserseiten und Erweiterungs-Stores erlauben Erweiterungen keine Gestaltungsänderungen."
+  },
+  "ruleFrom": {
+    "message": "Regel: $1"
+  },
+  "ruleGlobal": {
+    "message": "Regel: globale Vorgabe"
+  },
+  "level_domain": {
+    "message": "Website"
+  },
+  "level_subdomain": {
+    "message": "Subdomain"
+  },
+  "level_pattern": {
+    "message": "URL-Muster"
+  },
+  "level_page": {
+    "message": "Seite"
+  },
+  "suppressed_disabled": {
+    "message": "Überall ausgeschaltet. Mit dem Ein/Aus-Schalter wieder einschalten."
+  },
+  "suppressed_allowlist": {
+    "message": "Positivliste: Diese Website steht nicht auf Ihrer Liste."
+  },
+  "suppressed_automation": {
+    "message": "Gerade aus wegen Ihrer Automatisierung."
+  },
+  "modeLabel": {
+    "message": "Modus für diese Website"
+  },
+  "mode_dark": {
+    "message": "Dunkel"
+  },
+  "mode_filtered": {
+    "message": "Gefiltert"
+  },
+  "mode_normal": {
+    "message": "Normal"
+  },
+  "applyTo": {
+    "message": "Anwenden auf"
+  },
+  "scope_domain": {
+    "message": "Diese Website ($1)"
+  },
+  "scope_subdomain": {
+    "message": "Nur diese Subdomain ($1)"
+  },
+  "scope_page": {
+    "message": "Nur diese Seite"
+  },
+  "scope_global": {
+    "message": "Überall (Standard)"
+  },
+  "inheritSubdomains": {
+    "message": "Subdomains folgen dieser Website"
+  },
+  "adj_brightness": {
+    "message": "Helligkeit"
+  },
+  "adj_contrast": {
+    "message": "Kontrast"
+  },
+  "adj_saturation": {
+    "message": "Sättigung"
+  },
+  "adj_warmth": {
+    "message": "Wärme"
+  },
+  "adj_dim": {
+    "message": "Abdunkeln"
+  },
+  "turnOffEverywhere": {
+    "message": "Überall ausschalten"
+  },
+  "turnOnEverywhere": {
+    "message": "Überall einschalten"
+  },
+  "automation": {
+    "message": "Automatisierung"
+  },
+  "auto_off": {
+    "message": "Immer an"
+  },
+  "auto_schedule": {
+    "message": "Nach Zeitplan"
+  },
+  "auto_system": {
+    "message": "System-Dunkelmodus folgen"
+  },
+  "from": {
+    "message": "Von"
+  },
+  "to": {
+    "message": "Bis"
+  },
+  "optionsTitle": {
+    "message": "Smart Dark Mode – Einstellungen"
+  },
+  "sectionGeneral": {
+    "message": "Allgemein"
+  },
+  "sectionSites": {
+    "message": "Websites und Regeln"
+  },
+  "sectionPdf": {
+    "message": "PDF-Anzeige"
+  },
+  "sectionBackup": {
+    "message": "Sichern und übertragen"
+  },
+  "sectionIntegration": {
+    "message": "Websites mit eigenem dunklen Design"
+  },
+  "sectionAbout": {
+    "message": "Über"
+  },
+  "enabledEverywhere": {
+    "message": "Dunkelmodus einschalten"
+  },
+  "defaultMode": {
+    "message": "Modus für Websites ohne Regel"
+  },
+  "listMode": {
+    "message": "Wo anwenden"
+  },
+  "list_blocklist": {
+    "message": "Alle Websites außer abgeschalteten"
+  },
+  "list_allowlist": {
+    "message": "Nur eingeschaltete Websites"
+  },
+  "listHint_blocklist": {
+    "message": "Websites werden umgewandelt, außer eine Regel schaltet sie ab."
+  },
+  "listHint_allowlist": {
+    "message": "Nur Websites mit einer Modus-Regel werden geändert."
+  },
+  "integrationDefault": {
+    "message": "Wenn eine Website ein eigenes dunkles Design hat"
+  },
+  "integration_site": {
+    "message": "Design der Website nutzen"
+  },
+  "integration_convert": {
+    "message": "Trotzdem umwandeln"
+  },
+  "integration_off": {
+    "message": "Unverändert lassen"
+  },
+  "syncSettings": {
+    "message": "Einstellungen mit dem Browserkonto synchronisieren"
+  },
+  "syncHint": {
+    "message": "Beim Einschalten werden Einstellungen anderer Browser geladen, falls vorhanden."
+  },
+  "syncError_too_large": {
+    "message": "Zu groß zum Synchronisieren. Entfernen Sie etwas eigenes CSS."
+  },
+  "syncError_quota": {
+    "message": "Der Browser hat die Synchronisierung abgelehnt. Neuer Versuch bei der nächsten Änderung."
+  },
+  "sitesHint": {
+    "message": "Genauere Regeln gewinnen: Website, Subdomain, Muster, Seite."
+  },
+  "ruleLevel": {
+    "message": "Gilt für"
+  },
+  "ruleMatch": {
+    "message": "Adresse"
+  },
+  "ruleExtras": {
+    "message": "Außerdem"
+  },
+  "actions": {
+    "message": "Aktionen"
+  },
+  "addRule": {
+    "message": "Regel hinzufügen"
+  },
+  "noRules": {
+    "message": "Noch keine Regeln. Regeln aus dem Popup erscheinen hier."
+  },
+  "invalidPattern": {
+    "message": "Dieses Muster ist ungültig."
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  oder  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "Übernehmen"
+  },
+  "modeFor": {
+    "message": "Modus für $1"
+  },
+  "extra_adjust": {
+    "message": "Anpassungen"
+  },
+  "extra_remap": {
+    "message": "$1 Farben"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "Eigenes CSS für $1"
+  },
+  "customCssHint": {
+    "message": "Schreiben Sie $${#333} für die Farbe, zu der #333 im Dunkelmodus wird."
+  },
+  "clearRemap": {
+    "message": "Farben zurücksetzen"
+  },
+  "delete": {
+    "message": "Löschen"
+  },
+  "deleteRuleFor": {
+    "message": "Regel für $1 löschen"
+  },
+  "save": {
+    "message": "Speichern"
+  },
+  "pdfEnabled": {
+    "message": "PDFs in der dunklen Anzeige öffnen"
+  },
+  "pdfStyle": {
+    "message": "Stil"
+  },
+  "pdf_dark": {
+    "message": "Nur Text dunkel"
+  },
+  "pdf_sepia": {
+    "message": "Sepia"
+  },
+  "pdf_invert": {
+    "message": "Alles umkehren"
+  },
+  "pdf_custom": {
+    "message": "Eigene Farben"
+  },
+  "pdf_original": {
+    "message": "Original"
+  },
+  "pdfHint": {
+    "message": "„Nur Text dunkel“ lässt Bilder unverändert. Gedruckt wird immer im Original."
+  },
+  "pdfBackground": {
+    "message": "Hintergrund"
+  },
+  "pdfText": {
+    "message": "Text"
+  },
+  "pdfSearch": {
+    "message": "Suchen"
+  },
+  "previousMatch": {
+    "message": "Vorheriger Treffer"
+  },
+  "nextMatch": {
+    "message": "Nächster Treffer"
+  },
+  "noMatches": {
+    "message": "Keine Treffer"
+  },
+  "matchPages": {
+    "message": "Seite $1 von $2 mit Treffern"
+  },
+  "zoomIn": {
+    "message": "Vergrößern"
+  },
+  "zoomOut": {
+    "message": "Verkleinern"
+  },
+  "print": {
+    "message": "Drucken"
+  },
+  "openOriginal": {
+    "message": "Original öffnen"
+  },
+  "pageN": {
+    "message": "Seite $1"
+  },
+  "preparingPrint": {
+    "message": "Seite $1 von $2 wird für den Druck vorbereitet …"
+  },
+  "pdfLoadFailed": {
+    "message": "Dieses PDF konnte nicht geladen werden. Nutzen Sie „Original öffnen“."
+  },
+  "pdfFileAccess": {
+    "message": "Für lokale PDFs „Zugriff auf Datei-URLs zulassen“ in den Erweiterungseinstellungen aktivieren."
+  },
+  "backupHint": {
+    "message": "Export speichert alle Einstellungen in einer Datei. Import liest auch Dark-Reader-Exporte."
+  },
+  "exportSettings": {
+    "message": "Einstellungen exportieren"
+  },
+  "importSettings": {
+    "message": "Einstellungen importieren …"
+  },
+  "importConfirm": {
+    "message": "Alle aktuellen Einstellungen durch die importierten ersetzen?"
+  },
+  "imported_smart_dark_mode": {
+    "message": "Einstellungen importiert."
+  },
+  "imported_darkreader": {
+    "message": "Dark-Reader-Einstellungen importiert."
+  },
+  "importSkipped": {
+    "message": "Nicht übernommen: $1."
+  },
+  "skipped_location_schedule": {
+    "message": "standortbasierter Zeitplan"
+  },
+  "skipped_presets": {
+    "message": "Voreinstellungen"
+  },
+  "skipped_light_scheme": {
+    "message": "helles Farbschema"
+  },
+  "importError_not_json": {
+    "message": "Das ist keine Einstellungsdatei."
+  },
+  "importError_unknown_format": {
+    "message": "Dieses Dateiformat wird nicht unterstützt."
+  },
+  "importError_too_large": {
+    "message": "Die Datei ist zu groß."
+  },
+  "integrationHint": {
+    "message": "Bei bekannten Websites schalten wir deren eigenes dunkles Design ein, statt umzuwandeln."
+  },
+  "integrationChanges": {
+    "message": "Gespeicherte Änderungen auf Websites"
+  },
+  "integrationNoChanges": {
+    "message": "Keine. Auf keiner Website wurde etwas gespeichert."
+  },
+  "integrationUndoHint": {
+    "message": "Rückgängig beim nächsten Besuch, nachdem Sie „Trotzdem umwandeln“, „Unverändert lassen“ oder Aus gewählt haben."
+  },
+  "journal_localStorage": {
+    "message": "Website-Speicher"
+  },
+  "journal_cookie": {
+    "message": "Cookie"
+  },
+  "journalWas": {
+    "message": "vorher $1"
+  },
+  "journalWasUnset": {
+    "message": "vorher nicht gesetzt"
+  },
+  "forgetDarkSites": {
+    "message": "Als dunkel erkannte Websites vergessen"
+  },
+  "integrationList": {
+    "message": "Eingebaute Liste ($1)"
+  },
+  "done": {
+    "message": "Erledigt"
+  },
+  "aboutVersion": {
+    "message": "Version $1"
+  },
+  "privacyShort": {
+    "message": "Keine Daten verlassen Ihren Browser. Nichts wird gesammelt oder gesendet."
+  },
+  "sourceCode": {
+    "message": "Quellcode"
+  },
+  "reportProblem": {
+    "message": "Problem melden"
+  },
+  "moreSettings": {
+    "message": "Weitere Einstellungen"
+  },
+  "siteThemeOn": {
+    "message": "Eigenes dunkles Design der Website ($1)"
+  },
+  "siteAlreadyDark": {
+    "message": "Diese Website ist bereits dunkel und bleibt unverändert"
+  },
+  "pageColours": {
+    "message": "Farben auf dieser Seite"
+  },
+  "pageColoursHint": {
+    "message": "Wählen Sie die neue Farbe. Alle Elemente damit ändern sich."
+  },
+  "remapColour": {
+    "message": "Neue Farbe für $1"
+  },
+  "resetColour": {
+    "message": "$1 zurücksetzen"
+  },
+  "reset": {
+    "message": "Zurücksetzen"
+  },
+  "cancel": {
+    "message": "Abbrechen"
+  },
+  "close": {
+    "message": "Schließen"
+  },
+  "remove": {
+    "message": "Entfernen"
+  },
+  "copied": {
+    "message": "Kopiert"
+  },
+  "cmdPickElement": {
+    "message": "Element auf der Seite korrigieren"
+  },
+  "menuToggleSite": {
+    "message": "Dunkelmodus auf dieser Website"
+  },
+  "menuFixElement": {
+    "message": "Dieses Element korrigieren"
+  },
+  "menuOpenPdf": {
+    "message": "PDF im dunklen Viewer öffnen"
+  },
+  "toolsLabel": {
+    "message": "Seitenwerkzeuge"
+  },
+  "toolPicker": {
+    "message": "Element korrigieren"
+  },
+  "toolDebug": {
+    "message": "Farben prüfen"
+  },
+  "toolDebugOff": {
+    "message": "Prüfen beenden"
+  },
+  "toolExport": {
+    "message": "CSS exportieren"
+  },
+  "pickerTitle": {
+    "message": "Dieses Element korrigieren"
+  },
+  "pickerSelector": {
+    "message": "CSS-Selektor"
+  },
+  "pickerOption_invert": {
+    "message": "Invertieren (Canvas, Diagramme)"
+  },
+  "pickerOption_background": {
+    "message": "Dunklen Hintergrund erzwingen"
+  },
+  "pickerOption_text": {
+    "message": "Hellen Text erzwingen"
+  },
+  "pickerOption_noImage": {
+    "message": "Hintergrundbild ausblenden"
+  },
+  "pickerOption_hide": {
+    "message": "Element ausblenden"
+  },
+  "pickerParent": {
+    "message": "Übergeordnetes wählen"
+  },
+  "pickerSave": {
+    "message": "Für diese Website speichern"
+  },
+  "debugBackground": {
+    "message": "Hintergrund"
+  },
+  "debugText": {
+    "message": "Text"
+  },
+  "debugContrast": {
+    "message": "Kontrast"
+  },
+  "debugRule": {
+    "message": "Regel"
+  },
+  "chipMessage": {
+    "message": "Teile dieser Seite wirken noch hell oder schwer lesbar."
+  },
+  "chipTryFiltered": {
+    "message": "Filtermodus testen"
+  },
+  "chipFixElement": {
+    "message": "Element korrigieren"
+  },
+  "sectionAppearance": {
+    "message": "Darstellung"
+  },
+  "themeLabel": {
+    "message": "Design"
+  },
+  "theme_dark": {
+    "message": "Dunkel"
+  },
+  "theme_amoled": {
+    "message": "AMOLED-Schwarz"
+  },
+  "theme_dim": {
+    "message": "Gedämpft"
+  },
+  "theme_sepia": {
+    "message": "Sepia"
+  },
+  "theme_contrast": {
+    "message": "Hoher Kontrast"
+  },
+  "theme_grayscale": {
+    "message": "Graustufen"
+  },
+  "theme_protan": {
+    "message": "Für Rotschwäche (Protan)"
+  },
+  "theme_deutan": {
+    "message": "Für Grünschwäche (Deutan)"
+  },
+  "theme_tritan": {
+    "message": "Für Blauschwäche (Tritan)"
+  },
+  "themeHint_dark": {
+    "message": "Ausgewogenes Dunkelgrau, gebrochen weißer Text."
+  },
+  "themeHint_amoled": {
+    "message": "Reinschwarzer Hintergrund, spart Strom bei OLED."
+  },
+  "themeHint_dim": {
+    "message": "Helleres Dunkelgrau für helle Räume."
+  },
+  "themeHint_sepia": {
+    "message": "Warme Brauntöne für langes Lesen."
+  },
+  "themeHint_contrast": {
+    "message": "Fast schwarzer Hintergrund, Textkontrast mindestens 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "Entfernt alle Farben."
+  },
+  "themeHint_protan": {
+    "message": "Rückt Rot und Grün auseinander, damit sie unterscheidbar sind."
+  },
+  "themeHint_deutan": {
+    "message": "Rückt Rot und Grün auseinander, damit sie unterscheidbar sind."
+  },
+  "themeHint_tritan": {
+    "message": "Rückt Blau und Gelb auseinander, damit sie unterscheidbar sind."
+  },
+  "themeHint_custom": {
+    "message": "Ihre eigenen Farben, siehe unten."
+  },
+  "presetLabel": {
+    "message": "Farbintensität"
+  },
+  "preset_vivid": {
+    "message": "Lebhaft"
+  },
+  "preset_balanced": {
+    "message": "Ausgewogen"
+  },
+  "preset_muted": {
+    "message": "Gedämpft"
+  },
+  "imagesHeading": {
+    "message": "Bilder"
+  },
+  "imagesHoverOriginal": {
+    "message": "Originalbild unter dem Zeiger zeigen"
+  },
+  "imagesPhotoDim": {
+    "message": "Fotos abdunkeln"
+  },
+  "diagnosisHeading": {
+    "message": "Selbstprüfung"
+  },
+  "diagnosisEnabled": {
+    "message": "Hilfe anbieten, wenn eine Seite noch hell wirkt"
+  },
+  "diagnosisHint": {
+    "message": "Wird nach dem Laden auf Ihrem Gerät gemessen. Nichts wird gesendet."
+  },
+  "customThemesHeading": {
+    "message": "Eigene Designs"
+  },
+  "customThemeAdd": {
+    "message": "Neues Design"
+  },
+  "customThemeDefaultName": {
+    "message": "Mein Design"
+  },
+  "customThemeName": {
+    "message": "Name des Designs"
+  },
+  "customThemePreview": {
+    "message": "Beispieltext mit"
+  },
+  "customColor_background": {
+    "message": "Hintergrund"
+  },
+  "customColor_text": {
+    "message": "Text"
+  },
+  "customColor_link": {
+    "message": "Link"
+  },
+  "customColor_visited": {
+    "message": "Besuchter Link"
+  },
+  "customColor_border": {
+    "message": "Rahmen"
+  },
+  "customColor_selection": {
+    "message": "Auswahl"
+  },
+  "customColor_button": {
+    "message": "Schaltfläche"
+  },
+  "customColor_scrollbar": {
+    "message": "Scrollleiste"
+  },
+  "themeCodeLabel": {
+    "message": "Design-Code"
+  },
+  "themeCodeImport": {
+    "message": "Design hinzufügen"
+  },
+  "themeCodeCopy": {
+    "message": "Teilen-Code kopieren"
+  },
+  "themeCodeInvalid": {
+    "message": "Das ist kein gültiger Design-Code."
+  },
+  "themeCodeImported": {
+    "message": "„$1“ hinzugefügt."
+  },
+  "sectionFixes": {
+    "message": "Website-Korrekturen"
+  },
+  "fixesUpdates": {
+    "message": "Signierte Korrekturen täglich laden"
+  },
+  "fixesHint": {
+    "message": "Korrekturen sind Daten, nie Code, und werden nur mit gültiger Signatur verwendet. Mitgelieferte Korrekturen gelten immer."
+  },
+  "fixesCheckNow": {
+    "message": "Jetzt prüfen"
+  },
+  "fixesNeverChecked": {
+    "message": "Noch nicht geprüft."
+  },
+  "fixesStatus_updated": {
+    "message": "Aktualisiert am $1 (Version $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "Aktuell, Stand $1 (Version $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "Downloads sind aus. Geprüft am $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "Der letzte Download ($1) hatte keine gültige Signatur und wurde verworfen."
+  },
+  "fixesStatus_failed": {
+    "message": "Download fehlgeschlagen ($1). Neuer Versuch morgen."
+  }
+}

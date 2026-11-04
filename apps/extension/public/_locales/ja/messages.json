@@ -1,0 +1,698 @@
+{
+  "extName": {
+    "message": "スマートダークモード"
+  },
+  "extDescription": {
+    "message": "すべてのサイトにダークモードを。サイトごとのルール、スケジュール、トラッキングなし。"
+  },
+  "cmdToggleSite": {
+    "message": "このサイトのダークモードを切り替え"
+  },
+  "cmdToggleGlobal": {
+    "message": "拡張機能をすべてのサイトでオン/オフ"
+  },
+  "cmdCycleMode": {
+    "message": "このサイトのモードを切り替え（ダーク、フィルター、標準）"
+  },
+  "unsupportedPage": {
+    "message": "このページは変更できません"
+  },
+  "unsupportedPageHint": {
+    "message": "ブラウザのページや拡張機能ストアは、拡張機能によるスタイル変更を許可していません。"
+  },
+  "ruleFrom": {
+    "message": "ルール：$1"
+  },
+  "ruleGlobal": {
+    "message": "ルール：全体のデフォルト"
+  },
+  "level_domain": {
+    "message": "サイト"
+  },
+  "level_subdomain": {
+    "message": "サブドメイン"
+  },
+  "level_pattern": {
+    "message": "URL パターン"
+  },
+  "level_page": {
+    "message": "ページ"
+  },
+  "suppressed_disabled": {
+    "message": "すべてオフです。電源ボタンで再度オンにできます。"
+  },
+  "suppressed_allowlist": {
+    "message": "許可リストモード：このサイトはリストにありません。"
+  },
+  "suppressed_automation": {
+    "message": "自動化の設定により現在オフです。"
+  },
+  "modeLabel": {
+    "message": "このサイトのモード"
+  },
+  "mode_dark": {
+    "message": "ダーク"
+  },
+  "mode_filtered": {
+    "message": "フィルター"
+  },
+  "mode_normal": {
+    "message": "標準"
+  },
+  "applyTo": {
+    "message": "適用先"
+  },
+  "scope_domain": {
+    "message": "このサイト（$1）"
+  },
+  "scope_subdomain": {
+    "message": "このサブドメインのみ（$1）"
+  },
+  "scope_page": {
+    "message": "このページのみ"
+  },
+  "scope_global": {
+    "message": "すべて（デフォルト）"
+  },
+  "inheritSubdomains": {
+    "message": "サブドメインもこのサイトに従う"
+  },
+  "adj_brightness": {
+    "message": "明るさ"
+  },
+  "adj_contrast": {
+    "message": "コントラスト"
+  },
+  "adj_saturation": {
+    "message": "彩度"
+  },
+  "adj_warmth": {
+    "message": "暖かさ"
+  },
+  "adj_dim": {
+    "message": "減光"
+  },
+  "turnOffEverywhere": {
+    "message": "すべてオフにする"
+  },
+  "turnOnEverywhere": {
+    "message": "すべてオンにする"
+  },
+  "automation": {
+    "message": "自動化"
+  },
+  "auto_off": {
+    "message": "常にオン"
+  },
+  "auto_schedule": {
+    "message": "スケジュール"
+  },
+  "auto_system": {
+    "message": "システムのダークモードに従う"
+  },
+  "from": {
+    "message": "開始"
+  },
+  "to": {
+    "message": "終了"
+  },
+  "optionsTitle": {
+    "message": "Smart Dark Mode の設定"
+  },
+  "sectionGeneral": {
+    "message": "全般"
+  },
+  "sectionSites": {
+    "message": "サイトとルール"
+  },
+  "sectionPdf": {
+    "message": "PDF ビューア"
+  },
+  "sectionBackup": {
+    "message": "バックアップと移行"
+  },
+  "sectionIntegration": {
+    "message": "独自のダークテーマを持つサイト"
+  },
+  "sectionAbout": {
+    "message": "このアプリについて"
+  },
+  "enabledEverywhere": {
+    "message": "ダークモードをオンにする"
+  },
+  "defaultMode": {
+    "message": "ルールのないサイトのモード"
+  },
+  "listMode": {
+    "message": "適用する場所"
+  },
+  "list_blocklist": {
+    "message": "オフにしたサイト以外すべて"
+  },
+  "list_allowlist": {
+    "message": "オンにしたサイトだけ"
+  },
+  "listHint_blocklist": {
+    "message": "ルールでオフにしない限りサイトを変換します。"
+  },
+  "listHint_allowlist": {
+    "message": "モードを指定するルールがあるサイトだけを変更します。"
+  },
+  "integrationDefault": {
+    "message": "サイトに独自のダークテーマがある場合"
+  },
+  "integration_site": {
+    "message": "サイトのテーマを使う"
+  },
+  "integration_convert": {
+    "message": "それでも変換する"
+  },
+  "integration_off": {
+    "message": "何もしない"
+  },
+  "syncSettings": {
+    "message": "ブラウザのアカウントと設定を同期"
+  },
+  "syncHint": {
+    "message": "同期をオンにすると、他のブラウザに保存された設定があれば読み込みます。"
+  },
+  "syncError_too_large": {
+    "message": "設定が大きすぎて同期できません。カスタム CSS を減らしてください。"
+  },
+  "syncError_quota": {
+    "message": "ブラウザが同期を拒否しました。次の変更時に再試行します。"
+  },
+  "sitesHint": {
+    "message": "より具体的なルールが優先：サイト、サブドメイン、パターン、ページ。"
+  },
+  "ruleLevel": {
+    "message": "適用先"
+  },
+  "ruleMatch": {
+    "message": "アドレス"
+  },
+  "ruleExtras": {
+    "message": "その他"
+  },
+  "actions": {
+    "message": "操作"
+  },
+  "addRule": {
+    "message": "ルールを追加"
+  },
+  "noRules": {
+    "message": "ルールはまだありません。ポップアップで設定したルールがここに表示されます。"
+  },
+  "invalidPattern": {
+    "message": "このパターンは無効です。"
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  または  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "継承"
+  },
+  "modeFor": {
+    "message": "$1 のモード"
+  },
+  "extra_adjust": {
+    "message": "調整"
+  },
+  "extra_remap": {
+    "message": "$1 色"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "$1 のカスタム CSS"
+  },
+  "customCssHint": {
+    "message": "$${#333} と書くと、ダークモードで #333 が変換される色になります。"
+  },
+  "clearRemap": {
+    "message": "色をリセット"
+  },
+  "delete": {
+    "message": "削除"
+  },
+  "deleteRuleFor": {
+    "message": "$1 のルールを削除"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "pdfEnabled": {
+    "message": "PDF をダークビューアで開く"
+  },
+  "pdfStyle": {
+    "message": "スタイル"
+  },
+  "pdf_dark": {
+    "message": "テキストのみダーク"
+  },
+  "pdf_sepia": {
+    "message": "セピア"
+  },
+  "pdf_invert": {
+    "message": "すべて反転"
+  },
+  "pdf_custom": {
+    "message": "カスタム色"
+  },
+  "pdf_original": {
+    "message": "オリジナル"
+  },
+  "pdfHint": {
+    "message": "「テキストのみダーク」は画像の色を変えません。印刷は常に元の色です。"
+  },
+  "pdfBackground": {
+    "message": "背景"
+  },
+  "pdfText": {
+    "message": "文字"
+  },
+  "pdfSearch": {
+    "message": "検索"
+  },
+  "previousMatch": {
+    "message": "前の一致"
+  },
+  "nextMatch": {
+    "message": "次の一致"
+  },
+  "noMatches": {
+    "message": "一致なし"
+  },
+  "matchPages": {
+    "message": "一致があるページ $2 件中 $1"
+  },
+  "zoomIn": {
+    "message": "拡大"
+  },
+  "zoomOut": {
+    "message": "縮小"
+  },
+  "print": {
+    "message": "印刷"
+  },
+  "openOriginal": {
+    "message": "元のファイルを開く"
+  },
+  "pageN": {
+    "message": "$1 ページ"
+  },
+  "preparingPrint": {
+    "message": "印刷用にページ $1/$2 を準備中…"
+  },
+  "pdfLoadFailed": {
+    "message": "この PDF を読み込めませんでした。「元のファイルを開く」を使ってください。"
+  },
+  "pdfFileAccess": {
+    "message": "ローカルの PDF を開くには、拡張機能の設定で「ファイルの URL へのアクセスを許可する」をオンにしてください。"
+  },
+  "backupHint": {
+    "message": "エクスポートはすべての設定をファイルに保存します。インポートは Dark Reader のファイルも読み込めます。"
+  },
+  "exportSettings": {
+    "message": "設定をエクスポート"
+  },
+  "importSettings": {
+    "message": "設定をインポート…"
+  },
+  "importConfirm": {
+    "message": "現在の設定をすべてインポートした設定に置き換えますか？"
+  },
+  "imported_smart_dark_mode": {
+    "message": "設定をインポートしました。"
+  },
+  "imported_darkreader": {
+    "message": "Dark Reader の設定をインポートしました。"
+  },
+  "importSkipped": {
+    "message": "引き継げなかった項目：$1。"
+  },
+  "skipped_location_schedule": {
+    "message": "位置情報に基づくスケジュール"
+  },
+  "skipped_presets": {
+    "message": "プリセット"
+  },
+  "skipped_light_scheme": {
+    "message": "ライトの配色"
+  },
+  "importError_not_json": {
+    "message": "設定ファイルではありません。"
+  },
+  "importError_unknown_format": {
+    "message": "このファイル形式には対応していません。"
+  },
+  "importError_too_large": {
+    "message": "ファイルが大きすぎます。"
+  },
+  "integrationHint": {
+    "message": "既知のサイトでは変換せず、サイト独自のダークテーマをオンにします。"
+  },
+  "integrationChanges": {
+    "message": "サイトに保存した変更"
+  },
+  "integrationNoChanges": {
+    "message": "なし。どのサイトにも何も保存していません。"
+  },
+  "integrationUndoHint": {
+    "message": "「それでも変換する」「何もしない」を選ぶかオフにした後、次にサイトを開くと元に戻ります。"
+  },
+  "journal_localStorage": {
+    "message": "サイトのストレージ"
+  },
+  "journal_cookie": {
+    "message": "Cookie"
+  },
+  "journalWas": {
+    "message": "以前は $1"
+  },
+  "journalWasUnset": {
+    "message": "以前は未設定"
+  },
+  "forgetDarkSites": {
+    "message": "ダークと判定したサイトを忘れる"
+  },
+  "integrationList": {
+    "message": "組み込みリスト（$1）"
+  },
+  "done": {
+    "message": "完了"
+  },
+  "aboutVersion": {
+    "message": "バージョン $1"
+  },
+  "privacyShort": {
+    "message": "データはブラウザの外に出ません。何も収集・送信しません。"
+  },
+  "sourceCode": {
+    "message": "ソースコード"
+  },
+  "reportProblem": {
+    "message": "問題を報告"
+  },
+  "moreSettings": {
+    "message": "その他の設定"
+  },
+  "siteThemeOn": {
+    "message": "サイト独自のダークテーマを使用中（$1）"
+  },
+  "siteAlreadyDark": {
+    "message": "このサイトは既にダークなのでそのまま表示しています"
+  },
+  "pageColours": {
+    "message": "このページの色"
+  },
+  "pageColoursHint": {
+    "message": "色の変換先を選びます。その色を使う要素がすべて変わります。"
+  },
+  "remapColour": {
+    "message": "$1 の新しい色"
+  },
+  "resetColour": {
+    "message": "$1 をリセット"
+  },
+  "reset": {
+    "message": "リセット"
+  },
+  "cancel": {
+    "message": "キャンセル"
+  },
+  "close": {
+    "message": "閉じる"
+  },
+  "remove": {
+    "message": "削除"
+  },
+  "copied": {
+    "message": "コピーしました"
+  },
+  "cmdPickElement": {
+    "message": "ページの要素を修正"
+  },
+  "menuToggleSite": {
+    "message": "このサイトでダークモード"
+  },
+  "menuFixElement": {
+    "message": "この要素を修正"
+  },
+  "menuOpenPdf": {
+    "message": "ダークビューアで PDF を開く"
+  },
+  "toolsLabel": {
+    "message": "ページツール"
+  },
+  "toolPicker": {
+    "message": "要素を修正"
+  },
+  "toolDebug": {
+    "message": "色を調べる"
+  },
+  "toolDebugOff": {
+    "message": "調査を終了"
+  },
+  "toolExport": {
+    "message": "CSS を書き出す"
+  },
+  "pickerTitle": {
+    "message": "この要素を修正"
+  },
+  "pickerSelector": {
+    "message": "CSS セレクター"
+  },
+  "pickerOption_invert": {
+    "message": "反転（キャンバス・図）"
+  },
+  "pickerOption_background": {
+    "message": "背景を暗くする"
+  },
+  "pickerOption_text": {
+    "message": "文字を明るくする"
+  },
+  "pickerOption_noImage": {
+    "message": "背景画像を隠す"
+  },
+  "pickerOption_hide": {
+    "message": "要素を隠す"
+  },
+  "pickerParent": {
+    "message": "親要素を選択"
+  },
+  "pickerSave": {
+    "message": "このサイトに保存"
+  },
+  "debugBackground": {
+    "message": "背景"
+  },
+  "debugText": {
+    "message": "文字"
+  },
+  "debugContrast": {
+    "message": "コントラスト"
+  },
+  "debugRule": {
+    "message": "ルール"
+  },
+  "chipMessage": {
+    "message": "このページの一部はまだ明るいか読みにくいようです。"
+  },
+  "chipTryFiltered": {
+    "message": "フィルターモードを試す"
+  },
+  "chipFixElement": {
+    "message": "要素を修正"
+  },
+  "sectionAppearance": {
+    "message": "外観"
+  },
+  "themeLabel": {
+    "message": "テーマ"
+  },
+  "theme_dark": {
+    "message": "ダーク"
+  },
+  "theme_amoled": {
+    "message": "AMOLED ブラック"
+  },
+  "theme_dim": {
+    "message": "ディム"
+  },
+  "theme_sepia": {
+    "message": "セピア"
+  },
+  "theme_contrast": {
+    "message": "ハイコントラスト"
+  },
+  "theme_grayscale": {
+    "message": "グレースケール"
+  },
+  "theme_protan": {
+    "message": "1型色覚向け"
+  },
+  "theme_deutan": {
+    "message": "2型色覚向け"
+  },
+  "theme_tritan": {
+    "message": "3型色覚向け"
+  },
+  "themeHint_dark": {
+    "message": "落ち着いたダークグレーと柔らかい白文字。"
+  },
+  "themeHint_amoled": {
+    "message": "純黒の背景で OLED の電力を節約。"
+  },
+  "themeHint_dim": {
+    "message": "明るい部屋向けの明るめのグレー。"
+  },
+  "themeHint_sepia": {
+    "message": "長時間の読書向けの暖かい茶色。"
+  },
+  "themeHint_contrast": {
+    "message": "ほぼ黒の背景と 7:1 以上の文字コントラスト。"
+  },
+  "themeHint_grayscale": {
+    "message": "すべての色を除きます。"
+  },
+  "themeHint_protan": {
+    "message": "赤と緑を離して見分けやすくします。"
+  },
+  "themeHint_deutan": {
+    "message": "赤と緑を離して見分けやすくします。"
+  },
+  "themeHint_tritan": {
+    "message": "青と黄を離して見分けやすくします。"
+  },
+  "themeHint_custom": {
+    "message": "下で設定する独自の色。"
+  },
+  "presetLabel": {
+    "message": "色の強さ"
+  },
+  "preset_vivid": {
+    "message": "鮮やか"
+  },
+  "preset_balanced": {
+    "message": "バランス"
+  },
+  "preset_muted": {
+    "message": "控えめ"
+  },
+  "imagesHeading": {
+    "message": "画像"
+  },
+  "imagesHoverOriginal": {
+    "message": "ポインター下で元の画像を表示"
+  },
+  "imagesPhotoDim": {
+    "message": "写真を暗くする"
+  },
+  "diagnosisHeading": {
+    "message": "自己チェック"
+  },
+  "diagnosisEnabled": {
+    "message": "ページがまだ明るいときに手助けを表示"
+  },
+  "diagnosisHint": {
+    "message": "読み込み後に端末上で測定します。何も送信されません。"
+  },
+  "customThemesHeading": {
+    "message": "カスタムテーマ"
+  },
+  "customThemeAdd": {
+    "message": "新しいテーマ"
+  },
+  "customThemeDefaultName": {
+    "message": "マイテーマ"
+  },
+  "customThemeName": {
+    "message": "テーマ名"
+  },
+  "customThemePreview": {
+    "message": "サンプル文字："
+  },
+  "customColor_background": {
+    "message": "背景"
+  },
+  "customColor_text": {
+    "message": "文字"
+  },
+  "customColor_link": {
+    "message": "リンク"
+  },
+  "customColor_visited": {
+    "message": "訪問済みリンク"
+  },
+  "customColor_border": {
+    "message": "枠線"
+  },
+  "customColor_selection": {
+    "message": "選択範囲"
+  },
+  "customColor_button": {
+    "message": "ボタン"
+  },
+  "customColor_scrollbar": {
+    "message": "スクロールバー"
+  },
+  "themeCodeLabel": {
+    "message": "テーマコード"
+  },
+  "themeCodeImport": {
+    "message": "テーマを追加"
+  },
+  "themeCodeCopy": {
+    "message": "共有コードをコピー"
+  },
+  "themeCodeInvalid": {
+    "message": "有効なテーマコードではありません。"
+  },
+  "themeCodeImported": {
+    "message": "「$1」を追加しました。"
+  },
+  "sectionFixes": {
+    "message": "サイト別修正"
+  },
+  "fixesUpdates": {
+    "message": "署名付き修正を毎日ダウンロード"
+  },
+  "fixesHint": {
+    "message": "修正はコードではなくデータで、署名が正しい場合のみ使われます。同梱の修正は常に使われます。"
+  },
+  "fixesCheckNow": {
+    "message": "今すぐ確認"
+  },
+  "fixesNeverChecked": {
+    "message": "まだ確認していません。"
+  },
+  "fixesStatus_updated": {
+    "message": "$1 に更新（バージョン $2）。"
+  },
+  "fixesStatus_unchanged": {
+    "message": "$1 時点で最新（バージョン $2）。"
+  },
+  "fixesStatus_disabled": {
+    "message": "ダウンロードはオフです。確認日時 $1。"
+  },
+  "fixesStatus_rejected": {
+    "message": "前回のダウンロード（$1）は署名検証に失敗したため使われていません。"
+  },
+  "fixesStatus_failed": {
+    "message": "ダウンロードできませんでした（$1）。明日再試行します。"
+  }
+}
