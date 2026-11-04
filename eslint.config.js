@@ -21,4 +21,10 @@ export default tseslint.config(
     },
     rules: { 'no-console': 'off' },
   },
+  {
+    // Command-line tools for building and signing the fixes bundle.
+    files: ['scripts/**/*.{mjs,ts}'],
+    languageOptions: { globals: { ...globals.node } },
+    rules: { 'no-console': 'off' },
+  },
 );

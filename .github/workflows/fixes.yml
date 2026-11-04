@@ -1,0 +1,44 @@
+name: Publish site fixes
+
+# Builds the fixes bundle from Dark Reader's fixes (pinned commit) plus our own,
+# signs it and attaches fixes.json and fixes.json.sig to a GitHub release.
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to attach the bundle to (created if missing)
+        required: true
+        default: fixes-latest
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Download Dark Reader fixes
+        run: >
+          curl -fsSL -o darkreader-fixes.config
+          https://raw.githubusercontent.com/darkreader/darkreader/e79222971bcae472a28f20de67c07d5a6de45148/src/config/dynamic-theme-fixes.config
+      - name: Build
+        run: node scripts/fixes/run.mjs build darkreader-fixes.config fixes/own.json fixes.json
+      - name: Sign
+        env:
+          FIXES_SIGNING_KEY: ${{ secrets.FIXES_SIGNING_KEY }}
+        run: node scripts/fixes/sign.mjs fixes.json
+      - name: Verify
+        run: node scripts/fixes/run.mjs verify fixes.json
+      - name: Upload
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view "${{ inputs.tag }}" >/dev/null 2>&1 || gh release create "${{ inputs.tag }}" --title "Site fixes" --notes "Signed site fixes bundle." --latest
+          gh release upload "${{ inputs.tag }}" fixes.json fixes.json.sig --clobber
