@@ -23,6 +23,7 @@ import { type Journal, JOURNAL_KEY, readJournal } from '@/content/integration';
 import { clearNativeDark } from '@/content/native-dark';
 import { INTEGRATIONS } from '@/data/integrations';
 import { t } from '@/lib/i18n';
+import { Appearance, SiteFixes } from './Appearance';
 import { isSettingsChange, loadSettings, saveSettings } from '@/lib/settings-store';
 
 export function App() {
@@ -62,8 +63,10 @@ export function App() {
     <main class="options">
       <h1>{t('optionsTitle')}</h1>
       <General settings={settings} onUpdate={update} syncError={syncError} />
+      <Appearance settings={settings} onUpdate={update} />
       <Sites settings={settings} onUpdate={update} />
       <Pdf settings={settings} onUpdate={update} />
+      <SiteFixes settings={settings} onUpdate={update} />
       <Backup settings={settings} onUpdate={update} />
       <DeepIntegration journal={journal} />
       <About />

@@ -430,5 +430,269 @@
   },
   "reset": {
     "message": "إعادة"
+  },
+  "cancel": {
+    "message": "إلغاء"
+  },
+  "close": {
+    "message": "إغلاق"
+  },
+  "remove": {
+    "message": "إزالة"
+  },
+  "copied": {
+    "message": "تم النسخ"
+  },
+  "cmdPickElement": {
+    "message": "إصلاح عنصر في الصفحة"
+  },
+  "menuToggleSite": {
+    "message": "الوضع الداكن في هذا الموقع"
+  },
+  "menuFixElement": {
+    "message": "إصلاح هذا العنصر"
+  },
+  "menuOpenPdf": {
+    "message": "فتح PDF في العارض الداكن"
+  },
+  "toolsLabel": {
+    "message": "أدوات الصفحة"
+  },
+  "toolPicker": {
+    "message": "إصلاح عنصر"
+  },
+  "toolDebug": {
+    "message": "فحص الألوان"
+  },
+  "toolDebugOff": {
+    "message": "إيقاف الفحص"
+  },
+  "toolExport": {
+    "message": "تصدير CSS"
+  },
+  "pickerTitle": {
+    "message": "إصلاح هذا العنصر"
+  },
+  "pickerSelector": {
+    "message": "محدد CSS"
+  },
+  "pickerOption_invert": {
+    "message": "عكس الألوان (لوحات، مخططات)"
+  },
+  "pickerOption_background": {
+    "message": "فرض خلفية داكنة"
+  },
+  "pickerOption_text": {
+    "message": "فرض نص فاتح"
+  },
+  "pickerOption_noImage": {
+    "message": "إخفاء صورة الخلفية"
+  },
+  "pickerOption_hide": {
+    "message": "إخفاء العنصر"
+  },
+  "pickerParent": {
+    "message": "اختيار العنصر الأب"
+  },
+  "pickerSave": {
+    "message": "حفظ لهذا الموقع"
+  },
+  "debugBackground": {
+    "message": "الخلفية"
+  },
+  "debugText": {
+    "message": "النص"
+  },
+  "debugContrast": {
+    "message": "التباين"
+  },
+  "debugRule": {
+    "message": "القاعدة"
+  },
+  "chipMessage": {
+    "message": "لا تزال أجزاء من هذه الصفحة فاتحة أو صعبة القراءة."
+  },
+  "chipTryFiltered": {
+    "message": "تجربة وضع الترشيح"
+  },
+  "chipFixElement": {
+    "message": "إصلاح عنصر"
+  },
+  "sectionAppearance": {
+    "message": "المظهر"
+  },
+  "themeLabel": {
+    "message": "السمة"
+  },
+  "theme_dark": {
+    "message": "داكن"
+  },
+  "theme_amoled": {
+    "message": "أسود AMOLED"
+  },
+  "theme_dim": {
+    "message": "خافت"
+  },
+  "theme_sepia": {
+    "message": "بني داكن"
+  },
+  "theme_contrast": {
+    "message": "تباين عالٍ"
+  },
+  "theme_grayscale": {
+    "message": "تدرج رمادي"
+  },
+  "theme_protan": {
+    "message": "مناسب لضعف الأحمر"
+  },
+  "theme_deutan": {
+    "message": "مناسب لضعف الأخضر"
+  },
+  "theme_tritan": {
+    "message": "مناسب لضعف الأزرق"
+  },
+  "themeHint_dark": {
+    "message": "رمادي داكن متوازن ونص أبيض مائل."
+  },
+  "themeHint_amoled": {
+    "message": "خلفية سوداء تمامًا توفر الطاقة في شاشات OLED."
+  },
+  "themeHint_dim": {
+    "message": "رمادي أفتح للغرف المضاءة."
+  },
+  "themeHint_sepia": {
+    "message": "درجات بنية دافئة للقراءة الطويلة."
+  },
+  "themeHint_contrast": {
+    "message": "خلفية شبه سوداء وتباين نص لا يقل عن 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "يزيل كل الألوان."
+  },
+  "themeHint_protan": {
+    "message": "يباعد بين الأحمر والأخضر لتسهيل التمييز."
+  },
+  "themeHint_deutan": {
+    "message": "يباعد بين الأحمر والأخضر لتسهيل التمييز."
+  },
+  "themeHint_tritan": {
+    "message": "يباعد بين الأزرق والأصفر لتسهيل التمييز."
+  },
+  "themeHint_custom": {
+    "message": "ألوانك الخاصة، بالأسفل."
+  },
+  "presetLabel": {
+    "message": "شدة الألوان"
+  },
+  "preset_vivid": {
+    "message": "زاهية"
+  },
+  "preset_balanced": {
+    "message": "متوازنة"
+  },
+  "preset_muted": {
+    "message": "هادئة"
+  },
+  "imagesHeading": {
+    "message": "الصور"
+  },
+  "imagesHoverOriginal": {
+    "message": "عرض الصورة الأصلية تحت المؤشر"
+  },
+  "imagesPhotoDim": {
+    "message": "تعتيم الصور"
+  },
+  "diagnosisHeading": {
+    "message": "الفحص الذاتي"
+  },
+  "diagnosisEnabled": {
+    "message": "عرض المساعدة عندما تبدو الصفحة فاتحة"
+  },
+  "diagnosisHint": {
+    "message": "يُقاس على جهازك بعد تحميل الصفحة. لا يُرسل أي شيء."
+  },
+  "customThemesHeading": {
+    "message": "سمات مخصصة"
+  },
+  "customThemeAdd": {
+    "message": "سمة جديدة"
+  },
+  "customThemeDefaultName": {
+    "message": "سمتي"
+  },
+  "customThemeName": {
+    "message": "اسم السمة"
+  },
+  "customThemePreview": {
+    "message": "نص تجريبي مع"
+  },
+  "customColor_background": {
+    "message": "الخلفية"
+  },
+  "customColor_text": {
+    "message": "النص"
+  },
+  "customColor_link": {
+    "message": "رابط"
+  },
+  "customColor_visited": {
+    "message": "رابط تمت زيارته"
+  },
+  "customColor_border": {
+    "message": "الحدود"
+  },
+  "customColor_selection": {
+    "message": "التحديد"
+  },
+  "customColor_button": {
+    "message": "زر"
+  },
+  "customColor_scrollbar": {
+    "message": "شريط التمرير"
+  },
+  "themeCodeLabel": {
+    "message": "رمز السمة"
+  },
+  "themeCodeImport": {
+    "message": "إضافة السمة"
+  },
+  "themeCodeCopy": {
+    "message": "نسخ رمز المشاركة"
+  },
+  "themeCodeInvalid": {
+    "message": "هذا ليس رمز سمة صالحًا."
+  },
+  "themeCodeImported": {
+    "message": "تمت إضافة \"$1\"."
+  },
+  "sectionFixes": {
+    "message": "إصلاحات المواقع"
+  },
+  "fixesUpdates": {
+    "message": "تنزيل الإصلاحات الموقّعة يوميًا"
+  },
+  "fixesHint": {
+    "message": "الإصلاحات بيانات وليست شيفرة، وتُستخدم فقط إذا صح توقيعها. الإصلاحات المضمّنة تُستخدم دائمًا."
+  },
+  "fixesCheckNow": {
+    "message": "تحقق الآن"
+  },
+  "fixesNeverChecked": {
+    "message": "لم يتم التحقق بعد."
+  },
+  "fixesStatus_updated": {
+    "message": "تم التحديث في $1 (الإصدار $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "محدّث حتى $1 (الإصدار $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "التنزيل متوقف. تم التحقق في $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "فشل التنزيل الأخير ($1) في التحقق من التوقيع ولم يُستخدم."
+  },
+  "fixesStatus_failed": {
+    "message": "تعذّر التنزيل ($1). ستتم المحاولة غدًا."
   }
 }

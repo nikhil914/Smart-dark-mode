@@ -11,6 +11,9 @@ import {
   toPageLocation,
 } from '@sdm/settings';
 import { syncFallback } from '@/background/fallback';
+import { FIXES_ALARM, scheduleFixesUpdates, siteFixes, updateFixes } from '@/background/fixes';
+import { createMenus, onMenuClick } from '@/background/menus';
+import { NATIVE_ALARM, pollNative, reportState, scheduleNativePoll } from '@/background/native';
 import { allowOriginal, forgetTabRules, syncPdfRedirect } from '@/background/pdf';
 import { isRemoteChange, onLocalChange, pull } from '@/background/sync';
 import { forgetTab, safeFetch } from '@/background/safe-fetch';
@@ -37,12 +40,19 @@ export default defineBackground(() => {
     const settings = await ensureSettings();
     await syncPdfRedirect(settings.pdf.enabled);
     await pull();
+    await scheduleFixesUpdates();
+    await createMenus();
+    await scheduleNativePoll();
+    await pollNative(true);
     await scheduleBoundaryAlarm();
     await refreshFallback();
     await refreshAllBadges();
   });
 
   browser.runtime.onStartup.addListener(async () => {
+    await createMenus();
+    await scheduleNativePoll();
+    await pollNative(true);
     await pull();
     await scheduleBoundaryAlarm();
     await refreshFallback();
@@ -61,6 +71,9 @@ export default defineBackground(() => {
       const next = migrate(change.newValue);
       if (previous?.pdf.enabled !== next.pdf.enabled) await syncPdfRedirect(next.pdf.enabled);
       await onLocalChange(previous, next);
+      if (previous?.enabled !== next.enabled || previous?.theme !== next.theme) {
+        await reportState(next);
+      }
       await scheduleBoundaryAlarm();
     }
     if (isSettingsChange(changes) || isOsSchemeChange(changes)) {
@@ -70,6 +83,14 @@ export default defineBackground(() => {
   });
 
   browser.alarms.onAlarm.addListener(async (alarm) => {
+    if (alarm.name === NATIVE_ALARM) {
+      await pollNative(true);
+      return;
+    }
+    if (alarm.name === FIXES_ALARM) {
+      await updateFixes();
+      return;
+    }
     if (alarm.name !== BOUNDARY_ALARM) return;
     await scheduleBoundaryAlarm();
     await refreshFallback();
@@ -80,6 +101,16 @@ export default defineBackground(() => {
     if (!isContentMessage(message) || sender.id !== browser.runtime.id) return undefined;
     if (message.type === 'sdm:fetch') {
       void safeFetch(message.kind, message.url, sender.tab?.id).then(sendResponse);
+      return true;
+    }
+    if (message.type === 'sdm:fixes') {
+      void siteFixes(message.host, message.path).then(sendResponse);
+      return true;
+    }
+    if (message.type === 'sdm:fixes-update') {
+      // Only extension pages (no tab) may ask; content scripts cannot trigger downloads.
+      if (sender.tab) return undefined;
+      void updateFixes().then(sendResponse);
       return true;
     }
     if (message.type === 'sdm:pdf-original' && sender.tab?.id !== undefined) {
@@ -94,32 +125,51 @@ export default defineBackground(() => {
     void forgetTabRules(tabId);
   });
 
-  browser.tabs.onActivated.addListener(({ tabId }) => void refreshBadge(tabId));
+  browser.tabs.onActivated.addListener(({ tabId }) => {
+    void pollNative();
+    void refreshBadge(tabId);
+  });
   browser.tabs.onUpdated.addListener((tabId, info) => {
+    if (info.status === 'loading') void pollNative();
     if (info.url !== undefined || info.status === 'loading') void refreshBadge(tabId);
   });
 
-  browser.commands.onCommand.addListener(async (command) => {
-    const settings = await loadSettings();
+  onMenuClick((url) => changeSiteMode(url, 'toggle-site'));
+
+  // Firefox for Android has no keyboard shortcuts API.
+  browser.commands?.onCommand.addListener(async (command) => {
     if (command === 'toggle-global') {
+      const settings = await loadSettings();
       await saveSettings({ ...settings, enabled: !settings.enabled });
       return;
     }
+    if (command === 'pick-element') {
+      const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+      if (tab?.id !== undefined) {
+        await browser.tabs
+          .sendMessage(tab.id, { type: 'sdm:tool', tool: 'picker' }, { frameId: 0 })
+          .catch(() => undefined);
+      }
+      return;
+    }
+    if (command !== 'toggle-site' && command !== 'cycle-mode') return;
     const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-    const url = tab?.url;
-    const loc = url ? toPageLocation(url) : null;
-    if (!url || !loc) return;
-    const domain = siteDomain(loc.host);
-    const current = configuredMode(settings, url);
-    let next: Mode;
-    if (command === 'toggle-site') next = current === 'normal' ? 'dark' : 'normal';
-    else if (command === 'cycle-mode') next = nextMode(current);
-    else return;
-    // Store nothing when the site would just follow the global default.
-    const value = next === settings.defaultMode ? undefined : next;
-    await saveSettings(setRuleMode(settings, 'domain', domain, value));
+    if (tab?.url) await changeSiteMode(tab.url, command);
   });
 });
+
+async function changeSiteMode(url: string, how: 'toggle-site' | 'cycle-mode'): Promise<void> {
+  const settings = await loadSettings();
+  const loc = toPageLocation(url);
+  if (!loc) return;
+  const domain = siteDomain(loc.host);
+  const current = configuredMode(settings, url);
+  const next: Mode =
+    how === 'toggle-site' ? (current === 'normal' ? 'dark' : 'normal') : nextMode(current);
+  // Store nothing when the site would just follow the global default.
+  const value = next === settings.defaultMode ? undefined : next;
+  await saveSettings(setRuleMode(settings, 'domain', domain, value));
+}
 
 async function refreshFallback(): Promise<void> {
   const [settings, osDark] = await Promise.all([loadSettings(), loadOsPrefersDark()]);

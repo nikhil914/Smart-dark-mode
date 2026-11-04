@@ -148,7 +148,8 @@ export function rewriteDeclarations(
   if (bg && fg) {
     const b = parseColor(bg.value);
     const f = parseColor(fg.value);
-    if (b && f && b.a === 1) out[fg.index]!.value = formatColor(ensureContrast(f, b));
+    if (b && f && b.a === 1)
+      out[fg.index]!.value = formatColor(ensureContrast(f, b, opts.theme.minContrast));
   }
   return out;
 }
