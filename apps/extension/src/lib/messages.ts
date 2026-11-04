@@ -14,7 +14,27 @@ export interface SimplifiedNotice {
   origin: string;
 }
 
-export type ContentMessage = FetchRequest | SimplifiedNotice;
+/** Opens a PDF without the viewer, once, in the sender's tab. */
+export interface PdfOriginalRequest {
+  type: 'sdm:pdf-original';
+  url: string;
+}
+
+export type ContentMessage = FetchRequest | SimplifiedNotice | PdfOriginalRequest;
+
+/** Popup to the page's top frame. */
+export interface StatusRequest {
+  type: 'sdm:status';
+}
+
+export interface PageStatus {
+  /** Name of the site theme we switched on, if any. */
+  siteTheme: string | null;
+  /** The page has its own dark theme and is shown as is. */
+  nativeDark: boolean;
+  /** Original colours on the page, most used first. */
+  palette: { hex: string; roles: string[]; count: number }[];
+}
 
 export function isContentMessage(value: unknown): value is ContentMessage {
   if (typeof value !== 'object' || value === null) return false;
@@ -25,5 +45,8 @@ export function isContentMessage(value: unknown): value is ContentMessage {
     );
   }
   if (v.type === 'sdm:simplified') return typeof v.origin === 'string';
+  if (v.type === 'sdm:pdf-original') {
+    return typeof v.url === 'string' && v.url.length < 8192 && /^https?:/i.test(v.url);
+  }
   return false;
 }
