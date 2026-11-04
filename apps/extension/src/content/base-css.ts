@@ -69,9 +69,10 @@ export function overrideCss(images: ImageOptions = { hoverOriginal: false, photo
     images.photoDim > 0
       ? `img[data-sdm-img="photo"] { filter: brightness(${(100 - images.photoDim) / 100}) !important; }\n`
       : '';
-  // Hover (or press, on touch screens) shows the image as the site made it.
+  // Hover (or press, on touch screens) shows the image as the site made it. Hover is
+  // limited to real pointers: on touch screens it would stick after a tap.
   const hover = images.hoverOriginal
-    ? `img[data-sdm-img]:hover, img[data-sdm-img]:active, svg[data-sdm-img]:hover { filter: none !important; }\n`
+    ? `@media (hover: hover) { img[data-sdm-img]:hover, svg[data-sdm-img]:hover { filter: none !important; } }\nimg[data-sdm-img]:active, svg[data-sdm-img]:active { filter: none !important; }\n`
     : '';
   return `${inline}
 img[data-sdm-img="invert"], svg[data-sdm-img="invert"] { filter: invert(0.88) hue-rotate(180deg) !important; }

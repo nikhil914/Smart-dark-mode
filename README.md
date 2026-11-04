@@ -86,6 +86,31 @@ To publish bundles:
 
 Until a public key is set, downloads stay off and only the bundled fixes are used.
 
+## Browsers
+
+| Browser                                         | Build                                              | Notes                                      |
+| ----------------------------------------------- | -------------------------------------------------- | ------------------------------------------ |
+| Chrome, Brave, Vivaldi, Opera, Arc              | `pnpm --filter @sdm/extension build:chrome`        |                                            |
+| Edge (desktop and Android)                      | `build:edge`                                       |                                            |
+| Firefox (desktop and Android)                   | `build:firefox`                                    | Firefox 140 or later, Android 142 or later |
+| Safari (macOS 13, iOS and iPadOS 16.4 or later) | `build:safari`, then the app in `apps/safari-host` | See below                                  |
+
+On phones the popup opens full width and every tool works with touch: press an image to see
+the original, and tap to pick or inspect an element. Firefox for Android has no keyboard
+shortcuts or right-click menu, so those features are reached from the popup.
+
+### Safari app
+
+Safari extensions ship inside an app. `apps/safari-host/project.yml` describes the macOS and
+iOS apps for [XcodeGen](https://github.com/yonaskolb/XcodeGen). The generated Xcode project
+is not committed. The app also adds two Shortcuts actions, "Set Smart Dark Mode" (on, off or
+toggle) and "Set Smart Dark Mode theme", which can be used in Focus or time-of-day automations.
+Safari cannot wake an extension from an app, so the extension picks up these commands
+within a minute, or at once when you switch tabs.
+
+Releasing to every store is described in `docs/RELEASE.md`. The privacy policy is
+`docs/PRIVACY.md`, and the store texts are in `docs/store/`.
+
 ## Keyboard shortcuts
 
 | Shortcut    | Action                                           |
