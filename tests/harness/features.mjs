@@ -409,6 +409,20 @@ await withExtension(async ({ context, sw }) => {
   check(s, 'context menu API available to the extension', menus, '');
 });
 
+// --- Small screens (Firefox and Edge for Android open the popup full width) ------------------
+await withExtension(async ({ context, sw }) => {
+  const s = 'Small screens';
+  const extId = new URL(sw.url()).host;
+  for (const name of ['popup', 'options']) {
+    const page = await context.newPage();
+    await page.setViewportSize({ width: 360, height: 740 });
+    await page.goto(`chrome-extension://${extId}/${name}.html`);
+    await page.waitForTimeout(800);
+    const width = await page.evaluate(() => document.documentElement.scrollWidth);
+    check(s, `${name} fits a 360 px wide screen`, width <= 360, `${width}px`);
+  }
+});
+
 server.close();
 const failed = results.filter((r) => !r.ok);
 const md = [

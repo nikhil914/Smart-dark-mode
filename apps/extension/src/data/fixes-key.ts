@@ -6,6 +6,6 @@
  */
 export const FIXES_PUBLIC_KEY: JsonWebKey | null = null;
 
-/** Where signed bundles are published (assets of the latest GitHub release). */
+/** Where signed bundles are published (assets of the release tagged `fixes`). */
 export const FIXES_URL =
-  'https://github.com/nikhil914/smart-dark-mode/releases/latest/download/fixes.json';
+  'https://github.com/nikhil914/smart-dark-mode/releases/download/fixes/fixes.json';

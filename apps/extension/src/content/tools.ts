@@ -46,7 +46,7 @@ const UI_CSS = `
 button { cursor: pointer; padding: 5px 10px; border-radius: 6px; border: 1px solid #3a3a42; background: #2a2a31; color: inherit; }
 button.primary { background: #f0a35e; color: #1a1206; border-color: #f0a35e; font-weight: 600; }
 button:focus-visible, input:focus-visible { outline: 2px solid #8ab4f8; outline-offset: 2px; }
-.tip { position: fixed; z-index: 2147483647; pointer-events: none; background: #1f1f24; color: #ececf1; border: 1px solid #3a3a42; border-radius: 6px; padding: 6px 8px; font-family: ui-monospace, monospace; font-size: 11px; white-space: pre; max-width: 420px; overflow: hidden; }
+.tip { position: fixed; z-index: 2147483647; pointer-events: none; background: #1f1f24; color: #ececf1; border: 1px solid #3a3a42; border-radius: 6px; padding: 6px 8px; font-family: ui-monospace, monospace; font-size: 11px; white-space: pre; max-width: min(420px, calc(100vw - 16px)); overflow: hidden; }
 .sw { display: inline-block; width: 10px; height: 10px; border: 1px solid #888; vertical-align: middle; }
 .chip { position: fixed; right: 16px; bottom: 16px; z-index: 2147483647; background: #1f1f24; color: #ececf1; border: 1px solid #3a3a42; border-radius: 12px; padding: 10px 12px; box-shadow: 0 8px 32px rgb(0 0 0 / 0.5); max-width: min(340px, calc(100vw - 32px)); }
 .chip p { margin: 0 0 8px; }
@@ -215,7 +215,10 @@ export function startPicker(ctx: ToolsContext, fromContextMenu = false): void {
     if (panel || isOwn(e.target as Element)) return;
     e.preventDefault();
     e.stopImmediatePropagation();
-    if (hovered) choose(hovered);
+    // Touch screens send no pointer moves before a tap, so find the element here.
+    const target =
+      document.elementsFromPoint(e.clientX, e.clientY).find((n) => !isOwn(n)) ?? hovered;
+    if (target) choose(target);
   };
   const onKey = (e: KeyboardEvent) => {
     if (e.key === 'Escape') stop();
@@ -372,17 +375,20 @@ export function toggleDebug(ctx: ToolsContext): boolean {
       box.hidden = false;
       tip.hidden = false;
     }
-    tip.style.left = `${Math.min(e.clientX + 14, innerWidth - 430)}px`;
+    tip.style.left = `${Math.max(8, Math.min(e.clientX + 14, innerWidth - 430))}px`;
     tip.style.top = `${e.clientY + 120 < innerHeight ? e.clientY + 14 : e.clientY - 110}px`;
   };
   const onKey = (e: KeyboardEvent) => {
     if (e.key === 'Escape') debug?.stop();
   };
   window.addEventListener('pointermove', onMove, true);
+  // Touch screens: a tap shows the element under the finger.
+  window.addEventListener('pointerdown', onMove, true);
   window.addEventListener('keydown', onKey, true);
   debug = {
     stop() {
       window.removeEventListener('pointermove', onMove, true);
+      window.removeEventListener('pointerdown', onMove, true);
       window.removeEventListener('keydown', onKey, true);
       tip.remove();
       box.remove();
