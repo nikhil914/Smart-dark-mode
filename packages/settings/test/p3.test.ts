@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   ImportError,
+  SCHEMA_VERSION,
   SYNC_CHUNK,
   SYNC_MAX_CHUNKS,
   type Settings,
@@ -24,7 +25,7 @@ const ctx = { automationActive: true };
 describe('schema v2', () => {
   it('migrates v1 settings and fills the new defaults', () => {
     const s = migrate({ version: 1, defaultMode: 'filtered', rules: {} });
-    expect(s.version).toBe(2);
+    expect(s.version).toBe(SCHEMA_VERSION);
     expect(s.defaultMode).toBe('filtered');
     expect(s.integration).toBe('site');
     expect(s.pdf.enabled).toBe(true);

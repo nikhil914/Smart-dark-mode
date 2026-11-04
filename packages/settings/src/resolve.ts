@@ -2,6 +2,7 @@ import {
   type Adjustments,
   type IntegrationChoice,
   type Mode,
+  type ThemeId,
   type RuleLevel,
   type Settings,
   type SiteRule,
@@ -19,6 +20,7 @@ export interface Resolved {
   /** Custom CSS of every matching rule, lowest precedence first, so the cascade matches. */
   css: string;
   integration: IntegrationChoice;
+  theme: ThemeId;
   /** True when the master switch, list mode or automation forced `normal`. */
   suppressedBy: 'disabled' | 'allowlist' | 'automation' | null;
 }
@@ -80,6 +82,7 @@ export function resolve(settings: Settings, loc: PageLocation, ctx: ResolveConte
   const remap: Record<string, string> = {};
   const css: string[] = [];
   let integration = settings.integration;
+  let theme = settings.theme;
   for (const rule of applied) {
     if (rule.mode) {
       mode = rule.mode;
@@ -89,6 +92,7 @@ export function resolve(settings: Settings, loc: PageLocation, ctx: ResolveConte
     if (rule.remap) Object.assign(remap, rule.remap);
     if (rule.css) css.push(rule.css);
     if (rule.integration) integration = rule.integration;
+    if (rule.theme) theme = rule.theme;
   }
 
   let suppressedBy: Resolved['suppressedBy'] = null;
@@ -102,6 +106,7 @@ export function resolve(settings: Settings, loc: PageLocation, ctx: ResolveConte
     remap,
     css: css.join('\n'),
     integration,
+    theme,
     applied,
     suppressedBy,
   };

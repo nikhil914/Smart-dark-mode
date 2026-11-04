@@ -430,5 +430,269 @@
   },
   "reset": {
     "message": "リセット"
+  },
+  "cancel": {
+    "message": "キャンセル"
+  },
+  "close": {
+    "message": "閉じる"
+  },
+  "remove": {
+    "message": "削除"
+  },
+  "copied": {
+    "message": "コピーしました"
+  },
+  "cmdPickElement": {
+    "message": "ページの要素を修正"
+  },
+  "menuToggleSite": {
+    "message": "このサイトでダークモード"
+  },
+  "menuFixElement": {
+    "message": "この要素を修正"
+  },
+  "menuOpenPdf": {
+    "message": "ダークビューアで PDF を開く"
+  },
+  "toolsLabel": {
+    "message": "ページツール"
+  },
+  "toolPicker": {
+    "message": "要素を修正"
+  },
+  "toolDebug": {
+    "message": "色を調べる"
+  },
+  "toolDebugOff": {
+    "message": "調査を終了"
+  },
+  "toolExport": {
+    "message": "CSS を書き出す"
+  },
+  "pickerTitle": {
+    "message": "この要素を修正"
+  },
+  "pickerSelector": {
+    "message": "CSS セレクター"
+  },
+  "pickerOption_invert": {
+    "message": "反転（キャンバス・図）"
+  },
+  "pickerOption_background": {
+    "message": "背景を暗くする"
+  },
+  "pickerOption_text": {
+    "message": "文字を明るくする"
+  },
+  "pickerOption_noImage": {
+    "message": "背景画像を隠す"
+  },
+  "pickerOption_hide": {
+    "message": "要素を隠す"
+  },
+  "pickerParent": {
+    "message": "親要素を選択"
+  },
+  "pickerSave": {
+    "message": "このサイトに保存"
+  },
+  "debugBackground": {
+    "message": "背景"
+  },
+  "debugText": {
+    "message": "文字"
+  },
+  "debugContrast": {
+    "message": "コントラスト"
+  },
+  "debugRule": {
+    "message": "ルール"
+  },
+  "chipMessage": {
+    "message": "このページの一部はまだ明るいか読みにくいようです。"
+  },
+  "chipTryFiltered": {
+    "message": "フィルターモードを試す"
+  },
+  "chipFixElement": {
+    "message": "要素を修正"
+  },
+  "sectionAppearance": {
+    "message": "外観"
+  },
+  "themeLabel": {
+    "message": "テーマ"
+  },
+  "theme_dark": {
+    "message": "ダーク"
+  },
+  "theme_amoled": {
+    "message": "AMOLED ブラック"
+  },
+  "theme_dim": {
+    "message": "ディム"
+  },
+  "theme_sepia": {
+    "message": "セピア"
+  },
+  "theme_contrast": {
+    "message": "ハイコントラスト"
+  },
+  "theme_grayscale": {
+    "message": "グレースケール"
+  },
+  "theme_protan": {
+    "message": "1型色覚向け"
+  },
+  "theme_deutan": {
+    "message": "2型色覚向け"
+  },
+  "theme_tritan": {
+    "message": "3型色覚向け"
+  },
+  "themeHint_dark": {
+    "message": "落ち着いたダークグレーと柔らかい白文字。"
+  },
+  "themeHint_amoled": {
+    "message": "純黒の背景で OLED の電力を節約。"
+  },
+  "themeHint_dim": {
+    "message": "明るい部屋向けの明るめのグレー。"
+  },
+  "themeHint_sepia": {
+    "message": "長時間の読書向けの暖かい茶色。"
+  },
+  "themeHint_contrast": {
+    "message": "ほぼ黒の背景と 7:1 以上の文字コントラスト。"
+  },
+  "themeHint_grayscale": {
+    "message": "すべての色を除きます。"
+  },
+  "themeHint_protan": {
+    "message": "赤と緑を離して見分けやすくします。"
+  },
+  "themeHint_deutan": {
+    "message": "赤と緑を離して見分けやすくします。"
+  },
+  "themeHint_tritan": {
+    "message": "青と黄を離して見分けやすくします。"
+  },
+  "themeHint_custom": {
+    "message": "下で設定する独自の色。"
+  },
+  "presetLabel": {
+    "message": "色の強さ"
+  },
+  "preset_vivid": {
+    "message": "鮮やか"
+  },
+  "preset_balanced": {
+    "message": "バランス"
+  },
+  "preset_muted": {
+    "message": "控えめ"
+  },
+  "imagesHeading": {
+    "message": "画像"
+  },
+  "imagesHoverOriginal": {
+    "message": "ポインター下で元の画像を表示"
+  },
+  "imagesPhotoDim": {
+    "message": "写真を暗くする"
+  },
+  "diagnosisHeading": {
+    "message": "自己チェック"
+  },
+  "diagnosisEnabled": {
+    "message": "ページがまだ明るいときに手助けを表示"
+  },
+  "diagnosisHint": {
+    "message": "読み込み後に端末上で測定します。何も送信されません。"
+  },
+  "customThemesHeading": {
+    "message": "カスタムテーマ"
+  },
+  "customThemeAdd": {
+    "message": "新しいテーマ"
+  },
+  "customThemeDefaultName": {
+    "message": "マイテーマ"
+  },
+  "customThemeName": {
+    "message": "テーマ名"
+  },
+  "customThemePreview": {
+    "message": "サンプル文字："
+  },
+  "customColor_background": {
+    "message": "背景"
+  },
+  "customColor_text": {
+    "message": "文字"
+  },
+  "customColor_link": {
+    "message": "リンク"
+  },
+  "customColor_visited": {
+    "message": "訪問済みリンク"
+  },
+  "customColor_border": {
+    "message": "枠線"
+  },
+  "customColor_selection": {
+    "message": "選択範囲"
+  },
+  "customColor_button": {
+    "message": "ボタン"
+  },
+  "customColor_scrollbar": {
+    "message": "スクロールバー"
+  },
+  "themeCodeLabel": {
+    "message": "テーマコード"
+  },
+  "themeCodeImport": {
+    "message": "テーマを追加"
+  },
+  "themeCodeCopy": {
+    "message": "共有コードをコピー"
+  },
+  "themeCodeInvalid": {
+    "message": "有効なテーマコードではありません。"
+  },
+  "themeCodeImported": {
+    "message": "「$1」を追加しました。"
+  },
+  "sectionFixes": {
+    "message": "サイト別修正"
+  },
+  "fixesUpdates": {
+    "message": "署名付き修正を毎日ダウンロード"
+  },
+  "fixesHint": {
+    "message": "修正はコードではなくデータで、署名が正しい場合のみ使われます。同梱の修正は常に使われます。"
+  },
+  "fixesCheckNow": {
+    "message": "今すぐ確認"
+  },
+  "fixesNeverChecked": {
+    "message": "まだ確認していません。"
+  },
+  "fixesStatus_updated": {
+    "message": "$1 に更新（バージョン $2）。"
+  },
+  "fixesStatus_unchanged": {
+    "message": "$1 時点で最新（バージョン $2）。"
+  },
+  "fixesStatus_disabled": {
+    "message": "ダウンロードはオフです。確認日時 $1。"
+  },
+  "fixesStatus_rejected": {
+    "message": "前回のダウンロード（$1）は署名検証に失敗したため使われていません。"
+  },
+  "fixesStatus_failed": {
+    "message": "ダウンロードできませんでした（$1）。明日再試行します。"
   }
 }

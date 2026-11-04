@@ -6,3 +6,4 @@ export * from './migrate';
 export * from './edit';
 export * from './transfer';
 export * from './sync';
+export * from './commands';

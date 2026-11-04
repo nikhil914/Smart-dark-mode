@@ -54,8 +54,11 @@ export default defineConfig({
       'tabs',
       'alarms',
       'scripting',
+      'contextMenus',
       'declarativeNetRequestWithHostAccess',
       ...(browser === 'firefox' ? ['dns'] : []),
+      // Safari: the host app's Shortcuts actions reach the extension through native messaging.
+      ...(browser === 'safari' ? ['nativeMessaging'] : []),
     ],
     host_permissions: ['<all_urls>'],
     // WebAssembly is only used by the PDF viewer's image decoders.
@@ -85,6 +88,10 @@ export default defineConfig({
         description: '__MSG_cmdCycleMode__',
         suggested_key: { default: 'Alt+Shift+C' },
       },
+      // Chrome allows four suggested keys; this one is left for the user to assign.
+      'pick-element': {
+        description: '__MSG_cmdPickElement__',
+      },
     },
     ...(browser === 'firefox'
       ? {
@@ -99,6 +106,9 @@ export default defineConfig({
             gecko_android: { strict_min_version: '142.0' },
           },
         }
+      : {}),
+    ...(browser === 'safari'
+      ? { browser_specific_settings: { safari: { strict_min_version: '16.4' } } }
       : {}),
   }),
 });
