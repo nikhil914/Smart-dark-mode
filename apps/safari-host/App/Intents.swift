@@ -50,7 +50,8 @@ struct SetDarkModeIntent: AppIntent {
         case .toggle: target = !Bridge.enabled
         }
         Bridge.enqueue(type: "enabled", value: target ? "true" : "false")
-        return .result(dialog: target ? "Dark mode is turning on." : "Dark mode is turning off.")
+        let dialog: IntentDialog = target ? "Dark mode is turning on." : "Dark mode is turning off."
+        return .result(dialog: dialog)
     }
 }
 
