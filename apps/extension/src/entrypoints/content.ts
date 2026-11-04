@@ -1,23 +1,48 @@
-import { type Theme, expandTemplates, themeFrom, themeKey } from '@sdm/engine';
-import { automationActive, nextBoundary, resolve, toPageLocation } from '@sdm/settings';
+import {
+  type SiteFix,
+  type Theme,
+  darkReaderVariablesCss,
+  expandTemplates,
+  invertCss,
+  modifyColorValue,
+  themeFrom,
+  themeKey,
+} from '@sdm/engine';
+import {
+  automationActive,
+  nextBoundary,
+  resolve,
+  setRuleMode,
+  siteDomain,
+  toPageLocation,
+} from '@sdm/settings';
 import { filteredCss, overlayCss } from '@/lib/apply-css';
-import type { PageStatus } from '@/lib/messages';
+import { type PageStatus, isToolRequest } from '@/lib/messages';
 import {
   isOsSchemeChange,
   isSettingsChange,
   loadSettings,
   saveOsPrefersDark,
+  saveSettings,
 } from '@/lib/settings-store';
 import { readCache, writeCache } from '@/content/cache';
-import { DynamicTheme } from '@/content/dynamic-theme';
+import { DynamicTheme, validSelector } from '@/content/dynamic-theme';
 import { ImageClassifier } from '@/content/images';
 import { IntegrationController, pageLooksDark, readJournal } from '@/content/integration';
+import {
+  type ToolsContext,
+  debugActive,
+  maybeShowChip,
+  startPicker,
+  toggleDebug,
+} from '@/content/tools';
 import { forgetNativeDark, isNativeDark, rememberNativeDark } from '@/content/native-dark';
 import { type Integration, integrationForDocument, integrationForHost } from '@/data/integrations';
 
 const STYLE_ID = 'sdm-style';
 const CACHE_ID = 'sdm-cache';
 const CUSTOM_ID = 'sdm-custom';
+const FIXES_ID = 'sdm-fixes';
 
 export default defineContentScript({
   matches: ['<all_urls>'],
@@ -43,6 +68,50 @@ export default defineContentScript({
     let markerIntegration: Integration | null = null;
     let nativeDark = false;
     let detectionScheduled = false;
+    let currentTheme: Theme | null = null;
+    let chipScheduled = false;
+    const tools: ToolsContext = {
+      theme: () => currentTheme,
+      originalsOf: (shown, role) => engine?.originalsOf(shown, role) ?? [],
+    };
+    let fixKey = '';
+    let fix: Promise<SiteFix | null> = Promise.resolve(null);
+
+    /** Site fixes for the page, asked of the background once per host and path. */
+    function fixesFor(host: string, path: string): Promise<SiteFix | null> {
+      const key = `${host}${path}`;
+      if (key !== fixKey) {
+        fixKey = key;
+        fix = browser.runtime
+          .sendMessage({ type: 'sdm:fixes', host, path })
+          .then((r: unknown) => (r && typeof r === 'object' ? (r as SiteFix) : null))
+          .catch(() => null);
+      }
+      return fix;
+    }
+
+    async function applyFixes(theme: Theme, host: string, path: string): Promise<void> {
+      const f = await fixesFor(host, path);
+      if (!f || !engine) {
+        render(FIXES_ID, '');
+        return;
+      }
+      const color = (value: string, role: 'background' | 'text') =>
+        modifyColorValue(value, role, theme) ?? value;
+      const invert = (f.invert ?? []).filter(validSelector);
+      const css = [
+        invertCss(invert),
+        darkReaderVariablesCss(
+          color('#ffffff', 'background'),
+          color('#000000', 'text'),
+          color('#b3d4fc', 'background'),
+        ),
+        expandTemplates(f.css ?? '', theme),
+      ].join('\n');
+      render(FIXES_ID, css);
+      engine.setIgnoreInline(f.ignoreInlineStyle ?? []);
+      images?.setIgnore((f.ignoreImageAnalysis ?? []).filter(validSelector).join(', '));
+    }
 
     if (isTop) void saveOsPrefersDark(scheme.matches);
 
@@ -197,15 +266,26 @@ export default defineContentScript({
         scheduleDetection();
       } else if (mode === 'dark') {
         html.removeAttribute('data-sdm-off');
-        theme = themeFrom(adjust, 'balanced', r.remap);
+        const customId = r.theme.startsWith('custom:') ? r.theme.slice(7) : null;
+        theme = themeFrom(adjust, {
+          preset: settings.preset,
+          remap: r.remap,
+          theme: r.theme,
+          custom: settings.customThemes.find((c) => c.id === customId)?.colors,
+        });
         render(STYLE_ID, overlayCss(adjust));
         startEngine(theme);
+        engine?.setImageOptions(settings.images);
+        void applyFixes(theme, loc.host, loc.path);
+        scheduleChip();
         if (r.integration === 'site') scheduleDetection();
       } else {
         leaveAlone();
         render(STYLE_ID, mode === 'filtered' ? filteredCss(adjust) : '');
       }
 
+      currentTheme = theme;
+      if (!theme) render(FIXES_ID, '');
       render(CUSTOM_ID, mode === 'normal' ? '' : expandTemplates(r.css, theme));
 
       clearTimeout(timer);
@@ -214,6 +294,26 @@ export default defineContentScript({
         const next = nextBoundary(now, from, to);
         if (next) timer = setTimeout(() => void apply(), next.getTime() - now.getTime() + 1000);
       }
+    }
+
+    /** Once per page load, after it settles: offer help when the result still looks wrong. */
+    function scheduleChip(): void {
+      if (chipScheduled || !isTop) return;
+      chipScheduled = true;
+      const run = () =>
+        setTimeout(() => {
+          if (!engine) return;
+          void loadSettings().then((settings) => {
+            if (!settings.diagnosis || !engine) return;
+            void maybeShowChip(tools, async () => {
+              const latest = await loadSettings();
+              const domain = siteDomain(location.hostname);
+              await saveSettings(setRuleMode(latest, 'domain', domain, 'filtered'));
+            });
+          });
+        }, 2500);
+      if (document.readyState === 'complete') run();
+      else window.addEventListener('load', run, { once: true });
     }
 
     async function hasJournal(): Promise<boolean> {
@@ -239,11 +339,20 @@ export default defineContentScript({
 
     if (isTop) {
       browser.runtime.onMessage.addListener((message: unknown) => {
+        if (isToolRequest(message)) {
+          if (message.tool === 'export') return Promise.resolve(engine?.generatedCss() ?? '');
+          if (!engine) return Promise.resolve(false);
+          if (message.tool === 'picker') startPicker(tools, message.atContextMenu ?? false);
+          else toggleDebug(tools);
+          return Promise.resolve(true);
+        }
         if ((message as { type?: unknown } | null)?.type !== 'sdm:status') return undefined;
         const status: PageStatus = {
           siteTheme: integration?.active?.name ?? null,
           nativeDark,
           palette: engine?.palette() ?? [],
+          engine: Boolean(engine),
+          debug: debugActive(),
         };
         return Promise.resolve(status);
       });

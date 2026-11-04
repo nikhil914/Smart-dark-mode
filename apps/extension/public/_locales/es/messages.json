@@ -430,5 +430,269 @@
   },
   "reset": {
     "message": "Restablecer"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "close": {
+    "message": "Cerrar"
+  },
+  "remove": {
+    "message": "Quitar"
+  },
+  "copied": {
+    "message": "Copiado"
+  },
+  "cmdPickElement": {
+    "message": "Corregir un elemento de la página"
+  },
+  "menuToggleSite": {
+    "message": "Modo oscuro en este sitio"
+  },
+  "menuFixElement": {
+    "message": "Corregir este elemento"
+  },
+  "menuOpenPdf": {
+    "message": "Abrir PDF en el visor oscuro"
+  },
+  "toolsLabel": {
+    "message": "Herramientas de página"
+  },
+  "toolPicker": {
+    "message": "Corregir elemento"
+  },
+  "toolDebug": {
+    "message": "Inspeccionar colores"
+  },
+  "toolDebugOff": {
+    "message": "Dejar de inspeccionar"
+  },
+  "toolExport": {
+    "message": "Exportar CSS"
+  },
+  "pickerTitle": {
+    "message": "Corregir este elemento"
+  },
+  "pickerSelector": {
+    "message": "Selector CSS"
+  },
+  "pickerOption_invert": {
+    "message": "Invertir (lienzos, diagramas)"
+  },
+  "pickerOption_background": {
+    "message": "Forzar fondo oscuro"
+  },
+  "pickerOption_text": {
+    "message": "Forzar texto claro"
+  },
+  "pickerOption_noImage": {
+    "message": "Ocultar imagen de fondo"
+  },
+  "pickerOption_hide": {
+    "message": "Ocultar elemento"
+  },
+  "pickerParent": {
+    "message": "Elegir el contenedor"
+  },
+  "pickerSave": {
+    "message": "Guardar para este sitio"
+  },
+  "debugBackground": {
+    "message": "fondo"
+  },
+  "debugText": {
+    "message": "texto"
+  },
+  "debugContrast": {
+    "message": "contraste"
+  },
+  "debugRule": {
+    "message": "regla"
+  },
+  "chipMessage": {
+    "message": "Partes de esta página siguen viéndose claras o difíciles de leer."
+  },
+  "chipTryFiltered": {
+    "message": "Probar modo filtrado"
+  },
+  "chipFixElement": {
+    "message": "Corregir elemento"
+  },
+  "sectionAppearance": {
+    "message": "Apariencia"
+  },
+  "themeLabel": {
+    "message": "Tema"
+  },
+  "theme_dark": {
+    "message": "Oscuro"
+  },
+  "theme_amoled": {
+    "message": "Negro AMOLED"
+  },
+  "theme_dim": {
+    "message": "Atenuado"
+  },
+  "theme_sepia": {
+    "message": "Sepia"
+  },
+  "theme_contrast": {
+    "message": "Alto contraste"
+  },
+  "theme_grayscale": {
+    "message": "Escala de grises"
+  },
+  "theme_protan": {
+    "message": "Para protanopía"
+  },
+  "theme_deutan": {
+    "message": "Para deuteranopía"
+  },
+  "theme_tritan": {
+    "message": "Para tritanopía"
+  },
+  "themeHint_dark": {
+    "message": "Gris oscuro equilibrado, texto blanquecino."
+  },
+  "themeHint_amoled": {
+    "message": "Fondo negro puro, ahorra energía en pantallas OLED."
+  },
+  "themeHint_dim": {
+    "message": "Gris oscuro más claro para ambientes iluminados."
+  },
+  "themeHint_sepia": {
+    "message": "Tonos marrones cálidos para leer mucho rato."
+  },
+  "themeHint_contrast": {
+    "message": "Fondo casi negro y contraste de texto de al menos 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "Quita todo el color."
+  },
+  "themeHint_protan": {
+    "message": "Separa rojos y verdes para distinguirlos mejor."
+  },
+  "themeHint_deutan": {
+    "message": "Separa rojos y verdes para distinguirlos mejor."
+  },
+  "themeHint_tritan": {
+    "message": "Separa azules y amarillos para distinguirlos mejor."
+  },
+  "themeHint_custom": {
+    "message": "Tus propios colores, abajo."
+  },
+  "presetLabel": {
+    "message": "Intensidad del color"
+  },
+  "preset_vivid": {
+    "message": "Vivo"
+  },
+  "preset_balanced": {
+    "message": "Equilibrado"
+  },
+  "preset_muted": {
+    "message": "Apagado"
+  },
+  "imagesHeading": {
+    "message": "Imágenes"
+  },
+  "imagesHoverOriginal": {
+    "message": "Mostrar la imagen original bajo el puntero"
+  },
+  "imagesPhotoDim": {
+    "message": "Oscurecer fotos"
+  },
+  "diagnosisHeading": {
+    "message": "Autocomprobación"
+  },
+  "diagnosisEnabled": {
+    "message": "Ofrecer ayuda si una página sigue viéndose clara"
+  },
+  "diagnosisHint": {
+    "message": "Se mide en tu dispositivo tras cargar la página. No se envía nada."
+  },
+  "customThemesHeading": {
+    "message": "Temas personalizados"
+  },
+  "customThemeAdd": {
+    "message": "Nuevo tema"
+  },
+  "customThemeDefaultName": {
+    "message": "Mi tema"
+  },
+  "customThemeName": {
+    "message": "Nombre del tema"
+  },
+  "customThemePreview": {
+    "message": "Texto de ejemplo con"
+  },
+  "customColor_background": {
+    "message": "Fondo"
+  },
+  "customColor_text": {
+    "message": "Texto"
+  },
+  "customColor_link": {
+    "message": "Enlace"
+  },
+  "customColor_visited": {
+    "message": "Enlace visitado"
+  },
+  "customColor_border": {
+    "message": "Borde"
+  },
+  "customColor_selection": {
+    "message": "Selección"
+  },
+  "customColor_button": {
+    "message": "Botón"
+  },
+  "customColor_scrollbar": {
+    "message": "Barra de desplazamiento"
+  },
+  "themeCodeLabel": {
+    "message": "Código del tema"
+  },
+  "themeCodeImport": {
+    "message": "Añadir tema"
+  },
+  "themeCodeCopy": {
+    "message": "Copiar código para compartir"
+  },
+  "themeCodeInvalid": {
+    "message": "No es un código de tema válido."
+  },
+  "themeCodeImported": {
+    "message": "Se añadió «$1»."
+  },
+  "sectionFixes": {
+    "message": "Correcciones de sitios"
+  },
+  "fixesUpdates": {
+    "message": "Descargar correcciones firmadas a diario"
+  },
+  "fixesHint": {
+    "message": "Las correcciones son datos, nunca código, y solo se usan si la firma es válida. Las incluidas en la extensión se usan siempre."
+  },
+  "fixesCheckNow": {
+    "message": "Comprobar ahora"
+  },
+  "fixesNeverChecked": {
+    "message": "Aún sin comprobar."
+  },
+  "fixesStatus_updated": {
+    "message": "Actualizado el $1 (versión $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "Al día a $1 (versión $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "Descargas desactivadas. Comprobado el $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "La última descarga ($1) no superó la firma y no se usó."
+  },
+  "fixesStatus_failed": {
+    "message": "No se pudo descargar ($1). Se reintentará mañana."
   }
 }

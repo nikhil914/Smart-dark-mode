@@ -8,7 +8,9 @@ import {
   type PageLocation,
   type RuleLevel,
   type Settings,
+  type ThemeId,
   ADJUSTMENT_LIMITS,
+  BUILT_IN_THEME_IDS,
   MODES,
   clampAdjustment,
   pageKey,
@@ -23,7 +25,8 @@ import {
   toPageLocation,
 } from '@sdm/settings';
 import { t } from '@/lib/i18n';
-import type { PageStatus, StatusRequest } from '@/lib/messages';
+import { reportUrl } from '@/lib/report';
+import type { PageStatus, StatusRequest, ToolRequest } from '@/lib/messages';
 import { isSettingsChange, loadSettings, saveSettings } from '@/lib/settings-store';
 
 type Scope = 'global' | Exclude<RuleLevel, 'pattern'>;
@@ -106,6 +109,15 @@ export function App() {
   const siteScope: Exclude<Scope, 'global'> = scope === 'global' ? 'domain' : scope;
   const siteMatch = scopeMatch(siteScope, loc);
 
+  const setTheme = (theme: ThemeId) => {
+    if (scope === 'global') return update({ ...settings, theme });
+    update(
+      updateRule(settings, scope, scopeMatch(scope, loc), {
+        theme: theme === settings.theme ? undefined : theme,
+      }),
+    );
+  };
+
   const setIntegration = (choice: IntegrationChoice) =>
     update(
       updateRule(settings, 'domain', domain, {
@@ -167,6 +179,24 @@ export function App() {
         </label>
       )}
 
+      {configured.mode === 'dark' && (
+        <div class="row">
+          <label for="theme">{t('themeLabel')}</label>
+          <select
+            id="theme"
+            value={scope === 'global' ? settings.theme : configured.theme}
+            onChange={(e) => setTheme(e.currentTarget.value as ThemeId)}
+          >
+            {BUILT_IN_THEME_IDS.map((id) => (
+              <option value={id}>{t(`theme_${id}`)}</option>
+            ))}
+            {settings.customThemes.map((c) => (
+              <option value={`custom:${c.id}`}>{c.name}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
       {configured.mode !== 'normal' && (
         <div class="sliders">
           {SLIDERS.map((key) => {
@@ -216,6 +246,8 @@ export function App() {
         />
       )}
 
+      {effective.mode === 'dark' && status?.engine && <Tools debug={status.debug} />}
+
       <Automation settings={settings} onUpdate={update} />
 
       <footer class="links">
@@ -228,21 +260,6 @@ export function App() {
       </footer>
     </main>
   );
-}
-
-/** Opens a pre-filled issue. Only the origin and extension version are included (F6). */
-function reportUrl(loc: PageLocation, mode: Mode): string {
-  const version = browser.runtime.getManifest().version;
-  const body = [
-    `Site: ${loc.host}`,
-    `Mode: ${mode}`,
-    `Extension version: ${version}`,
-    '',
-    'What looks wrong:',
-    '',
-  ].join('\n');
-  const params = new URLSearchParams({ title: `Site problem: ${loc.host}`, body, labels: 'site' });
-  return `https://github.com/nikhil914/smart-dark-mode/issues/new?${params.toString()}`;
 }
 
 function Palette(props: {
@@ -367,5 +384,39 @@ function Automation(props: { settings: Settings; onUpdate: (s: Settings) => void
         </div>
       )}
     </fieldset>
+  );
+}
+
+/** Page tools. The picker and overlay run in the page, so the popup closes after starting them. */
+function Tools({ debug }: { debug: boolean }) {
+  const send = async (tool: ToolRequest['tool']): Promise<unknown> => {
+    const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+    if (tab?.id === undefined) return null;
+    const request: ToolRequest = { type: 'sdm:tool', tool };
+    return browser.tabs.sendMessage(tab.id, request, { frameId: 0 }).catch(() => null);
+  };
+  const start = (tool: 'picker' | 'debug') => void send(tool).then(() => window.close());
+  const exportCss = async () => {
+    const css = await send('export');
+    if (typeof css !== 'string' || !css) return;
+    const url = URL.createObjectURL(new Blob([css], { type: 'text/css' }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'dark-mode.css';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 10_000);
+  };
+  return (
+    <div class="tools" role="group" aria-label={t('toolsLabel')}>
+      <button type="button" onClick={() => start('picker')}>
+        {t('toolPicker')}
+      </button>
+      <button type="button" aria-pressed={debug} onClick={() => start('debug')}>
+        {debug ? t('toolDebugOff') : t('toolDebug')}
+      </button>
+      <button type="button" onClick={() => void exportCss()}>
+        {t('toolExport')}
+      </button>
+    </div>
   );
 }

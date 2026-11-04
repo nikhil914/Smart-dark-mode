@@ -430,5 +430,269 @@
   },
   "reset": {
     "message": "Сбросить"
+  },
+  "cancel": {
+    "message": "Отмена"
+  },
+  "close": {
+    "message": "Закрыть"
+  },
+  "remove": {
+    "message": "Удалить"
+  },
+  "copied": {
+    "message": "Скопировано"
+  },
+  "cmdPickElement": {
+    "message": "Исправить элемент на странице"
+  },
+  "menuToggleSite": {
+    "message": "Тёмный режим на этом сайте"
+  },
+  "menuFixElement": {
+    "message": "Исправить этот элемент"
+  },
+  "menuOpenPdf": {
+    "message": "Открыть PDF в тёмном просмотрщике"
+  },
+  "toolsLabel": {
+    "message": "Инструменты страницы"
+  },
+  "toolPicker": {
+    "message": "Исправить элемент"
+  },
+  "toolDebug": {
+    "message": "Проверить цвета"
+  },
+  "toolDebugOff": {
+    "message": "Прекратить проверку"
+  },
+  "toolExport": {
+    "message": "Экспорт CSS"
+  },
+  "pickerTitle": {
+    "message": "Исправить этот элемент"
+  },
+  "pickerSelector": {
+    "message": "CSS-селектор"
+  },
+  "pickerOption_invert": {
+    "message": "Инвертировать (холсты, схемы)"
+  },
+  "pickerOption_background": {
+    "message": "Принудительно тёмный фон"
+  },
+  "pickerOption_text": {
+    "message": "Принудительно светлый текст"
+  },
+  "pickerOption_noImage": {
+    "message": "Скрыть фоновое изображение"
+  },
+  "pickerOption_hide": {
+    "message": "Скрыть элемент"
+  },
+  "pickerParent": {
+    "message": "Выбрать родителя"
+  },
+  "pickerSave": {
+    "message": "Сохранить для сайта"
+  },
+  "debugBackground": {
+    "message": "фон"
+  },
+  "debugText": {
+    "message": "текст"
+  },
+  "debugContrast": {
+    "message": "контраст"
+  },
+  "debugRule": {
+    "message": "правило"
+  },
+  "chipMessage": {
+    "message": "Части страницы всё ещё светлые или плохо читаются."
+  },
+  "chipTryFiltered": {
+    "message": "Попробовать режим фильтра"
+  },
+  "chipFixElement": {
+    "message": "Исправить элемент"
+  },
+  "sectionAppearance": {
+    "message": "Внешний вид"
+  },
+  "themeLabel": {
+    "message": "Тема"
+  },
+  "theme_dark": {
+    "message": "Тёмная"
+  },
+  "theme_amoled": {
+    "message": "Чёрная AMOLED"
+  },
+  "theme_dim": {
+    "message": "Приглушённая"
+  },
+  "theme_sepia": {
+    "message": "Сепия"
+  },
+  "theme_contrast": {
+    "message": "Высокий контраст"
+  },
+  "theme_grayscale": {
+    "message": "Оттенки серого"
+  },
+  "theme_protan": {
+    "message": "Для протанопии"
+  },
+  "theme_deutan": {
+    "message": "Для дейтеранопии"
+  },
+  "theme_tritan": {
+    "message": "Для тританопии"
+  },
+  "themeHint_dark": {
+    "message": "Сбалансированный тёмно-серый, светлый текст."
+  },
+  "themeHint_amoled": {
+    "message": "Чисто чёрный фон, экономит заряд на OLED."
+  },
+  "themeHint_dim": {
+    "message": "Более светлый серый для светлых комнат."
+  },
+  "themeHint_sepia": {
+    "message": "Тёплые коричневые тона для долгого чтения."
+  },
+  "themeHint_contrast": {
+    "message": "Почти чёрный фон, контраст текста не ниже 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "Убирает все цвета."
+  },
+  "themeHint_protan": {
+    "message": "Разводит красные и зелёные, чтобы их было легче различать."
+  },
+  "themeHint_deutan": {
+    "message": "Разводит красные и зелёные, чтобы их было легче различать."
+  },
+  "themeHint_tritan": {
+    "message": "Разводит синие и жёлтые, чтобы их было легче различать."
+  },
+  "themeHint_custom": {
+    "message": "Ваши собственные цвета, ниже."
+  },
+  "presetLabel": {
+    "message": "Насыщенность цветов"
+  },
+  "preset_vivid": {
+    "message": "Яркая"
+  },
+  "preset_balanced": {
+    "message": "Сбалансированная"
+  },
+  "preset_muted": {
+    "message": "Приглушённая"
+  },
+  "imagesHeading": {
+    "message": "Изображения"
+  },
+  "imagesHoverOriginal": {
+    "message": "Показывать исходное изображение под указателем"
+  },
+  "imagesPhotoDim": {
+    "message": "Затемнять фото"
+  },
+  "diagnosisHeading": {
+    "message": "Самопроверка"
+  },
+  "diagnosisEnabled": {
+    "message": "Предлагать помощь, если страница всё ещё светлая"
+  },
+  "diagnosisHint": {
+    "message": "Измеряется на устройстве после загрузки. Ничего не отправляется."
+  },
+  "customThemesHeading": {
+    "message": "Свои темы"
+  },
+  "customThemeAdd": {
+    "message": "Новая тема"
+  },
+  "customThemeDefaultName": {
+    "message": "Моя тема"
+  },
+  "customThemeName": {
+    "message": "Название темы"
+  },
+  "customThemePreview": {
+    "message": "Пример текста с"
+  },
+  "customColor_background": {
+    "message": "Фон"
+  },
+  "customColor_text": {
+    "message": "Текст"
+  },
+  "customColor_link": {
+    "message": "Ссылка"
+  },
+  "customColor_visited": {
+    "message": "Посещённая ссылка"
+  },
+  "customColor_border": {
+    "message": "Рамка"
+  },
+  "customColor_selection": {
+    "message": "Выделение"
+  },
+  "customColor_button": {
+    "message": "Кнопка"
+  },
+  "customColor_scrollbar": {
+    "message": "Полоса прокрутки"
+  },
+  "themeCodeLabel": {
+    "message": "Код темы"
+  },
+  "themeCodeImport": {
+    "message": "Добавить тему"
+  },
+  "themeCodeCopy": {
+    "message": "Копировать код"
+  },
+  "themeCodeInvalid": {
+    "message": "Это неверный код темы."
+  },
+  "themeCodeImported": {
+    "message": "Тема «$1» добавлена."
+  },
+  "sectionFixes": {
+    "message": "Исправления сайтов"
+  },
+  "fixesUpdates": {
+    "message": "Ежедневно загружать подписанные исправления"
+  },
+  "fixesHint": {
+    "message": "Исправления — это данные, а не код, и применяются только с верной подписью. Встроенные исправления используются всегда."
+  },
+  "fixesCheckNow": {
+    "message": "Проверить сейчас"
+  },
+  "fixesNeverChecked": {
+    "message": "Ещё не проверялось."
+  },
+  "fixesStatus_updated": {
+    "message": "Обновлено $1 (версия $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "Актуально на $1 (версия $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "Загрузка выключена. Проверено $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "Последняя загрузка ($1) не прошла проверку подписи и не используется."
+  },
+  "fixesStatus_failed": {
+    "message": "Не удалось загрузить ($1). Повтор завтра."
   }
 }

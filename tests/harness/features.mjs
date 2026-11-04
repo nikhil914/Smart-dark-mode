@@ -89,6 +89,11 @@ async function pixel(page, selector) {
   }, selector);
 }
 
+const rgb = (v) =>
+  v
+    .match(/\d+(\.\d+)?/g)
+    .slice(0, 3)
+    .map(Number);
 const lum = ([r, g, b]) => (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
 
 // --- PDF viewer -----------------------------------------------------------------------------
@@ -294,6 +299,114 @@ await withExtension(async ({ sw }) => {
     json.includes('"defaultMode":"filtered"'),
     `${json.length} chars`,
   );
+});
+
+// --- Themes, page tools, context menus ------------------------------------------------------
+await withExtension(async ({ context, sw }) => {
+  const s = 'Themes';
+  const page = await context.newPage();
+  await page.goto(url('themes', 'basic.html'));
+  await page.waitForTimeout(1200);
+  const bgOf = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  const dark = rgb(await bgOf());
+  await editSettings(sw, (st) => ({ ...st, theme: 'amoled' }));
+  await page.waitForTimeout(1200);
+  const amoled = rgb(await bgOf());
+  check(s, 'AMOLED theme makes the page background black', lum(amoled) < 0.01, amoled.join(','));
+  check(s, 'and differs from the default dark theme', lum(dark) > lum(amoled), dark.join(','));
+  await editSettings(sw, (st) => ({ ...st, theme: 'sepia' }));
+  await page.waitForTimeout(1200);
+  const sepia = rgb(await bgOf());
+  check(s, 'sepia theme tints the background warm', sepia[0] > sepia[2], sepia.join(','));
+  await editSettings(sw, (st) => ({
+    ...st,
+    theme: 'custom:t1',
+    customThemes: [
+      {
+        id: 't1',
+        name: 'Navy',
+        colors: {
+          background: '#101a33',
+          text: '#e8e8f0',
+          link: '#ffcc00',
+          visited: '#cc99ff',
+          border: '#2a3555',
+          selection: '#334477',
+          button: '#1a2747',
+          scrollbar: '#2a3555',
+        },
+      },
+    ],
+  }));
+  await page.waitForTimeout(1200);
+  const custom = rgb(await bgOf());
+  check(s, 'custom theme colours the background', custom[2] > custom[0] + 10, custom.join(','));
+});
+
+await withExtension(async ({ context, sw }) => {
+  const s = 'Page tools';
+  const page = await context.newPage();
+  await page.goto(url('tools', 'bright-shadow.html'));
+  await page.waitForTimeout(4500);
+  const chip = await page.evaluate(() => document.querySelectorAll('sdm-ui').length);
+  check(s, 'self-diagnosis chip shown on a page that stays bright', chip === 1, `${chip} hosts`);
+
+  const tell = (message) =>
+    sw.evaluate(async (m) => {
+      const [tab] = await chrome.tabs.query({ url: '*://tools.localhost/*' });
+      return chrome.tabs.sendMessage(tab.id, m, { frameId: 0 });
+    }, message);
+  const css = await tell({ type: 'sdm:tool', tool: 'export' });
+  check(
+    s,
+    'generated CSS can be exported',
+    typeof css === 'string' && css.length > 200,
+    `${css?.length} chars`,
+  );
+  await tell({ type: 'sdm:tool', tool: 'debug' });
+  const status = await tell({ type: 'sdm:status' });
+  check(s, 'debug overlay switches on', status?.debug === true, JSON.stringify(status?.debug));
+  await page.keyboard.press('Escape');
+  const after = await tell({ type: 'sdm:status' });
+  check(s, 'and Escape switches it off', after?.debug === false, JSON.stringify(after?.debug));
+
+  await tell({ type: 'sdm:tool', tool: 'picker' });
+  const box = await page.locator('#fix-me').boundingBox();
+  await page.mouse.move(box.x + 10, box.y + 10);
+  await page.mouse.move(box.x + 20, box.y + 12);
+  await page.mouse.click(box.x + 20, box.y + 12);
+  await page.waitForTimeout(200);
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Space');
+  await page.waitForTimeout(300);
+  const preview = await page.evaluate(
+    () => document.getElementById('sdm-picker-preview')?.textContent ?? '',
+  );
+  check(s, 'picker previews the fix live', preview.includes('#fix-me'), preview.slice(0, 80));
+  for (let i = 0; i < 4; i++) await page.keyboard.press('Tab');
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(800);
+  const { settings } = await sw.evaluate(() => chrome.storage.local.get('settings'));
+  const rule = settings.rules['domain:tools.localhost'];
+  check(
+    s,
+    'picker saves the fix as site CSS',
+    /#fix-me\s*\{[^}]*background-color/.test(rule?.css ?? ''),
+    JSON.stringify(rule?.css ?? null).slice(0, 100),
+  );
+  const applied = await page.evaluate(
+    () => document.getElementById('sdm-custom')?.textContent ?? '',
+  );
+  check(
+    s,
+    'saved fix applies to the page, converted',
+    /#fix-me\s*\{\s*background-color: rgb/.test(applied),
+    applied.slice(0, 80),
+  );
+
+  const menus = await sw.evaluate(() => typeof chrome.contextMenus?.update === 'function');
+  check(s, 'context menu API available to the extension', menus, '');
 });
 
 server.close();

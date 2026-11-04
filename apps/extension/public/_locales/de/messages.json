@@ -430,5 +430,269 @@
   },
   "reset": {
     "message": "Zurücksetzen"
+  },
+  "cancel": {
+    "message": "Abbrechen"
+  },
+  "close": {
+    "message": "Schließen"
+  },
+  "remove": {
+    "message": "Entfernen"
+  },
+  "copied": {
+    "message": "Kopiert"
+  },
+  "cmdPickElement": {
+    "message": "Element auf der Seite korrigieren"
+  },
+  "menuToggleSite": {
+    "message": "Dunkelmodus auf dieser Website"
+  },
+  "menuFixElement": {
+    "message": "Dieses Element korrigieren"
+  },
+  "menuOpenPdf": {
+    "message": "PDF im dunklen Viewer öffnen"
+  },
+  "toolsLabel": {
+    "message": "Seitenwerkzeuge"
+  },
+  "toolPicker": {
+    "message": "Element korrigieren"
+  },
+  "toolDebug": {
+    "message": "Farben prüfen"
+  },
+  "toolDebugOff": {
+    "message": "Prüfen beenden"
+  },
+  "toolExport": {
+    "message": "CSS exportieren"
+  },
+  "pickerTitle": {
+    "message": "Dieses Element korrigieren"
+  },
+  "pickerSelector": {
+    "message": "CSS-Selektor"
+  },
+  "pickerOption_invert": {
+    "message": "Invertieren (Canvas, Diagramme)"
+  },
+  "pickerOption_background": {
+    "message": "Dunklen Hintergrund erzwingen"
+  },
+  "pickerOption_text": {
+    "message": "Hellen Text erzwingen"
+  },
+  "pickerOption_noImage": {
+    "message": "Hintergrundbild ausblenden"
+  },
+  "pickerOption_hide": {
+    "message": "Element ausblenden"
+  },
+  "pickerParent": {
+    "message": "Übergeordnetes wählen"
+  },
+  "pickerSave": {
+    "message": "Für diese Website speichern"
+  },
+  "debugBackground": {
+    "message": "Hintergrund"
+  },
+  "debugText": {
+    "message": "Text"
+  },
+  "debugContrast": {
+    "message": "Kontrast"
+  },
+  "debugRule": {
+    "message": "Regel"
+  },
+  "chipMessage": {
+    "message": "Teile dieser Seite wirken noch hell oder schwer lesbar."
+  },
+  "chipTryFiltered": {
+    "message": "Filtermodus testen"
+  },
+  "chipFixElement": {
+    "message": "Element korrigieren"
+  },
+  "sectionAppearance": {
+    "message": "Darstellung"
+  },
+  "themeLabel": {
+    "message": "Design"
+  },
+  "theme_dark": {
+    "message": "Dunkel"
+  },
+  "theme_amoled": {
+    "message": "AMOLED-Schwarz"
+  },
+  "theme_dim": {
+    "message": "Gedämpft"
+  },
+  "theme_sepia": {
+    "message": "Sepia"
+  },
+  "theme_contrast": {
+    "message": "Hoher Kontrast"
+  },
+  "theme_grayscale": {
+    "message": "Graustufen"
+  },
+  "theme_protan": {
+    "message": "Für Rotschwäche (Protan)"
+  },
+  "theme_deutan": {
+    "message": "Für Grünschwäche (Deutan)"
+  },
+  "theme_tritan": {
+    "message": "Für Blauschwäche (Tritan)"
+  },
+  "themeHint_dark": {
+    "message": "Ausgewogenes Dunkelgrau, gebrochen weißer Text."
+  },
+  "themeHint_amoled": {
+    "message": "Reinschwarzer Hintergrund, spart Strom bei OLED."
+  },
+  "themeHint_dim": {
+    "message": "Helleres Dunkelgrau für helle Räume."
+  },
+  "themeHint_sepia": {
+    "message": "Warme Brauntöne für langes Lesen."
+  },
+  "themeHint_contrast": {
+    "message": "Fast schwarzer Hintergrund, Textkontrast mindestens 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "Entfernt alle Farben."
+  },
+  "themeHint_protan": {
+    "message": "Rückt Rot und Grün auseinander, damit sie unterscheidbar sind."
+  },
+  "themeHint_deutan": {
+    "message": "Rückt Rot und Grün auseinander, damit sie unterscheidbar sind."
+  },
+  "themeHint_tritan": {
+    "message": "Rückt Blau und Gelb auseinander, damit sie unterscheidbar sind."
+  },
+  "themeHint_custom": {
+    "message": "Ihre eigenen Farben, siehe unten."
+  },
+  "presetLabel": {
+    "message": "Farbintensität"
+  },
+  "preset_vivid": {
+    "message": "Lebhaft"
+  },
+  "preset_balanced": {
+    "message": "Ausgewogen"
+  },
+  "preset_muted": {
+    "message": "Gedämpft"
+  },
+  "imagesHeading": {
+    "message": "Bilder"
+  },
+  "imagesHoverOriginal": {
+    "message": "Originalbild unter dem Zeiger zeigen"
+  },
+  "imagesPhotoDim": {
+    "message": "Fotos abdunkeln"
+  },
+  "diagnosisHeading": {
+    "message": "Selbstprüfung"
+  },
+  "diagnosisEnabled": {
+    "message": "Hilfe anbieten, wenn eine Seite noch hell wirkt"
+  },
+  "diagnosisHint": {
+    "message": "Wird nach dem Laden auf Ihrem Gerät gemessen. Nichts wird gesendet."
+  },
+  "customThemesHeading": {
+    "message": "Eigene Designs"
+  },
+  "customThemeAdd": {
+    "message": "Neues Design"
+  },
+  "customThemeDefaultName": {
+    "message": "Mein Design"
+  },
+  "customThemeName": {
+    "message": "Name des Designs"
+  },
+  "customThemePreview": {
+    "message": "Beispieltext mit"
+  },
+  "customColor_background": {
+    "message": "Hintergrund"
+  },
+  "customColor_text": {
+    "message": "Text"
+  },
+  "customColor_link": {
+    "message": "Link"
+  },
+  "customColor_visited": {
+    "message": "Besuchter Link"
+  },
+  "customColor_border": {
+    "message": "Rahmen"
+  },
+  "customColor_selection": {
+    "message": "Auswahl"
+  },
+  "customColor_button": {
+    "message": "Schaltfläche"
+  },
+  "customColor_scrollbar": {
+    "message": "Scrollleiste"
+  },
+  "themeCodeLabel": {
+    "message": "Design-Code"
+  },
+  "themeCodeImport": {
+    "message": "Design hinzufügen"
+  },
+  "themeCodeCopy": {
+    "message": "Teilen-Code kopieren"
+  },
+  "themeCodeInvalid": {
+    "message": "Das ist kein gültiger Design-Code."
+  },
+  "themeCodeImported": {
+    "message": "„$1“ hinzugefügt."
+  },
+  "sectionFixes": {
+    "message": "Website-Korrekturen"
+  },
+  "fixesUpdates": {
+    "message": "Signierte Korrekturen täglich laden"
+  },
+  "fixesHint": {
+    "message": "Korrekturen sind Daten, nie Code, und werden nur mit gültiger Signatur verwendet. Mitgelieferte Korrekturen gelten immer."
+  },
+  "fixesCheckNow": {
+    "message": "Jetzt prüfen"
+  },
+  "fixesNeverChecked": {
+    "message": "Noch nicht geprüft."
+  },
+  "fixesStatus_updated": {
+    "message": "Aktualisiert am $1 (Version $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "Aktuell, Stand $1 (Version $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "Downloads sind aus. Geprüft am $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "Der letzte Download ($1) hatte keine gültige Signatur und wurde verworfen."
+  },
+  "fixesStatus_failed": {
+    "message": "Download fehlgeschlagen ($1). Neuer Versuch morgen."
   }
 }

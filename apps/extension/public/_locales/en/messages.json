@@ -430,5 +430,269 @@
   },
   "reset": {
     "message": "Reset"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "remove": {
+    "message": "Remove"
+  },
+  "copied": {
+    "message": "Copied"
+  },
+  "cmdPickElement": {
+    "message": "Fix an element on the page"
+  },
+  "menuToggleSite": {
+    "message": "Dark mode on this site"
+  },
+  "menuFixElement": {
+    "message": "Fix this element"
+  },
+  "menuOpenPdf": {
+    "message": "Open PDF in dark viewer"
+  },
+  "toolsLabel": {
+    "message": "Page tools"
+  },
+  "toolPicker": {
+    "message": "Fix an element"
+  },
+  "toolDebug": {
+    "message": "Inspect colours"
+  },
+  "toolDebugOff": {
+    "message": "Stop inspecting"
+  },
+  "toolExport": {
+    "message": "Export CSS"
+  },
+  "pickerTitle": {
+    "message": "Fix this element"
+  },
+  "pickerSelector": {
+    "message": "CSS selector"
+  },
+  "pickerOption_invert": {
+    "message": "Invert (canvas, diagrams)"
+  },
+  "pickerOption_background": {
+    "message": "Force dark background"
+  },
+  "pickerOption_text": {
+    "message": "Force light text"
+  },
+  "pickerOption_noImage": {
+    "message": "Hide background image"
+  },
+  "pickerOption_hide": {
+    "message": "Hide element"
+  },
+  "pickerParent": {
+    "message": "Select parent"
+  },
+  "pickerSave": {
+    "message": "Save for this site"
+  },
+  "debugBackground": {
+    "message": "background"
+  },
+  "debugText": {
+    "message": "text"
+  },
+  "debugContrast": {
+    "message": "contrast"
+  },
+  "debugRule": {
+    "message": "rule"
+  },
+  "chipMessage": {
+    "message": "Parts of this page still look bright or hard to read."
+  },
+  "chipTryFiltered": {
+    "message": "Try filtered mode"
+  },
+  "chipFixElement": {
+    "message": "Fix an element"
+  },
+  "sectionAppearance": {
+    "message": "Appearance"
+  },
+  "themeLabel": {
+    "message": "Theme"
+  },
+  "theme_dark": {
+    "message": "Dark"
+  },
+  "theme_amoled": {
+    "message": "AMOLED black"
+  },
+  "theme_dim": {
+    "message": "Dim"
+  },
+  "theme_sepia": {
+    "message": "Sepia"
+  },
+  "theme_contrast": {
+    "message": "High contrast"
+  },
+  "theme_grayscale": {
+    "message": "Grayscale"
+  },
+  "theme_protan": {
+    "message": "Red-weak friendly (protan)"
+  },
+  "theme_deutan": {
+    "message": "Green-weak friendly (deutan)"
+  },
+  "theme_tritan": {
+    "message": "Blue-weak friendly (tritan)"
+  },
+  "themeHint_dark": {
+    "message": "Balanced dark grey, off-white text."
+  },
+  "themeHint_amoled": {
+    "message": "Pure black page background, saves power on OLED screens."
+  },
+  "themeHint_dim": {
+    "message": "Lighter dark grey for bright rooms."
+  },
+  "themeHint_sepia": {
+    "message": "Warm brown tones for long reading."
+  },
+  "themeHint_contrast": {
+    "message": "Near-black background and text contrast of at least 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "Removes all colour."
+  },
+  "themeHint_protan": {
+    "message": "Moves reds and greens apart so they are easier to tell apart."
+  },
+  "themeHint_deutan": {
+    "message": "Moves reds and greens apart so they are easier to tell apart."
+  },
+  "themeHint_tritan": {
+    "message": "Moves blues and yellows apart so they are easier to tell apart."
+  },
+  "themeHint_custom": {
+    "message": "Your own colours, below."
+  },
+  "presetLabel": {
+    "message": "Colour intensity"
+  },
+  "preset_vivid": {
+    "message": "Vivid"
+  },
+  "preset_balanced": {
+    "message": "Balanced"
+  },
+  "preset_muted": {
+    "message": "Muted"
+  },
+  "imagesHeading": {
+    "message": "Images"
+  },
+  "imagesHoverOriginal": {
+    "message": "Show the original image under the pointer"
+  },
+  "imagesPhotoDim": {
+    "message": "Darken photos"
+  },
+  "diagnosisHeading": {
+    "message": "Self-check"
+  },
+  "diagnosisEnabled": {
+    "message": "Offer help when a page still looks bright"
+  },
+  "diagnosisHint": {
+    "message": "Measured on your device after the page loads. Nothing is sent anywhere."
+  },
+  "customThemesHeading": {
+    "message": "Custom themes"
+  },
+  "customThemeAdd": {
+    "message": "New theme"
+  },
+  "customThemeDefaultName": {
+    "message": "My theme"
+  },
+  "customThemeName": {
+    "message": "Theme name"
+  },
+  "customThemePreview": {
+    "message": "Sample text with"
+  },
+  "customColor_background": {
+    "message": "Background"
+  },
+  "customColor_text": {
+    "message": "Text"
+  },
+  "customColor_link": {
+    "message": "Link"
+  },
+  "customColor_visited": {
+    "message": "Visited link"
+  },
+  "customColor_border": {
+    "message": "Border"
+  },
+  "customColor_selection": {
+    "message": "Selection"
+  },
+  "customColor_button": {
+    "message": "Button"
+  },
+  "customColor_scrollbar": {
+    "message": "Scrollbar"
+  },
+  "themeCodeLabel": {
+    "message": "Theme code"
+  },
+  "themeCodeImport": {
+    "message": "Add theme"
+  },
+  "themeCodeCopy": {
+    "message": "Copy share code"
+  },
+  "themeCodeInvalid": {
+    "message": "That is not a valid theme code."
+  },
+  "themeCodeImported": {
+    "message": "Added “$1”."
+  },
+  "sectionFixes": {
+    "message": "Site fixes"
+  },
+  "fixesUpdates": {
+    "message": "Download signed fix updates daily"
+  },
+  "fixesHint": {
+    "message": "Fixes are data, never code, and are used only if their signature checks out. Fixes shipped with the extension are always used."
+  },
+  "fixesCheckNow": {
+    "message": "Check now"
+  },
+  "fixesNeverChecked": {
+    "message": "Not checked yet."
+  },
+  "fixesStatus_updated": {
+    "message": "Updated $1 (version $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "Up to date as of $1 (version $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "Downloads are off. Checked $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "The last download ($1) failed its signature check and was not used."
+  },
+  "fixesStatus_failed": {
+    "message": "Could not download fixes ($1). Will retry tomorrow."
   }
 }
