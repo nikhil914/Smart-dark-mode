@@ -2,6 +2,7 @@ import {
   type Mode,
   type Settings,
   automationActive,
+  migrate,
   nextBoundary,
   nextMode,
   resolve,
@@ -10,6 +11,8 @@ import {
   toPageLocation,
 } from '@sdm/settings';
 import { syncFallback } from '@/background/fallback';
+import { allowOriginal, forgetTabRules, syncPdfRedirect } from '@/background/pdf';
+import { isRemoteChange, onLocalChange, pull } from '@/background/sync';
 import { forgetTab, safeFetch } from '@/background/safe-fetch';
 import { isContentMessage } from '@/lib/messages';
 import {
@@ -31,21 +34,35 @@ const BADGE: Record<Mode, { text: string; color: string }> = {
 
 export default defineBackground(() => {
   browser.runtime.onInstalled.addListener(async () => {
-    await ensureSettings();
+    const settings = await ensureSettings();
+    await syncPdfRedirect(settings.pdf.enabled);
+    await pull();
     await scheduleBoundaryAlarm();
     await refreshFallback();
     await refreshAllBadges();
   });
 
   browser.runtime.onStartup.addListener(async () => {
+    await pull();
     await scheduleBoundaryAlarm();
     await refreshFallback();
     await refreshAllBadges();
   });
 
   browser.storage.onChanged.addListener(async (changes, area) => {
+    if (area === 'sync') {
+      if (isRemoteChange(changes)) await pull();
+      return;
+    }
     if (area !== 'local') return;
-    if (isSettingsChange(changes)) await scheduleBoundaryAlarm();
+    if (isSettingsChange(changes)) {
+      const change = changes.settings as { oldValue?: unknown; newValue?: unknown };
+      const previous = change.oldValue === undefined ? undefined : migrate(change.oldValue);
+      const next = migrate(change.newValue);
+      if (previous?.pdf.enabled !== next.pdf.enabled) await syncPdfRedirect(next.pdf.enabled);
+      await onLocalChange(previous, next);
+      await scheduleBoundaryAlarm();
+    }
     if (isSettingsChange(changes) || isOsSchemeChange(changes)) {
       await refreshFallback();
       await refreshAllBadges();
@@ -65,10 +82,17 @@ export default defineBackground(() => {
       void safeFetch(message.kind, message.url, sender.tab?.id).then(sendResponse);
       return true;
     }
+    if (message.type === 'sdm:pdf-original' && sender.tab?.id !== undefined) {
+      void allowOriginal(message.url, sender.tab.id).then(() => sendResponse(true));
+      return true;
+    }
     return undefined;
   });
 
-  browser.tabs.onRemoved.addListener((tabId) => forgetTab(tabId));
+  browser.tabs.onRemoved.addListener((tabId) => {
+    forgetTab(tabId);
+    void forgetTabRules(tabId);
+  });
 
   browser.tabs.onActivated.addListener(({ tabId }) => void refreshBadge(tabId));
   browser.tabs.onUpdated.addListener((tabId, info) => {

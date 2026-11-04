@@ -115,5 +115,320 @@
   },
   "to": {
     "message": "終了"
+  },
+  "optionsTitle": {
+    "message": "Smart Dark Mode の設定"
+  },
+  "sectionGeneral": {
+    "message": "全般"
+  },
+  "sectionSites": {
+    "message": "サイトとルール"
+  },
+  "sectionPdf": {
+    "message": "PDF ビューア"
+  },
+  "sectionBackup": {
+    "message": "バックアップと移行"
+  },
+  "sectionIntegration": {
+    "message": "独自のダークテーマを持つサイト"
+  },
+  "sectionAbout": {
+    "message": "このアプリについて"
+  },
+  "enabledEverywhere": {
+    "message": "ダークモードをオンにする"
+  },
+  "defaultMode": {
+    "message": "ルールのないサイトのモード"
+  },
+  "listMode": {
+    "message": "適用する場所"
+  },
+  "list_blocklist": {
+    "message": "オフにしたサイト以外すべて"
+  },
+  "list_allowlist": {
+    "message": "オンにしたサイトだけ"
+  },
+  "listHint_blocklist": {
+    "message": "ルールでオフにしない限りサイトを変換します。"
+  },
+  "listHint_allowlist": {
+    "message": "モードを指定するルールがあるサイトだけを変更します。"
+  },
+  "integrationDefault": {
+    "message": "サイトに独自のダークテーマがある場合"
+  },
+  "integration_site": {
+    "message": "サイトのテーマを使う"
+  },
+  "integration_convert": {
+    "message": "それでも変換する"
+  },
+  "integration_off": {
+    "message": "何もしない"
+  },
+  "syncSettings": {
+    "message": "ブラウザのアカウントと設定を同期"
+  },
+  "syncHint": {
+    "message": "同期をオンにすると、他のブラウザに保存された設定があれば読み込みます。"
+  },
+  "syncError_too_large": {
+    "message": "設定が大きすぎて同期できません。カスタム CSS を減らしてください。"
+  },
+  "syncError_quota": {
+    "message": "ブラウザが同期を拒否しました。次の変更時に再試行します。"
+  },
+  "sitesHint": {
+    "message": "より具体的なルールが優先：サイト、サブドメイン、パターン、ページ。"
+  },
+  "ruleLevel": {
+    "message": "適用先"
+  },
+  "ruleMatch": {
+    "message": "アドレス"
+  },
+  "ruleExtras": {
+    "message": "その他"
+  },
+  "actions": {
+    "message": "操作"
+  },
+  "addRule": {
+    "message": "ルールを追加"
+  },
+  "noRules": {
+    "message": "ルールはまだありません。ポップアップで設定したルールがここに表示されます。"
+  },
+  "invalidPattern": {
+    "message": "このパターンは無効です。"
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  または  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "継承"
+  },
+  "modeFor": {
+    "message": "$1 のモード"
+  },
+  "extra_adjust": {
+    "message": "調整"
+  },
+  "extra_remap": {
+    "message": "$1 色"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "$1 のカスタム CSS"
+  },
+  "customCssHint": {
+    "message": "$${#333} と書くと、ダークモードで #333 が変換される色になります。"
+  },
+  "clearRemap": {
+    "message": "色をリセット"
+  },
+  "delete": {
+    "message": "削除"
+  },
+  "deleteRuleFor": {
+    "message": "$1 のルールを削除"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "pdfEnabled": {
+    "message": "PDF をダークビューアで開く"
+  },
+  "pdfStyle": {
+    "message": "スタイル"
+  },
+  "pdf_dark": {
+    "message": "テキストのみダーク"
+  },
+  "pdf_sepia": {
+    "message": "セピア"
+  },
+  "pdf_invert": {
+    "message": "すべて反転"
+  },
+  "pdf_custom": {
+    "message": "カスタム色"
+  },
+  "pdf_original": {
+    "message": "オリジナル"
+  },
+  "pdfHint": {
+    "message": "「テキストのみダーク」は画像の色を変えません。印刷は常に元の色です。"
+  },
+  "pdfBackground": {
+    "message": "背景"
+  },
+  "pdfText": {
+    "message": "文字"
+  },
+  "pdfSearch": {
+    "message": "検索"
+  },
+  "previousMatch": {
+    "message": "前の一致"
+  },
+  "nextMatch": {
+    "message": "次の一致"
+  },
+  "noMatches": {
+    "message": "一致なし"
+  },
+  "matchPages": {
+    "message": "一致があるページ $2 件中 $1"
+  },
+  "zoomIn": {
+    "message": "拡大"
+  },
+  "zoomOut": {
+    "message": "縮小"
+  },
+  "print": {
+    "message": "印刷"
+  },
+  "openOriginal": {
+    "message": "元のファイルを開く"
+  },
+  "pageN": {
+    "message": "$1 ページ"
+  },
+  "preparingPrint": {
+    "message": "印刷用にページ $1/$2 を準備中…"
+  },
+  "pdfLoadFailed": {
+    "message": "この PDF を読み込めませんでした。「元のファイルを開く」を使ってください。"
+  },
+  "pdfFileAccess": {
+    "message": "ローカルの PDF を開くには、拡張機能の設定で「ファイルの URL へのアクセスを許可する」をオンにしてください。"
+  },
+  "backupHint": {
+    "message": "エクスポートはすべての設定をファイルに保存します。インポートは Dark Reader のファイルも読み込めます。"
+  },
+  "exportSettings": {
+    "message": "設定をエクスポート"
+  },
+  "importSettings": {
+    "message": "設定をインポート…"
+  },
+  "importConfirm": {
+    "message": "現在の設定をすべてインポートした設定に置き換えますか？"
+  },
+  "imported_smart_dark_mode": {
+    "message": "設定をインポートしました。"
+  },
+  "imported_darkreader": {
+    "message": "Dark Reader の設定をインポートしました。"
+  },
+  "importSkipped": {
+    "message": "引き継げなかった項目：$1。"
+  },
+  "skipped_location_schedule": {
+    "message": "位置情報に基づくスケジュール"
+  },
+  "skipped_presets": {
+    "message": "プリセット"
+  },
+  "skipped_light_scheme": {
+    "message": "ライトの配色"
+  },
+  "importError_not_json": {
+    "message": "設定ファイルではありません。"
+  },
+  "importError_unknown_format": {
+    "message": "このファイル形式には対応していません。"
+  },
+  "importError_too_large": {
+    "message": "ファイルが大きすぎます。"
+  },
+  "integrationHint": {
+    "message": "既知のサイトでは変換せず、サイト独自のダークテーマをオンにします。"
+  },
+  "integrationChanges": {
+    "message": "サイトに保存した変更"
+  },
+  "integrationNoChanges": {
+    "message": "なし。どのサイトにも何も保存していません。"
+  },
+  "integrationUndoHint": {
+    "message": "「それでも変換する」「何もしない」を選ぶかオフにした後、次にサイトを開くと元に戻ります。"
+  },
+  "journal_localStorage": {
+    "message": "サイトのストレージ"
+  },
+  "journal_cookie": {
+    "message": "Cookie"
+  },
+  "journalWas": {
+    "message": "以前は $1"
+  },
+  "journalWasUnset": {
+    "message": "以前は未設定"
+  },
+  "forgetDarkSites": {
+    "message": "ダークと判定したサイトを忘れる"
+  },
+  "integrationList": {
+    "message": "組み込みリスト（$1）"
+  },
+  "done": {
+    "message": "完了"
+  },
+  "aboutVersion": {
+    "message": "バージョン $1"
+  },
+  "privacyShort": {
+    "message": "データはブラウザの外に出ません。何も収集・送信しません。"
+  },
+  "sourceCode": {
+    "message": "ソースコード"
+  },
+  "reportProblem": {
+    "message": "問題を報告"
+  },
+  "moreSettings": {
+    "message": "その他の設定"
+  },
+  "siteThemeOn": {
+    "message": "サイト独自のダークテーマを使用中（$1）"
+  },
+  "siteAlreadyDark": {
+    "message": "このサイトは既にダークなのでそのまま表示しています"
+  },
+  "pageColours": {
+    "message": "このページの色"
+  },
+  "pageColoursHint": {
+    "message": "色の変換先を選びます。その色を使う要素がすべて変わります。"
+  },
+  "remapColour": {
+    "message": "$1 の新しい色"
+  },
+  "resetColour": {
+    "message": "$1 をリセット"
+  },
+  "reset": {
+    "message": "リセット"
   }
 }

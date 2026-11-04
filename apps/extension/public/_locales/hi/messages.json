@@ -115,5 +115,320 @@
   },
   "to": {
     "message": "तक"
+  },
+  "optionsTitle": {
+    "message": "Smart Dark Mode सेटिंग्स"
+  },
+  "sectionGeneral": {
+    "message": "सामान्य"
+  },
+  "sectionSites": {
+    "message": "साइटें और नियम"
+  },
+  "sectionPdf": {
+    "message": "PDF व्यूअर"
+  },
+  "sectionBackup": {
+    "message": "बैकअप और ट्रांसफ़र"
+  },
+  "sectionIntegration": {
+    "message": "अपनी डार्क थीम वाली साइटें"
+  },
+  "sectionAbout": {
+    "message": "परिचय"
+  },
+  "enabledEverywhere": {
+    "message": "डार्क मोड चालू करें"
+  },
+  "defaultMode": {
+    "message": "बिना नियम वाली साइटों का मोड"
+  },
+  "listMode": {
+    "message": "कहाँ लागू करें"
+  },
+  "list_blocklist": {
+    "message": "सभी साइटें, बंद की गई को छोड़कर"
+  },
+  "list_allowlist": {
+    "message": "सिर्फ़ चालू की गई साइटें"
+  },
+  "listHint_blocklist": {
+    "message": "जब तक कोई नियम बंद न करे, साइटें बदली जाती हैं।"
+  },
+  "listHint_allowlist": {
+    "message": "सिर्फ़ मोड तय करने वाले नियम वाली साइटें बदलती हैं।"
+  },
+  "integrationDefault": {
+    "message": "जब साइट की अपनी डार्क थीम हो"
+  },
+  "integration_site": {
+    "message": "साइट की थीम इस्तेमाल करें"
+  },
+  "integration_convert": {
+    "message": "फिर भी बदलें"
+  },
+  "integration_off": {
+    "message": "जैसा है वैसा छोड़ें"
+  },
+  "syncSettings": {
+    "message": "ब्राउज़र खाते से सेटिंग सिंक करें"
+  },
+  "syncHint": {
+    "message": "सिंक चालू करने पर आपके अन्य ब्राउज़रों की सेटिंग लोड होती हैं, अगर हों।"
+  },
+  "syncError_too_large": {
+    "message": "सेटिंग सिंक के लिए बहुत बड़ी हैं। कुछ कस्टम CSS हटाएँ।"
+  },
+  "syncError_quota": {
+    "message": "ब्राउज़र ने सिंक मना किया। अगले बदलाव पर फिर कोशिश होगी।"
+  },
+  "sitesHint": {
+    "message": "ज़्यादा सटीक नियम जीतता है: साइट, सबडोमेन, पैटर्न, पेज।"
+  },
+  "ruleLevel": {
+    "message": "लागू होता है"
+  },
+  "ruleMatch": {
+    "message": "पता"
+  },
+  "ruleExtras": {
+    "message": "साथ में"
+  },
+  "actions": {
+    "message": "कार्रवाइयाँ"
+  },
+  "addRule": {
+    "message": "नियम जोड़ें"
+  },
+  "noRules": {
+    "message": "अभी कोई नियम नहीं। पॉपअप से बने नियम यहाँ दिखेंगे।"
+  },
+  "invalidPattern": {
+    "message": "यह पैटर्न मान्य नहीं है।"
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  या  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "विरासत में"
+  },
+  "modeFor": {
+    "message": "$1 का मोड"
+  },
+  "extra_adjust": {
+    "message": "समायोजन"
+  },
+  "extra_remap": {
+    "message": "$1 रंग"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "$1 के लिए कस्टम CSS"
+  },
+  "customCssHint": {
+    "message": "डार्क मोड में #333 जिस रंग में बदलता है, उसके लिए $${#333} लिखें।"
+  },
+  "clearRemap": {
+    "message": "रंग रीसेट करें"
+  },
+  "delete": {
+    "message": "हटाएँ"
+  },
+  "deleteRuleFor": {
+    "message": "$1 का नियम हटाएँ"
+  },
+  "save": {
+    "message": "सहेजें"
+  },
+  "pdfEnabled": {
+    "message": "PDF को डार्क व्यूअर में खोलें"
+  },
+  "pdfStyle": {
+    "message": "शैली"
+  },
+  "pdf_dark": {
+    "message": "सिर्फ़ टेक्स्ट डार्क"
+  },
+  "pdf_sepia": {
+    "message": "सेपिया"
+  },
+  "pdf_invert": {
+    "message": "सब कुछ उलटें"
+  },
+  "pdf_custom": {
+    "message": "कस्टम रंग"
+  },
+  "pdf_original": {
+    "message": "मूल"
+  },
+  "pdfHint": {
+    "message": "\"सिर्फ़ टेक्स्ट डार्क\" में तस्वीरें असली रंगों में रहती हैं। प्रिंट हमेशा मूल रंगों में होता है।"
+  },
+  "pdfBackground": {
+    "message": "पृष्ठभूमि"
+  },
+  "pdfText": {
+    "message": "टेक्स्ट"
+  },
+  "pdfSearch": {
+    "message": "खोजें"
+  },
+  "previousMatch": {
+    "message": "पिछला परिणाम"
+  },
+  "nextMatch": {
+    "message": "अगला परिणाम"
+  },
+  "noMatches": {
+    "message": "कोई परिणाम नहीं"
+  },
+  "matchPages": {
+    "message": "परिणाम वाले $2 में से पेज $1"
+  },
+  "zoomIn": {
+    "message": "ज़ूम इन"
+  },
+  "zoomOut": {
+    "message": "ज़ूम आउट"
+  },
+  "print": {
+    "message": "प्रिंट"
+  },
+  "openOriginal": {
+    "message": "मूल खोलें"
+  },
+  "pageN": {
+    "message": "पेज $1"
+  },
+  "preparingPrint": {
+    "message": "प्रिंट के लिए पेज $1/$2 तैयार हो रहा है…"
+  },
+  "pdfLoadFailed": {
+    "message": "यह PDF लोड नहीं हुआ। \"मूल खोलें\" इस्तेमाल करें।"
+  },
+  "pdfFileAccess": {
+    "message": "लोकल PDF के लिए एक्सटेंशन सेटिंग में \"फ़ाइल URL तक पहुँच दें\" चालू करें।"
+  },
+  "backupHint": {
+    "message": "एक्सपोर्ट सारी सेटिंग फ़ाइल में सहेजता है। इंपोर्ट Dark Reader की फ़ाइलें भी पढ़ता है।"
+  },
+  "exportSettings": {
+    "message": "सेटिंग एक्सपोर्ट करें"
+  },
+  "importSettings": {
+    "message": "सेटिंग इंपोर्ट करें…"
+  },
+  "importConfirm": {
+    "message": "सभी मौजूदा सेटिंग को इंपोर्ट की गई सेटिंग से बदलें?"
+  },
+  "imported_smart_dark_mode": {
+    "message": "सेटिंग इंपोर्ट हो गईं।"
+  },
+  "imported_darkreader": {
+    "message": "Dark Reader सेटिंग इंपोर्ट हो गईं।"
+  },
+  "importSkipped": {
+    "message": "नहीं लिया गया: $1।"
+  },
+  "skipped_location_schedule": {
+    "message": "लोकेशन आधारित शेड्यूल"
+  },
+  "skipped_presets": {
+    "message": "प्रीसेट"
+  },
+  "skipped_light_scheme": {
+    "message": "लाइट कलर स्कीम"
+  },
+  "importError_not_json": {
+    "message": "यह सेटिंग फ़ाइल नहीं है।"
+  },
+  "importError_unknown_format": {
+    "message": "यह फ़ाइल फ़ॉर्मेट समर्थित नहीं है।"
+  },
+  "importError_too_large": {
+    "message": "फ़ाइल बहुत बड़ी है।"
+  },
+  "integrationHint": {
+    "message": "जानी-पहचानी साइटों पर हम बदलने की बजाय उनकी अपनी डार्क थीम चालू करते हैं।"
+  },
+  "integrationChanges": {
+    "message": "साइटों पर सहेजे गए बदलाव"
+  },
+  "integrationNoChanges": {
+    "message": "कोई नहीं। किसी साइट पर कुछ सहेजा नहीं गया।"
+  },
+  "integrationUndoHint": {
+    "message": "\"फिर भी बदलें\", \"जैसा है छोड़ें\" या डार्क मोड बंद करने के बाद साइट खोलते ही ये वापस हो जाते हैं।"
+  },
+  "journal_localStorage": {
+    "message": "साइट स्टोरेज"
+  },
+  "journal_cookie": {
+    "message": "कुकी"
+  },
+  "journalWas": {
+    "message": "पहले $1"
+  },
+  "journalWasUnset": {
+    "message": "पहले नहीं था"
+  },
+  "forgetDarkSites": {
+    "message": "डार्क पहचानी गई साइटें भूलें"
+  },
+  "integrationList": {
+    "message": "बिल्ट-इन सूची ($1)"
+  },
+  "done": {
+    "message": "हो गया"
+  },
+  "aboutVersion": {
+    "message": "संस्करण $1"
+  },
+  "privacyShort": {
+    "message": "कोई डेटा आपके ब्राउज़र से बाहर नहीं जाता। कुछ भी इकट्ठा या भेजा नहीं जाता।"
+  },
+  "sourceCode": {
+    "message": "सोर्स कोड"
+  },
+  "reportProblem": {
+    "message": "समस्या बताएँ"
+  },
+  "moreSettings": {
+    "message": "और सेटिंग"
+  },
+  "siteThemeOn": {
+    "message": "साइट की अपनी डार्क थीम ($1)"
+  },
+  "siteAlreadyDark": {
+    "message": "यह साइट पहले से डार्क है, इसलिए जैसी है वैसी दिखती है"
+  },
+  "pageColours": {
+    "message": "इस पेज के रंग"
+  },
+  "pageColoursHint": {
+    "message": "चुनें कि रंग क्या बने। उसे इस्तेमाल करने वाले सभी तत्व बदलेंगे।"
+  },
+  "remapColour": {
+    "message": "$1 का नया रंग"
+  },
+  "resetColour": {
+    "message": "$1 रीसेट करें"
+  },
+  "reset": {
+    "message": "रीसेट"
   }
 }

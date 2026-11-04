@@ -1,5 +1,69 @@
 # Quality report
 
+## P3 update (2026-11-04)
+
+Phase P3 adds a second script, `tests/harness/features.mjs`, which checks the parity
+features in a real Chromium with the extension loaded. Each scenario runs in a fresh
+profile on its own origin. CI runs it before the metrics on every pull request.
+
+Result: 25 of 25 checks pass.
+
+| Scenario | Check | Result | Detail |
+| --- | --- | --- | --- |
+| PDF viewer | navigation to a .pdf opens the built-in viewer | pass | chrome-extension://ncdoelmonjojijimlaclpmgplnbnnbgi/pdf.html?file=http://pdf.localhost:43561/doc.pdf |
+| PDF viewer | page renders with a dark background | pass | 30,30,30 |
+| PDF viewer | text layer present for selection | pass | 2 spans |
+| PDF viewer | search finds both pages | pass | Page 1 of 2 with matches |
+| PDF viewer | sepia style re-renders the page | pass | 244,236,216 |
+| PDF viewer | "Open original" leaves the viewer for that one load | pass | http://pdf.localhost:43561/doc.pdf#sdm-original |
+| Deep Integration | site's own dark theme switched on (Docusaurus marker) | pass | dark |
+| Deep Integration | preference saved on the site | pass | dark |
+| Deep Integration | page is not also converted | pass |  |
+| Deep Integration | write recorded in the journal with its previous value | pass | [{"at":1793802298779,"integration":"docusaurus","key":"theme","kind":"localStorage","previous":null,"value":"dark"}] |
+| Deep Integration | switching to "Convert anyway" restores the site storage | pass | null |
+| Deep Integration | and the DOM change is undone | pass | light |
+| Deep Integration | journal emptied after undo | pass | {} |
+| Native dark | already-dark page detected and left alone | pass |  |
+| Native dark | its own colours are kept | pass | rgb(17, 19, 24) / rgb(138, 180, 248) |
+| Native dark | origin remembered for the next visit | pass | http://dark.localhost:43561 |
+| Native dark | second visit skips conversion from the start | pass | 0 injected styles |
+| Native dark | a light page on another origin is still converted | pass | rgb(22, 22, 22) |
+| Remap and custom CSS | page palette lists the brand colour | pass | #1a73e8 #ffffff #222222 #e8f0fe |
+| Remap and custom CSS | remapped colour used for text | pass | rgb(255, 0, 255) |
+| Remap and custom CSS | and for every other use of it (border) | pass | rgb(255, 0, 255) |
+| Remap and custom CSS | custom CSS applied | pass | underline |
+| Remap and custom CSS | ${colour} template converted for dark mode | pass | rgb(56, 56, 56) |
+| Sync | settings mirrored to storage.sync in chunks | pass | {"chunks":1,"hash":"94f28d21","updatedAt":1793802312943} |
+| Sync | mirrored data matches local settings | pass | 346 chars |
+
+The metrics harness now gives every fixture its own origin (`<name>.localhost`), since
+some P3 behaviour is remembered per origin. Three fixtures were added:
+
+| Fixture | Ours | Notes |
+| --- | --- | --- |
+| `integration` (Docusaurus-style site) | 0.6 % bright, 100 % AA | The site's own dark theme is switched on; nothing is converted. |
+| `native-dark` (already dark) | 0.5 % bright, same as `none` | Detected after load and left untouched; skipped from the first paint on later visits. |
+| `remap` (brand colours) | 0.1 % bright, 100 % AA | `none` reaches only 50 % AA here, because the page's own light-blue on blue fails. |
+
+The P2 fixture numbers did not change in a meaningful way. One noisy run put `css-in-js` at
+41 ms task time (P2: 27 ms); load cost is still a P6 item.
+
+Not checked in a real browser yet:
+
+- The site-specific Deep Integration entries (GitHub, Wikipedia, Stack Overflow and the
+  others in `apps/extension/src/data/integrations.ts`). They are written from each site's
+  public theme switch. This sandbox cannot reach them, so they must be confirmed against
+  the live sites (the corpus job, or by hand) before release. Generator markers
+  (Docusaurus and so on) are checked against the local fixture only.
+- The PDF viewer in Firefox, and PDFs served without a `.pdf` address in Chromium (the
+  content script catches those, but headless Chromium downloads PDFs instead of showing them).
+- Sync between two real browser profiles. The check confirms that the chunks written to
+  `storage.sync` match the local settings.
+
+---
+
+# P2 baseline
+
 Harness v1, phase P2. Generated with `pnpm --filter @sdm/harness harness` on 2026-11-04,
 Chromium 1.63 build (headless), 1280×800, Linux. Raw numbers are written to
 `tests/harness/out/` on every run; CI uploads them as the `harness-results` artifact.
