@@ -3,7 +3,7 @@
  * migration in `migrate.ts` whenever a stored field changes meaning or type.
  */
 
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;
 
 export type Mode = 'dark' | 'filtered' | 'normal';
 
@@ -63,6 +63,81 @@ export interface SiteRule {
   css?: string;
   /** What to do when the site has its own dark theme. */
   integration?: IntegrationChoice;
+  /** Theme for matching pages, overriding the global one. */
+  theme?: ThemeId;
+}
+
+/** Built-in themes, or `custom:<id>` for a user theme. */
+export type ThemeId =
+  | 'dark'
+  | 'amoled'
+  | 'dim'
+  | 'sepia'
+  | 'contrast'
+  | 'grayscale'
+  | 'protan'
+  | 'deutan'
+  | 'tritan'
+  | `custom:${string}`;
+
+export const BUILT_IN_THEME_IDS = [
+  'dark',
+  'amoled',
+  'dim',
+  'sepia',
+  'contrast',
+  'grayscale',
+  'protan',
+  'deutan',
+  'tritan',
+] as const;
+
+export type SaturationPreset = 'vivid' | 'balanced' | 'muted';
+
+export const SATURATION_PRESETS: readonly SaturationPreset[] = ['vivid', 'balanced', 'muted'];
+
+/** Colours of a user-created theme, all `#rrggbb`. */
+export interface CustomThemeColors {
+  background: string;
+  text: string;
+  link: string;
+  visited: string;
+  border: string;
+  selection: string;
+  button: string;
+  scrollbar: string;
+}
+
+export const CUSTOM_THEME_KEYS: readonly (keyof CustomThemeColors)[] = [
+  'background',
+  'text',
+  'link',
+  'visited',
+  'border',
+  'selection',
+  'button',
+  'scrollbar',
+];
+
+export interface CustomTheme {
+  id: string;
+  name: string;
+  colors: CustomThemeColors;
+}
+
+export const MAX_CUSTOM_THEMES = 20;
+
+export function defaultCustomColors(): CustomThemeColors {
+  return {
+    background: '#181a1f',
+    text: '#dcdde0',
+    link: '#8ab4f8',
+    visited: '#c58af9',
+    border: '#3c4049',
+    selection: '#264f78',
+    button: '#2a2e36',
+    scrollbar: '#4a4f5a',
+  };
 }
 
 /**
@@ -125,6 +200,19 @@ export interface Settings {
   pdf: PdfSettings;
   /** Mirror settings to the browser's sync storage. */
   sync: boolean;
+  theme: ThemeId;
+  preset: SaturationPreset;
+  customThemes: CustomTheme[];
+  images: {
+    /** Show the original image while the pointer is over it (long-press on touch). */
+    hoverOriginal: boolean;
+    /** Darken photos by this percentage, 0–40. */
+    photoDim: number;
+  };
+  /** Show a hint when a converted page still looks bright or unreadable. */
+  diagnosis: boolean;
+  /** Download signed site fixes. Bundled fixes are always used. */
+  fixesUpdates: boolean;
 }
 
 export function defaultSettings(): Settings {
@@ -142,6 +230,12 @@ export function defaultSettings(): Settings {
     integration: 'site',
     pdf: { enabled: true, style: 'dark', background: '#1e1e1e', text: '#e0e0e0' },
     sync: false,
+    theme: 'dark',
+    preset: 'balanced',
+    customThemes: [],
+    images: { hoverOriginal: true, photoDim: 0 },
+    diagnosis: true,
+    fixesUpdates: true,
   };
 }
 
@@ -161,4 +255,17 @@ export function normalizeHex(value: string): string | null {
   if (!m) return null;
   const hex = m[1]!.toLowerCase();
   return hex.length === 3 ? `#${[...hex].map((c) => c + c).join('')}` : `#${hex}`;
+}
+
+/** Share code for a custom theme: `sdm-theme:` followed by base64url JSON. */
+export const THEME_SHARE_PREFIX = 'sdm-theme:';
+
+export function themeShareCode(theme: CustomTheme): string {
+  const json = JSON.stringify({ name: theme.name, colors: theme.colors });
+  const bytes = new TextEncoder().encode(json);
+  let binary = '';
+  for (const b of bytes) binary += String.fromCharCode(b);
+  return (
+    THEME_SHARE_PREFIX + btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+  );
 }
