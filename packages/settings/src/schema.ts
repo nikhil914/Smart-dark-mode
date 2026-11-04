@@ -3,7 +3,7 @@
  * migration in `migrate.ts` whenever a stored field changes meaning or type.
  */
 
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 3;
 
 export type Mode = 'dark' | 'filtered' | 'normal';
 
@@ -57,7 +57,115 @@ export interface SiteRule {
   adjust?: Partial<Adjustments>;
   /** Only meaningful for `domain` rules. Defaults to true. */
   inheritSubdomains?: boolean;
+  /** Colour remapping, original `#rrggbb` to replacement `#rrggbb`. Dark mode only. */
+  remap?: Record<string, string>;
+  /** Extra CSS for matching pages. `${colour}` templates are converted in dark mode. */
+  css?: string;
+  /** What to do when the site has its own dark theme. */
+  integration?: IntegrationChoice;
+  /** Theme for matching pages, overriding the global one. */
+  theme?: ThemeId;
 }
+
+/** Built-in themes, or `custom:<id>` for a user theme. */
+export type ThemeId =
+  | 'dark'
+  | 'amoled'
+  | 'dim'
+  | 'sepia'
+  | 'contrast'
+  | 'grayscale'
+  | 'protan'
+  | 'deutan'
+  | 'tritan'
+  | `custom:${string}`;
+
+export const BUILT_IN_THEME_IDS = [
+  'dark',
+  'amoled',
+  'dim',
+  'sepia',
+  'contrast',
+  'grayscale',
+  'protan',
+  'deutan',
+  'tritan',
+] as const;
+
+export type SaturationPreset = 'vivid' | 'balanced' | 'muted';
+
+export const SATURATION_PRESETS: readonly SaturationPreset[] = ['vivid', 'balanced', 'muted'];
+
+/** Colours of a user-created theme, all `#rrggbb`. */
+export interface CustomThemeColors {
+  background: string;
+  text: string;
+  link: string;
+  visited: string;
+  border: string;
+  selection: string;
+  button: string;
+  scrollbar: string;
+}
+
+export const CUSTOM_THEME_KEYS: readonly (keyof CustomThemeColors)[] = [
+  'background',
+  'text',
+  'link',
+  'visited',
+  'border',
+  'selection',
+  'button',
+  'scrollbar',
+];
+
+export interface CustomTheme {
+  id: string;
+  name: string;
+  colors: CustomThemeColors;
+}
+
+export const MAX_CUSTOM_THEMES = 20;
+
+export function defaultCustomColors(): CustomThemeColors {
+  return {
+    background: '#181a1f',
+    text: '#dcdde0',
+    link: '#8ab4f8',
+    visited: '#c58af9',
+    border: '#3c4049',
+    selection: '#264f78',
+    button: '#2a2e36',
+    scrollbar: '#4a4f5a',
+  };
+}
+
+/**
+ * Deep Integration, for sites that ship their own dark theme:
+ * - site:    switch the site's own theme on where we know how, and never convert it
+ * - convert: ignore the site's theme and convert as usual
+ * - off:     leave the site completely alone
+ */
+export type IntegrationChoice = 'site' | 'convert' | 'off';
+
+export const INTEGRATION_CHOICES: readonly IntegrationChoice[] = ['site', 'convert', 'off'];
+
+/** PDF viewer colour styles. */
+export type PdfStyle = 'dark' | 'sepia' | 'invert' | 'custom' | 'original';
+
+export const PDF_STYLES: readonly PdfStyle[] = ['dark', 'sepia', 'invert', 'custom', 'original'];
+
+export interface PdfSettings {
+  /** Open PDFs in the built-in viewer. */
+  enabled: boolean;
+  style: PdfStyle;
+  /** Used by the `custom` style. */
+  background: string;
+  text: string;
+}
+
+export const MAX_RULE_CSS = 20_000;
+export const MAX_REMAPS = 64;
 
 export type ListMode = 'blocklist' | 'allowlist';
 
@@ -87,6 +195,24 @@ export interface Settings {
     kind: AutomationKind;
     schedule: Schedule;
   };
+  /** Default Deep Integration choice; rules can override it per site. */
+  integration: IntegrationChoice;
+  pdf: PdfSettings;
+  /** Mirror settings to the browser's sync storage. */
+  sync: boolean;
+  theme: ThemeId;
+  preset: SaturationPreset;
+  customThemes: CustomTheme[];
+  images: {
+    /** Show the original image while the pointer is over it (long-press on touch). */
+    hoverOriginal: boolean;
+    /** Darken photos by this percentage, 0–40. */
+    photoDim: number;
+  };
+  /** Show a hint when a converted page still looks bright or unreadable. */
+  diagnosis: boolean;
+  /** Download signed site fixes. Bundled fixes are always used. */
+  fixesUpdates: boolean;
 }
 
 export function defaultSettings(): Settings {
@@ -101,6 +227,15 @@ export function defaultSettings(): Settings {
       kind: 'off',
       schedule: { from: '19:00', to: '07:00' },
     },
+    integration: 'site',
+    pdf: { enabled: true, style: 'dark', background: '#1e1e1e', text: '#e0e0e0' },
+    sync: false,
+    theme: 'dark',
+    preset: 'balanced',
+    customThemes: [],
+    images: { hoverOriginal: true, photoDim: 0 },
+    diagnosis: true,
+    fixesUpdates: true,
   };
 }
 
@@ -112,4 +247,25 @@ export function clampAdjustment(key: keyof Adjustments, value: number): number {
   const [min, max] = ADJUSTMENT_LIMITS[key];
   if (!Number.isFinite(value)) return DEFAULT_ADJUSTMENTS[key];
   return Math.min(max, Math.max(min, Math.round(value)));
+}
+
+/** Normalises a colour key or value for remapping: `#rgb`/`#rrggbb` to lower-case `#rrggbb`. */
+export function normalizeHex(value: string): string | null {
+  const m = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(value.trim());
+  if (!m) return null;
+  const hex = m[1]!.toLowerCase();
+  return hex.length === 3 ? `#${[...hex].map((c) => c + c).join('')}` : `#${hex}`;
+}
+
+/** Share code for a custom theme: `sdm-theme:` followed by base64url JSON. */
+export const THEME_SHARE_PREFIX = 'sdm-theme:';
+
+export function themeShareCode(theme: CustomTheme): string {
+  const json = JSON.stringify({ name: theme.name, colors: theme.colors });
+  const bytes = new TextEncoder().encode(json);
+  let binary = '';
+  for (const b of bytes) binary += String.fromCharCode(b);
+  return (
+    THEME_SHARE_PREFIX + btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+  );
 }

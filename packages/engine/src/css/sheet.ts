@@ -32,6 +32,7 @@ export interface RewriteOptions {
   vars: VarRegistry;
   /** Stylesheet URL, for resolving relative url() in copied declarations. */
   baseUrl?: string | undefined;
+  onColor?: ((original: string, role: ColorRole) => void) | undefined;
 }
 
 function* declarations(style: StyleLike): Generator<Declaration> {
@@ -122,6 +123,7 @@ export function rewriteDeclarations(
           theme: opts.theme,
           rewriteVars: true,
           baseUrl: opts.baseUrl,
+          onColor: opts.onColor,
         });
         if (v !== null) {
           out.push({ property: varRoleName(role, d.property), value: v, important: d.important });
@@ -135,6 +137,7 @@ export function rewriteDeclarations(
       theme: opts.theme,
       rewriteVars: true,
       baseUrl: opts.baseUrl,
+      onColor: opts.onColor,
     });
     if (v === null) continue;
     out.push({ property: d.property, value: v, important: d.important });
@@ -145,7 +148,8 @@ export function rewriteDeclarations(
   if (bg && fg) {
     const b = parseColor(bg.value);
     const f = parseColor(fg.value);
-    if (b && f && b.a === 1) out[fg.index]!.value = formatColor(ensureContrast(f, b));
+    if (b && f && b.a === 1)
+      out[fg.index]!.value = formatColor(ensureContrast(f, b, opts.theme.minContrast));
   }
   return out;
 }

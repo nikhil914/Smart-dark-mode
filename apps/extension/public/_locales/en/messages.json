@@ -115,5 +115,584 @@
   },
   "to": {
     "message": "To"
+  },
+  "optionsTitle": {
+    "message": "Smart Dark Mode settings"
+  },
+  "sectionGeneral": {
+    "message": "General"
+  },
+  "sectionSites": {
+    "message": "Sites and rules"
+  },
+  "sectionPdf": {
+    "message": "PDF viewer"
+  },
+  "sectionBackup": {
+    "message": "Backup and transfer"
+  },
+  "sectionIntegration": {
+    "message": "Sites with their own dark theme"
+  },
+  "sectionAbout": {
+    "message": "About"
+  },
+  "enabledEverywhere": {
+    "message": "Turn dark mode on"
+  },
+  "defaultMode": {
+    "message": "Mode for sites without a rule"
+  },
+  "listMode": {
+    "message": "Where to apply"
+  },
+  "list_blocklist": {
+    "message": "Every site except those I turn off"
+  },
+  "list_allowlist": {
+    "message": "Only sites I turn on"
+  },
+  "listHint_blocklist": {
+    "message": "Sites are converted unless a rule turns them off."
+  },
+  "listHint_allowlist": {
+    "message": "Only sites with a rule that sets a mode are changed."
+  },
+  "integrationDefault": {
+    "message": "When a site has its own dark theme"
+  },
+  "integration_site": {
+    "message": "Use the site's theme"
+  },
+  "integration_convert": {
+    "message": "Convert anyway"
+  },
+  "integration_off": {
+    "message": "Leave it alone"
+  },
+  "syncSettings": {
+    "message": "Sync settings with this browser account"
+  },
+  "syncHint": {
+    "message": "Turning sync on loads settings saved by your other browsers, if there are any."
+  },
+  "syncError_too_large": {
+    "message": "Your settings are too large to sync. Remove some custom CSS to sync again."
+  },
+  "syncError_quota": {
+    "message": "The browser refused to sync (too many changes). It will retry on the next change."
+  },
+  "sitesHint": {
+    "message": "More specific rules win: site, then subdomain, then pattern, then page."
+  },
+  "ruleLevel": {
+    "message": "Applies to"
+  },
+  "ruleMatch": {
+    "message": "Address"
+  },
+  "ruleExtras": {
+    "message": "Also"
+  },
+  "actions": {
+    "message": "Actions"
+  },
+  "addRule": {
+    "message": "Add rule"
+  },
+  "noRules": {
+    "message": "No rules yet. Rules you set from the popup appear here."
+  },
+  "invalidPattern": {
+    "message": "That pattern is not valid."
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  or  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "Inherit"
+  },
+  "modeFor": {
+    "message": "Mode for $1"
+  },
+  "extra_adjust": {
+    "message": "adjustments"
+  },
+  "extra_remap": {
+    "message": "$1 colours"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "Custom CSS for $1"
+  },
+  "customCssHint": {
+    "message": "Write $${#333} to get the colour #333 turns into in dark mode. Applies in dark and filtered modes."
+  },
+  "clearRemap": {
+    "message": "Reset colours"
+  },
+  "delete": {
+    "message": "Delete"
+  },
+  "deleteRuleFor": {
+    "message": "Delete rule for $1"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "pdfEnabled": {
+    "message": "Open PDFs in the dark viewer"
+  },
+  "pdfStyle": {
+    "message": "Style"
+  },
+  "pdf_dark": {
+    "message": "Dark text only"
+  },
+  "pdf_sepia": {
+    "message": "Sepia"
+  },
+  "pdf_invert": {
+    "message": "Invert everything"
+  },
+  "pdf_custom": {
+    "message": "Custom colours"
+  },
+  "pdf_original": {
+    "message": "Original"
+  },
+  "pdfHint": {
+    "message": "Dark text only keeps pictures in their real colours. Printing always uses the original colours."
+  },
+  "pdfBackground": {
+    "message": "Background"
+  },
+  "pdfText": {
+    "message": "Text"
+  },
+  "pdfSearch": {
+    "message": "Search"
+  },
+  "previousMatch": {
+    "message": "Previous match"
+  },
+  "nextMatch": {
+    "message": "Next match"
+  },
+  "noMatches": {
+    "message": "No matches"
+  },
+  "matchPages": {
+    "message": "Page $1 of $2 with matches"
+  },
+  "zoomIn": {
+    "message": "Zoom in"
+  },
+  "zoomOut": {
+    "message": "Zoom out"
+  },
+  "print": {
+    "message": "Print"
+  },
+  "openOriginal": {
+    "message": "Open original"
+  },
+  "pageN": {
+    "message": "Page $1"
+  },
+  "preparingPrint": {
+    "message": "Preparing page $1 of $2 for printing…"
+  },
+  "pdfLoadFailed": {
+    "message": "This PDF could not be loaded. Use Open original to view it in the browser's own viewer."
+  },
+  "pdfFileAccess": {
+    "message": "To open local PDFs, turn on \"Allow access to file URLs\" for this extension in the browser's extension settings."
+  },
+  "backupHint": {
+    "message": "Export saves every setting to a file. Import also reads Dark Reader exports."
+  },
+  "exportSettings": {
+    "message": "Export settings"
+  },
+  "importSettings": {
+    "message": "Import settings…"
+  },
+  "importConfirm": {
+    "message": "Replace all current settings with the imported ones?"
+  },
+  "imported_smart_dark_mode": {
+    "message": "Settings imported."
+  },
+  "imported_darkreader": {
+    "message": "Dark Reader settings imported."
+  },
+  "importSkipped": {
+    "message": "Not carried over: $1."
+  },
+  "skipped_location_schedule": {
+    "message": "location-based schedule"
+  },
+  "skipped_presets": {
+    "message": "presets"
+  },
+  "skipped_light_scheme": {
+    "message": "light colour scheme"
+  },
+  "importError_not_json": {
+    "message": "That file is not a settings file."
+  },
+  "importError_unknown_format": {
+    "message": "This file format is not supported. Night Eye has no documented export format yet."
+  },
+  "importError_too_large": {
+    "message": "That file is too large."
+  },
+  "integrationHint": {
+    "message": "For known sites and site builders we switch on the site's own dark theme instead of converting it. Other sites that are already dark are shown as they are."
+  },
+  "integrationChanges": {
+    "message": "Saved changes on sites"
+  },
+  "integrationNoChanges": {
+    "message": "None. We have not saved anything on any site."
+  },
+  "integrationUndoHint": {
+    "message": "These are undone the next time you open the site after choosing Convert anyway or Leave it alone, or turning dark mode off for it."
+  },
+  "journal_localStorage": {
+    "message": "Site storage"
+  },
+  "journal_cookie": {
+    "message": "Cookie"
+  },
+  "journalWas": {
+    "message": "was $1"
+  },
+  "journalWasUnset": {
+    "message": "was not set"
+  },
+  "forgetDarkSites": {
+    "message": "Forget sites detected as already dark"
+  },
+  "integrationList": {
+    "message": "Built-in list ($1)"
+  },
+  "done": {
+    "message": "Done"
+  },
+  "aboutVersion": {
+    "message": "Version $1"
+  },
+  "privacyShort": {
+    "message": "No data leaves your browser. Nothing is collected or sent, and there are no analytics."
+  },
+  "sourceCode": {
+    "message": "Source code"
+  },
+  "reportProblem": {
+    "message": "Report a problem"
+  },
+  "moreSettings": {
+    "message": "More settings"
+  },
+  "siteThemeOn": {
+    "message": "Using this site's own dark theme ($1)"
+  },
+  "siteAlreadyDark": {
+    "message": "This site is already dark, so it is shown as is"
+  },
+  "pageColours": {
+    "message": "Colours on this page"
+  },
+  "pageColoursHint": {
+    "message": "Pick what a colour should become. Every element using it changes."
+  },
+  "remapColour": {
+    "message": "New colour for $1"
+  },
+  "resetColour": {
+    "message": "Reset $1"
+  },
+  "reset": {
+    "message": "Reset"
+  },
+  "cancel": {
+    "message": "Cancel"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "remove": {
+    "message": "Remove"
+  },
+  "copied": {
+    "message": "Copied"
+  },
+  "cmdPickElement": {
+    "message": "Fix an element on the page"
+  },
+  "menuToggleSite": {
+    "message": "Dark mode on this site"
+  },
+  "menuFixElement": {
+    "message": "Fix this element"
+  },
+  "menuOpenPdf": {
+    "message": "Open PDF in dark viewer"
+  },
+  "toolsLabel": {
+    "message": "Page tools"
+  },
+  "toolPicker": {
+    "message": "Fix an element"
+  },
+  "toolDebug": {
+    "message": "Inspect colours"
+  },
+  "toolDebugOff": {
+    "message": "Stop inspecting"
+  },
+  "toolExport": {
+    "message": "Export CSS"
+  },
+  "pickerTitle": {
+    "message": "Fix this element"
+  },
+  "pickerSelector": {
+    "message": "CSS selector"
+  },
+  "pickerOption_invert": {
+    "message": "Invert (canvas, diagrams)"
+  },
+  "pickerOption_background": {
+    "message": "Force dark background"
+  },
+  "pickerOption_text": {
+    "message": "Force light text"
+  },
+  "pickerOption_noImage": {
+    "message": "Hide background image"
+  },
+  "pickerOption_hide": {
+    "message": "Hide element"
+  },
+  "pickerParent": {
+    "message": "Select parent"
+  },
+  "pickerSave": {
+    "message": "Save for this site"
+  },
+  "debugBackground": {
+    "message": "background"
+  },
+  "debugText": {
+    "message": "text"
+  },
+  "debugContrast": {
+    "message": "contrast"
+  },
+  "debugRule": {
+    "message": "rule"
+  },
+  "chipMessage": {
+    "message": "Parts of this page still look bright or hard to read."
+  },
+  "chipTryFiltered": {
+    "message": "Try filtered mode"
+  },
+  "chipFixElement": {
+    "message": "Fix an element"
+  },
+  "sectionAppearance": {
+    "message": "Appearance"
+  },
+  "themeLabel": {
+    "message": "Theme"
+  },
+  "theme_dark": {
+    "message": "Dark"
+  },
+  "theme_amoled": {
+    "message": "AMOLED black"
+  },
+  "theme_dim": {
+    "message": "Dim"
+  },
+  "theme_sepia": {
+    "message": "Sepia"
+  },
+  "theme_contrast": {
+    "message": "High contrast"
+  },
+  "theme_grayscale": {
+    "message": "Grayscale"
+  },
+  "theme_protan": {
+    "message": "Red-weak friendly (protan)"
+  },
+  "theme_deutan": {
+    "message": "Green-weak friendly (deutan)"
+  },
+  "theme_tritan": {
+    "message": "Blue-weak friendly (tritan)"
+  },
+  "themeHint_dark": {
+    "message": "Balanced dark grey, off-white text."
+  },
+  "themeHint_amoled": {
+    "message": "Pure black page background, saves power on OLED screens."
+  },
+  "themeHint_dim": {
+    "message": "Lighter dark grey for bright rooms."
+  },
+  "themeHint_sepia": {
+    "message": "Warm brown tones for long reading."
+  },
+  "themeHint_contrast": {
+    "message": "Near-black background and text contrast of at least 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "Removes all colour."
+  },
+  "themeHint_protan": {
+    "message": "Moves reds and greens apart so they are easier to tell apart."
+  },
+  "themeHint_deutan": {
+    "message": "Moves reds and greens apart so they are easier to tell apart."
+  },
+  "themeHint_tritan": {
+    "message": "Moves blues and yellows apart so they are easier to tell apart."
+  },
+  "themeHint_custom": {
+    "message": "Your own colours, below."
+  },
+  "presetLabel": {
+    "message": "Colour intensity"
+  },
+  "preset_vivid": {
+    "message": "Vivid"
+  },
+  "preset_balanced": {
+    "message": "Balanced"
+  },
+  "preset_muted": {
+    "message": "Muted"
+  },
+  "imagesHeading": {
+    "message": "Images"
+  },
+  "imagesHoverOriginal": {
+    "message": "Show the original image under the pointer"
+  },
+  "imagesPhotoDim": {
+    "message": "Darken photos"
+  },
+  "diagnosisHeading": {
+    "message": "Self-check"
+  },
+  "diagnosisEnabled": {
+    "message": "Offer help when a page still looks bright"
+  },
+  "diagnosisHint": {
+    "message": "Measured on your device after the page loads. Nothing is sent anywhere."
+  },
+  "customThemesHeading": {
+    "message": "Custom themes"
+  },
+  "customThemeAdd": {
+    "message": "New theme"
+  },
+  "customThemeDefaultName": {
+    "message": "My theme"
+  },
+  "customThemeName": {
+    "message": "Theme name"
+  },
+  "customThemePreview": {
+    "message": "Sample text with"
+  },
+  "customColor_background": {
+    "message": "Background"
+  },
+  "customColor_text": {
+    "message": "Text"
+  },
+  "customColor_link": {
+    "message": "Link"
+  },
+  "customColor_visited": {
+    "message": "Visited link"
+  },
+  "customColor_border": {
+    "message": "Border"
+  },
+  "customColor_selection": {
+    "message": "Selection"
+  },
+  "customColor_button": {
+    "message": "Button"
+  },
+  "customColor_scrollbar": {
+    "message": "Scrollbar"
+  },
+  "themeCodeLabel": {
+    "message": "Theme code"
+  },
+  "themeCodeImport": {
+    "message": "Add theme"
+  },
+  "themeCodeCopy": {
+    "message": "Copy share code"
+  },
+  "themeCodeInvalid": {
+    "message": "That is not a valid theme code."
+  },
+  "themeCodeImported": {
+    "message": "Added “$1”."
+  },
+  "sectionFixes": {
+    "message": "Site fixes"
+  },
+  "fixesUpdates": {
+    "message": "Download signed fix updates daily"
+  },
+  "fixesHint": {
+    "message": "Fixes are data, never code, and are used only if their signature checks out. Fixes shipped with the extension are always used."
+  },
+  "fixesCheckNow": {
+    "message": "Check now"
+  },
+  "fixesNeverChecked": {
+    "message": "Not checked yet."
+  },
+  "fixesStatus_updated": {
+    "message": "Updated $1 (version $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "Up to date as of $1 (version $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "Downloads are off. Checked $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "The last download ($1) failed its signature check and was not used."
+  },
+  "fixesStatus_failed": {
+    "message": "Could not download fixes ($1). Will retry tomorrow."
   }
 }

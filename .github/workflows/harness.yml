@@ -26,7 +26,10 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm --filter @sdm/extension build
       - run: pnpm --filter @sdm/harness exec playwright install --with-deps chromium
+      - name: Feature checks
+        run: xvfb-run -a pnpm --filter @sdm/harness features
       - name: Fixtures
+        if: ${{ !cancelled() }}
         run: xvfb-run -a pnpm --filter @sdm/harness harness
       - name: Corpus
         if: ${{ inputs.corpus }}

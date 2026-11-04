@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "harness": "node run.mjs",
-    "harness:corpus": "node run.mjs --corpus corpus.txt"
+    "harness:corpus": "node run.mjs --corpus corpus.txt",
+    "features": "node features.mjs"
   },
   "devDependencies": {
     "darkreader": "4.9.134",

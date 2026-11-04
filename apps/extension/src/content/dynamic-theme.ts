@@ -1,14 +1,25 @@
 import {
+  type ColorRole,
   type RuleLike,
   type Theme,
   VarRegistry,
+  modifyColor,
+  parseColor,
+  toHex,
   rewriteRules,
   rewriteValue,
   roleForProperty,
   scanUsage,
 } from '@sdm/engine';
 import type { FetchRequest, FetchResponse } from '@/lib/messages';
-import { INLINE_PROPS, baseCss, inlineAttr, inlineVar, overrideCss } from './base-css';
+import {
+  type ImageOptions,
+  INLINE_PROPS,
+  baseCss,
+  inlineAttr,
+  inlineVar,
+  overrideCss,
+} from './base-css';
 import { RunawayGuard } from './runaway';
 
 const OWN_ATTR = 'data-sdm';
@@ -36,6 +47,16 @@ export interface DynamicThemeHooks {
   onRendered?: (css: string) => void;
   /** Called once when the runaway guard switches the page to simplified mode. */
   onSimplified?: () => void;
+}
+
+/** Selectors from fixes are data; one bad selector must not break the rest. */
+export function validSelector(selector: string): boolean {
+  try {
+    document.createDocumentFragment().querySelector(selector);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function isOwn(node: Node): boolean {
@@ -89,6 +110,59 @@ export class DynamicTheme {
     this.observer = new MutationObserver((records) => this.onMutations(records));
   }
 
+  /** Original colours seen on the page, for the colour remapping UI. */
+  private readonly colours = new Map<string, { count: number; roles: Set<ColorRole> }>();
+
+  private readonly onColor = (original: string, role: ColorRole): void => {
+    if (this.colours.size > 2000) return;
+    const parsed = parseColor(original);
+    if (!parsed || parsed.a === 0) return;
+    const hex = toHex(parsed);
+    const entry = this.colours.get(hex);
+    if (entry) {
+      entry.count++;
+      entry.roles.add(role);
+    } else this.colours.set(hex, { count: 1, roles: new Set([role]) });
+  };
+
+  /** Most used original colours, most frequent first. */
+  palette(limit = 24): { hex: string; roles: ColorRole[]; count: number }[] {
+    return [...this.colours.entries()]
+      .sort((a, b) => b[1].count - a[1].count)
+      .slice(0, limit)
+      .map(([hex, { count, roles }]) => ({ hex, roles: [...roles], count }));
+  }
+
+  /**
+   * Original colours that convert to `shown` for a role, most used first. Used by the
+   * debug overlay; a page can have several originals that end up the same.
+   */
+  originalsOf(shown: string, role: ColorRole): string[] {
+    const target = parseColor(shown);
+    if (!target) return [];
+    const want = toHex(target);
+    const out: { hex: string; count: number }[] = [];
+    for (const [hex, entry] of this.colours) {
+      const parsed = parseColor(hex);
+      if (parsed && toHex(modifyColor(parsed, role, this.theme)) === want) {
+        out.push({ hex, count: entry.count });
+      }
+    }
+    return out.sort((a, b) => b.count - a.count).map((o) => o.hex);
+  }
+
+  /** Switches every style this engine added on or off, without removing anything. */
+  setSuspended(suspended: boolean): void {
+    for (const root of this.roots) {
+      for (const sheet of root.adoptedStyleSheets) {
+        if (this.ownSheets.has(sheet)) sheet.disabled = suspended;
+      }
+      for (const el of root.querySelectorAll<HTMLStyleElement>(`style[${OWN_ATTR}]`)) {
+        el.disabled = suspended;
+      }
+    }
+  }
+
   start(): void {
     this.injectBase();
     this.addRoot(document);
@@ -127,6 +201,18 @@ export class DynamicTheme {
     this.overrides?.remove();
   }
 
+  private images: ImageOptions = { hoverOriginal: false, photoDim: 0 };
+
+  setImageOptions(images: ImageOptions): void {
+    if (
+      images.hoverOriginal === this.images.hoverOriginal &&
+      images.photoDim === this.images.photoDim
+    )
+      return;
+    this.images = images;
+    if (this.overrides) this.overrides.textContent = overrideCss(images);
+  }
+
   setTheme(theme: Theme): void {
     this.theme = theme;
     this.injectBase();
@@ -158,7 +244,7 @@ export class DynamicTheme {
       this.overrides.setAttribute(OWN_ATTR, 'overrides');
     }
     this.base.textContent = baseCss(this.theme);
-    this.overrides.textContent = overrideCss();
+    this.overrides.textContent = overrideCss(this.images);
     if (this.base.parentNode !== head || head.firstChild !== this.base) head.prepend(this.base);
     if (this.overrides.parentNode !== head) head.append(this.overrides);
   }
@@ -309,7 +395,12 @@ export class DynamicTheme {
     const rules = this.rulesOf(node);
     if (!rules) return;
     const baseUrl = (node.sheet as CSSStyleSheet | null)?.href ?? document.baseURI;
-    const css = rewriteRules(rules, { theme: this.theme, vars: this.vars, baseUrl });
+    const css = rewriteRules(rules, {
+      theme: this.theme,
+      vars: this.vars,
+      baseUrl,
+      onColor: this.onColor,
+    });
     if (!css) {
       state.override?.remove();
       state.override = null;
@@ -345,7 +436,11 @@ export class DynamicTheme {
         continue;
       }
       scanUsage(rules, this.vars);
-      const css = rewriteRules(rules, { theme: this.theme, vars: this.vars });
+      const css = rewriteRules(rules, {
+        theme: this.theme,
+        vars: this.vars,
+        onColor: this.onColor,
+      });
       if (!css) continue;
       let override = this.adoptedOverrides.get(sheet);
       if (!override) {
@@ -366,15 +461,36 @@ export class DynamicTheme {
     }
   }
 
+  private ignoreInline = '';
+
+  /** Elements matching these selectors keep their inline styles as written (site fixes). */
+  setIgnoreInline(selectors: readonly string[]): void {
+    const joined = selectors.filter(validSelector).join(', ');
+    if (joined === this.ignoreInline) return;
+    this.ignoreInline = joined;
+    for (const el of [...this.inlineElements]) this.enqueue(el);
+  }
+
   private renderInline(el: Element): void {
     if (!el.isConnected || isOwn(el)) return;
+    if (this.ignoreInline && el.matches(this.ignoreInline)) {
+      this.clearInline(el);
+      this.inlineElements.delete(el);
+      return;
+    }
     const style = (el as HTMLElement).style as CSSStyleDeclaration | undefined;
     let any = false;
     for (const prop of INLINE_PROPS) {
       const value = style?.getPropertyValue(prop);
       const role = roleForProperty(prop);
       const out =
-        value && role ? rewriteValue(value, role, { theme: this.theme, rewriteVars: true }) : null;
+        value && role
+          ? rewriteValue(value, role, {
+              theme: this.theme,
+              rewriteVars: true,
+              onColor: this.onColor,
+            })
+          : null;
       any = this.setInline(el, prop, out) || any;
     }
     for (const [attr, prop] of Object.entries(LEGACY_ATTRS)) {
@@ -384,7 +500,13 @@ export class DynamicTheme {
       const value = el.getAttribute(attr);
       const role = roleForProperty(prop);
       const out =
-        value && role ? rewriteValue(value, role, { theme: this.theme, rewriteVars: false }) : null;
+        value && role
+          ? rewriteValue(value, role, {
+              theme: this.theme,
+              rewriteVars: false,
+              onColor: this.onColor,
+            })
+          : null;
       any = this.setInline(el, prop, out) || any;
     }
     if (any) this.inlineElements.add(el);
