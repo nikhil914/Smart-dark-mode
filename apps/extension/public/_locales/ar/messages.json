@@ -1,0 +1,119 @@
+{
+  "extName": {
+    "message": "الوضع الداكن الذكي"
+  },
+  "extDescription": {
+    "message": "وضع داكن لكل المواقع، مع قواعد لكل موقع وجدولة ودون تتبع."
+  },
+  "cmdToggleSite": {
+    "message": "تبديل الوضع الداكن في الموقع الحالي"
+  },
+  "cmdToggleGlobal": {
+    "message": "تشغيل الإضافة أو إيقافها في كل مكان"
+  },
+  "cmdCycleMode": {
+    "message": "التنقل بين الأوضاع في الموقع الحالي (داكن، مُرشَّح، عادي)"
+  },
+  "unsupportedPage": {
+    "message": "لا يمكن تغيير هذه الصفحة"
+  },
+  "unsupportedPageHint": {
+    "message": "صفحات المتصفح ومتاجر الإضافات لا تسمح للإضافات بتغيير مظهرها."
+  },
+  "ruleFrom": {
+    "message": "القاعدة: $1"
+  },
+  "ruleGlobal": {
+    "message": "القاعدة: الإعداد العام"
+  },
+  "level_domain": {
+    "message": "الموقع"
+  },
+  "level_subdomain": {
+    "message": "النطاق الفرعي"
+  },
+  "level_pattern": {
+    "message": "نمط العنوان"
+  },
+  "level_page": {
+    "message": "الصفحة"
+  },
+  "suppressed_disabled": {
+    "message": "متوقف في كل مكان. استخدم زر التشغيل لإعادة تشغيله."
+  },
+  "suppressed_allowlist": {
+    "message": "وضع القائمة المسموح بها: هذا الموقع ليس في قائمتك."
+  },
+  "suppressed_automation": {
+    "message": "متوقف الآن بسبب إعداد التشغيل التلقائي."
+  },
+  "modeLabel": {
+    "message": "الوضع لهذا الموقع"
+  },
+  "mode_dark": {
+    "message": "داكن"
+  },
+  "mode_filtered": {
+    "message": "مُرشَّح"
+  },
+  "mode_normal": {
+    "message": "عادي"
+  },
+  "applyTo": {
+    "message": "تطبيق على"
+  },
+  "scope_domain": {
+    "message": "هذا الموقع ($1)"
+  },
+  "scope_subdomain": {
+    "message": "هذا النطاق الفرعي فقط ($1)"
+  },
+  "scope_page": {
+    "message": "هذه الصفحة فقط"
+  },
+  "scope_global": {
+    "message": "كل مكان (افتراضي)"
+  },
+  "inheritSubdomains": {
+    "message": "النطاقات الفرعية تتبع هذا الموقع"
+  },
+  "adj_brightness": {
+    "message": "السطوع"
+  },
+  "adj_contrast": {
+    "message": "التباين"
+  },
+  "adj_saturation": {
+    "message": "التشبع"
+  },
+  "adj_warmth": {
+    "message": "الدفء"
+  },
+  "adj_dim": {
+    "message": "التعتيم"
+  },
+  "turnOffEverywhere": {
+    "message": "إيقاف في كل مكان"
+  },
+  "turnOnEverywhere": {
+    "message": "تشغيل في كل مكان"
+  },
+  "automation": {
+    "message": "التشغيل التلقائي"
+  },
+  "auto_off": {
+    "message": "يعمل دائمًا"
+  },
+  "auto_schedule": {
+    "message": "حسب جدول"
+  },
+  "auto_system": {
+    "message": "اتباع الوضع الداكن للنظام"
+  },
+  "from": {
+    "message": "من"
+  },
+  "to": {
+    "message": "إلى"
+  }
+}

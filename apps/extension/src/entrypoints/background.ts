@@ -1,0 +1,121 @@
+import {
+  type Mode,
+  type Settings,
+  automationActive,
+  nextBoundary,
+  nextMode,
+  resolve,
+  setRuleMode,
+  siteDomain,
+  toPageLocation,
+} from '@sdm/settings';
+import {
+  ensureSettings,
+  isOsSchemeChange,
+  isSettingsChange,
+  loadOsPrefersDark,
+  loadSettings,
+  saveSettings,
+} from '@/lib/settings-store';
+
+const BOUNDARY_ALARM = 'schedule-boundary';
+
+const BADGE: Record<Mode, { text: string; color: string }> = {
+  dark: { text: '', color: '#f0a35e' },
+  filtered: { text: 'F', color: '#5e9bf0' },
+  normal: { text: 'off', color: '#6b6b73' },
+};
+
+export default defineBackground(() => {
+  browser.runtime.onInstalled.addListener(async () => {
+    await ensureSettings();
+    await scheduleBoundaryAlarm();
+    await refreshAllBadges();
+  });
+
+  browser.runtime.onStartup.addListener(async () => {
+    await scheduleBoundaryAlarm();
+    await refreshAllBadges();
+  });
+
+  browser.storage.onChanged.addListener(async (changes, area) => {
+    if (area !== 'local') return;
+    if (isSettingsChange(changes)) await scheduleBoundaryAlarm();
+    if (isSettingsChange(changes) || isOsSchemeChange(changes)) await refreshAllBadges();
+  });
+
+  browser.alarms.onAlarm.addListener(async (alarm) => {
+    if (alarm.name !== BOUNDARY_ALARM) return;
+    await scheduleBoundaryAlarm();
+    await refreshAllBadges();
+  });
+
+  browser.tabs.onActivated.addListener(({ tabId }) => void refreshBadge(tabId));
+  browser.tabs.onUpdated.addListener((tabId, info) => {
+    if (info.url !== undefined || info.status === 'loading') void refreshBadge(tabId);
+  });
+
+  browser.commands.onCommand.addListener(async (command) => {
+    const settings = await loadSettings();
+    if (command === 'toggle-global') {
+      await saveSettings({ ...settings, enabled: !settings.enabled });
+      return;
+    }
+    const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+    const url = tab?.url;
+    const loc = url ? toPageLocation(url) : null;
+    if (!url || !loc) return;
+    const domain = siteDomain(loc.host);
+    const current = configuredMode(settings, url);
+    let next: Mode;
+    if (command === 'toggle-site') next = current === 'normal' ? 'dark' : 'normal';
+    else if (command === 'cycle-mode') next = nextMode(current);
+    else return;
+    // Store nothing when the site would just follow the global default.
+    const value = next === settings.defaultMode ? undefined : next;
+    await saveSettings(setRuleMode(settings, 'domain', domain, value));
+  });
+});
+
+/** The mode the user configured for a URL, ignoring the master switch and automation. */
+function configuredMode(settings: Settings, url: string): Mode {
+  const loc = toPageLocation(url);
+  if (!loc) return 'normal';
+  return resolve({ ...settings, enabled: true, listMode: 'blocklist' }, loc, {
+    automationActive: true,
+  }).mode;
+}
+
+async function effectiveMode(url: string | undefined): Promise<Mode | null> {
+  const loc = url ? toPageLocation(url) : null;
+  if (!loc) return null;
+  const [settings, osDark] = await Promise.all([loadSettings(), loadOsPrefersDark()]);
+  const active = automationActive(settings, new Date(), osDark);
+  return resolve(settings, loc, { automationActive: active }).mode;
+}
+
+async function refreshBadge(tabId: number): Promise<void> {
+  try {
+    const tab = await browser.tabs.get(tabId);
+    const mode = await effectiveMode(tab.url);
+    const badge = mode ? BADGE[mode] : { text: '', color: '#6b6b73' };
+    await browser.action.setBadgeText({ tabId, text: badge.text });
+    await browser.action.setBadgeBackgroundColor({ tabId, color: badge.color });
+  } catch {
+    // Tab closed between the event and this call.
+  }
+}
+
+async function refreshAllBadges(): Promise<void> {
+  const tabs = await browser.tabs.query({});
+  await Promise.all(tabs.map((t) => (t.id === undefined ? undefined : refreshBadge(t.id))));
+}
+
+async function scheduleBoundaryAlarm(): Promise<void> {
+  await browser.alarms.clear(BOUNDARY_ALARM);
+  const settings = await loadSettings();
+  if (settings.automation.kind !== 'schedule') return;
+  const { from, to } = settings.automation.schedule;
+  const next = nextBoundary(new Date(), from, to);
+  if (next) await browser.alarms.create(BOUNDARY_ALARM, { when: next.getTime() + 1000 });
+}

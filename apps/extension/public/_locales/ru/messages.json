@@ -1,0 +1,119 @@
+{
+  "extName": {
+    "message": "Умный тёмный режим"
+  },
+  "extDescription": {
+    "message": "Тёмный режим для любого сайта: правила для сайтов, расписание, без слежки."
+  },
+  "cmdToggleSite": {
+    "message": "Включить или выключить тёмный режим на этом сайте"
+  },
+  "cmdToggleGlobal": {
+    "message": "Включить или выключить расширение везде"
+  },
+  "cmdCycleMode": {
+    "message": "Сменить режим на этом сайте (тёмный, фильтр, обычный)"
+  },
+  "unsupportedPage": {
+    "message": "Эту страницу нельзя изменить"
+  },
+  "unsupportedPageHint": {
+    "message": "Страницы браузера и магазины расширений не позволяют расширениям менять их оформление."
+  },
+  "ruleFrom": {
+    "message": "Правило: $1"
+  },
+  "ruleGlobal": {
+    "message": "Правило: общее по умолчанию"
+  },
+  "level_domain": {
+    "message": "сайт"
+  },
+  "level_subdomain": {
+    "message": "поддомен"
+  },
+  "level_pattern": {
+    "message": "шаблон URL"
+  },
+  "level_page": {
+    "message": "страница"
+  },
+  "suppressed_disabled": {
+    "message": "Выключено везде. Нажмите кнопку питания, чтобы включить."
+  },
+  "suppressed_allowlist": {
+    "message": "Режим белого списка: этого сайта нет в вашем списке."
+  },
+  "suppressed_automation": {
+    "message": "Сейчас выключено из-за настроек автоматизации."
+  },
+  "modeLabel": {
+    "message": "Режим для этого сайта"
+  },
+  "mode_dark": {
+    "message": "Тёмный"
+  },
+  "mode_filtered": {
+    "message": "Фильтр"
+  },
+  "mode_normal": {
+    "message": "Обычный"
+  },
+  "applyTo": {
+    "message": "Применить к"
+  },
+  "scope_domain": {
+    "message": "Этот сайт ($1)"
+  },
+  "scope_subdomain": {
+    "message": "Только этот поддомен ($1)"
+  },
+  "scope_page": {
+    "message": "Только эта страница"
+  },
+  "scope_global": {
+    "message": "Везде (по умолчанию)"
+  },
+  "inheritSubdomains": {
+    "message": "Поддомены следуют этому сайту"
+  },
+  "adj_brightness": {
+    "message": "Яркость"
+  },
+  "adj_contrast": {
+    "message": "Контраст"
+  },
+  "adj_saturation": {
+    "message": "Насыщенность"
+  },
+  "adj_warmth": {
+    "message": "Теплота"
+  },
+  "adj_dim": {
+    "message": "Затемнение"
+  },
+  "turnOffEverywhere": {
+    "message": "Выключить везде"
+  },
+  "turnOnEverywhere": {
+    "message": "Включить везде"
+  },
+  "automation": {
+    "message": "Автоматизация"
+  },
+  "auto_off": {
+    "message": "Всегда включено"
+  },
+  "auto_schedule": {
+    "message": "По расписанию"
+  },
+  "auto_system": {
+    "message": "Как в системе"
+  },
+  "from": {
+    "message": "С"
+  },
+  "to": {
+    "message": "До"
+  }
+}

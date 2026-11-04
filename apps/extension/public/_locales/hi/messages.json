@@ -1,0 +1,119 @@
+{
+  "extName": {
+    "message": "स्मार्ट डार्क मोड"
+  },
+  "extDescription": {
+    "message": "हर वेबसाइट के लिए डार्क मोड, साइट के हिसाब से नियम, शेड्यूल और बिना ट्रैकिंग।"
+  },
+  "cmdToggleSite": {
+    "message": "मौजूदा साइट पर डार्क मोड चालू/बंद करें"
+  },
+  "cmdToggleGlobal": {
+    "message": "एक्सटेंशन को हर जगह चालू या बंद करें"
+  },
+  "cmdCycleMode": {
+    "message": "मौजूदा साइट का मोड बदलें (डार्क, फ़िल्टर्ड, सामान्य)"
+  },
+  "unsupportedPage": {
+    "message": "यह पेज बदला नहीं जा सकता"
+  },
+  "unsupportedPageHint": {
+    "message": "ब्राउज़र पेज और एक्सटेंशन स्टोर एक्सटेंशन को अपना रूप बदलने नहीं देते।"
+  },
+  "ruleFrom": {
+    "message": "नियम: $1"
+  },
+  "ruleGlobal": {
+    "message": "नियम: वैश्विक डिफ़ॉल्ट"
+  },
+  "level_domain": {
+    "message": "साइट"
+  },
+  "level_subdomain": {
+    "message": "सबडोमेन"
+  },
+  "level_pattern": {
+    "message": "URL पैटर्न"
+  },
+  "level_page": {
+    "message": "पेज"
+  },
+  "suppressed_disabled": {
+    "message": "हर जगह बंद है। फिर से चालू करने के लिए पावर बटन दबाएँ।"
+  },
+  "suppressed_allowlist": {
+    "message": "अनुमति-सूची मोड: यह साइट आपकी सूची में नहीं है।"
+  },
+  "suppressed_automation": {
+    "message": "आपकी ऑटोमेशन सेटिंग के कारण अभी बंद है।"
+  },
+  "modeLabel": {
+    "message": "इस साइट का मोड"
+  },
+  "mode_dark": {
+    "message": "डार्क"
+  },
+  "mode_filtered": {
+    "message": "फ़िल्टर्ड"
+  },
+  "mode_normal": {
+    "message": "सामान्य"
+  },
+  "applyTo": {
+    "message": "लागू करें"
+  },
+  "scope_domain": {
+    "message": "यह साइट ($1)"
+  },
+  "scope_subdomain": {
+    "message": "सिर्फ़ यह सबडोमेन ($1)"
+  },
+  "scope_page": {
+    "message": "सिर्फ़ यह पेज"
+  },
+  "scope_global": {
+    "message": "हर जगह (डिफ़ॉल्ट)"
+  },
+  "inheritSubdomains": {
+    "message": "सबडोमेन इस साइट का पालन करें"
+  },
+  "adj_brightness": {
+    "message": "चमक"
+  },
+  "adj_contrast": {
+    "message": "कंट्रास्ट"
+  },
+  "adj_saturation": {
+    "message": "संतृप्ति"
+  },
+  "adj_warmth": {
+    "message": "गर्माहट"
+  },
+  "adj_dim": {
+    "message": "धुंधलापन"
+  },
+  "turnOffEverywhere": {
+    "message": "हर जगह बंद करें"
+  },
+  "turnOnEverywhere": {
+    "message": "हर जगह चालू करें"
+  },
+  "automation": {
+    "message": "ऑटोमेशन"
+  },
+  "auto_off": {
+    "message": "हमेशा चालू"
+  },
+  "auto_schedule": {
+    "message": "शेड्यूल के अनुसार"
+  },
+  "auto_system": {
+    "message": "सिस्टम डार्क मोड का पालन करें"
+  },
+  "from": {
+    "message": "से"
+  },
+  "to": {
+    "message": "तक"
+  }
+}

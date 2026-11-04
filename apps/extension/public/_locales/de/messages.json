@@ -1,0 +1,119 @@
+{
+  "extName": {
+    "message": "Smart Dark Mode"
+  },
+  "extDescription": {
+    "message": "Dunkelmodus für jede Website, mit Regeln pro Website, Zeitplan und ohne Tracking."
+  },
+  "cmdToggleSite": {
+    "message": "Dunkelmodus auf dieser Website umschalten"
+  },
+  "cmdToggleGlobal": {
+    "message": "Erweiterung überall ein- oder ausschalten"
+  },
+  "cmdCycleMode": {
+    "message": "Modus auf dieser Website wechseln (dunkel, gefiltert, normal)"
+  },
+  "unsupportedPage": {
+    "message": "Diese Seite kann nicht geändert werden"
+  },
+  "unsupportedPageHint": {
+    "message": "Browserseiten und Erweiterungs-Stores erlauben Erweiterungen keine Gestaltungsänderungen."
+  },
+  "ruleFrom": {
+    "message": "Regel: $1"
+  },
+  "ruleGlobal": {
+    "message": "Regel: globale Vorgabe"
+  },
+  "level_domain": {
+    "message": "Website"
+  },
+  "level_subdomain": {
+    "message": "Subdomain"
+  },
+  "level_pattern": {
+    "message": "URL-Muster"
+  },
+  "level_page": {
+    "message": "Seite"
+  },
+  "suppressed_disabled": {
+    "message": "Überall ausgeschaltet. Mit dem Ein/Aus-Schalter wieder einschalten."
+  },
+  "suppressed_allowlist": {
+    "message": "Positivliste: Diese Website steht nicht auf Ihrer Liste."
+  },
+  "suppressed_automation": {
+    "message": "Gerade aus wegen Ihrer Automatisierung."
+  },
+  "modeLabel": {
+    "message": "Modus für diese Website"
+  },
+  "mode_dark": {
+    "message": "Dunkel"
+  },
+  "mode_filtered": {
+    "message": "Gefiltert"
+  },
+  "mode_normal": {
+    "message": "Normal"
+  },
+  "applyTo": {
+    "message": "Anwenden auf"
+  },
+  "scope_domain": {
+    "message": "Diese Website ($1)"
+  },
+  "scope_subdomain": {
+    "message": "Nur diese Subdomain ($1)"
+  },
+  "scope_page": {
+    "message": "Nur diese Seite"
+  },
+  "scope_global": {
+    "message": "Überall (Standard)"
+  },
+  "inheritSubdomains": {
+    "message": "Subdomains folgen dieser Website"
+  },
+  "adj_brightness": {
+    "message": "Helligkeit"
+  },
+  "adj_contrast": {
+    "message": "Kontrast"
+  },
+  "adj_saturation": {
+    "message": "Sättigung"
+  },
+  "adj_warmth": {
+    "message": "Wärme"
+  },
+  "adj_dim": {
+    "message": "Abdunkeln"
+  },
+  "turnOffEverywhere": {
+    "message": "Überall ausschalten"
+  },
+  "turnOnEverywhere": {
+    "message": "Überall einschalten"
+  },
+  "automation": {
+    "message": "Automatisierung"
+  },
+  "auto_off": {
+    "message": "Immer an"
+  },
+  "auto_schedule": {
+    "message": "Nach Zeitplan"
+  },
+  "auto_system": {
+    "message": "System-Dunkelmodus folgen"
+  },
+  "from": {
+    "message": "Von"
+  },
+  "to": {
+    "message": "Bis"
+  }
+}
