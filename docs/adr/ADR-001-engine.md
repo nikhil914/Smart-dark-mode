@@ -57,3 +57,23 @@ Option D. Pin the upstream commit we port from (`e79222971bcae472a28f20de67c07d5
 - The fixes DB stays compatible as long as we keep (a) Dark Reader's directive syntax, (b) `${colour}` template semantics, run through our transform, and (c) the `--darkreader-neutral-background`, `--darkreader-neutral-text` and related variable names. Contract tests in `tests/unit/fixes-compat` lock this.
 - Our colours will differ visually from Dark Reader's for the same fix. Some fixes tuned to HSL output may look off. The harness flags sites where our bright-area or contrast score is worse than Dark Reader's, and we override those in our own fixes layer.
 - Estimated porting effort: P2 is the largest phase (about 3,500 lines ported, about 4,000 new).
+
+## Revision (P2, 2026-11-04)
+
+During P2 the DOM layer was written fresh instead of ported. No Dark Reader source file is
+copied into the repository, so `THIRD_PARTY_NOTICES.md` is not needed yet.
+
+**Why.** Dark Reader's DOM modules call its HSL colour modifier and its messaging layer
+throughout. Swapping those out touched almost every function, so a port carried most of the
+cost of new code without its clarity. The pieces we needed (CSSOM walk, `var()` role
+inference, override sheets placed after each source, adopted sheets, shadow roots, inline
+styles, `insertRule` hooks) are smaller when written against our own colour engine.
+
+**What stays the same.** The package layout and the behaviour listed in option D. The
+harness compares us with Dark Reader on every pull request (`docs/QUALITY_REPORT.md`) so
+regressions against it stay visible.
+
+**What moves.** Fixes DB compatibility is now a P4 adapter: it parses Dark Reader's
+directive format, runs `${colour}` templates through our transform, and defines the
+`--darkreader-neutral-*` variables as aliases of our role variables. If that adapter ever
+copies upstream code, the notices file and per-file headers described above apply.

@@ -1,0 +1,38 @@
+name: Quality harness
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      corpus:
+        description: Also run the real-site corpus
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  harness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @sdm/extension build
+      - run: pnpm --filter @sdm/harness exec playwright install --with-deps chromium
+      - name: Fixtures
+        run: xvfb-run -a pnpm --filter @sdm/harness harness
+      - name: Corpus
+        if: ${{ inputs.corpus }}
+        run: xvfb-run -a node tests/harness/run.mjs --corpus corpus.txt --late 5000
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: harness-results
+          path: tests/harness/out

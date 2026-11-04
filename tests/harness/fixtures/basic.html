@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Basic</title>
+    <style>
+      body {
+        font:
+          16px/1.5 system-ui,
+          sans-serif;
+        margin: 0;
+        color: #24292f;
+        background: #fff;
+      }
+      header {
+        background: #f6f8fa;
+        border-bottom: 1px solid #d0d7de;
+        padding: 16px 24px;
+      }
+      main {
+        padding: 24px;
+        max-width: 760px;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #d0d7de;
+        border-radius: 6px;
+        padding: 16px;
+        margin: 16px 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+      }
+      .muted {
+        color: #57606a;
+      }
+      a {
+        color: #0969da;
+      }
+      .btn {
+        background: #2da44e;
+        color: #fff;
+        border: 0;
+        padding: 6px 16px;
+        border-radius: 6px;
+      }
+      .warn {
+        background: #fff8c5;
+        color: #4d2d00;
+        padding: 8px;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        border: 1px solid #d0d7de;
+        padding: 6px 10px;
+      }
+      th {
+        background: #f6f8fa;
+      }
+      code {
+        background: rgba(175, 184, 193, 0.2);
+        padding: 2px 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <header><strong>Basic fixture</strong> <a href="#">Docs</a></header>
+    <main>
+      <h1>Hello light page</h1>
+      <p>Body text with a <a href="#">link</a> and <code>inline code</code>.</p>
+      <p class="muted">Secondary text that must stay readable.</p>
+      <div class="card">
+        <h2>Card title</h2>
+        <p>Card text.</p>
+        <button class="btn">Save</button>
+      </div>
+      <div class="warn">Yellow highlight with dark text (Dark Reader #7067).</div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Alpha</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Beta</td>
+          <td>2</td>
+        </tr>
+      </table>
+      <p>
+        <label>Search <input placeholder="Type here" /></label>
+        <select>
+          <option>One</option>
+        </select>
+      </p>
+      <p>
+        <label><input type="checkbox" checked /> Checkbox</label>
+      </p>
+    </main>
+  </body>
+</html>

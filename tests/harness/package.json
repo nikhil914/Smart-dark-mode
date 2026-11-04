@@ -1,0 +1,14 @@
+{
+  "name": "@sdm/harness",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "harness": "node run.mjs",
+    "harness:corpus": "node run.mjs --corpus corpus.txt"
+  },
+  "devDependencies": {
+    "darkreader": "4.9.134",
+    "playwright": "1.63.0"
+  }
+}
