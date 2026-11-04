@@ -1,0 +1,13 @@
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+  { ignores: ['**/node_modules/**', '**/.output/**', '**/.wxt/**', 'docs/**'] },
+  js.configs.recommended,
+  ...tseslint.configs.strict,
+  {
+    rules: {
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+    },
+  },
+);
