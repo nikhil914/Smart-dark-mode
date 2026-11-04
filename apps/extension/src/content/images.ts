@@ -7,7 +7,8 @@
 const SAMPLE = 32;
 const MAX_ICON_SIZE = 96;
 
-type Verdict = 'invert' | 'keep';
+/** invert: dark glyph on transparency. photo: large picture. diagram: large, mostly white drawing. */
+type Verdict = 'invert' | 'photo' | 'diagram' | 'keep';
 
 const cache = new Map<string, Verdict>();
 
@@ -16,9 +17,8 @@ function classify(img: HTMLImageElement): Verdict | null {
   const h = img.naturalHeight;
   if (!w || !h) return null;
   const shown = img.getBoundingClientRect();
-  if (Math.max(shown.width, shown.height) > MAX_ICON_SIZE && Math.max(w, h) > MAX_ICON_SIZE * 2) {
-    return 'keep';
-  }
+  const large =
+    Math.max(shown.width, shown.height) > MAX_ICON_SIZE && Math.max(w, h) > MAX_ICON_SIZE * 2;
   const canvas = document.createElement('canvas');
   canvas.width = SAMPLE;
   canvas.height = SAMPLE;
@@ -30,11 +30,13 @@ function classify(img: HTMLImageElement): Verdict | null {
     data = ctx.getImageData(0, 0, SAMPLE, SAMPLE).data;
   } catch {
     // Cross-origin image without CORS: the canvas is tainted. Leave it alone.
-    return 'keep';
+    return large ? 'photo' : 'keep';
   }
   let transparent = 0;
   let dark = 0;
   let opaque = 0;
+  let white = 0;
+  let colourful = 0;
   for (let i = 0; i < data.length; i += 4) {
     const a = data[i + 3]!;
     if (a < 30) {
@@ -44,9 +46,18 @@ function classify(img: HTMLImageElement): Verdict | null {
     opaque++;
     const l = (0.2126 * data[i]! + 0.7152 * data[i + 1]! + 0.0722 * data[i + 2]!) / 255;
     if (l < 0.3) dark++;
+    if (l > 0.9) white++;
+    const max = Math.max(data[i]!, data[i + 1]!, data[i + 2]!);
+    const min = Math.min(data[i]!, data[i + 1]!, data[i + 2]!);
+    if (max - min > 40) colourful++;
   }
   const total = SAMPLE * SAMPLE;
   // A dark glyph on a transparent background: invert so it shows on dark pages.
+  if (large) {
+    // Charts and diagrams: mostly white paper with few colours.
+    if (opaque / total > 0.9 && white / opaque > 0.6 && colourful / opaque < 0.15) return 'diagram';
+    return 'photo';
+  }
   if (transparent / total > 0.25 && opaque > 0 && dark / opaque > 0.7) return 'invert';
   return 'keep';
 }
@@ -72,7 +83,21 @@ export class ImageClassifier {
     for (const img of root.querySelectorAll('img')) this.io.observe(img);
   }
 
+  private ignore = '';
+
+  /** Images matching these selectors are never analysed or changed (site fixes). */
+  setIgnore(selector: string): void {
+    this.ignore = selector;
+    for (const el of [...this.marked]) {
+      if (selector && el.closest(selector)) {
+        el.removeAttribute('data-sdm-img');
+        this.marked.delete(el);
+      }
+    }
+  }
+
   observeOne(img: HTMLImageElement): void {
+    if (this.ignore && img.closest(this.ignore)) return;
     this.io.observe(img);
   }
 
@@ -107,8 +132,8 @@ export class ImageClassifier {
         if (cache.size > 2000) cache.clear();
         cache.set(key, verdict);
       }
-      if (verdict === 'invert') {
-        img.setAttribute('data-sdm-img', 'invert');
+      if (verdict !== 'keep') {
+        img.setAttribute('data-sdm-img', verdict);
         this.marked.add(img);
       }
     }
