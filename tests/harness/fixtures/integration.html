@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Docusaurus v3.9.2" />
+    <title>Docusaurus-style site</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --fg: #1c1e21;
+        --card: #f5f6f7;
+      }
+      [data-theme='dark'] {
+        --bg: #1b1b1d;
+        --fg: #e3e3e3;
+        --card: #242526;
+      }
+      body {
+        margin: 0;
+        padding: 24px;
+        background: var(--bg);
+        color: var(--fg);
+        font: 16px system-ui;
+      }
+      .card {
+        background: var(--card);
+        padding: 16px;
+      }
+    </style>
+    <script>
+      // Like Docusaurus: read the stored preference before first paint.
+      const stored = localStorage.getItem('theme');
+      if (stored) document.documentElement.setAttribute('data-theme', stored);
+    </script>
+  </head>
+  <body>
+    <h1>Docs site with a theme switch</h1>
+    <div class="card">
+      The extension should switch this site's own dark theme on instead of converting it.
+    </div>
+  </body>
+</html>

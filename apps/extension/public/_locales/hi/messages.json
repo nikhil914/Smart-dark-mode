@@ -1,0 +1,698 @@
+{
+  "extName": {
+    "message": "स्मार्ट डार्क मोड"
+  },
+  "extDescription": {
+    "message": "हर वेबसाइट के लिए डार्क मोड, साइट के हिसाब से नियम, शेड्यूल और बिना ट्रैकिंग।"
+  },
+  "cmdToggleSite": {
+    "message": "मौजूदा साइट पर डार्क मोड चालू/बंद करें"
+  },
+  "cmdToggleGlobal": {
+    "message": "एक्सटेंशन को हर जगह चालू या बंद करें"
+  },
+  "cmdCycleMode": {
+    "message": "मौजूदा साइट का मोड बदलें (डार्क, फ़िल्टर्ड, सामान्य)"
+  },
+  "unsupportedPage": {
+    "message": "यह पेज बदला नहीं जा सकता"
+  },
+  "unsupportedPageHint": {
+    "message": "ब्राउज़र पेज और एक्सटेंशन स्टोर एक्सटेंशन को अपना रूप बदलने नहीं देते।"
+  },
+  "ruleFrom": {
+    "message": "नियम: $1"
+  },
+  "ruleGlobal": {
+    "message": "नियम: वैश्विक डिफ़ॉल्ट"
+  },
+  "level_domain": {
+    "message": "साइट"
+  },
+  "level_subdomain": {
+    "message": "सबडोमेन"
+  },
+  "level_pattern": {
+    "message": "URL पैटर्न"
+  },
+  "level_page": {
+    "message": "पेज"
+  },
+  "suppressed_disabled": {
+    "message": "हर जगह बंद है। फिर से चालू करने के लिए पावर बटन दबाएँ।"
+  },
+  "suppressed_allowlist": {
+    "message": "अनुमति-सूची मोड: यह साइट आपकी सूची में नहीं है।"
+  },
+  "suppressed_automation": {
+    "message": "आपकी ऑटोमेशन सेटिंग के कारण अभी बंद है।"
+  },
+  "modeLabel": {
+    "message": "इस साइट का मोड"
+  },
+  "mode_dark": {
+    "message": "डार्क"
+  },
+  "mode_filtered": {
+    "message": "फ़िल्टर्ड"
+  },
+  "mode_normal": {
+    "message": "सामान्य"
+  },
+  "applyTo": {
+    "message": "लागू करें"
+  },
+  "scope_domain": {
+    "message": "यह साइट ($1)"
+  },
+  "scope_subdomain": {
+    "message": "सिर्फ़ यह सबडोमेन ($1)"
+  },
+  "scope_page": {
+    "message": "सिर्फ़ यह पेज"
+  },
+  "scope_global": {
+    "message": "हर जगह (डिफ़ॉल्ट)"
+  },
+  "inheritSubdomains": {
+    "message": "सबडोमेन इस साइट का पालन करें"
+  },
+  "adj_brightness": {
+    "message": "चमक"
+  },
+  "adj_contrast": {
+    "message": "कंट्रास्ट"
+  },
+  "adj_saturation": {
+    "message": "संतृप्ति"
+  },
+  "adj_warmth": {
+    "message": "गर्माहट"
+  },
+  "adj_dim": {
+    "message": "धुंधलापन"
+  },
+  "turnOffEverywhere": {
+    "message": "हर जगह बंद करें"
+  },
+  "turnOnEverywhere": {
+    "message": "हर जगह चालू करें"
+  },
+  "automation": {
+    "message": "ऑटोमेशन"
+  },
+  "auto_off": {
+    "message": "हमेशा चालू"
+  },
+  "auto_schedule": {
+    "message": "शेड्यूल के अनुसार"
+  },
+  "auto_system": {
+    "message": "सिस्टम डार्क मोड का पालन करें"
+  },
+  "from": {
+    "message": "से"
+  },
+  "to": {
+    "message": "तक"
+  },
+  "optionsTitle": {
+    "message": "Smart Dark Mode सेटिंग्स"
+  },
+  "sectionGeneral": {
+    "message": "सामान्य"
+  },
+  "sectionSites": {
+    "message": "साइटें और नियम"
+  },
+  "sectionPdf": {
+    "message": "PDF व्यूअर"
+  },
+  "sectionBackup": {
+    "message": "बैकअप और ट्रांसफ़र"
+  },
+  "sectionIntegration": {
+    "message": "अपनी डार्क थीम वाली साइटें"
+  },
+  "sectionAbout": {
+    "message": "परिचय"
+  },
+  "enabledEverywhere": {
+    "message": "डार्क मोड चालू करें"
+  },
+  "defaultMode": {
+    "message": "बिना नियम वाली साइटों का मोड"
+  },
+  "listMode": {
+    "message": "कहाँ लागू करें"
+  },
+  "list_blocklist": {
+    "message": "सभी साइटें, बंद की गई को छोड़कर"
+  },
+  "list_allowlist": {
+    "message": "सिर्फ़ चालू की गई साइटें"
+  },
+  "listHint_blocklist": {
+    "message": "जब तक कोई नियम बंद न करे, साइटें बदली जाती हैं।"
+  },
+  "listHint_allowlist": {
+    "message": "सिर्फ़ मोड तय करने वाले नियम वाली साइटें बदलती हैं।"
+  },
+  "integrationDefault": {
+    "message": "जब साइट की अपनी डार्क थीम हो"
+  },
+  "integration_site": {
+    "message": "साइट की थीम इस्तेमाल करें"
+  },
+  "integration_convert": {
+    "message": "फिर भी बदलें"
+  },
+  "integration_off": {
+    "message": "जैसा है वैसा छोड़ें"
+  },
+  "syncSettings": {
+    "message": "ब्राउज़र खाते से सेटिंग सिंक करें"
+  },
+  "syncHint": {
+    "message": "सिंक चालू करने पर आपके अन्य ब्राउज़रों की सेटिंग लोड होती हैं, अगर हों।"
+  },
+  "syncError_too_large": {
+    "message": "सेटिंग सिंक के लिए बहुत बड़ी हैं। कुछ कस्टम CSS हटाएँ।"
+  },
+  "syncError_quota": {
+    "message": "ब्राउज़र ने सिंक मना किया। अगले बदलाव पर फिर कोशिश होगी।"
+  },
+  "sitesHint": {
+    "message": "ज़्यादा सटीक नियम जीतता है: साइट, सबडोमेन, पैटर्न, पेज।"
+  },
+  "ruleLevel": {
+    "message": "लागू होता है"
+  },
+  "ruleMatch": {
+    "message": "पता"
+  },
+  "ruleExtras": {
+    "message": "साथ में"
+  },
+  "actions": {
+    "message": "कार्रवाइयाँ"
+  },
+  "addRule": {
+    "message": "नियम जोड़ें"
+  },
+  "noRules": {
+    "message": "अभी कोई नियम नहीं। पॉपअप से बने नियम यहाँ दिखेंगे।"
+  },
+  "invalidPattern": {
+    "message": "यह पैटर्न मान्य नहीं है।"
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  या  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "विरासत में"
+  },
+  "modeFor": {
+    "message": "$1 का मोड"
+  },
+  "extra_adjust": {
+    "message": "समायोजन"
+  },
+  "extra_remap": {
+    "message": "$1 रंग"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "$1 के लिए कस्टम CSS"
+  },
+  "customCssHint": {
+    "message": "डार्क मोड में #333 जिस रंग में बदलता है, उसके लिए $${#333} लिखें।"
+  },
+  "clearRemap": {
+    "message": "रंग रीसेट करें"
+  },
+  "delete": {
+    "message": "हटाएँ"
+  },
+  "deleteRuleFor": {
+    "message": "$1 का नियम हटाएँ"
+  },
+  "save": {
+    "message": "सहेजें"
+  },
+  "pdfEnabled": {
+    "message": "PDF को डार्क व्यूअर में खोलें"
+  },
+  "pdfStyle": {
+    "message": "शैली"
+  },
+  "pdf_dark": {
+    "message": "सिर्फ़ टेक्स्ट डार्क"
+  },
+  "pdf_sepia": {
+    "message": "सेपिया"
+  },
+  "pdf_invert": {
+    "message": "सब कुछ उलटें"
+  },
+  "pdf_custom": {
+    "message": "कस्टम रंग"
+  },
+  "pdf_original": {
+    "message": "मूल"
+  },
+  "pdfHint": {
+    "message": "\"सिर्फ़ टेक्स्ट डार्क\" में तस्वीरें असली रंगों में रहती हैं। प्रिंट हमेशा मूल रंगों में होता है।"
+  },
+  "pdfBackground": {
+    "message": "पृष्ठभूमि"
+  },
+  "pdfText": {
+    "message": "टेक्स्ट"
+  },
+  "pdfSearch": {
+    "message": "खोजें"
+  },
+  "previousMatch": {
+    "message": "पिछला परिणाम"
+  },
+  "nextMatch": {
+    "message": "अगला परिणाम"
+  },
+  "noMatches": {
+    "message": "कोई परिणाम नहीं"
+  },
+  "matchPages": {
+    "message": "परिणाम वाले $2 में से पेज $1"
+  },
+  "zoomIn": {
+    "message": "ज़ूम इन"
+  },
+  "zoomOut": {
+    "message": "ज़ूम आउट"
+  },
+  "print": {
+    "message": "प्रिंट"
+  },
+  "openOriginal": {
+    "message": "मूल खोलें"
+  },
+  "pageN": {
+    "message": "पेज $1"
+  },
+  "preparingPrint": {
+    "message": "प्रिंट के लिए पेज $1/$2 तैयार हो रहा है…"
+  },
+  "pdfLoadFailed": {
+    "message": "यह PDF लोड नहीं हुआ। \"मूल खोलें\" इस्तेमाल करें।"
+  },
+  "pdfFileAccess": {
+    "message": "लोकल PDF के लिए एक्सटेंशन सेटिंग में \"फ़ाइल URL तक पहुँच दें\" चालू करें।"
+  },
+  "backupHint": {
+    "message": "एक्सपोर्ट सारी सेटिंग फ़ाइल में सहेजता है। इंपोर्ट Dark Reader की फ़ाइलें भी पढ़ता है।"
+  },
+  "exportSettings": {
+    "message": "सेटिंग एक्सपोर्ट करें"
+  },
+  "importSettings": {
+    "message": "सेटिंग इंपोर्ट करें…"
+  },
+  "importConfirm": {
+    "message": "सभी मौजूदा सेटिंग को इंपोर्ट की गई सेटिंग से बदलें?"
+  },
+  "imported_smart_dark_mode": {
+    "message": "सेटिंग इंपोर्ट हो गईं।"
+  },
+  "imported_darkreader": {
+    "message": "Dark Reader सेटिंग इंपोर्ट हो गईं।"
+  },
+  "importSkipped": {
+    "message": "नहीं लिया गया: $1।"
+  },
+  "skipped_location_schedule": {
+    "message": "लोकेशन आधारित शेड्यूल"
+  },
+  "skipped_presets": {
+    "message": "प्रीसेट"
+  },
+  "skipped_light_scheme": {
+    "message": "लाइट कलर स्कीम"
+  },
+  "importError_not_json": {
+    "message": "यह सेटिंग फ़ाइल नहीं है।"
+  },
+  "importError_unknown_format": {
+    "message": "यह फ़ाइल फ़ॉर्मेट समर्थित नहीं है।"
+  },
+  "importError_too_large": {
+    "message": "फ़ाइल बहुत बड़ी है।"
+  },
+  "integrationHint": {
+    "message": "जानी-पहचानी साइटों पर हम बदलने की बजाय उनकी अपनी डार्क थीम चालू करते हैं।"
+  },
+  "integrationChanges": {
+    "message": "साइटों पर सहेजे गए बदलाव"
+  },
+  "integrationNoChanges": {
+    "message": "कोई नहीं। किसी साइट पर कुछ सहेजा नहीं गया।"
+  },
+  "integrationUndoHint": {
+    "message": "\"फिर भी बदलें\", \"जैसा है छोड़ें\" या डार्क मोड बंद करने के बाद साइट खोलते ही ये वापस हो जाते हैं।"
+  },
+  "journal_localStorage": {
+    "message": "साइट स्टोरेज"
+  },
+  "journal_cookie": {
+    "message": "कुकी"
+  },
+  "journalWas": {
+    "message": "पहले $1"
+  },
+  "journalWasUnset": {
+    "message": "पहले नहीं था"
+  },
+  "forgetDarkSites": {
+    "message": "डार्क पहचानी गई साइटें भूलें"
+  },
+  "integrationList": {
+    "message": "बिल्ट-इन सूची ($1)"
+  },
+  "done": {
+    "message": "हो गया"
+  },
+  "aboutVersion": {
+    "message": "संस्करण $1"
+  },
+  "privacyShort": {
+    "message": "कोई डेटा आपके ब्राउज़र से बाहर नहीं जाता। कुछ भी इकट्ठा या भेजा नहीं जाता।"
+  },
+  "sourceCode": {
+    "message": "सोर्स कोड"
+  },
+  "reportProblem": {
+    "message": "समस्या बताएँ"
+  },
+  "moreSettings": {
+    "message": "और सेटिंग"
+  },
+  "siteThemeOn": {
+    "message": "साइट की अपनी डार्क थीम ($1)"
+  },
+  "siteAlreadyDark": {
+    "message": "यह साइट पहले से डार्क है, इसलिए जैसी है वैसी दिखती है"
+  },
+  "pageColours": {
+    "message": "इस पेज के रंग"
+  },
+  "pageColoursHint": {
+    "message": "चुनें कि रंग क्या बने। उसे इस्तेमाल करने वाले सभी तत्व बदलेंगे।"
+  },
+  "remapColour": {
+    "message": "$1 का नया रंग"
+  },
+  "resetColour": {
+    "message": "$1 रीसेट करें"
+  },
+  "reset": {
+    "message": "रीसेट"
+  },
+  "cancel": {
+    "message": "रद्द करें"
+  },
+  "close": {
+    "message": "बंद करें"
+  },
+  "remove": {
+    "message": "हटाएँ"
+  },
+  "copied": {
+    "message": "कॉपी हो गया"
+  },
+  "cmdPickElement": {
+    "message": "पेज पर किसी तत्व को ठीक करें"
+  },
+  "menuToggleSite": {
+    "message": "इस साइट पर डार्क मोड"
+  },
+  "menuFixElement": {
+    "message": "इस तत्व को ठीक करें"
+  },
+  "menuOpenPdf": {
+    "message": "PDF को डार्क व्यूअर में खोलें"
+  },
+  "toolsLabel": {
+    "message": "पेज टूल"
+  },
+  "toolPicker": {
+    "message": "तत्व ठीक करें"
+  },
+  "toolDebug": {
+    "message": "रंग जाँचें"
+  },
+  "toolDebugOff": {
+    "message": "जाँच बंद करें"
+  },
+  "toolExport": {
+    "message": "CSS निर्यात करें"
+  },
+  "pickerTitle": {
+    "message": "इस तत्व को ठीक करें"
+  },
+  "pickerSelector": {
+    "message": "CSS सेलेक्टर"
+  },
+  "pickerOption_invert": {
+    "message": "उलटें (कैनवास, आरेख)"
+  },
+  "pickerOption_background": {
+    "message": "गहरी पृष्ठभूमि लागू करें"
+  },
+  "pickerOption_text": {
+    "message": "हल्का टेक्स्ट लागू करें"
+  },
+  "pickerOption_noImage": {
+    "message": "पृष्ठभूमि छवि छिपाएँ"
+  },
+  "pickerOption_hide": {
+    "message": "तत्व छिपाएँ"
+  },
+  "pickerParent": {
+    "message": "पैरेंट चुनें"
+  },
+  "pickerSave": {
+    "message": "इस साइट के लिए सहेजें"
+  },
+  "debugBackground": {
+    "message": "पृष्ठभूमि"
+  },
+  "debugText": {
+    "message": "टेक्स्ट"
+  },
+  "debugContrast": {
+    "message": "कंट्रास्ट"
+  },
+  "debugRule": {
+    "message": "नियम"
+  },
+  "chipMessage": {
+    "message": "इस पेज के कुछ हिस्से अब भी चमकीले या पढ़ने में कठिन हैं।"
+  },
+  "chipTryFiltered": {
+    "message": "फ़िल्टर मोड आज़माएँ"
+  },
+  "chipFixElement": {
+    "message": "तत्व ठीक करें"
+  },
+  "sectionAppearance": {
+    "message": "रूप"
+  },
+  "themeLabel": {
+    "message": "थीम"
+  },
+  "theme_dark": {
+    "message": "डार्क"
+  },
+  "theme_amoled": {
+    "message": "AMOLED काला"
+  },
+  "theme_dim": {
+    "message": "मंद"
+  },
+  "theme_sepia": {
+    "message": "सीपिया"
+  },
+  "theme_contrast": {
+    "message": "उच्च कंट्रास्ट"
+  },
+  "theme_grayscale": {
+    "message": "ग्रेस्केल"
+  },
+  "theme_protan": {
+    "message": "लाल-कमज़ोरी के अनुकूल (protan)"
+  },
+  "theme_deutan": {
+    "message": "हरा-कमज़ोरी के अनुकूल (deutan)"
+  },
+  "theme_tritan": {
+    "message": "नीला-कमज़ोरी के अनुकूल (tritan)"
+  },
+  "themeHint_dark": {
+    "message": "संतुलित गहरा स्लेटी, हल्का सफ़ेद टेक्स्ट।"
+  },
+  "themeHint_amoled": {
+    "message": "शुद्ध काली पृष्ठभूमि, OLED पर बिजली बचाती है।"
+  },
+  "themeHint_dim": {
+    "message": "रोशन कमरों के लिए हल्का गहरा स्लेटी।"
+  },
+  "themeHint_sepia": {
+    "message": "लंबे पठन के लिए गर्म भूरे रंग।"
+  },
+  "themeHint_contrast": {
+    "message": "लगभग काली पृष्ठभूमि और कम से कम 7:1 टेक्स्ट कंट्रास्ट।"
+  },
+  "themeHint_grayscale": {
+    "message": "सभी रंग हटा देता है।"
+  },
+  "themeHint_protan": {
+    "message": "लाल और हरे को अलग करता है ताकि पहचानना आसान हो।"
+  },
+  "themeHint_deutan": {
+    "message": "लाल और हरे को अलग करता है ताकि पहचानना आसान हो।"
+  },
+  "themeHint_tritan": {
+    "message": "नीले और पीले को अलग करता है ताकि पहचानना आसान हो।"
+  },
+  "themeHint_custom": {
+    "message": "आपके अपने रंग, नीचे।"
+  },
+  "presetLabel": {
+    "message": "रंग तीव्रता"
+  },
+  "preset_vivid": {
+    "message": "चटक"
+  },
+  "preset_balanced": {
+    "message": "संतुलित"
+  },
+  "preset_muted": {
+    "message": "मंद"
+  },
+  "imagesHeading": {
+    "message": "छवियाँ"
+  },
+  "imagesHoverOriginal": {
+    "message": "पॉइंटर के नीचे मूल छवि दिखाएँ"
+  },
+  "imagesPhotoDim": {
+    "message": "फ़ोटो गहरी करें"
+  },
+  "diagnosisHeading": {
+    "message": "स्व-जाँच"
+  },
+  "diagnosisEnabled": {
+    "message": "पेज अब भी चमकीला दिखे तो मदद दिखाएँ"
+  },
+  "diagnosisHint": {
+    "message": "पेज लोड होने के बाद आपके डिवाइस पर मापा जाता है। कुछ भी भेजा नहीं जाता।"
+  },
+  "customThemesHeading": {
+    "message": "कस्टम थीम"
+  },
+  "customThemeAdd": {
+    "message": "नई थीम"
+  },
+  "customThemeDefaultName": {
+    "message": "मेरी थीम"
+  },
+  "customThemeName": {
+    "message": "थीम का नाम"
+  },
+  "customThemePreview": {
+    "message": "उदाहरण टेक्स्ट:"
+  },
+  "customColor_background": {
+    "message": "पृष्ठभूमि"
+  },
+  "customColor_text": {
+    "message": "टेक्स्ट"
+  },
+  "customColor_link": {
+    "message": "लिंक"
+  },
+  "customColor_visited": {
+    "message": "देखा गया लिंक"
+  },
+  "customColor_border": {
+    "message": "बॉर्डर"
+  },
+  "customColor_selection": {
+    "message": "चयन"
+  },
+  "customColor_button": {
+    "message": "बटन"
+  },
+  "customColor_scrollbar": {
+    "message": "स्क्रॉलबार"
+  },
+  "themeCodeLabel": {
+    "message": "थीम कोड"
+  },
+  "themeCodeImport": {
+    "message": "थीम जोड़ें"
+  },
+  "themeCodeCopy": {
+    "message": "शेयर कोड कॉपी करें"
+  },
+  "themeCodeInvalid": {
+    "message": "यह मान्य थीम कोड नहीं है।"
+  },
+  "themeCodeImported": {
+    "message": "“$1” जोड़ी गई।"
+  },
+  "sectionFixes": {
+    "message": "साइट सुधार"
+  },
+  "fixesUpdates": {
+    "message": "हस्ताक्षरित सुधार रोज़ डाउनलोड करें"
+  },
+  "fixesHint": {
+    "message": "सुधार डेटा हैं, कोड नहीं, और सही हस्ताक्षर होने पर ही उपयोग होते हैं। एक्सटेंशन के साथ आए सुधार हमेशा उपयोग होते हैं।"
+  },
+  "fixesCheckNow": {
+    "message": "अभी जाँचें"
+  },
+  "fixesNeverChecked": {
+    "message": "अभी तक जाँचा नहीं गया।"
+  },
+  "fixesStatus_updated": {
+    "message": "$1 को अपडेट (संस्करण $2)।"
+  },
+  "fixesStatus_unchanged": {
+    "message": "$1 तक नवीनतम (संस्करण $2)।"
+  },
+  "fixesStatus_disabled": {
+    "message": "डाउनलोड बंद हैं। $1 को जाँचा गया।"
+  },
+  "fixesStatus_rejected": {
+    "message": "पिछला डाउनलोड ($1) हस्ताक्षर जाँच में विफल रहा और उपयोग नहीं हुआ।"
+  },
+  "fixesStatus_failed": {
+    "message": "डाउनलोड नहीं हो सका ($1)। कल फिर कोशिश होगी।"
+  }
+}
