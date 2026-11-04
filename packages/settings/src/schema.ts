@@ -3,7 +3,7 @@
  * migration in `migrate.ts` whenever a stored field changes meaning or type.
  */
 
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 
 export type Mode = 'dark' | 'filtered' | 'normal';
 
@@ -57,7 +57,40 @@ export interface SiteRule {
   adjust?: Partial<Adjustments>;
   /** Only meaningful for `domain` rules. Defaults to true. */
   inheritSubdomains?: boolean;
+  /** Colour remapping, original `#rrggbb` to replacement `#rrggbb`. Dark mode only. */
+  remap?: Record<string, string>;
+  /** Extra CSS for matching pages. `${colour}` templates are converted in dark mode. */
+  css?: string;
+  /** What to do when the site has its own dark theme. */
+  integration?: IntegrationChoice;
 }
+
+/**
+ * Deep Integration, for sites that ship their own dark theme:
+ * - site:    switch the site's own theme on where we know how, and never convert it
+ * - convert: ignore the site's theme and convert as usual
+ * - off:     leave the site completely alone
+ */
+export type IntegrationChoice = 'site' | 'convert' | 'off';
+
+export const INTEGRATION_CHOICES: readonly IntegrationChoice[] = ['site', 'convert', 'off'];
+
+/** PDF viewer colour styles. */
+export type PdfStyle = 'dark' | 'sepia' | 'invert' | 'custom' | 'original';
+
+export const PDF_STYLES: readonly PdfStyle[] = ['dark', 'sepia', 'invert', 'custom', 'original'];
+
+export interface PdfSettings {
+  /** Open PDFs in the built-in viewer. */
+  enabled: boolean;
+  style: PdfStyle;
+  /** Used by the `custom` style. */
+  background: string;
+  text: string;
+}
+
+export const MAX_RULE_CSS = 20_000;
+export const MAX_REMAPS = 64;
 
 export type ListMode = 'blocklist' | 'allowlist';
 
@@ -87,6 +120,11 @@ export interface Settings {
     kind: AutomationKind;
     schedule: Schedule;
   };
+  /** Default Deep Integration choice; rules can override it per site. */
+  integration: IntegrationChoice;
+  pdf: PdfSettings;
+  /** Mirror settings to the browser's sync storage. */
+  sync: boolean;
 }
 
 export function defaultSettings(): Settings {
@@ -101,6 +139,9 @@ export function defaultSettings(): Settings {
       kind: 'off',
       schedule: { from: '19:00', to: '07:00' },
     },
+    integration: 'site',
+    pdf: { enabled: true, style: 'dark', background: '#1e1e1e', text: '#e0e0e0' },
+    sync: false,
   };
 }
 
@@ -112,4 +153,12 @@ export function clampAdjustment(key: keyof Adjustments, value: number): number {
   const [min, max] = ADJUSTMENT_LIMITS[key];
   if (!Number.isFinite(value)) return DEFAULT_ADJUSTMENTS[key];
   return Math.min(max, Math.max(min, Math.round(value)));
+}
+
+/** Normalises a colour key or value for remapping: `#rgb`/`#rrggbb` to lower-case `#rrggbb`. */
+export function normalizeHex(value: string): string | null {
+  const m = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(value.trim());
+  if (!m) return null;
+  const hex = m[1]!.toLowerCase();
+  return hex.length === 3 ? `#${[...hex].map((c) => c + c).join('')}` : `#${hex}`;
 }

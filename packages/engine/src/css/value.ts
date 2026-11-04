@@ -1,10 +1,5 @@
-import {
-  type ColorRole,
-  type Theme,
-  NAMED_COLORS,
-  SYSTEM_COLORS,
-  modifyColorValue,
-} from '../color';
+import { type ColorRole, type Theme, NAMED_COLORS, SYSTEM_COLORS } from '../color';
+import { modifyColorValue } from '../color';
 
 const COLOR_FUNCTIONS = new Set([
   'rgb',
@@ -49,6 +44,14 @@ export interface ValueContext {
   rewriteVars: boolean;
   /** Base for relative url() values, so a copied declaration still points at the same file. */
   baseUrl?: string | undefined;
+  /** Called with each colour token that was converted (original text), e.g. to build a palette. */
+  onColor?: ((original: string, role: ColorRole) => void) | undefined;
+}
+
+function convert(token: string, role: ColorRole, ctx: ValueContext): string | null {
+  const mod = modifyColorValue(token, role, ctx.theme);
+  if (mod) ctx.onColor?.(token, role);
+  return mod;
 }
 
 function absolutizeUrl(fn: string, baseUrl: string | undefined): string {
@@ -78,7 +81,7 @@ export function rewriteValue(value: string, role: ColorRole, ctx: ValueContext):
     if (ch === '#') {
       const m = /^#[0-9a-fA-F]{3,8}(?![\w-])/.exec(value.slice(i));
       if (m) {
-        const mod = modifyColorValue(m[0], role, ctx.theme);
+        const mod = convert(m[0], role, ctx);
         if (mod) {
           out += mod;
           changed = true;
@@ -118,7 +121,7 @@ export function rewriteValue(value: string, role: ColorRole, ctx: ValueContext):
           if (res !== null) changed = true;
           out += res ?? whole;
         } else if (COLOR_FUNCTIONS.has(lower)) {
-          const mod = modifyColorValue(whole, role, ctx.theme);
+          const mod = convert(whole, role, ctx);
           if (mod) {
             out += mod;
             changed = true;
@@ -137,7 +140,7 @@ export function rewriteValue(value: string, role: ColorRole, ctx: ValueContext):
         continue;
       }
       if (lower in NAMED_COLORS || lower in SYSTEM_COLORS || lower === 'transparent') {
-        const mod = lower === 'transparent' ? null : modifyColorValue(lower, role, ctx.theme);
+        const mod = lower === 'transparent' ? null : convert(lower, role, ctx);
         if (mod) {
           out += mod;
           changed = true;

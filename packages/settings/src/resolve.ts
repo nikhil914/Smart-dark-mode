@@ -1,5 +1,6 @@
 import {
   type Adjustments,
+  type IntegrationChoice,
   type Mode,
   type RuleLevel,
   type Settings,
@@ -13,6 +14,11 @@ export interface Resolved {
   adjust: Adjustments;
   /** Rules that applied, lowest precedence first. Shown in the UI as "why". */
   applied: SiteRule[];
+  /** Colour remapping merged across matching rules (more specific rules win per colour). */
+  remap: Record<string, string>;
+  /** Custom CSS of every matching rule, lowest precedence first, so the cascade matches. */
+  css: string;
+  integration: IntegrationChoice;
   /** True when the master switch, list mode or automation forced `normal`. */
   suppressedBy: 'disabled' | 'allowlist' | 'automation' | null;
 }
@@ -71,12 +77,18 @@ export function resolve(settings: Settings, loc: PageLocation, ctx: ResolveConte
   let mode: Mode = settings.defaultMode;
   let explicitMode = false;
   const adjust: Adjustments = { ...settings.adjust };
+  const remap: Record<string, string> = {};
+  const css: string[] = [];
+  let integration = settings.integration;
   for (const rule of applied) {
     if (rule.mode) {
       mode = rule.mode;
       explicitMode = true;
     }
     if (rule.adjust) Object.assign(adjust, rule.adjust);
+    if (rule.remap) Object.assign(remap, rule.remap);
+    if (rule.css) css.push(rule.css);
+    if (rule.integration) integration = rule.integration;
   }
 
   let suppressedBy: Resolved['suppressedBy'] = null;
@@ -84,5 +96,13 @@ export function resolve(settings: Settings, loc: PageLocation, ctx: ResolveConte
   else if (settings.listMode === 'allowlist' && !explicitMode) suppressedBy = 'allowlist';
   else if (!ctx.automationActive) suppressedBy = 'automation';
 
-  return { mode: suppressedBy ? 'normal' : mode, adjust, applied, suppressedBy };
+  return {
+    mode: suppressedBy ? 'normal' : mode,
+    adjust,
+    remap,
+    css: css.join('\n'),
+    integration,
+    applied,
+    suppressedBy,
+  };
 }
