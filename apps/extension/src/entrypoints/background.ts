@@ -13,6 +13,7 @@ import {
 import { syncFallback } from '@/background/fallback';
 import { FIXES_ALARM, scheduleFixesUpdates, siteFixes, updateFixes } from '@/background/fixes';
 import { createMenus, onMenuClick } from '@/background/menus';
+import { NATIVE_ALARM, pollNative, reportState, scheduleNativePoll } from '@/background/native';
 import { allowOriginal, forgetTabRules, syncPdfRedirect } from '@/background/pdf';
 import { isRemoteChange, onLocalChange, pull } from '@/background/sync';
 import { forgetTab, safeFetch } from '@/background/safe-fetch';
@@ -41,6 +42,8 @@ export default defineBackground(() => {
     await pull();
     await scheduleFixesUpdates();
     await createMenus();
+    await scheduleNativePoll();
+    await pollNative(true);
     await scheduleBoundaryAlarm();
     await refreshFallback();
     await refreshAllBadges();
@@ -48,6 +51,8 @@ export default defineBackground(() => {
 
   browser.runtime.onStartup.addListener(async () => {
     await createMenus();
+    await scheduleNativePoll();
+    await pollNative(true);
     await pull();
     await scheduleBoundaryAlarm();
     await refreshFallback();
@@ -66,6 +71,9 @@ export default defineBackground(() => {
       const next = migrate(change.newValue);
       if (previous?.pdf.enabled !== next.pdf.enabled) await syncPdfRedirect(next.pdf.enabled);
       await onLocalChange(previous, next);
+      if (previous?.enabled !== next.enabled || previous?.theme !== next.theme) {
+        await reportState(next);
+      }
       await scheduleBoundaryAlarm();
     }
     if (isSettingsChange(changes) || isOsSchemeChange(changes)) {
@@ -75,6 +83,10 @@ export default defineBackground(() => {
   });
 
   browser.alarms.onAlarm.addListener(async (alarm) => {
+    if (alarm.name === NATIVE_ALARM) {
+      await pollNative(true);
+      return;
+    }
     if (alarm.name === FIXES_ALARM) {
       await updateFixes();
       return;
@@ -113,14 +125,19 @@ export default defineBackground(() => {
     void forgetTabRules(tabId);
   });
 
-  browser.tabs.onActivated.addListener(({ tabId }) => void refreshBadge(tabId));
+  browser.tabs.onActivated.addListener(({ tabId }) => {
+    void pollNative();
+    void refreshBadge(tabId);
+  });
   browser.tabs.onUpdated.addListener((tabId, info) => {
+    if (info.status === 'loading') void pollNative();
     if (info.url !== undefined || info.status === 'loading') void refreshBadge(tabId);
   });
 
   onMenuClick((url) => changeSiteMode(url, 'toggle-site'));
 
-  browser.commands.onCommand.addListener(async (command) => {
+  // Firefox for Android has no keyboard shortcuts API.
+  browser.commands?.onCommand.addListener(async (command) => {
     if (command === 'toggle-global') {
       const settings = await loadSettings();
       await saveSettings({ ...settings, enabled: !settings.enabled });
