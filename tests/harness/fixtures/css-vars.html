@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS variables</title>
+    <style>
+      :root {
+        --surface: #ffffff;
+        --surface-2: #f2f4f7;
+        --text: #1f2328;
+        --brand: #6d28d9;
+        --brand-text: var(--brand);
+        --line: #e5e7eb;
+        --accent: oklch(0.62 0.19 260);
+      }
+      body {
+        margin: 0;
+        background: var(--surface);
+        color: var(--text);
+        font: 16px/1.5 system-ui;
+      }
+      nav {
+        background: var(--surface-2);
+        border-bottom: 1px solid var(--line);
+        padding: 12px 24px;
+      }
+      .pill {
+        background: var(--brand);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 99px;
+      }
+      a {
+        color: var(--brand-text);
+      }
+      .accent {
+        color: var(--accent);
+      }
+      section {
+        padding: 24px;
+      }
+      .panel {
+        background: color-mix(in srgb, var(--surface-2) 70%, white);
+        border: 1px solid var(--line);
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>Vars fixture <span class="pill">New</span></nav>
+    <section>
+      <h1>Design tokens</h1>
+      <p>Text uses <a href="#">brand links</a> and <span class="accent">an oklch accent</span>.</p>
+      <div class="panel">Panel built with color-mix.</div>
+    </section>
+  </body>
+</html>

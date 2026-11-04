@@ -1,0 +1,21 @@
+# One URL per line. Run with: pnpm --filter @sdm/harness harness:corpus (needs internet).
+https://en.wikipedia.org/wiki/Dark_mode
+https://github.com/darkreader/darkreader
+https://stackoverflow.com/questions
+https://news.ycombinator.com/
+https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+https://www.bbc.com/news
+https://old.reddit.com/
+https://www.amazon.com/
+https://www.ebay.com/
+https://gitlab.com/explore
+https://tailwindcss.com/
+https://mui.com/material-ui/
+https://lit.dev/
+https://www.notion.so/
+https://www.youtube.com/
+https://docs.google.com/document/u/0/
+https://www.google.com/maps
+https://console.cloud.google.com/
+https://www.linkedin.com/
+https://x.com/

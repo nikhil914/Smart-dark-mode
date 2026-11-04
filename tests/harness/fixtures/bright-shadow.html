@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bright closed shadow root</title>
+    <style>
+      body {
+        margin: 0;
+        font:
+          16px/1.5 system-ui,
+          sans-serif;
+        background: #fff;
+        color: #222;
+      }
+      #fix-me {
+        padding: 24px;
+        background: #f3f3f3;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="fix-me">A paragraph to fix with the picker.</p>
+    <bright-panel></bright-panel>
+    <script>
+      // A widget whose styles live in a closed shadow root: nothing outside can read them.
+      customElements.define(
+        'bright-panel',
+        class extends HTMLElement {
+          constructor() {
+            super();
+            const root = this.attachShadow({ mode: 'closed' });
+            root.innerHTML =
+              '<style>:host { display: block; min-height: 90vh; background: #ffffff; color: #333; }</style><slot></slot>';
+          }
+        },
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,698 @@
+{
+  "extName": {
+    "message": "الوضع الداكن الذكي"
+  },
+  "extDescription": {
+    "message": "وضع داكن لكل المواقع، مع قواعد لكل موقع وجدولة ودون تتبع."
+  },
+  "cmdToggleSite": {
+    "message": "تبديل الوضع الداكن في الموقع الحالي"
+  },
+  "cmdToggleGlobal": {
+    "message": "تشغيل الإضافة أو إيقافها في كل مكان"
+  },
+  "cmdCycleMode": {
+    "message": "التنقل بين الأوضاع في الموقع الحالي (داكن، مُرشَّح، عادي)"
+  },
+  "unsupportedPage": {
+    "message": "لا يمكن تغيير هذه الصفحة"
+  },
+  "unsupportedPageHint": {
+    "message": "صفحات المتصفح ومتاجر الإضافات لا تسمح للإضافات بتغيير مظهرها."
+  },
+  "ruleFrom": {
+    "message": "القاعدة: $1"
+  },
+  "ruleGlobal": {
+    "message": "القاعدة: الإعداد العام"
+  },
+  "level_domain": {
+    "message": "الموقع"
+  },
+  "level_subdomain": {
+    "message": "النطاق الفرعي"
+  },
+  "level_pattern": {
+    "message": "نمط العنوان"
+  },
+  "level_page": {
+    "message": "الصفحة"
+  },
+  "suppressed_disabled": {
+    "message": "متوقف في كل مكان. استخدم زر التشغيل لإعادة تشغيله."
+  },
+  "suppressed_allowlist": {
+    "message": "وضع القائمة المسموح بها: هذا الموقع ليس في قائمتك."
+  },
+  "suppressed_automation": {
+    "message": "متوقف الآن بسبب إعداد التشغيل التلقائي."
+  },
+  "modeLabel": {
+    "message": "الوضع لهذا الموقع"
+  },
+  "mode_dark": {
+    "message": "داكن"
+  },
+  "mode_filtered": {
+    "message": "مُرشَّح"
+  },
+  "mode_normal": {
+    "message": "عادي"
+  },
+  "applyTo": {
+    "message": "تطبيق على"
+  },
+  "scope_domain": {
+    "message": "هذا الموقع ($1)"
+  },
+  "scope_subdomain": {
+    "message": "هذا النطاق الفرعي فقط ($1)"
+  },
+  "scope_page": {
+    "message": "هذه الصفحة فقط"
+  },
+  "scope_global": {
+    "message": "كل مكان (افتراضي)"
+  },
+  "inheritSubdomains": {
+    "message": "النطاقات الفرعية تتبع هذا الموقع"
+  },
+  "adj_brightness": {
+    "message": "السطوع"
+  },
+  "adj_contrast": {
+    "message": "التباين"
+  },
+  "adj_saturation": {
+    "message": "التشبع"
+  },
+  "adj_warmth": {
+    "message": "الدفء"
+  },
+  "adj_dim": {
+    "message": "التعتيم"
+  },
+  "turnOffEverywhere": {
+    "message": "إيقاف في كل مكان"
+  },
+  "turnOnEverywhere": {
+    "message": "تشغيل في كل مكان"
+  },
+  "automation": {
+    "message": "التشغيل التلقائي"
+  },
+  "auto_off": {
+    "message": "يعمل دائمًا"
+  },
+  "auto_schedule": {
+    "message": "حسب جدول"
+  },
+  "auto_system": {
+    "message": "اتباع الوضع الداكن للنظام"
+  },
+  "from": {
+    "message": "من"
+  },
+  "to": {
+    "message": "إلى"
+  },
+  "optionsTitle": {
+    "message": "إعدادات الوضع الداكن الذكي"
+  },
+  "sectionGeneral": {
+    "message": "عام"
+  },
+  "sectionSites": {
+    "message": "المواقع والقواعد"
+  },
+  "sectionPdf": {
+    "message": "عارض PDF"
+  },
+  "sectionBackup": {
+    "message": "النسخ الاحتياطي والنقل"
+  },
+  "sectionIntegration": {
+    "message": "مواقع لها سمة داكنة خاصة"
+  },
+  "sectionAbout": {
+    "message": "حول"
+  },
+  "enabledEverywhere": {
+    "message": "تشغيل الوضع الداكن"
+  },
+  "defaultMode": {
+    "message": "الوضع للمواقع دون قاعدة"
+  },
+  "listMode": {
+    "message": "مكان التطبيق"
+  },
+  "list_blocklist": {
+    "message": "كل المواقع إلا التي أوقفها"
+  },
+  "list_allowlist": {
+    "message": "المواقع التي أشغّلها فقط"
+  },
+  "listHint_blocklist": {
+    "message": "تُحوَّل المواقع ما لم تُوقفها قاعدة."
+  },
+  "listHint_allowlist": {
+    "message": "تتغير المواقع التي لها قاعدة تحدد وضعًا فقط."
+  },
+  "integrationDefault": {
+    "message": "عندما يكون للموقع سمة داكنة خاصة"
+  },
+  "integration_site": {
+    "message": "استخدام سمة الموقع"
+  },
+  "integration_convert": {
+    "message": "التحويل على أي حال"
+  },
+  "integration_off": {
+    "message": "تركه كما هو"
+  },
+  "syncSettings": {
+    "message": "مزامنة الإعدادات مع حساب المتصفح"
+  },
+  "syncHint": {
+    "message": "يحمّل تشغيل المزامنة الإعدادات المحفوظة من متصفحاتك الأخرى إن وُجدت."
+  },
+  "syncError_too_large": {
+    "message": "الإعدادات كبيرة جدًا للمزامنة. احذف بعض CSS المخصص."
+  },
+  "syncError_quota": {
+    "message": "رفض المتصفح المزامنة (تغييرات كثيرة). ستُعاد المحاولة لاحقًا."
+  },
+  "sitesHint": {
+    "message": "القواعد الأدق تفوز: الموقع ثم النطاق الفرعي ثم النمط ثم الصفحة."
+  },
+  "ruleLevel": {
+    "message": "ينطبق على"
+  },
+  "ruleMatch": {
+    "message": "العنوان"
+  },
+  "ruleExtras": {
+    "message": "أيضًا"
+  },
+  "actions": {
+    "message": "إجراءات"
+  },
+  "addRule": {
+    "message": "إضافة قاعدة"
+  },
+  "noRules": {
+    "message": "لا توجد قواعد بعد. تظهر هنا القواعد التي تضبطها من النافذة."
+  },
+  "invalidPattern": {
+    "message": "هذا النمط غير صالح."
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  أو  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "وراثة"
+  },
+  "modeFor": {
+    "message": "الوضع لـ $1"
+  },
+  "extra_adjust": {
+    "message": "تعديلات"
+  },
+  "extra_remap": {
+    "message": "$1 ألوان"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "CSS مخصص لـ $1"
+  },
+  "customCssHint": {
+    "message": "اكتب $${#333} للحصول على اللون الذي يصبحه #333 في الوضع الداكن."
+  },
+  "clearRemap": {
+    "message": "إعادة الألوان"
+  },
+  "delete": {
+    "message": "حذف"
+  },
+  "deleteRuleFor": {
+    "message": "حذف قاعدة $1"
+  },
+  "save": {
+    "message": "حفظ"
+  },
+  "pdfEnabled": {
+    "message": "فتح ملفات PDF في العارض الداكن"
+  },
+  "pdfStyle": {
+    "message": "النمط"
+  },
+  "pdf_dark": {
+    "message": "نص داكن فقط"
+  },
+  "pdf_sepia": {
+    "message": "بني داكن"
+  },
+  "pdf_invert": {
+    "message": "عكس كل شيء"
+  },
+  "pdf_custom": {
+    "message": "ألوان مخصصة"
+  },
+  "pdf_original": {
+    "message": "الأصلي"
+  },
+  "pdfHint": {
+    "message": "يحافظ وضع النص الداكن على ألوان الصور. الطباعة بالألوان الأصلية دائمًا."
+  },
+  "pdfBackground": {
+    "message": "الخلفية"
+  },
+  "pdfText": {
+    "message": "النص"
+  },
+  "pdfSearch": {
+    "message": "بحث"
+  },
+  "previousMatch": {
+    "message": "النتيجة السابقة"
+  },
+  "nextMatch": {
+    "message": "النتيجة التالية"
+  },
+  "noMatches": {
+    "message": "لا نتائج"
+  },
+  "matchPages": {
+    "message": "الصفحة $1 من $2 بها نتائج"
+  },
+  "zoomIn": {
+    "message": "تكبير"
+  },
+  "zoomOut": {
+    "message": "تصغير"
+  },
+  "print": {
+    "message": "طباعة"
+  },
+  "openOriginal": {
+    "message": "فتح الأصل"
+  },
+  "pageN": {
+    "message": "الصفحة $1"
+  },
+  "preparingPrint": {
+    "message": "تجهيز الصفحة $1 من $2 للطباعة…"
+  },
+  "pdfLoadFailed": {
+    "message": "تعذر تحميل ملف PDF. استخدم فتح الأصل."
+  },
+  "pdfFileAccess": {
+    "message": "لفتح ملفات PDF المحلية، فعّل \"السماح بالوصول إلى عناوين الملفات\" في إعدادات الإضافة."
+  },
+  "backupHint": {
+    "message": "يحفظ التصدير كل الإعدادات في ملف. يقرأ الاستيراد ملفات Dark Reader أيضًا."
+  },
+  "exportSettings": {
+    "message": "تصدير الإعدادات"
+  },
+  "importSettings": {
+    "message": "استيراد الإعدادات…"
+  },
+  "importConfirm": {
+    "message": "استبدال كل الإعدادات الحالية بالمستوردة؟"
+  },
+  "imported_smart_dark_mode": {
+    "message": "تم استيراد الإعدادات."
+  },
+  "imported_darkreader": {
+    "message": "تم استيراد إعدادات Dark Reader."
+  },
+  "importSkipped": {
+    "message": "لم يُنقل: $1."
+  },
+  "skipped_location_schedule": {
+    "message": "الجدول حسب الموقع"
+  },
+  "skipped_presets": {
+    "message": "الإعدادات المسبقة"
+  },
+  "skipped_light_scheme": {
+    "message": "نظام الألوان الفاتح"
+  },
+  "importError_not_json": {
+    "message": "هذا الملف ليس ملف إعدادات."
+  },
+  "importError_unknown_format": {
+    "message": "تنسيق الملف غير مدعوم."
+  },
+  "importError_too_large": {
+    "message": "الملف كبير جدًا."
+  },
+  "integrationHint": {
+    "message": "للمواقع المعروفة نشغّل السمة الداكنة الخاصة بها بدل التحويل."
+  },
+  "integrationChanges": {
+    "message": "تغييرات محفوظة على المواقع"
+  },
+  "integrationNoChanges": {
+    "message": "لا شيء. لم نحفظ شيئًا على أي موقع."
+  },
+  "integrationUndoHint": {
+    "message": "تُلغى هذه عند فتح الموقع بعد اختيار التحويل أو الترك أو إيقاف الوضع الداكن له."
+  },
+  "journal_localStorage": {
+    "message": "تخزين الموقع"
+  },
+  "journal_cookie": {
+    "message": "ملف تعريف"
+  },
+  "journalWas": {
+    "message": "كان $1"
+  },
+  "journalWasUnset": {
+    "message": "لم يكن مضبوطًا"
+  },
+  "forgetDarkSites": {
+    "message": "نسيان المواقع المكتشفة كداكنة"
+  },
+  "integrationList": {
+    "message": "القائمة المدمجة ($1)"
+  },
+  "done": {
+    "message": "تم"
+  },
+  "aboutVersion": {
+    "message": "الإصدار $1"
+  },
+  "privacyShort": {
+    "message": "لا تغادر أي بيانات متصفحك. لا جمع ولا إرسال ولا تحليلات."
+  },
+  "sourceCode": {
+    "message": "الشيفرة المصدرية"
+  },
+  "reportProblem": {
+    "message": "الإبلاغ عن مشكلة"
+  },
+  "moreSettings": {
+    "message": "مزيد من الإعدادات"
+  },
+  "siteThemeOn": {
+    "message": "استخدام السمة الداكنة للموقع ($1)"
+  },
+  "siteAlreadyDark": {
+    "message": "هذا الموقع داكن بالفعل فيُعرض كما هو"
+  },
+  "pageColours": {
+    "message": "الألوان في هذه الصفحة"
+  },
+  "pageColoursHint": {
+    "message": "اختر ما يجب أن يصبحه اللون. يتغير كل عنصر يستخدمه."
+  },
+  "remapColour": {
+    "message": "لون جديد لـ $1"
+  },
+  "resetColour": {
+    "message": "إعادة $1"
+  },
+  "reset": {
+    "message": "إعادة"
+  },
+  "cancel": {
+    "message": "إلغاء"
+  },
+  "close": {
+    "message": "إغلاق"
+  },
+  "remove": {
+    "message": "إزالة"
+  },
+  "copied": {
+    "message": "تم النسخ"
+  },
+  "cmdPickElement": {
+    "message": "إصلاح عنصر في الصفحة"
+  },
+  "menuToggleSite": {
+    "message": "الوضع الداكن في هذا الموقع"
+  },
+  "menuFixElement": {
+    "message": "إصلاح هذا العنصر"
+  },
+  "menuOpenPdf": {
+    "message": "فتح PDF في العارض الداكن"
+  },
+  "toolsLabel": {
+    "message": "أدوات الصفحة"
+  },
+  "toolPicker": {
+    "message": "إصلاح عنصر"
+  },
+  "toolDebug": {
+    "message": "فحص الألوان"
+  },
+  "toolDebugOff": {
+    "message": "إيقاف الفحص"
+  },
+  "toolExport": {
+    "message": "تصدير CSS"
+  },
+  "pickerTitle": {
+    "message": "إصلاح هذا العنصر"
+  },
+  "pickerSelector": {
+    "message": "محدد CSS"
+  },
+  "pickerOption_invert": {
+    "message": "عكس الألوان (لوحات، مخططات)"
+  },
+  "pickerOption_background": {
+    "message": "فرض خلفية داكنة"
+  },
+  "pickerOption_text": {
+    "message": "فرض نص فاتح"
+  },
+  "pickerOption_noImage": {
+    "message": "إخفاء صورة الخلفية"
+  },
+  "pickerOption_hide": {
+    "message": "إخفاء العنصر"
+  },
+  "pickerParent": {
+    "message": "اختيار العنصر الأب"
+  },
+  "pickerSave": {
+    "message": "حفظ لهذا الموقع"
+  },
+  "debugBackground": {
+    "message": "الخلفية"
+  },
+  "debugText": {
+    "message": "النص"
+  },
+  "debugContrast": {
+    "message": "التباين"
+  },
+  "debugRule": {
+    "message": "القاعدة"
+  },
+  "chipMessage": {
+    "message": "لا تزال أجزاء من هذه الصفحة فاتحة أو صعبة القراءة."
+  },
+  "chipTryFiltered": {
+    "message": "تجربة وضع الترشيح"
+  },
+  "chipFixElement": {
+    "message": "إصلاح عنصر"
+  },
+  "sectionAppearance": {
+    "message": "المظهر"
+  },
+  "themeLabel": {
+    "message": "السمة"
+  },
+  "theme_dark": {
+    "message": "داكن"
+  },
+  "theme_amoled": {
+    "message": "أسود AMOLED"
+  },
+  "theme_dim": {
+    "message": "خافت"
+  },
+  "theme_sepia": {
+    "message": "بني داكن"
+  },
+  "theme_contrast": {
+    "message": "تباين عالٍ"
+  },
+  "theme_grayscale": {
+    "message": "تدرج رمادي"
+  },
+  "theme_protan": {
+    "message": "مناسب لضعف الأحمر"
+  },
+  "theme_deutan": {
+    "message": "مناسب لضعف الأخضر"
+  },
+  "theme_tritan": {
+    "message": "مناسب لضعف الأزرق"
+  },
+  "themeHint_dark": {
+    "message": "رمادي داكن متوازن ونص أبيض مائل."
+  },
+  "themeHint_amoled": {
+    "message": "خلفية سوداء تمامًا توفر الطاقة في شاشات OLED."
+  },
+  "themeHint_dim": {
+    "message": "رمادي أفتح للغرف المضاءة."
+  },
+  "themeHint_sepia": {
+    "message": "درجات بنية دافئة للقراءة الطويلة."
+  },
+  "themeHint_contrast": {
+    "message": "خلفية شبه سوداء وتباين نص لا يقل عن 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "يزيل كل الألوان."
+  },
+  "themeHint_protan": {
+    "message": "يباعد بين الأحمر والأخضر لتسهيل التمييز."
+  },
+  "themeHint_deutan": {
+    "message": "يباعد بين الأحمر والأخضر لتسهيل التمييز."
+  },
+  "themeHint_tritan": {
+    "message": "يباعد بين الأزرق والأصفر لتسهيل التمييز."
+  },
+  "themeHint_custom": {
+    "message": "ألوانك الخاصة، بالأسفل."
+  },
+  "presetLabel": {
+    "message": "شدة الألوان"
+  },
+  "preset_vivid": {
+    "message": "زاهية"
+  },
+  "preset_balanced": {
+    "message": "متوازنة"
+  },
+  "preset_muted": {
+    "message": "هادئة"
+  },
+  "imagesHeading": {
+    "message": "الصور"
+  },
+  "imagesHoverOriginal": {
+    "message": "عرض الصورة الأصلية تحت المؤشر"
+  },
+  "imagesPhotoDim": {
+    "message": "تعتيم الصور"
+  },
+  "diagnosisHeading": {
+    "message": "الفحص الذاتي"
+  },
+  "diagnosisEnabled": {
+    "message": "عرض المساعدة عندما تبدو الصفحة فاتحة"
+  },
+  "diagnosisHint": {
+    "message": "يُقاس على جهازك بعد تحميل الصفحة. لا يُرسل أي شيء."
+  },
+  "customThemesHeading": {
+    "message": "سمات مخصصة"
+  },
+  "customThemeAdd": {
+    "message": "سمة جديدة"
+  },
+  "customThemeDefaultName": {
+    "message": "سمتي"
+  },
+  "customThemeName": {
+    "message": "اسم السمة"
+  },
+  "customThemePreview": {
+    "message": "نص تجريبي مع"
+  },
+  "customColor_background": {
+    "message": "الخلفية"
+  },
+  "customColor_text": {
+    "message": "النص"
+  },
+  "customColor_link": {
+    "message": "رابط"
+  },
+  "customColor_visited": {
+    "message": "رابط تمت زيارته"
+  },
+  "customColor_border": {
+    "message": "الحدود"
+  },
+  "customColor_selection": {
+    "message": "التحديد"
+  },
+  "customColor_button": {
+    "message": "زر"
+  },
+  "customColor_scrollbar": {
+    "message": "شريط التمرير"
+  },
+  "themeCodeLabel": {
+    "message": "رمز السمة"
+  },
+  "themeCodeImport": {
+    "message": "إضافة السمة"
+  },
+  "themeCodeCopy": {
+    "message": "نسخ رمز المشاركة"
+  },
+  "themeCodeInvalid": {
+    "message": "هذا ليس رمز سمة صالحًا."
+  },
+  "themeCodeImported": {
+    "message": "تمت إضافة \"$1\"."
+  },
+  "sectionFixes": {
+    "message": "إصلاحات المواقع"
+  },
+  "fixesUpdates": {
+    "message": "تنزيل الإصلاحات الموقّعة يوميًا"
+  },
+  "fixesHint": {
+    "message": "الإصلاحات بيانات وليست شيفرة، وتُستخدم فقط إذا صح توقيعها. الإصلاحات المضمّنة تُستخدم دائمًا."
+  },
+  "fixesCheckNow": {
+    "message": "تحقق الآن"
+  },
+  "fixesNeverChecked": {
+    "message": "لم يتم التحقق بعد."
+  },
+  "fixesStatus_updated": {
+    "message": "تم التحديث في $1 (الإصدار $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "محدّث حتى $1 (الإصدار $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "التنزيل متوقف. تم التحقق في $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "فشل التنزيل الأخير ($1) في التحقق من التوقيع ولم يُستخدم."
+  },
+  "fixesStatus_failed": {
+    "message": "تعذّر التنزيل ($1). ستتم المحاولة غدًا."
+  }
+}

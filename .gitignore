@@ -1,0 +1,9 @@
+node_modules/
+.output/
+.wxt/
+dist/
+coverage/
+*.zip
+.DS_Store
+tests/harness/out/
+apps/safari-host/*.xcodeproj/
