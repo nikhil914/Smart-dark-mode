@@ -8,6 +8,7 @@
   --accent: #f0a35e;
   --danger: #f28b82;
   color-scheme: dark;
+  accent-color: var(--accent);
 }
 
 * {
