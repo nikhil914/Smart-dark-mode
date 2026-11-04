@@ -56,6 +56,36 @@ PDF addresses open in a built-in pdf.js viewer with dark, sepia, inverted, custo
 
 The options page exports every setting to a JSON file and imports this format or a Dark Reader export. With sync turned on, settings are mirrored to the browser's sync storage in chunks of 6,000 characters (up to about 84 KB).
 
+## Themes
+
+Dark mode comes in several themes: Dark, AMOLED black, Dim, Sepia, High contrast (text contrast of at least 7:1), Grayscale, and three colour-vision themes (protan, deutan, tritan) that move hues apart where those deficiencies confuse them. A saturation preset (vivid, balanced, muted) sets how strongly page colours come through.
+
+Custom themes set the background, text, link, visited link, border, selection, button and scrollbar colours. Each one has a share code (`sdm-theme:...`) that can be copied and pasted into another browser. Themes can be chosen globally or per site.
+
+Images: photos keep their colours and can be darkened by up to 40 %, dark icons and diagrams are inverted, and the original image shows while the pointer is over it.
+
+## Page tools
+
+- **Fix an element**: pick an element on the page, choose what to change (invert, dark background, light text, hide background image, hide), see it live, and save it as custom CSS for the site. Available from the popup, the right-click menu and a keyboard shortcut you can assign.
+- **Inspect colours**: an overlay that shows, for the element under the pointer, its colours now, the page colours they came from, the contrast ratio and the stylesheet rule that set them.
+- **Export CSS**: downloads the stylesheet generated for the current page.
+- **Self-check**: after a page loads, a grid of points is sampled. If more than 15 % of it is still bright, or too much text has low contrast, a small prompt offers filtered mode, the element picker or a problem report. It runs on your device only and can be turned off in the options.
+
+## Site fixes
+
+Some sites need small corrections (canvas apps such as Google Docs, Maps or Excalidraw need inverting). Fixes are data, never code: CSS with `${colour}` templates and lists of selectors. A small set ships with the extension; a larger bundle, built from our own fixes (`fixes/own.json`) and Dark Reader's community fixes, is published as a release asset and downloaded once a day.
+
+A downloaded bundle is used only when its ECDSA P-256 signature matches the public key built into the extension and its version is higher than the one in use. A failed check never replaces the bundle already stored.
+
+To publish bundles:
+
+1. Run `node scripts/fixes/keygen.mjs` once. Keep the private key safe and never commit it.
+2. Put the printed public JWK into `apps/extension/src/data/fixes-key.ts`.
+3. Add the private key as the repository secret `FIXES_SIGNING_KEY`.
+4. Run the "Publish site fixes" workflow. It builds, signs, verifies and uploads `fixes.json` and `fixes.json.sig` to a release.
+
+Until a public key is set, downloads stay off and only the bundled fixes are used.
+
 ## Keyboard shortcuts
 
 | Shortcut    | Action                                           |
@@ -64,8 +94,9 @@ The options page exports every setting to a JSON file and imports this format or
 | Alt+Shift+D | Toggle dark mode on the current site             |
 | Alt+Shift+A | Turn the extension on or off everywhere          |
 | Alt+Shift+C | Cycle dark, filtered, normal on the current site |
+| (unset)     | Fix an element on the page                       |
 
-Rebind them at `chrome://extensions/shortcuts` or in Firefox's add-on manager (Manage Extension Shortcuts).
+Browsers allow four suggested shortcuts, so "Fix an element" has none by default. Rebind them at `chrome://extensions/shortcuts` or in Firefox's add-on manager (Manage Extension Shortcuts).
 
 ## Quality harness
 

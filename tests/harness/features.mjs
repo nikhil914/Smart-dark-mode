@@ -416,7 +416,7 @@ const md = [
   '| --- | --- | --- | --- |',
   ...results.map(
     (r) =>
-      `| ${r.scenario} | ${r.name} | ${r.ok ? 'pass' : '**fail**'} | ${r.detail.replaceAll('|', '\\|').slice(0, 120)} |`,
+      `| ${r.scenario} | ${r.name} | ${r.ok ? 'pass' : '**fail**'} | ${r.detail.replace(/\s+/g, ' ').replaceAll('|', '\\|').slice(0, 120)} |`,
   ),
 ].join('\n');
 await mkdir(join(here, 'out'), { recursive: true });
