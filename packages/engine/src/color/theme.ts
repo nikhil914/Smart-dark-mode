@@ -16,6 +16,11 @@ export interface Theme {
   brightness: number;
   /** Contrast multiplier around the mid point, 0.5..1.5. */
   contrast: number;
+  /**
+   * User colour remapping: original `#rrggbb` (lower case) to the colour it should become.
+   * Applied before role mapping, for every role, and used as is.
+   */
+  remap?: Readonly<Record<string, string>>;
 }
 
 const PRESET_CHROMA: Record<SaturationPreset, number> = { vivid: 1, balanced: 0.85, muted: 0.6 };
@@ -29,15 +34,33 @@ export const DEFAULT_THEME: Readonly<Theme> = {
   contrast: 1,
 };
 
-export function themeFrom(adjust: Adjustments, preset: SaturationPreset = 'balanced'): Theme {
-  return {
+export function themeFrom(
+  adjust: Adjustments,
+  preset: SaturationPreset = 'balanced',
+  remap?: Readonly<Record<string, string>>,
+): Theme {
+  const theme: Theme = {
     ...DEFAULT_THEME,
     chroma: PRESET_CHROMA[preset] * (adjust.saturation / 100),
     brightness: adjust.brightness / 100,
     contrast: adjust.contrast / 100,
   };
+  if (remap && Object.keys(remap).length > 0) theme.remap = remap;
+  return theme;
 }
 
+const remapKeys = new WeakMap<object, string>();
+
 export function themeKey(t: Theme): string {
-  return `${t.bgL},${t.fgL},${t.borderL},${t.chroma},${t.brightness},${t.contrast}`;
+  const base = `${t.bgL},${t.fgL},${t.borderL},${t.chroma},${t.brightness},${t.contrast}`;
+  if (!t.remap) return base;
+  let key = remapKeys.get(t.remap);
+  if (key === undefined) {
+    key = Object.entries(t.remap)
+      .sort(([a], [b]) => (a < b ? -1 : 1))
+      .map(([a, b]) => `${a}>${b}`)
+      .join(';');
+    remapKeys.set(t.remap, key);
+  }
+  return `${base}|${key}`;
 }

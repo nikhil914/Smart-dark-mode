@@ -45,11 +45,29 @@ function mapShadow(c: OKLCH): OKLCH {
   return { l: Math.min(c.l, 0.08), c: c.c * 0.5, h: c.h, a: c.a };
 }
 
+/** `#rrggbb` (lower case, alpha dropped). The key format used by colour remapping. */
+export function toHex(c: RGBA): string {
+  const h = (x: number) =>
+    Math.round(Math.min(1, Math.max(0, x)) * 255)
+      .toString(16)
+      .padStart(2, '0');
+  return `#${h(c.r)}${h(c.g)}${h(c.b)}`;
+}
+
 /** Pure, memoised colour transform. */
 export function modifyColor(color: RGBA, role: ColorRole, theme: Theme): RGBA {
   const key = `${role}|${color.r},${color.g},${color.b},${color.a}|${themeKey(theme)}`;
   const hit = memo.get(key);
   if (hit) return hit;
+  if (theme.remap) {
+    const target = theme.remap[toHex(color)];
+    const parsed = target ? parseColor(target) : null;
+    if (parsed) {
+      const out = { ...parsed, a: parsed.a * color.a };
+      memo.set(key, out);
+      return out;
+    }
+  }
   const lch = rgbToOklch(color);
   let out: OKLCH;
   switch (role) {

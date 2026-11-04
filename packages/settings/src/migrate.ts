@@ -2,12 +2,18 @@ import {
   type Adjustments,
   type Settings,
   type SiteRule,
+  type IntegrationChoice,
   ADJUSTMENT_LIMITS,
+  INTEGRATION_CHOICES,
+  MAX_REMAPS,
+  MAX_RULE_CSS,
   MODES,
+  PDF_STYLES,
   RULE_LEVELS,
   SCHEMA_VERSION,
   clampAdjustment,
   defaultSettings,
+  normalizeHex,
   ruleKey,
 } from './schema';
 import { parseTime } from './schedule';
@@ -20,6 +26,9 @@ type Migration = (input: Record<string, unknown>) => Record<string, unknown>;
  */
 const MIGRATIONS: Record<number, Migration> = {
   0: (input) => ({ ...input, version: 1 }),
+  // v2 adds remap, css and integration to rules and integration, pdf and sync to settings.
+  // Every new field has a default, so the data itself needs no change.
+  1: (input) => ({ ...input, version: 2 }),
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -38,7 +47,7 @@ function sanitizeAdjust(value: unknown): Partial<Adjustments> {
 
 function sanitizeRule(value: unknown): SiteRule | null {
   if (!isRecord(value)) return null;
-  const { level, match, mode, adjust, inheritSubdomains } = value;
+  const { level, match, mode, adjust, inheritSubdomains, remap, css, integration } = value;
   if (typeof level !== 'string' || !RULE_LEVELS.includes(level as SiteRule['level'])) return null;
   if (typeof match !== 'string' || match.length === 0 || match.length > 2048) return null;
   const rule: SiteRule = { level: level as SiteRule['level'], match };
@@ -48,6 +57,19 @@ function sanitizeRule(value: unknown): SiteRule | null {
   const adj = sanitizeAdjust(adjust);
   if (Object.keys(adj).length > 0) rule.adjust = adj;
   if (typeof inheritSubdomains === 'boolean') rule.inheritSubdomains = inheritSubdomains;
+  if (isRecord(remap)) {
+    const out: Record<string, string> = {};
+    for (const [from, to] of Object.entries(remap).slice(0, MAX_REMAPS)) {
+      const a = normalizeHex(from);
+      const b = typeof to === 'string' ? normalizeHex(to) : null;
+      if (a && b) out[a] = b;
+    }
+    if (Object.keys(out).length > 0) rule.remap = out;
+  }
+  if (typeof css === 'string' && css.trim() && css.length <= MAX_RULE_CSS) rule.css = css;
+  if (typeof integration === 'string' && INTEGRATION_CHOICES.includes(integration as never)) {
+    rule.integration = integration as IntegrationChoice;
+  }
   return rule;
 }
 
@@ -102,5 +124,41 @@ export function migrate(raw: unknown): Settings {
       }
     }
   }
+  if (
+    typeof data.integration === 'string' &&
+    INTEGRATION_CHOICES.includes(data.integration as never)
+  ) {
+    out.integration = data.integration as IntegrationChoice;
+  }
+  if (isRecord(data.pdf)) {
+    const { enabled, style, background, text } = data.pdf;
+    if (typeof enabled === 'boolean') out.pdf.enabled = enabled;
+    if (typeof style === 'string' && PDF_STYLES.includes(style as never)) {
+      out.pdf.style = style as Settings['pdf']['style'];
+    }
+    const bg = typeof background === 'string' ? normalizeHex(background) : null;
+    const fg = typeof text === 'string' ? normalizeHex(text) : null;
+    if (bg) out.pdf.background = bg;
+    if (fg) out.pdf.text = fg;
+  }
+  if (typeof data.sync === 'boolean') out.sync = data.sync;
+  if (
+    typeof data.integration === 'string' &&
+    INTEGRATION_CHOICES.includes(data.integration as never)
+  ) {
+    out.integration = data.integration as IntegrationChoice;
+  }
+  if (isRecord(data.pdf)) {
+    const { enabled, style, background, text } = data.pdf;
+    if (typeof enabled === 'boolean') out.pdf.enabled = enabled;
+    if (typeof style === 'string' && PDF_STYLES.includes(style as never)) {
+      out.pdf.style = style as Settings['pdf']['style'];
+    }
+    const bg = typeof background === 'string' ? normalizeHex(background) : null;
+    const fg = typeof text === 'string' ? normalizeHex(text) : null;
+    if (bg) out.pdf.background = bg;
+    if (fg) out.pdf.text = fg;
+  }
+  if (typeof data.sync === 'boolean') out.sync = data.sync;
   return out;
 }
