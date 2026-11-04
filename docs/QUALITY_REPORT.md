@@ -14,9 +14,9 @@
 | Page tools | generated CSS can be exported | pass | 2211 chars |
 | Page tools | debug overlay switches on | pass | true |
 | Page tools | and Escape switches it off | pass | false |
-| Page tools | picker previews the fix live | pass | #fix-me {
+| Page tools | picker previews the fix live | pass | #fix-me { background-color: rgb(22, 22, 22) !important; } |
 | Page tools | picker saves the fix as site CSS | pass | "#fix-me {\n  background-color: ${#ffffff} !important;\n}" |
-| Page tools | saved fix applies to the page, converted | pass | #fix-me {
+| Page tools | saved fix applies to the page, converted | pass | #fix-me { background-color: rgb(22, 22, 22) !important; } |
 | Page tools | context menu API available to the extension | pass |  |
 
 The picker check drives the closed-shadow UI with the keyboard only (Tab, Space, Enter), so
