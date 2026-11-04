@@ -67,6 +67,8 @@ targets:
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
     dependencies:
       - target: SmartDarkModeExtension-iOS
+      # Linking AppIntents lets Xcode extract the Shortcuts actions' metadata.
+      - sdk: AppIntents.framework
 
   SmartDarkModeExtension-iOS:
     templates: [WebExtension]
@@ -87,6 +89,7 @@ targets:
     dependencies:
       - target: SmartDarkModeExtension-macOS
       - sdk: SafariServices.framework
+      - sdk: AppIntents.framework
 
   SmartDarkModeExtension-macOS:
     templates: [WebExtension]
