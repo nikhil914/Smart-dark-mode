@@ -197,7 +197,8 @@ function measureContrast() {
 // ---------------------------------------------------------------------------------------------
 
 async function openMode(mode) {
-  const launchArgs = [];
+  // Each fixture gets its own origin (<name>.localhost), like separate real sites.
+  const launchArgs = ['--host-resolver-rules=MAP *.localhost 127.0.0.1'];
   if (mode === 'ours') {
     launchArgs.push(`--disable-extensions-except=${EXTENSION}`, `--load-extension=${EXTENSION}`);
   }
@@ -326,7 +327,11 @@ async function main() {
     targets = files
       .map((f) => f.replace(/\.html$/, ''))
       .filter((name) => !only || only.includes(name))
-      .map((name) => ({ name, url: `http://127.0.0.1:${port}/${name}.html`, fixture: name }));
+      .map((name) => ({
+        name,
+        url: `http://${name}.localhost:${port}/${name}.html`,
+        fixture: name,
+      }));
   }
 
   const decoderBrowser = await chromium.launch();

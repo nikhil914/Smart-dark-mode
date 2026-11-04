@@ -16,7 +16,9 @@ export default tseslint.config(
   {
     // Node scripts; some functions are serialised and run inside the page.
     files: ['tests/harness/**/*.mjs'],
-    languageOptions: { globals: { ...globals.node, ...globals.browser, DarkReader: 'readonly' } },
+    languageOptions: {
+      globals: { ...globals.node, ...globals.browser, DarkReader: 'readonly', chrome: 'readonly' },
+    },
     rules: { 'no-console': 'off' },
   },
 );

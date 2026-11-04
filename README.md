@@ -37,6 +37,25 @@ Settings resolve in this order, later levels overriding earlier ones field by fi
 4. URL pattern (`*.atlassian.net/wiki/*` or `/regex/`)
 5. Page (`example.com/path`)
 
+Colour remaps, custom CSS and Deep Integration choices are stored on the same rules. Remaps merge across levels, custom CSS from every matching level is applied in order, and the most specific Deep Integration choice wins.
+
+## Sites with their own dark theme
+
+When a site already has a dark theme, the extension uses it instead of converting the page:
+
+- Known sites and site generators (`apps/extension/src/data/integrations.ts`) have their theme switch turned on. Attribute and class changes last for one page view. Writes to the site's storage or cookies are recorded first in a journal in extension storage, with the value they replaced. Choosing "Convert anyway" or "Leave it alone", or turning dark mode off for the site, restores those values the next time the site is open. The options page lists every recorded change.
+- Other pages that are already dark are detected after load and left as they are. Their origin is remembered, so later visits skip conversion from the first paint.
+
+To add a site, add an entry to `integrations.ts` with the hosts, a selector that matches while the dark theme is on, and the actions. Prefer `attr` and `class` actions over storage writes.
+
+## PDF viewer
+
+PDF addresses open in a built-in pdf.js viewer with dark, sepia, inverted, custom and original styles, plus text selection, search and printing in the original colours. "Open original" shows the file in the browser's own viewer for that one load. Local `file://` PDFs need "Allow access to file URLs" turned on for the extension.
+
+## Backup and sync
+
+The options page exports every setting to a JSON file and imports this format or a Dark Reader export. With sync turned on, settings are mirrored to the browser's sync storage in chunks of 6,000 characters (up to about 84 KB).
+
 ## Keyboard shortcuts
 
 | Shortcut    | Action                                           |
@@ -47,6 +66,16 @@ Settings resolve in this order, later levels overriding earlier ones field by fi
 | Alt+Shift+C | Cycle dark, filtered, normal on the current site |
 
 Rebind them at `chrome://extensions/shortcuts` or in Firefox's add-on manager (Manage Extension Shortcuts).
+
+## Quality harness
+
+```sh
+pnpm --filter @sdm/extension build
+pnpm --filter @sdm/harness features   # feature checks, exit code 1 on failure
+pnpm --filter @sdm/harness harness    # metrics against Dark Reader and no extension
+```
+
+Results are written to `tests/harness/out/`. `docs/QUALITY_REPORT.md` explains the metrics.
 
 ## Translations
 

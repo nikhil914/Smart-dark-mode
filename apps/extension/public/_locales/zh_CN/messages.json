@@ -115,5 +115,320 @@
   },
   "to": {
     "message": "到"
+  },
+  "optionsTitle": {
+    "message": "Smart Dark Mode 设置"
+  },
+  "sectionGeneral": {
+    "message": "常规"
+  },
+  "sectionSites": {
+    "message": "网站和规则"
+  },
+  "sectionPdf": {
+    "message": "PDF 查看器"
+  },
+  "sectionBackup": {
+    "message": "备份和迁移"
+  },
+  "sectionIntegration": {
+    "message": "自带深色主题的网站"
+  },
+  "sectionAbout": {
+    "message": "关于"
+  },
+  "enabledEverywhere": {
+    "message": "开启深色模式"
+  },
+  "defaultMode": {
+    "message": "无规则网站的模式"
+  },
+  "listMode": {
+    "message": "应用范围"
+  },
+  "list_blocklist": {
+    "message": "除我关闭的网站外的所有网站"
+  },
+  "list_allowlist": {
+    "message": "仅我开启的网站"
+  },
+  "listHint_blocklist": {
+    "message": "除非规则关闭，否则网站都会被转换。"
+  },
+  "listHint_allowlist": {
+    "message": "仅更改有规则设置模式的网站。"
+  },
+  "integrationDefault": {
+    "message": "当网站自带深色主题时"
+  },
+  "integration_site": {
+    "message": "使用网站主题"
+  },
+  "integration_convert": {
+    "message": "仍然转换"
+  },
+  "integration_off": {
+    "message": "保持原样"
+  },
+  "syncSettings": {
+    "message": "与浏览器帐户同步设置"
+  },
+  "syncHint": {
+    "message": "开启同步后，会载入您其他浏览器保存的设置（如有）。"
+  },
+  "syncError_too_large": {
+    "message": "设置过大，无法同步。请删除部分自定义 CSS。"
+  },
+  "syncError_quota": {
+    "message": "浏览器拒绝同步，将在下次更改时重试。"
+  },
+  "sitesHint": {
+    "message": "越具体的规则优先：网站、子域名、模式、页面。"
+  },
+  "ruleLevel": {
+    "message": "适用于"
+  },
+  "ruleMatch": {
+    "message": "地址"
+  },
+  "ruleExtras": {
+    "message": "其他"
+  },
+  "actions": {
+    "message": "操作"
+  },
+  "addRule": {
+    "message": "添加规则"
+  },
+  "noRules": {
+    "message": "暂无规则。在弹出窗口中设置的规则会显示在这里。"
+  },
+  "invalidPattern": {
+    "message": "该模式无效。"
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  或  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "继承"
+  },
+  "modeFor": {
+    "message": "$1 的模式"
+  },
+  "extra_adjust": {
+    "message": "调整"
+  },
+  "extra_remap": {
+    "message": "$1 种颜色"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "$1 的自定义 CSS"
+  },
+  "customCssHint": {
+    "message": "写 $${#333} 可得到 #333 在深色模式下转换后的颜色。"
+  },
+  "clearRemap": {
+    "message": "重置颜色"
+  },
+  "delete": {
+    "message": "删除"
+  },
+  "deleteRuleFor": {
+    "message": "删除 $1 的规则"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "pdfEnabled": {
+    "message": "在深色查看器中打开 PDF"
+  },
+  "pdfStyle": {
+    "message": "样式"
+  },
+  "pdf_dark": {
+    "message": "仅文字深色"
+  },
+  "pdf_sepia": {
+    "message": "棕褐色"
+  },
+  "pdf_invert": {
+    "message": "全部反色"
+  },
+  "pdf_custom": {
+    "message": "自定义颜色"
+  },
+  "pdf_original": {
+    "message": "原样"
+  },
+  "pdfHint": {
+    "message": "“仅文字深色”保留图片原色。打印始终使用原始颜色。"
+  },
+  "pdfBackground": {
+    "message": "背景"
+  },
+  "pdfText": {
+    "message": "文字"
+  },
+  "pdfSearch": {
+    "message": "搜索"
+  },
+  "previousMatch": {
+    "message": "上一个匹配"
+  },
+  "nextMatch": {
+    "message": "下一个匹配"
+  },
+  "noMatches": {
+    "message": "无匹配"
+  },
+  "matchPages": {
+    "message": "第 $1 页，共 $2 页有匹配"
+  },
+  "zoomIn": {
+    "message": "放大"
+  },
+  "zoomOut": {
+    "message": "缩小"
+  },
+  "print": {
+    "message": "打印"
+  },
+  "openOriginal": {
+    "message": "打开原文件"
+  },
+  "pageN": {
+    "message": "第 $1 页"
+  },
+  "preparingPrint": {
+    "message": "正在准备打印第 $1/$2 页…"
+  },
+  "pdfLoadFailed": {
+    "message": "无法加载此 PDF。请使用“打开原文件”。"
+  },
+  "pdfFileAccess": {
+    "message": "要打开本地 PDF，请在扩展程序设置中开启“允许访问文件网址”。"
+  },
+  "backupHint": {
+    "message": "导出会将所有设置保存到文件。导入也支持 Dark Reader 的导出文件。"
+  },
+  "exportSettings": {
+    "message": "导出设置"
+  },
+  "importSettings": {
+    "message": "导入设置…"
+  },
+  "importConfirm": {
+    "message": "用导入的设置替换所有当前设置？"
+  },
+  "imported_smart_dark_mode": {
+    "message": "设置已导入。"
+  },
+  "imported_darkreader": {
+    "message": "已导入 Dark Reader 设置。"
+  },
+  "importSkipped": {
+    "message": "未迁移：$1。"
+  },
+  "skipped_location_schedule": {
+    "message": "基于位置的时间表"
+  },
+  "skipped_presets": {
+    "message": "预设"
+  },
+  "skipped_light_scheme": {
+    "message": "浅色方案"
+  },
+  "importError_not_json": {
+    "message": "该文件不是设置文件。"
+  },
+  "importError_unknown_format": {
+    "message": "不支持此文件格式。"
+  },
+  "importError_too_large": {
+    "message": "文件过大。"
+  },
+  "integrationHint": {
+    "message": "对于已知网站，我们会开启其自带的深色主题而不是转换。"
+  },
+  "integrationChanges": {
+    "message": "在网站上保存的更改"
+  },
+  "integrationNoChanges": {
+    "message": "无。我们未在任何网站上保存内容。"
+  },
+  "integrationUndoHint": {
+    "message": "选择“仍然转换”“保持原样”或关闭后，下次打开该网站时会撤销。"
+  },
+  "journal_localStorage": {
+    "message": "网站存储"
+  },
+  "journal_cookie": {
+    "message": "Cookie"
+  },
+  "journalWas": {
+    "message": "原为 $1"
+  },
+  "journalWasUnset": {
+    "message": "原未设置"
+  },
+  "forgetDarkSites": {
+    "message": "忘记已识别为深色的网站"
+  },
+  "integrationList": {
+    "message": "内置列表（$1）"
+  },
+  "done": {
+    "message": "完成"
+  },
+  "aboutVersion": {
+    "message": "版本 $1"
+  },
+  "privacyShort": {
+    "message": "数据不会离开您的浏览器，不收集也不发送任何内容。"
+  },
+  "sourceCode": {
+    "message": "源代码"
+  },
+  "reportProblem": {
+    "message": "报告问题"
+  },
+  "moreSettings": {
+    "message": "更多设置"
+  },
+  "siteThemeOn": {
+    "message": "正在使用网站自带深色主题（$1）"
+  },
+  "siteAlreadyDark": {
+    "message": "此网站已是深色，按原样显示"
+  },
+  "pageColours": {
+    "message": "此页面的颜色"
+  },
+  "pageColoursHint": {
+    "message": "选择颜色要变成什么，使用它的所有元素都会改变。"
+  },
+  "remapColour": {
+    "message": "$1 的新颜色"
+  },
+  "resetColour": {
+    "message": "重置 $1"
+  },
+  "reset": {
+    "message": "重置"
   }
 }
