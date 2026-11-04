@@ -11,15 +11,19 @@
     "build:edge": "wxt build -b edge --mv3",
     "build:opera": "wxt build -b opera --mv3",
     "build:firefox": "wxt build -b firefox --mv3",
+    "build:safari": "wxt build -b safari --mv3",
     "zip": "wxt zip -b chrome --mv3 && wxt zip -b firefox --mv3",
     "typecheck": "wxt prepare && tsc --noEmit",
     "postinstall": "wxt prepare"
   },
   "dependencies": {
+    "@sdm/engine": "workspace:*",
     "@sdm/settings": "workspace:*",
+    "pdfjs-dist": "5.7.284",
     "preact": "10.29.8"
   },
   "devDependencies": {
+    "@types/node": "22.20.5",
     "wxt": "0.21.5"
   }
 }

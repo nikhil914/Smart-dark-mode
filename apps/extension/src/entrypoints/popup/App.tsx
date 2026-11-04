@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'preact/hooks';
+import { modifyColorValue, themeFrom } from '@sdm/engine';
 import {
+  type IntegrationChoice,
   type Adjustments,
   type AutomationKind,
   type Mode,
   type PageLocation,
   type RuleLevel,
   type Settings,
+  type ThemeId,
   ADJUSTMENT_LIMITS,
+  BUILT_IN_THEME_IDS,
   MODES,
   clampAdjustment,
   pageKey,
@@ -15,10 +19,14 @@ import {
   setInheritSubdomains,
   setRuleAdjust,
   setRuleMode,
+  setRuleRemap,
   siteDomain,
+  updateRule,
   toPageLocation,
 } from '@sdm/settings';
 import { t } from '@/lib/i18n';
+import { reportUrl } from '@/lib/report';
+import type { PageStatus, StatusRequest, ToolRequest } from '@/lib/messages';
 import { isSettingsChange, loadSettings, saveSettings } from '@/lib/settings-store';
 
 type Scope = 'global' | Exclude<RuleLevel, 'pattern'>;
@@ -35,11 +43,18 @@ export function App() {
   const [settings, setSettings] = useState<Settings | null>(null);
   const [loc, setLoc] = useState<PageLocation | null | undefined>(undefined);
   const [scope, setScope] = useState<Scope>('domain');
+  const [status, setStatus] = useState<PageStatus | null>(null);
 
   useEffect(() => {
     void loadSettings().then(setSettings);
     void browser.tabs.query({ active: true, currentWindow: true }).then(([tab]) => {
       setLoc(tab?.url ? toPageLocation(tab.url) : null);
+      if (tab?.id === undefined) return;
+      const request: StatusRequest = { type: 'sdm:status' };
+      browser.tabs
+        .sendMessage(tab.id, request)
+        .then((res) => setStatus((res as PageStatus | undefined) ?? null))
+        .catch(() => setStatus(null));
     });
     const onChange = (changes: Record<string, unknown>, area: string) => {
       if (area === 'local' && isSettingsChange(changes)) void loadSettings().then(setSettings);
@@ -90,6 +105,25 @@ export function App() {
   };
 
   const rulePath = configured.applied.map((r) => t(`level_${r.level}`)).join(' › ');
+  // Per-site extras (remap, integration) are stored at the chosen level; global falls back to the site.
+  const siteScope: Exclude<Scope, 'global'> = scope === 'global' ? 'domain' : scope;
+  const siteMatch = scopeMatch(siteScope, loc);
+
+  const setTheme = (theme: ThemeId) => {
+    if (scope === 'global') return update({ ...settings, theme });
+    update(
+      updateRule(settings, scope, scopeMatch(scope, loc), {
+        theme: theme === settings.theme ? undefined : theme,
+      }),
+    );
+  };
+
+  const setIntegration = (choice: IntegrationChoice) =>
+    update(
+      updateRule(settings, 'domain', domain, {
+        integration: choice === settings.integration ? undefined : choice,
+      }),
+    );
 
   return (
     <main class="popup">
@@ -145,6 +179,24 @@ export function App() {
         </label>
       )}
 
+      {configured.mode === 'dark' && (
+        <div class="row">
+          <label for="theme">{t('themeLabel')}</label>
+          <select
+            id="theme"
+            value={scope === 'global' ? settings.theme : configured.theme}
+            onChange={(e) => setTheme(e.currentTarget.value as ThemeId)}
+          >
+            {BUILT_IN_THEME_IDS.map((id) => (
+              <option value={id}>{t(`theme_${id}`)}</option>
+            ))}
+            {settings.customThemes.map((c) => (
+              <option value={`custom:${c.id}`}>{c.name}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
       {configured.mode !== 'normal' && (
         <div class="sliders">
           {SLIDERS.map((key) => {
@@ -168,9 +220,100 @@ export function App() {
         </div>
       )}
 
+      {effective.mode === 'dark' && (status?.siteTheme || status?.nativeDark) && (
+        <div class="row integration">
+          <label for="integration">
+            {status.siteTheme ? t('siteThemeOn', status.siteTheme) : t('siteAlreadyDark')}
+          </label>
+          <select
+            id="integration"
+            value={configured.integration}
+            onChange={(e) => setIntegration(e.currentTarget.value as IntegrationChoice)}
+          >
+            <option value="site">{t('integration_site')}</option>
+            <option value="convert">{t('integration_convert')}</option>
+            <option value="off">{t('integration_off')}</option>
+          </select>
+        </div>
+      )}
+
+      {effective.mode === 'dark' && status && status.palette.length > 0 && (
+        <Palette
+          palette={status.palette}
+          remap={configured.remap}
+          adjust={configured.adjust}
+          onRemap={(from, to) => update(setRuleRemap(settings, siteScope, siteMatch, from, to))}
+        />
+      )}
+
+      {effective.mode === 'dark' && status?.engine && <Tools debug={status.debug} />}
+
       <Automation settings={settings} onUpdate={update} />
+
+      <footer class="links">
+        <button type="button" class="link" onClick={() => void browser.runtime.openOptionsPage()}>
+          {t('moreSettings')}
+        </button>
+        <a href={reportUrl(loc, configured.mode)} target="_blank" rel="noreferrer">
+          {t('reportProblem')}
+        </a>
+      </footer>
     </main>
   );
+}
+
+function Palette(props: {
+  palette: PageStatus['palette'];
+  remap: Record<string, string>;
+  adjust: Adjustments;
+  onRemap: (from: string, to: string | undefined) => void;
+}) {
+  const { palette, remap, adjust, onRemap } = props;
+  const theme = themeFrom(adjust);
+  const shown = (hex: string, role: string) => {
+    const r = role === 'text' || role === 'border' || role === 'shadow' ? role : 'background';
+    return toHexString(modifyColorValue(hex, r, theme)) ?? hex;
+  };
+  return (
+    <details class="palette">
+      <summary>{t('pageColours')}</summary>
+      <p class="hint">{t('pageColoursHint')}</p>
+      <ul>
+        {palette.map(({ hex, roles }) => {
+          const target = remap[hex];
+          const current = target ?? shown(hex, roles[0] ?? 'background');
+          return (
+            <li>
+              <span class="swatch" style={{ background: hex }} title={hex} aria-hidden="true" />
+              <span aria-hidden="true">→</span>
+              <input
+                type="color"
+                value={current}
+                aria-label={t('remapColour', hex)}
+                onChange={(e) => onRemap(hex, e.currentTarget.value)}
+              />
+              {target && (
+                <button
+                  type="button"
+                  class="link"
+                  aria-label={t('resetColour', hex)}
+                  onClick={() => onRemap(hex, undefined)}
+                >
+                  {t('reset')}
+                </button>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </details>
+  );
+}
+
+function toHexString(css: string | null): string | null {
+  const m = css && /^rgba?\((\d+), (\d+), (\d+)/.exec(css);
+  if (!m) return null;
+  return `#${[m[1], m[2], m[3]].map((v) => Number(v).toString(16).padStart(2, '0')).join('')}`;
 }
 
 function Header(props: {
@@ -241,5 +384,39 @@ function Automation(props: { settings: Settings; onUpdate: (s: Settings) => void
         </div>
       )}
     </fieldset>
+  );
+}
+
+/** Page tools. The picker and overlay run in the page, so the popup closes after starting them. */
+function Tools({ debug }: { debug: boolean }) {
+  const send = async (tool: ToolRequest['tool']): Promise<unknown> => {
+    const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+    if (tab?.id === undefined) return null;
+    const request: ToolRequest = { type: 'sdm:tool', tool };
+    return browser.tabs.sendMessage(tab.id, request, { frameId: 0 }).catch(() => null);
+  };
+  const start = (tool: 'picker' | 'debug') => void send(tool).then(() => window.close());
+  const exportCss = async () => {
+    const css = await send('export');
+    if (typeof css !== 'string' || !css) return;
+    const url = URL.createObjectURL(new Blob([css], { type: 'text/css' }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'dark-mode.css';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 10_000);
+  };
+  return (
+    <div class="tools" role="group" aria-label={t('toolsLabel')}>
+      <button type="button" onClick={() => start('picker')}>
+        {t('toolPicker')}
+      </button>
+      <button type="button" aria-pressed={debug} onClick={() => start('debug')}>
+        {debug ? t('toolDebugOff') : t('toolDebug')}
+      </button>
+      <button type="button" onClick={() => void exportCss()}>
+        {t('toolExport')}
+      </button>
+    </div>
   );
 }

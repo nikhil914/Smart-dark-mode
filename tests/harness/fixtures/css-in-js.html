@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSS-in-JS</title>
+    <style id="sc"></style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      const sheet = document.getElementById('sc').sheet;
+      let n = 0;
+      function addComponent(bg, fg, text) {
+        const cls = 'c' + n++;
+        sheet.insertRule(
+          `.${cls} { background-color: ${bg}; color: ${fg}; padding: 16px; margin: 8px; border: 1px solid #ddd; }`,
+          sheet.cssRules.length,
+        );
+        const el = document.createElement('div');
+        el.className = cls;
+        el.textContent = text;
+        document.getElementById('app').append(el);
+      }
+      sheet.insertRule(
+        'body { margin: 0; background-color: #fafafa; color: #222; font: 16px system-ui; }',
+        0,
+      );
+      addComponent('#ffffff', '#111111', 'Rendered at load');
+      setTimeout(() => addComponent('#f0f7ff', '#0b3d91', 'Inserted at 500 ms'), 500);
+      setTimeout(() => addComponent('#fff4e5', '#663c00', 'Inserted at 3 s'), 3000);
+      setTimeout(() => {
+        const constructed = new CSSStyleSheet();
+        constructed.replaceSync('.late { background: #ffffff; color: #333; padding: 16px; }');
+        document.adoptedStyleSheets = [...document.adoptedStyleSheets, constructed];
+        const el = document.createElement('div');
+        el.className = 'late';
+        el.textContent = 'Adopted sheet at 6 s';
+        document.getElementById('app').append(el);
+      }, 6000);
+    </script>
+  </body>
+</html>

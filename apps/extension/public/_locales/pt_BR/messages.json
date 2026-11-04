@@ -115,5 +115,584 @@
   },
   "to": {
     "message": "Até"
+  },
+  "optionsTitle": {
+    "message": "Configurações do Smart Dark Mode"
+  },
+  "sectionGeneral": {
+    "message": "Geral"
+  },
+  "sectionSites": {
+    "message": "Sites e regras"
+  },
+  "sectionPdf": {
+    "message": "Visualizador de PDF"
+  },
+  "sectionBackup": {
+    "message": "Backup e transferência"
+  },
+  "sectionIntegration": {
+    "message": "Sites com tema escuro próprio"
+  },
+  "sectionAbout": {
+    "message": "Sobre"
+  },
+  "enabledEverywhere": {
+    "message": "Ativar o modo escuro"
+  },
+  "defaultMode": {
+    "message": "Modo para sites sem regra"
+  },
+  "listMode": {
+    "message": "Onde aplicar"
+  },
+  "list_blocklist": {
+    "message": "Todos os sites, exceto os que eu desativar"
+  },
+  "list_allowlist": {
+    "message": "Somente os sites que eu ativar"
+  },
+  "listHint_blocklist": {
+    "message": "Os sites são convertidos, a menos que uma regra os desative."
+  },
+  "listHint_allowlist": {
+    "message": "Só mudam os sites com uma regra que define um modo."
+  },
+  "integrationDefault": {
+    "message": "Quando um site tem tema escuro próprio"
+  },
+  "integration_site": {
+    "message": "Usar o tema do site"
+  },
+  "integration_convert": {
+    "message": "Converter mesmo assim"
+  },
+  "integration_off": {
+    "message": "Não alterar"
+  },
+  "syncSettings": {
+    "message": "Sincronizar com a conta do navegador"
+  },
+  "syncHint": {
+    "message": "Ao ativar, as configurações dos seus outros navegadores são carregadas, se houver."
+  },
+  "syncError_too_large": {
+    "message": "Configurações grandes demais. Remova parte do CSS personalizado."
+  },
+  "syncError_quota": {
+    "message": "O navegador recusou a sincronização. Nova tentativa na próxima alteração."
+  },
+  "sitesHint": {
+    "message": "Vence a regra mais específica: site, subdomínio, padrão, página."
+  },
+  "ruleLevel": {
+    "message": "Aplica-se a"
+  },
+  "ruleMatch": {
+    "message": "Endereço"
+  },
+  "ruleExtras": {
+    "message": "Também"
+  },
+  "actions": {
+    "message": "Ações"
+  },
+  "addRule": {
+    "message": "Adicionar regra"
+  },
+  "noRules": {
+    "message": "Nenhuma regra ainda. As criadas no pop-up aparecem aqui."
+  },
+  "invalidPattern": {
+    "message": "Esse padrão não é válido."
+  },
+  "placeholder_domain": {
+    "message": "example.com"
+  },
+  "placeholder_subdomain": {
+    "message": "docs.example.com"
+  },
+  "placeholder_pattern": {
+    "message": "*.example.com/wiki/*  ou  /regex/"
+  },
+  "placeholder_page": {
+    "message": "example.com/path"
+  },
+  "mode_inherit": {
+    "message": "Herdar"
+  },
+  "modeFor": {
+    "message": "Modo para $1"
+  },
+  "extra_adjust": {
+    "message": "ajustes"
+  },
+  "extra_remap": {
+    "message": "$1 cores"
+  },
+  "extra_css": {
+    "message": "CSS"
+  },
+  "customCss": {
+    "message": "CSS"
+  },
+  "customCssFor": {
+    "message": "CSS personalizado para $1"
+  },
+  "customCssHint": {
+    "message": "Escreva $${#333} para obter a cor em que #333 se transforma no modo escuro."
+  },
+  "clearRemap": {
+    "message": "Redefinir cores"
+  },
+  "delete": {
+    "message": "Excluir"
+  },
+  "deleteRuleFor": {
+    "message": "Excluir regra de $1"
+  },
+  "save": {
+    "message": "Salvar"
+  },
+  "pdfEnabled": {
+    "message": "Abrir PDFs no visualizador escuro"
+  },
+  "pdfStyle": {
+    "message": "Estilo"
+  },
+  "pdf_dark": {
+    "message": "Só texto escuro"
+  },
+  "pdf_sepia": {
+    "message": "Sépia"
+  },
+  "pdf_invert": {
+    "message": "Inverter tudo"
+  },
+  "pdf_custom": {
+    "message": "Cores personalizadas"
+  },
+  "pdf_original": {
+    "message": "Original"
+  },
+  "pdfHint": {
+    "message": "\"Só texto escuro\" mantém as imagens. A impressão sempre usa as cores originais."
+  },
+  "pdfBackground": {
+    "message": "Fundo"
+  },
+  "pdfText": {
+    "message": "Texto"
+  },
+  "pdfSearch": {
+    "message": "Pesquisar"
+  },
+  "previousMatch": {
+    "message": "Resultado anterior"
+  },
+  "nextMatch": {
+    "message": "Próximo resultado"
+  },
+  "noMatches": {
+    "message": "Nenhum resultado"
+  },
+  "matchPages": {
+    "message": "Página $1 de $2 com resultados"
+  },
+  "zoomIn": {
+    "message": "Ampliar"
+  },
+  "zoomOut": {
+    "message": "Reduzir"
+  },
+  "print": {
+    "message": "Imprimir"
+  },
+  "openOriginal": {
+    "message": "Abrir original"
+  },
+  "pageN": {
+    "message": "Página $1"
+  },
+  "preparingPrint": {
+    "message": "Preparando página $1 de $2 para impressão…"
+  },
+  "pdfLoadFailed": {
+    "message": "Não foi possível carregar o PDF. Use \"Abrir original\"."
+  },
+  "pdfFileAccess": {
+    "message": "Para PDFs locais, ative \"Permitir acesso a URLs de arquivo\" nas configurações da extensão."
+  },
+  "backupHint": {
+    "message": "Exportar salva tudo em um arquivo. Importar também lê exportações do Dark Reader."
+  },
+  "exportSettings": {
+    "message": "Exportar configurações"
+  },
+  "importSettings": {
+    "message": "Importar configurações…"
+  },
+  "importConfirm": {
+    "message": "Substituir todas as configurações atuais pelas importadas?"
+  },
+  "imported_smart_dark_mode": {
+    "message": "Configurações importadas."
+  },
+  "imported_darkreader": {
+    "message": "Configurações do Dark Reader importadas."
+  },
+  "importSkipped": {
+    "message": "Não transferido: $1."
+  },
+  "skipped_location_schedule": {
+    "message": "agenda por localização"
+  },
+  "skipped_presets": {
+    "message": "predefinições"
+  },
+  "skipped_light_scheme": {
+    "message": "esquema claro"
+  },
+  "importError_not_json": {
+    "message": "Esse arquivo não é de configurações."
+  },
+  "importError_unknown_format": {
+    "message": "Formato não suportado."
+  },
+  "importError_too_large": {
+    "message": "Arquivo grande demais."
+  },
+  "integrationHint": {
+    "message": "Em sites conhecidos, ativamos o tema escuro deles em vez de converter."
+  },
+  "integrationChanges": {
+    "message": "Alterações salvas em sites"
+  },
+  "integrationNoChanges": {
+    "message": "Nenhuma. Nada foi salvo em nenhum site."
+  },
+  "integrationUndoHint": {
+    "message": "São desfeitas ao abrir o site após escolher \"Converter\", \"Não alterar\" ou desligar."
+  },
+  "journal_localStorage": {
+    "message": "Armazenamento"
+  },
+  "journal_cookie": {
+    "message": "Cookie"
+  },
+  "journalWas": {
+    "message": "antes $1"
+  },
+  "journalWasUnset": {
+    "message": "não existia"
+  },
+  "forgetDarkSites": {
+    "message": "Esquecer sites detectados como escuros"
+  },
+  "integrationList": {
+    "message": "Lista integrada ($1)"
+  },
+  "done": {
+    "message": "Concluído"
+  },
+  "aboutVersion": {
+    "message": "Versão $1"
+  },
+  "privacyShort": {
+    "message": "Nenhum dado sai do seu navegador. Nada é coletado ou enviado."
+  },
+  "sourceCode": {
+    "message": "Código-fonte"
+  },
+  "reportProblem": {
+    "message": "Relatar um problema"
+  },
+  "moreSettings": {
+    "message": "Mais configurações"
+  },
+  "siteThemeOn": {
+    "message": "Usando o tema escuro do site ($1)"
+  },
+  "siteAlreadyDark": {
+    "message": "Este site já é escuro e aparece como está"
+  },
+  "pageColours": {
+    "message": "Cores desta página"
+  },
+  "pageColoursHint": {
+    "message": "Escolha a nova cor. Todos os elementos que a usam mudam."
+  },
+  "remapColour": {
+    "message": "Nova cor para $1"
+  },
+  "resetColour": {
+    "message": "Redefinir $1"
+  },
+  "reset": {
+    "message": "Redefinir"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "close": {
+    "message": "Fechar"
+  },
+  "remove": {
+    "message": "Remover"
+  },
+  "copied": {
+    "message": "Copiado"
+  },
+  "cmdPickElement": {
+    "message": "Corrigir um elemento da página"
+  },
+  "menuToggleSite": {
+    "message": "Modo escuro neste site"
+  },
+  "menuFixElement": {
+    "message": "Corrigir este elemento"
+  },
+  "menuOpenPdf": {
+    "message": "Abrir PDF no visualizador escuro"
+  },
+  "toolsLabel": {
+    "message": "Ferramentas da página"
+  },
+  "toolPicker": {
+    "message": "Corrigir elemento"
+  },
+  "toolDebug": {
+    "message": "Inspecionar cores"
+  },
+  "toolDebugOff": {
+    "message": "Parar inspeção"
+  },
+  "toolExport": {
+    "message": "Exportar CSS"
+  },
+  "pickerTitle": {
+    "message": "Corrigir este elemento"
+  },
+  "pickerSelector": {
+    "message": "Seletor CSS"
+  },
+  "pickerOption_invert": {
+    "message": "Inverter (canvas, diagramas)"
+  },
+  "pickerOption_background": {
+    "message": "Forçar fundo escuro"
+  },
+  "pickerOption_text": {
+    "message": "Forçar texto claro"
+  },
+  "pickerOption_noImage": {
+    "message": "Ocultar imagem de fundo"
+  },
+  "pickerOption_hide": {
+    "message": "Ocultar elemento"
+  },
+  "pickerParent": {
+    "message": "Selecionar pai"
+  },
+  "pickerSave": {
+    "message": "Salvar para este site"
+  },
+  "debugBackground": {
+    "message": "fundo"
+  },
+  "debugText": {
+    "message": "texto"
+  },
+  "debugContrast": {
+    "message": "contraste"
+  },
+  "debugRule": {
+    "message": "regra"
+  },
+  "chipMessage": {
+    "message": "Partes desta página ainda parecem claras ou difíceis de ler."
+  },
+  "chipTryFiltered": {
+    "message": "Testar modo filtrado"
+  },
+  "chipFixElement": {
+    "message": "Corrigir elemento"
+  },
+  "sectionAppearance": {
+    "message": "Aparência"
+  },
+  "themeLabel": {
+    "message": "Tema"
+  },
+  "theme_dark": {
+    "message": "Escuro"
+  },
+  "theme_amoled": {
+    "message": "Preto AMOLED"
+  },
+  "theme_dim": {
+    "message": "Suave"
+  },
+  "theme_sepia": {
+    "message": "Sépia"
+  },
+  "theme_contrast": {
+    "message": "Alto contraste"
+  },
+  "theme_grayscale": {
+    "message": "Tons de cinza"
+  },
+  "theme_protan": {
+    "message": "Para protanopia"
+  },
+  "theme_deutan": {
+    "message": "Para deuteranopia"
+  },
+  "theme_tritan": {
+    "message": "Para tritanopia"
+  },
+  "themeHint_dark": {
+    "message": "Cinza escuro equilibrado, texto quase branco."
+  },
+  "themeHint_amoled": {
+    "message": "Fundo preto puro, economiza energia em telas OLED."
+  },
+  "themeHint_dim": {
+    "message": "Cinza mais claro para ambientes iluminados."
+  },
+  "themeHint_sepia": {
+    "message": "Tons marrons quentes para leituras longas."
+  },
+  "themeHint_contrast": {
+    "message": "Fundo quase preto e contraste de texto de pelo menos 7:1."
+  },
+  "themeHint_grayscale": {
+    "message": "Remove todas as cores."
+  },
+  "themeHint_protan": {
+    "message": "Afasta vermelhos e verdes para distingui-los melhor."
+  },
+  "themeHint_deutan": {
+    "message": "Afasta vermelhos e verdes para distingui-los melhor."
+  },
+  "themeHint_tritan": {
+    "message": "Afasta azuis e amarelos para distingui-los melhor."
+  },
+  "themeHint_custom": {
+    "message": "Suas próprias cores, abaixo."
+  },
+  "presetLabel": {
+    "message": "Intensidade das cores"
+  },
+  "preset_vivid": {
+    "message": "Vívido"
+  },
+  "preset_balanced": {
+    "message": "Equilibrado"
+  },
+  "preset_muted": {
+    "message": "Suave"
+  },
+  "imagesHeading": {
+    "message": "Imagens"
+  },
+  "imagesHoverOriginal": {
+    "message": "Mostrar a imagem original sob o ponteiro"
+  },
+  "imagesPhotoDim": {
+    "message": "Escurecer fotos"
+  },
+  "diagnosisHeading": {
+    "message": "Autoverificação"
+  },
+  "diagnosisEnabled": {
+    "message": "Oferecer ajuda quando uma página ainda parecer clara"
+  },
+  "diagnosisHint": {
+    "message": "Medido no seu dispositivo após o carregamento. Nada é enviado."
+  },
+  "customThemesHeading": {
+    "message": "Temas personalizados"
+  },
+  "customThemeAdd": {
+    "message": "Novo tema"
+  },
+  "customThemeDefaultName": {
+    "message": "Meu tema"
+  },
+  "customThemeName": {
+    "message": "Nome do tema"
+  },
+  "customThemePreview": {
+    "message": "Texto de exemplo com"
+  },
+  "customColor_background": {
+    "message": "Fundo"
+  },
+  "customColor_text": {
+    "message": "Texto"
+  },
+  "customColor_link": {
+    "message": "Link"
+  },
+  "customColor_visited": {
+    "message": "Link visitado"
+  },
+  "customColor_border": {
+    "message": "Borda"
+  },
+  "customColor_selection": {
+    "message": "Seleção"
+  },
+  "customColor_button": {
+    "message": "Botão"
+  },
+  "customColor_scrollbar": {
+    "message": "Barra de rolagem"
+  },
+  "themeCodeLabel": {
+    "message": "Código do tema"
+  },
+  "themeCodeImport": {
+    "message": "Adicionar tema"
+  },
+  "themeCodeCopy": {
+    "message": "Copiar código de compartilhamento"
+  },
+  "themeCodeInvalid": {
+    "message": "Esse não é um código de tema válido."
+  },
+  "themeCodeImported": {
+    "message": "“$1” adicionado."
+  },
+  "sectionFixes": {
+    "message": "Correções de sites"
+  },
+  "fixesUpdates": {
+    "message": "Baixar correções assinadas diariamente"
+  },
+  "fixesHint": {
+    "message": "Correções são dados, nunca código, e só são usadas com assinatura válida. As incluídas na extensão são sempre usadas."
+  },
+  "fixesCheckNow": {
+    "message": "Verificar agora"
+  },
+  "fixesNeverChecked": {
+    "message": "Ainda não verificado."
+  },
+  "fixesStatus_updated": {
+    "message": "Atualizado em $1 (versão $2)."
+  },
+  "fixesStatus_unchanged": {
+    "message": "Atualizado em $1 (versão $2)."
+  },
+  "fixesStatus_disabled": {
+    "message": "Downloads desativados. Verificado em $1."
+  },
+  "fixesStatus_rejected": {
+    "message": "O último download ($1) falhou na assinatura e não foi usado."
+  },
+  "fixesStatus_failed": {
+    "message": "Não foi possível baixar ($1). Nova tentativa amanhã."
   }
 }
