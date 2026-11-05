@@ -14,17 +14,25 @@ up to the upload is automated.
    on `main`. Pushing a tag such as `v0.1.0` works too. The workflow runs the checks and
    attaches these to a draft release named after the version. When you publish the draft,
    the tag is created:
-   - `*-chrome.zip`: Chrome Web Store, Opera, and other Chromium stores
-   - `*-edge.zip`: Microsoft Edge Add-ons
-   - `*-firefox.zip` and `*-sources.zip`: Firefox Add-ons (AMO asks for the source zip
-     because the code is bundled)
-   - `*-safari.zip`: the web extension inside the Safari app, for reference
+   - `smart-dark-mode-<version>-chrome.zip`: Chrome Web Store, Opera, and other Chromium
+     stores
+   - `smart-dark-mode-<version>-edge.zip`: Microsoft Edge Add-ons
+   - `smart-dark-mode-<version>-firefox.zip` and `smart-dark-mode-<version>-sources.zip`:
+     Firefox Add-ons (AMO asks for the source zip because the code is bundled; it holds the
+     whole workspace and `BUILDING.md`)
+   - `smart-dark-mode-<version>-safari.zip`: the web extension inside the Safari app, for
+     reference
+
+   Running the workflow again before the draft is published replaces its files. Once a
+   version is published, raise the version for the next release: the stores refuse an
+   upload whose version is not higher than the last one.
 
 ## 2. Chrome Web Store
 
 Developer account: one-time USD 5 fee. Upload `*-chrome.zip` in the developer dashboard.
 Copy the listing text, single purpose, permission justifications and data disclosures from
-`docs/store/LISTING.md`. Add the screenshots and the 440x280 tile from `docs/store/screenshots/`.
+`docs/store/LISTING.md`. Add the store icon, screenshots and the 440x280 tile from
+`docs/store/screenshots/`.
 
 ## 3. Microsoft Edge Add-ons
 
@@ -33,10 +41,9 @@ Android installs extensions from the same listing.
 
 ## 4. Firefox Add-ons (desktop and Android)
 
-Free account. Upload `*-firefox.zip` and `*-sources.zip`, and say in the reviewer notes:
-"Build with `pnpm install --frozen-lockfile && pnpm --filter @sdm/extension build:firefox`
-(Node 22, pnpm 10)." The manifest already marks the add-on as Android compatible and
-declares that it collects no data.
+Free account. Upload `*-firefox.zip` and `*-sources.zip`, and paste the reviewer notes from
+`docs/store/LISTING.md`. `BUILDING.md` in the source zip has the build steps. The manifest
+already marks the add-on as Android compatible and declares that it collects no data.
 
 ## 5. Safari (macOS, iOS, iPadOS)
 
@@ -59,3 +66,7 @@ above only adds signing.
 These are separate from extension releases. Run the **Publish site fixes** workflow when
 `fixes/own.json` changes or Dark Reader's fixes should be picked up. It replaces the assets
 of the release tagged `fixes`. Before the first run, create the key pair (see README).
+
+The public key is built into the extension. A version released without it uses only the
+fixes bundled with it and never downloads any. Adding the key later takes a new extension
+version.

@@ -45,6 +45,20 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ steps.version.outputs.tag }}
-        run: >
-          gh release create "${TAG}" --draft --generate-notes --target "${GITHUB_SHA}"
-          --title "${TAG}" apps/extension/.output/*.zip
+        # Running again before the draft is published replaces the draft's files, so a
+        # fix can be shipped without a version change. A published release is never touched.
+        run: |
+          draft="$(gh release view "${TAG}" --json isDraft -q .isDraft 2>/dev/null || true)"
+          if [ "${draft}" = true ]; then
+            for asset in $(gh release view "${TAG}" --json assets -q '.assets[].name'); do
+              gh release delete-asset "${TAG}" "${asset}" --yes
+            done
+            gh release edit "${TAG}" --target "${GITHUB_SHA}"
+            gh release upload "${TAG}" apps/extension/.output/*.zip
+          elif [ "${draft}" = false ]; then
+            echo "Release ${TAG} is already published. Raise the version in apps/extension/package.json."
+            exit 1
+          else
+            gh release create "${TAG}" --draft --generate-notes --target "${GITHUB_SHA}" \
+              --title "${TAG}" apps/extension/.output/*.zip
+          fi
