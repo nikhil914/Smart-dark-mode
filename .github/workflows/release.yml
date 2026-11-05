@@ -1,11 +1,14 @@
 name: Release
 
-# On a version tag (v1.2.3): builds the store packages and attaches them to a draft
-# release. Uploading to the stores is done by hand from those files (docs/RELEASE.md).
+# Builds the store packages and attaches them to a draft release named after the version
+# in apps/extension/package.json. Start it with "Run workflow" on the Actions tab, or by
+# pushing a version tag (v1.2.3). Publishing the draft creates the tag if it is missing.
+# Uploading to the stores is done by hand from those files (docs/RELEASE.md).
 
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -22,10 +25,14 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Check the tag matches the version
+      - name: Version
+        id: version
         run: |
-          version=$(node -p "require('./apps/extension/package.json').version")
-          test "v${version}" = "${GITHUB_REF_NAME}" || { echo "Tag ${GITHUB_REF_NAME} does not match ${version}"; exit 1; }
+          tag="v$(node -p "require('./apps/extension/package.json').version")"
+          if [ "${GITHUB_REF_TYPE}" = tag ] && [ "${GITHUB_REF_NAME}" != "${tag}" ]; then
+            echo "Tag ${GITHUB_REF_NAME} does not match package version ${tag}"; exit 1
+          fi
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
       - run: pnpm lint && pnpm typecheck && pnpm test
       - name: Packages
         working-directory: apps/extension
@@ -37,6 +44,7 @@ jobs:
       - name: Draft release
         env:
           GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
         run: >
-          gh release create "${GITHUB_REF_NAME}" --draft --generate-notes
-          --title "${GITHUB_REF_NAME}" apps/extension/.output/*.zip
+          gh release create "${TAG}" --draft --generate-notes --target "${GITHUB_SHA}"
+          --title "${TAG}" apps/extension/.output/*.zip
