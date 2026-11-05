@@ -10,8 +10,10 @@ up to the upload is automated.
 2. Run the checks: `pnpm lint && pnpm typecheck && pnpm test`, then build and run
    `pnpm --filter @sdm/harness features`.
 3. Refresh the store images if the UI changed: `node tests/harness/assets.mjs`.
-4. Merge to `main`, then push a tag such as `v0.1.0`. The **Release** workflow checks that
-   the tag matches the version, runs the checks, and attaches these to a draft release:
+4. Merge to `main`. Then, on GitHub, open **Actions > Release > Run workflow** and run it
+   on `main`. Pushing a tag such as `v0.1.0` works too. The workflow runs the checks and
+   attaches these to a draft release named after the version. When you publish the draft,
+   the tag is created:
    - `*-chrome.zip`: Chrome Web Store, Opera, and other Chromium stores
    - `*-edge.zip`: Microsoft Edge Add-ons
    - `*-firefox.zip` and `*-sources.zip`: Firefox Add-ons (AMO asks for the source zip
