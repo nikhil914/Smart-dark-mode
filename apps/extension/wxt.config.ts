@@ -37,6 +37,26 @@ function pdfjsAssets(): { absoluteSrc: string; relativeDest: string }[] {
 export default defineConfig({
   srcDir: 'src',
   manifestVersion: 3,
+  zip: {
+    artifactTemplate: 'smart-dark-mode-{{version}}-{{browser}}.zip',
+    sourcesTemplate: 'smart-dark-mode-{{version}}-sources.zip',
+    // Firefox Add-ons reviewers rebuild the add-on from this zip. The extension imports
+    // workspace packages, so the zip holds the whole workspace, not just this folder.
+    sourcesRoot: '../..',
+    includeSources: [
+      'BUILDING.md',
+      'LICENSE',
+      'THIRD_PARTY_NOTICES.md',
+      'package.json',
+      'pnpm-lock.yaml',
+      'pnpm-workspace.yaml',
+      'tsconfig.base.json',
+      'apps/extension/**',
+      'packages/**',
+      'tests/harness/package.json',
+    ],
+    excludeSources: ['**/*.test.ts', 'apps/extension/.output/**', 'apps/extension/.wxt/**'],
+  },
   hooks: {
     'build:publicAssets': (_wxt, files) => {
       files.push(...pdfjsAssets());
@@ -49,6 +69,7 @@ export default defineConfig({
     name: '__MSG_extName__',
     description: '__MSG_extDescription__',
     default_locale: 'en',
+    homepage_url: 'https://github.com/nikhil914/smart-dark-mode',
     permissions: [
       'storage',
       'tabs',
@@ -107,6 +128,8 @@ export default defineConfig({
           },
         }
       : {}),
+    // Chromium 111 is the first with world: 'MAIN' content scripts in the manifest.
+    ...(browser !== 'firefox' && browser !== 'safari' ? { minimum_chrome_version: '111' } : {}),
     ...(browser === 'safari'
       ? { browser_specific_settings: { safari: { strict_min_version: '16.4' } } }
       : {}),
